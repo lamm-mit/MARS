@@ -61,7 +61,7 @@ To switch to a locally-hosted model, see [config/README.md](config/README.md).
 
 **Dummy data** is included at `data/MARS_Data/` and loads out of the box — no download or configuration needed for an initial run. However, with dummy data MARS will not produce scientifically meaningful results. Meaningful outputs require the full knowledge graphs and ChromaDB retrieval corpora (see below).
 
-**Full knowledge graphs** (~2 GB, three KG pairs) are hosted on HuggingFace at `[tphage/MARS-KGs](https://huggingface.co/datasets/tphage/MARS-KGs)`. Download them and point the pipeline at them:
+**Full knowledge graphs** (~2 GB, three KG pairs) are hosted on HuggingFace at [tphage/MARS-KGs](https://huggingface.co/datasets/tphage/MARS-KGs). Download them and point the pipeline at them:
 
 ```bash
 python data/download_data.py
@@ -176,7 +176,7 @@ For a description of how these files relate to specific figures and tables in th
 
 ## License
 
-MIT — see `[LICENSE](LICENSE)`.
+MIT — see [LICENSE](LICENSE).
 
 ## Citation
 
