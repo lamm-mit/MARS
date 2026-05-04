@@ -1,0 +1,157 @@
+llm:
+  base_url: "https://api.openai.com/v1"
+  api_key: "${OPENAI_API_KEY}"
+  model_name: "gpt-5-nano"
+  max_tokens: 40000
+  temperature: 1
+  seed: 9527
+  timeout: 1200
+  max_retries: 3
+  retry_base_delay: 2  # seconds for exponential backoff
+  retry_status_codes: ["500", "502", "503", "504", "529"]
+
+embeddings:
+  model_name: "nomic-ai/nomic-embed-text-v1.5"
+  device: "auto"  # "auto" picks CUDA if available, else CPU; or set "cuda:0", "cpu"
+
+logging:
+  # Default when ChatLogger/SubgraphStorage/tracker are used without explicit paths
+  # (e.g. notebooks). scripts/run_mars.py stores chats/subgraphs/rejections under results/<Query>/artifacts/.
+  pipeline_logs_dir: "./pipeline_logs"
+  chats_subdir: "chats/"
+  rejected_candidates_file: "rejected_candidates.json"
+  max_content_chars_in_log: 300  # RAG doc preview in chat logs
+  max_paths_in_log: 5  # paths stored per KG query in logs
+
+data:
+  graphs:
+    kg_dir: "${MARS_KG_DIR:-./data/MARS_Data/KGs}"
+    material_properties:
+      graph_file: "Patent_dummy_KG.graphml"
+      embedding_file: "Patent_dummy_embeddings_nomic_v1_5.pkl"
+    pfas:
+      graph_file: "Patent_dummy_KG.graphml"
+      embedding_file: "Patent_dummy_embeddings_nomic_v1_5.pkl"
+    patents:
+      graph_file: "Patent_dummy_KG.graphml"
+      embedding_file: "Patent_dummy_embeddings_nomic_v1_5.pkl"
+  chromadb:
+    base_path: "${MARS_CHROMA_DIR:-./data/MARS_Data/ChromaDBs_paper}"
+    pfas:
+      database_path: "MaterialDB/chromaDB_MaterialDB"
+      collection_name: null  # null means use first available collection
+    materialdb:
+      database_path: "MaterialDB/chromaDB_MaterialDB"
+      collection_name: null  # null means use first available collection
+    patents:
+      database_path: "MaterialDB/chromaDB_MaterialDB"
+      collection_name: null  # null means use first available collection
+    manufacturing_textbooks:
+      database_path: "MaterialDB/chromaDB_MaterialDB"
+      collection_name: null  # null means use first available collection
+    spec_sheets:
+      database_path: "SpecSheets/chromaDB_specsheets"
+      collection_name: null  # null means use first available collection
+      # When true, database_path must exist and the collection is loaded into System 3 RAG; init fails if not usable.
+      enabled: false
+  material_database:
+    path: "${MARS_MATERIAL_DB:-./data/MARS_Data/MaterialDB_paper/internal_material_database.json}"
+
+agents:
+  research_manager:
+    temperature: 0
+    max_queries: 4
+    max_prompt_chars: 120000  # Safety limit to avoid context-window overflows
+    validation:
+      min_answer_length: 10
+      min_evaluation_response_length: 5
+      min_answer_length_answered: 50
+      max_candidate_name_length: 100
+      yes_feasible_proximity_chars: 50
+    context_limits:
+      max_kg_nodes_in_context: 5
+      max_rag_results_in_context: 5
+    formatting:
+      max_chars_per_result: 10000
+      max_chars_per_result_answer: 3000
+      max_chars_per_result_validation: 1500
+      max_chars_per_result_feasibility: 2000
+      max_paths: 100
+  
+  research_scientist:
+    temperature: 0
+    similarity_threshold: 0.8
+    n_samples: 5
+    batch_size: 50
+    max_material_classes: 200  # Maximum number of material classes to return from KG
+    max_candidate_nodes: 200  # Maximum number of candidate nodes to check for filtering
+    path_scoring_weight: 2.0  # 2.0 * material_in_path
+    max_keywords_for_material_match: 10
+    path_finding:
+      top_paths: 10
+      max_depth: 10
+      diversity_threshold: 0.5  # max Jaccard node-overlap fraction before a path is skipped during greedy selection
+  
+  research_assistant:
+    temperature: 0
+  
+  research_analyst:
+    n_results: 5
+    rag_query_multiplier: 20  # n_results * multiplier for initial query
+
+  material_grounding:
+    similarity_threshold: 0.8
+    n_samples: 5
+
+pipelines:
+  material_requirements:
+    max_items: 6
+    n_results: 5
+    include_rag_context: true
+    max_keywords: 5
+    temperature: 0
+    parallel_rag_workers: 1  # Set >1 to parallelize RAG+KG queries per question (thread pool)
+    min_keyword_length: 3
+    min_question_keywords: 2
+  material_discovery:
+    max_iterations: 5
+    temperature: 0
+    batch_size: 30
+    batch_nodes_for_llm_context: 10
+    min_matches_for_multiple_grounding: 2
+    dual_kg_material_informed_subgraph:
+      # Strictly required. No in-code defaults; missing keys should raise.
+      max_property_terms: 30
+      max_materials: 200
+      max_nodes_total: 500
+      max_pairs_evaluated: 2000
+      max_shortest_path_len: 10
+      merge_similarity_threshold: 0.88
+      # Mapping hyperparameters (best-fit node search) used for BOTH KGs:
+      n_samples: 5
+      similarity_threshold: 0.8
+  manufacturability_assessment:
+    enabled: true # Not currently used
+    n_results_per_source: 8
+    max_process_families: 30
+    num_feasibility_questions: 4
+    temperature: 0
+
+schemas:
+  max_evidence_content_length: 200
+  max_evidence_items_before_truncation: 10
+
+utils:
+  property_mapper:
+    similarity_threshold: 0.8
+    numeric_tolerance: 0.01  # for float comparison
+    max_unit_string_length: 20  # len(after_number) threshold
+
+  parsing:
+    long_text_split_threshold: 200  # chars for splitting single-item text
+    max_material_name_length: 120  # truncation threshold
+
+  subgraph_processor:
+    similarity_threshold: 0.8
+    max_nodes: 1000
+    max_edges: 2000

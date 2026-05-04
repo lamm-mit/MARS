@@ -1,0 +1,199 @@
+# Subsystem-aligned rubric: same 12 criteria and 1–5 scale for LLM judge and expert PDFs.
+judge_model: "gpt-4.1"
+temperature: 0
+max_tokens: 16384
+
+score_min: 1
+score_max: 5
+
+ordinal_scale_lines:
+  - "1 — Unacceptable: wrong, empty, contradictory, or unsafe to rely on"
+  - "2 — Poor: serious gaps or errors; would mislead a practitioner if used as-is"
+  - "3 — Mediocre: partial success; multiple non-trivial weaknesses or omissions"
+  - "4 — Strong: rare; only if issues are minor and localized; still not flawless"
+  - "5 — Near-perfect: almost never; only if a hostile expert would struggle to find meaningful faults"
+  - "Strict calibration: default skeptical. If torn between two scores, choose the lower. Never inflate: 4 and 5 require demonstrable excellence, not polish or length. Treat hedging, missing units, and unsupported specifics as score caps unless explicitly excused in the text."
+
+dimensions:
+  system1_completeness:
+    criterion_label: "Completeness"
+    short_name: "S1-Compl"
+    name: "System 1 — Completeness"
+    weight: 1.0
+    rubric: |
+      Assess the required material-property specification (`required_material_properties.properties` and constraints relative to the query).
+      Judge breadth, specificity, and whether major requirement categories are covered.
+      Penalize vague placeholders, missing categories, and hand-wavy ranges without justification.
+      Cap at 2 if the property list is skeletal, mostly generic, or omits several categories that plainly matter for the stated application.
+      Cap at 3 if any major requirement class for the application is missing, or if ranges/thresholds are not actionable without guessing.
+      Reserve 4 only when coverage is thorough, operational, and traceable to the query (someone could procure or test against it with minimal clarification).
+      Reserve 5 only when coverage is unusually complete for the stated substitution task, with priorities/tradeoffs explicit where they matter—do not assign 5 if any important category is thin or boilerplate.
+      Use the shared 1–5 ordinal scale above.
+
+  system1_relevance:
+    criterion_label: "Relevance to query"
+    short_name: "S1-Rel"
+    name: "System 1 — Relevance to query"
+    weight: 1.0
+    rubric: |
+      Assess how well the stated properties and constraints address the actual substitution task in `query` (sentence, material_X, application_Y).
+      Penalize irrelevant, generic, or off-topic requirements that do not move the substitution decision forward.
+      Downgrade if critical aspects of the stated application or substitution are ignored.
+      Cap at 2 if the requirements largely ignore material_X, application_Y, or the stated substitution goal.
+      Cap at 3 if the spec could apply to many unrelated applications, or if key substitution drivers (why X fails, what “equivalent” must mean here) are not reflected.
+      Reserve 4 only when requirements are tightly coupled to the query’s task, context, and implied failure modes, with little generic boilerplate.
+      Reserve 5 only when that coupling is explicit and discriminating (another query would not receive the same requirement set unchanged)—never 5 if the query’s distinctive constraints are only named in passing.
+      Use the shared 1–5 ordinal scale above.
+
+  system1_scientific:
+    criterion_label: "Scientific correctness"
+    short_name: "S1-Sci"
+    name: "System 1 — Scientific correctness"
+    weight: 1.0
+    rubric: |
+      Assess whether property and constraint statements are technically sound, consistent with materials science, and free of contradictions.
+      Penalize impossible combinations, and claims that conflict with known behavior for the class of materials.
+      Cap at 2 if contradictions or physically impossible claims appear without correction, or if the spec is incoherent as a whole.
+      Cap at 3 if there is any substantive technical contradiction, unit misuse, or physically dubious combination without qualification.
+      Reserve 4 only when the set is internally coherent and credible for the material class, with no material science red flags.
+      Reserve 5 only when the technical content is tight enough that a domain specialist would struggle to find a fault without new data—any single serious red flag caps at 3.
+      Use the shared 1–5 ordinal scale above.
+
+  system1_clarity:
+    criterion_label: "Clarity and structure"
+    short_name: "S1-Clar"
+    name: "System 1 — Clarity and structure"
+    weight: 1.0
+    rubric: |
+      Assess organization, readability, and testability of the specification (clear lists, unambiguous wording).
+      Penalize ambiguous terms, missing units, and structure that would block verification or comparison.
+      Cap at 2 if units are systematically missing where they are standard for the property, or if the spec cannot be compared across candidates.
+      Cap at 3 if multiple requirements are vague (“high performance,” “good chemical resistance”) without measurable targets where measurability is feasible.
+      Reserve 4 only when most requirements map to testable acceptance criteria; a few soft items may remain if labeled as such.
+      Reserve 5 only when essentially every stated requirement is verifiable as written (targets, directions, or bounds explicit)—marketing adjectives without metrics cap at 3 unless qualified.
+      Use the shared 1–5 ordinal scale above.
+
+  system2_alignment:
+    criterion_label: "Alignment with properties"
+    short_name: "S2-Algn"
+    name: "System 2 — Alignment with properties"
+    weight: 1.0
+    rubric: |
+      Assess how well the chosen candidate (`candidate_selection.final_candidate`) matches the System 1 requirements and constraints.
+      Penalize partial matches, silent tradeoffs, and “close enough” selections without explicit acknowledgment.
+      Cap at 2 if the candidate clearly violates a stated hard constraint or the mismatch is obvious without acknowledgment.
+      Cap at 3 if any hard constraint is likely violated or ignored without discussion, or if alignment is asserted without pointing to evidence.
+      Reserve 4 only when the candidate clearly addresses the stated requirements; any tradeoffs must be explicit and defensible.
+      Reserve 5 only when alignment is tight across requirements with transparent handling of conflicts—no silent compromises; “close enough” language without quantified gap analysis caps at 3.
+      Use the shared 1–5 ordinal scale above.
+
+  system2_novelty:
+    criterion_label: "Novelty"
+    short_name: "S2-Nov"
+    name: "System 2 — Novelty"
+    weight: 1.0
+    rubric: |
+      Assess whether the proposal is a substantive selection vs a trivial, default, or generic pick for the application (appropriate novelty, not randomness).
+      Downgrade obvious commodity choices offered without application-specific rationale.
+      Cap at 2 if the selection is arbitrary (no real comparison to alternatives or to requirements) or purely generic branding.
+      Cap at 3 if the rationale could justify dozens of interchangeable grades, or if “novelty” is asserted without differentiation from obvious alternatives.
+      Reserve 4 only when the pick is meaningfully motivated for this query (not a lazy default) with application-specific reasoning.
+      Reserve 5 only when the rationale clearly discriminates among realistic alternatives and states why this candidate wins on the stated requirements—listing product names without comparative logic caps at 3.
+      Use the shared 1–5 ordinal scale above.
+
+  system2_realism:
+    criterion_label: "Realism"
+    short_name: "S2-Real"
+    name: "System 2 — Realism"
+    weight: 1.0
+    rubric: |
+      Assess whether the material is plausibly real, commercially or practically obtainable, and consistent with claimed properties.
+      Penalize fabricated products, impossible property claims, undocumented “hero” numbers, or violations of hard constraints (e.g. regulatory).
+      Cap at 2 if the material appears invented, contradicts known catalogs, or claims are impossible for the stated class.
+      Cap at 3 if identity is fuzzy (trade name without grade/family), if key claims are uncited and extreme, or if regulatory fit is hand-waved.
+      Reserve 4 only when identity, sourcing plausibility, and property claims form a consistent picture a practitioner could sanity-check.
+      Reserve 5 only when that picture is unusually tight: specific grade/supplier-class language where appropriate, and no “too good to be true” gaps—vague trade names alone cap at 3.
+      Use the shared 1–5 ordinal scale above.
+
+  system2_reasoning:
+    criterion_label: "Reasoning quality"
+    short_name: "S2-Reas"
+    name: "System 2 — Reasoning quality"
+    weight: 1.0
+    rubric: |
+      Assess the quality of justification: logical argument, coverage of key requirements, and attribution (vs vague or hallucinated detail).
+      Penalize hand-waving, missing links between requirements and the chosen candidate, and unsupported specifics.
+      Cap at 2 if the justification is mostly assertion, listicles, or buzzwords with no requirement-by-requirement structure.
+      Cap at 3 if any important claim about the candidate lacks a traceable link to requirement or evidence, or if reasoning chains skip decisive steps.
+      Reserve 4 only when each major requirement is tied to reasoning with limited unsupported detail; hallucination risk must be low.
+      Reserve 5 only when the argument is stepwise, requirement-addressing, and cautious where data are thin—no persuasive but empty assertions; confident numbers without source or derivation cap at 3.
+      Use the shared 1–5 ordinal scale above.
+
+  system3_plausibility:
+    criterion_label: "Plausibility of synthesis route"
+    short_name: "S3-Route"
+    name: "System 3 — Plausibility of synthesis route"
+    weight: 1.0
+    rubric: |
+      Apply an extremely strict bar: brochure or marketing-style process language is disqualifying for 4+ unless backed by checkable causal steps.
+      Assess whether the manufacturing/process description (`manufacturing_process`) could plausibly yield the intended product, including critical steps for the application.
+      Penalize missing critical operations, chemically incoherent sequences, undeclared major assumptions, magic steps (“formulate / process / obtain”), or any gap where inputs do not mechanistically explain the stated output.
+      Default to 2 or below when the route cannot be sanity-checked as a sequence (order-of-operations wrong, wrong phase field, or key transformation unstated).
+      Default to 1–2 when the described operations cannot produce the stated product class without unstated miracles.
+      Score 3 = plausible sketch with identifiable gaps; score 4 = end-to-end causal coherence with named stages/intermediates where they matter; score 5 = same as 4 plus decisive transformations are explicit (no hand-waving where chemistry/structure is decided).
+      Cap at 3 if any decisive step is a black box or if the sequence could not be checked for basic physical/chemical consistency.
+      Reserve 4 only when the route is causally coherent end-to-end (inputs → intermediates → product) with enough specificity that a specialist could flag errors—not brochure narrative.
+      Reserve 5 only when that coherence extends through the hardest transformation(s), with intermediates or control points named where they govern outcome—never 5 if any critical transformation is a single vague verb.
+      Use the shared 1–5 ordinal scale above.
+
+  system3_practicality:
+    criterion_label: "Processing practicality"
+    short_name: "S3-Prac"
+    name: "System 3 — Processing practicality"
+    weight: 1.0
+    rubric: |
+      Apply an extremely strict bar: “reasonable-sounding” without numbers where numbers govern outcome caps the score at 3; qualitative hand-waving for thermal/mechanical windows caps at 3 unless ranges are order-of-magnitude justified in text.
+      Assess whether conditions (temperature, time, pressure, scale) and equipment are realistic for lab or pilot execution.
+      Penalize unspecified critical parameters, infeasible extremes, equipment/process mismatches, or steps that assume unavailable tooling, fixtures, or environments without acknowledgement.
+      Downgrade sharply if decisive windows (thermal exposure, atmosphere, moisture, cooling rate, shear history, dwell time) are vague despite governing microstructure or properties—assume the practitioner must guess.
+      Default to 2 or below when multiple governing parameters are missing for steps that determine success (e.g. thermal processing without target range or rate).
+      Default to 2 or below when stated ranges are internally contradictory across steps (e.g. time/temp incompatible with claimed phase work).
+      Score 3 = runnable in principle but important settings left open; score 4 = critical windows stated or clearly bounded for each decisive step; score 5 = same as 4 with internal consistency across steps (no contradictory ranges).
+      Cap at 3 if the practitioner must invent or assume more than one core parameter for any decisive step.
+      Reserve 4 only when a practitioner could schedule/run the sequence with at most minor, explicitly labeled assumptions—not when they must invent temperatures, times, or atmospheres for core steps.
+      Reserve 5 only when parameters are stated or tightly bounded for every step where they govern outcome, with no cross-step contradictions—never 5 if any decisive step lists only “typical” or “moderate” with no bounds.
+      Use the shared 1–5 ordinal scale above.
+
+  system3_compatibility:
+    criterion_label: "Compatibility with material"
+    short_name: "S3-Comp"
+    name: "System 3 — Compatibility with material"
+    weight: 1.0
+    rubric: |
+      Apply an extremely strict bar: generic “compatible with polymers/metals/ceramics” language caps the score at 3 unless tightly tied to the stated candidate and application.
+      Assess whether the route is compatible with the selected candidate material and application (no impossible chemistry or processing mismatches).
+      Penalize steps that would destroy the material, wrong processing family for the grade, ignored contamination/sensitivity issues, or application-critical degradation/corrosion risks waved away.
+      Default down when known failure modes for the material/process pairing are not addressed at all; default to 2 or below when a serious incompatibility is implied or likely and unmentioned.
+      Cap at 2 when the route would obviously degrade, contaminate, or chemically attack the stated material in normal interpretation.
+      Score 3 = broadly workable but misses at least one important material–process interaction; score 4 = explicit fit to grade, sensitivities, and end-use environment; score 5 = same as 4 with explicit consideration of the highest-risk interaction for this pairing.
+      Cap at 3 if compatibility is asserted in generic terms without reference to grade-specific sensitivities or failure modes relevant to the route.
+      Reserve 4 only when chemistry, thermal/mechanical exposure, and environment are shown—not merely asserted—to fit the stated material grade and end-use constraints.
+      Reserve 5 only when the highest-risk interaction for this pairing is explicitly reasoned (not a checklist mention)—assertions like “suitable for X” without mechanism cap at 3.
+      Use the shared 1–5 ordinal scale above.
+
+  system3_industrial:
+    criterion_label: "Industrial relevance"
+    short_name: "S3-Ind"
+    name: "System 3 — Industrial relevance"
+    weight: 1.0
+    rubric: |
+      Apply an extremely strict bar: academic vignettes without controls, hazards, or repeatability do not clear 3; they must not clear 4 without concrete operational detail.
+      Assess practical/industrial relevance: safety, QC, scalability hints, and alignment with how such products are made.
+      Penalize routes that ignore basic safety/QC, omit obvious regulatory/siting constraints when they matter, or read as purely notional with no credible scale-up path.
+      Default down for “bench-only” narratives with no recognition of handling limits, waste streams, or repeatability; default to 2 or below when hazardous operations or regulated inputs are glossed over.
+      Cap at 2 when high-energy, flammable, toxic, or regulated operations are described with no acknowledgment of hazard class or containment.
+      Score 3 = mentions practicality superficially; score 4 = at least one concrete control/checkpoint (inspection, release criteria, key PPE/process safeguard, or waste note) aligned to the route; score 5 = multiple such elements plus realistic scale/transfer awareness.
+      Cap at 3 if only generic safety/QC language appears (“appropriate PPE,” “standard procedures”) with no route-specific hazard or control.
+      Reserve 4 only when at least one control or checkpoint is specific to the described operations—not boilerplate.
+      Reserve 5 only when multiple concrete controls, hazards, or repeatability considerations are tied to named steps, plus credible awareness of scale-up or transfer risks—never 5 for generic “follow EHS guidelines” alone.
+      Use the shared 1–5 ordinal scale above.

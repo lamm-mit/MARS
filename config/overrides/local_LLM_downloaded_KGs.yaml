@@ -1,0 +1,17 @@
+llm:
+  base_url: "http://localhost:8081/v1"
+  api_key: "NULL"
+  model_name: "gpt-oss-20b"
+  temperature: 0
+
+data:
+  graphs:
+    material_properties:
+      graph_file: "MatProp_62999.graphml"
+      embedding_file: "MatProp_62999_embeddings_nomic_v1_5.pkl"
+    pfas:
+      graph_file: "PFAS_4612.graphml"
+      embedding_file: "PFAS_embeddings_nomic_v1_5.pkl"
+    patents:
+      graph_file: "Patent_13654_US.graphml"
+      embedding_file: "Patent_13654_embeddings_nomic_v1_5.pkl"

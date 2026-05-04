@@ -1,0 +1,5 @@
+llm:
+  base_url: "http://localhost:8081/v1"
+  api_key: "NULL"
+  model_name: "gpt-oss-20b"
+  temperature: 0

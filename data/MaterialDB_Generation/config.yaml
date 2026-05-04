@@ -1,0 +1,26 @@
+# Material Database Builder Configuration
+
+# Input: markdown files produced by Markdown_Generation
+input_root: ../MARS_Data/MDs_paper/InternalMaterials
+
+# Output: material database JSON
+database_file: ../MARS_Data/MaterialDB_paper/internal_material_database.json
+
+# Processing state (local, not committed)
+state_file: processing_state.json
+
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+llm:
+  base_url: "http://localhost:8081/v1"
+  model: "gpt-oss-20b"
+  max_tokens: 4000
+  max_input_tokens: 35000
+  temperature: 0.0
+  timeout: 1200
+
+validation:
+  max_repair_attempts: 3
+  re_prompt_on_failure: false

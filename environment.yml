@@ -1,0 +1,68 @@
+name: MARS
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+
+  # PyTorch — conda resolves the right CUDA build for the installed driver
+  - pytorch::pytorch=2.5.1
+  - pytorch::torchvision=0.20.1
+  - pytorch::torchaudio=2.5.1
+
+  # Pillow + libtiff via conda so the shared library is properly managed
+  # (pip-installed Pillow links against libtiff.so.5 which may not exist on the host)
+  - conda-forge::libtiff
+  - conda-forge::pillow
+
+  - pip:
+    # LLM + embeddings
+    - openai==1.109.1
+    - sentence-transformers==5.1.2
+    - transformers==4.57.1
+    - huggingface-hub==0.36.0   # conda env version; compatible with transformers <1.0 constraint
+    - tokenizers==0.22.1
+    - accelerate==1.7.0
+    - safetensors==0.5.3
+
+    # Vector DB
+    - chromadb==1.0.9
+
+    # Knowledge graphs
+    - networkx==3.3
+    - scipy==1.15.3
+    - scikit-learn==1.7.2
+
+    # Agents
+    - autogen==0.10.0
+
+    # Required by nomic-ai/nomic-embed-text-v1.5 custom model code
+    - einops==0.8.1
+
+    # Data + config
+    - numpy==2.3.4
+    - pandas==2.2.3
+    - pyyaml==6.0.3
+    - pydantic==2.11.5
+    - tqdm==4.67.1
+
+    # Notebooks + visualisation
+    - matplotlib==3.10.7
+    - jupyter==1.1.1
+    - jupyterlab==4.5.0
+    - ipywidgets==8.1.8
+    - reportlab>=4.0
+
+    # langchain pinned to 0.3.x — GraphReasoning uses the old langchain.document_loaders
+    # API which was moved to langchain_community in langchain 1.x. Pre-pinning here
+    # prevents the GraphReasoning post-install step from pulling in langchain 1.x.
+    - langchain==0.3.25
+    - langchain-community==0.3.24
+    - langchain-core==0.3.64
+    - langchain-text-splitters==0.3.8
+
+    # GraphReasoning must be installed separately after env creation:
+    #   pip install git+https://github.com/lamm-mit/GraphReasoning.git

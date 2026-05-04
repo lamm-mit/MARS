@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d6" for="edge" attr.name="DOI" attr.type="string" />
+  <key id="d5" for="edge" attr.name="chunk_id" attr.type="string" />
+  <key id="d4" for="edge" attr.name="relation" attr.type="string" />
+  <key id="d3" for="node" attr.name="size" attr.type="long" />
+  <key id="d2" for="node" attr.name="color" attr.type="string" />
+  <key id="d1" for="node" attr.name="group" attr.type="long" />
+  <key id="d0" for="node" attr.name="type" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="PEEK">
+      <data key="d0">Material</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">25</data>
+    </node>
+    <node id="PolyEtherEther-Ketone">
+      <data key="d0">Chemical Name</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Plastics Supplier Company">
+      <data key="d0">Supplier</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="High-performance engineering thermoplastic">
+      <data key="d0">Material Description</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Automotive">
+      <data key="d0">Industry</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Marine">
+      <data key="d0">Industry</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Electronics">
+      <data key="d0">Industry</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Medical">
+      <data key="d0">Industry</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Aerospace">
+      <data key="d0">Industry</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Oil and gas">
+      <data key="d0">Industry</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Alternative energy">
+      <data key="d0">Industry</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Chemical resistance">
+      <data key="d0">Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Low moisture uptake">
+      <data key="d0">Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Wear and abrasion resistance">
+      <data key="d0">Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="High mechanical strength">
+      <data key="d0">Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Reliable performance in hot water or steam">
+      <data key="d0">Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="UL94 V-0 flammability rating">
+      <data key="d0">Standard</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Density">
+      <data key="d0">Physical Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Water absorption, 24 h">
+      <data key="d0">Physical Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Tensile strength">
+      <data key="d0">Physical Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Tensile modulus">
+      <data key="d0">Physical Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Flexural strength">
+      <data key="d0">Physical Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Compressive strength">
+      <data key="d0">Physical Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Melting temperature">
+      <data key="d0">Physical Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Maximum operating temperature">
+      <data key="d0">Physical Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Volume resistivity">
+      <data key="d0">Physical Property</data>
+      <data key="d1">1</data>
+      <data key="d2">#db5f57</data>
+      <data key="d3">1</data>
+    </node>
+    <edge source="PEEK" target="PolyEtherEther-Ketone">
+      <data key="d4">is also known as</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Plastics Supplier Company">
+      <data key="d4">supplied by</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="High-performance engineering thermoplastic">
+      <data key="d4">is a type of</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Chemical resistance">
+      <data key="d4">has property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Low moisture uptake">
+      <data key="d4">has property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Wear and abrasion resistance">
+      <data key="d4">has property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="High mechanical strength">
+      <data key="d4">has property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Reliable performance in hot water or steam">
+      <data key="d4">has property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="UL94 V-0 flammability rating">
+      <data key="d4">meets standard</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Automotive">
+      <data key="d4">used in industry</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Marine">
+      <data key="d4">used in industry</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Electronics">
+      <data key="d4">used in industry</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Medical">
+      <data key="d4">used in industry</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Aerospace">
+      <data key="d4">used in industry</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Oil and gas">
+      <data key="d4">used in industry</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Alternative energy">
+      <data key="d4">used in industry</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Density">
+      <data key="d4">has physical property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Water absorption, 24 h">
+      <data key="d4">has physical property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Tensile strength">
+      <data key="d4">has physical property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Tensile modulus">
+      <data key="d4">has physical property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Flexural strength">
+      <data key="d4">has physical property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Compressive strength">
+      <data key="d4">has physical property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Melting temperature">
+      <data key="d4">has physical property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Maximum operating temperature">
+      <data key="d4">has physical property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+    <edge source="PEEK" target="Volume resistivity">
+      <data key="d4">has physical property</data>
+      <data key="d5">d1adca5d0bbbcee4b2cfb31179e34ee6</data>
+      <data key="d6">dummy_example_material_specification_sheet</data>
+    </edge>
+  </graph>
+</graphml>

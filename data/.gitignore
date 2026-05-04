@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Standalone repo cloned for reference — contents absorbed into ChromaDB_Generation/
+textbooks2chromaDb/
+
+# Claude Code memory
+memory/
+
+# Runtime artifacts
+processing_state.json
+material_db_build.log
+KG_Generation/working/
+
+# Large data files — host on HuggingFace
+*.pkl
+*.graphml
+*.safetensors
+*.gguf
+*.whl
+
+# Dummy KG files are small enough to commit directly
+!MARS_Data/KGs/Patent_dummy_KG.graphml
+!MARS_Data/KGs/Patent_dummy_embeddings_nomic_v1_5.pkl
+__pycache__/
+*.pyc

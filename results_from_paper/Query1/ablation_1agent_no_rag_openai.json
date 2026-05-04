@@ -1,0 +1,126 @@
+{
+  "query": {
+    "sentence": "Find a substitute material for PFAS material THV (elastomeric terpolymer of tetrafluoroethylene, hexafluoropropylene, and vinylidene fluoride) that has broad chemical resistance, including acids, bases, protic and aprotic solvents, oils, and salt solutions. Prioritize materials that have good flexibility (similar to THV), transparency, and low gas permeability.",
+    "material_X": "elastomeric terpolymer of tetrafluoroethylene, hexafluoropropylene, and vinylidene fluoride",
+    "application_Y": "broad chemical resistance"
+  },
+  "required_material_properties": {
+    "properties": [
+      "Broad-spectrum chemical resistance to strong mineral acids, dilute and moderate bases, aqueous salt solutions, aliphatic hydrocarbons, lubricating oils, alcohols, and many polar aprotic solvents",
+      "Retention of mechanical integrity after prolonged liquid exposure with low swelling and low extractables",
+      "High flexibility/elastomer-like compliance relative to rigid engineering thermoplastics; low modulus and good bendability at room temperature",
+      "Optical transparency or at least high translucency in practical thicknesses",
+      "Low gas permeability relative to commodity elastomers and polyolefins",
+      "Good thermal stability for typical chemical-service temperatures, preferably continuous use above 100 C",
+      "Good environmental stress-cracking resistance",
+      "Processability into films, tubing, liners, seals, or molded parts at laboratory scale"
+    ],
+    "constraints": [
+      "Candidate must be completely PFAS-free and contain no carbon-fluorine bonds",
+      "Must substitute for THV in chemically aggressive service where fluoropolymer-like resistance is desired",
+      "Should prioritize flexibility similar to THV over maximum stiffness",
+      "Should prioritize transparency over opaque high-performance polymers",
+      "Should avoid materials known to be strongly attacked or heavily swollen by common aprotic solvents such as ketones, chlorinated solvents, NMP, DMF, or THF if broad chemical resistance is claimed",
+      "Should have lower gas permeability than silicone and typical thermoplastic elastomers if possible",
+      "Must be realistically manufacturable at lab scale using commercially accessible polymer processing methods"
+    ]
+  },
+  "candidate_selection": {
+    "final_candidate": {
+      "material_name": "Plasticized polyvinyl chloride (PVC-P), medical/chemical-grade transparent flexible PVC formulation",
+      "material_class": "Plasticized vinyl thermoplastic",
+      "material_id": null,
+      "justification": "Among PFAS-free transparent flexible materials, no single polymer fully matches THV across acids, bases, protic and aprotic solvents, oils, and low gas permeability. Flexible PVC is the best practical compromise when the priorities are broad chemical resistance, flexibility, transparency, and relatively low gas permeability. Compared with TPU, EVA, SEBS, and silicone, flexible PVC generally offers better resistance to aqueous acids, bases, salts, many oils, and many alcohols, while also providing substantially lower gas permeability than silicone and many soft elastomers. It is inherently transparent in properly compounded form and can be tuned over a wide hardness range to approach THV-like flexibility. PVC also has better barrier performance than most elastomers because of its polar, relatively dense chain structure. The main limitation is that PVC is not universally resistant to all aprotic solvents: ketones, cyclic ethers, chlorinated solvents, and some strong polar aprotic solvents can cause swelling or attack, and plasticizer extraction can occur depending on formulation. Therefore it is not a perfect one-for-one fluoropolymer replacement, but within the PFAS-free design space it is the most balanced transparent flexible barrier material that is commercially established and lab-processable. To maximize chemical robustness, the formulation should use a high-molecular-weight polymeric plasticizer or trimellitate plasticizer, low extractables stabilizer package, and minimal additives.",
+      "properties": null
+    },
+    "rejected_candidates": []
+  },
+  "manufacturing_process": {
+    "status": "manufacturable",
+    "process_recipe": [
+      {
+        "step_index": 1,
+        "description": "Select a suspension-grade PVC resin suitable for flexible transparent compounds and define target hardness/barrier tradeoff",
+        "conditions": "K-value approximately 65-70; target Shore A about 75-90 depending on flexibility requirement",
+        "equipment_class": "materials selection and formulation workstation",
+        "inputs": [
+          "PVC homopolymer resin"
+        ]
+      },
+      {
+        "step_index": 2,
+        "description": "Prepare transparent flexible formulation using low-volatility, low-extractable plasticizer and heat stabilizer package",
+        "conditions": "Typical lab starting formulation per 100 phr PVC: 25-45 phr polymeric polyester plasticizer or TOTM, 2-5 phr epoxidized soybean oil, 1-3 phr Ca-Zn stabilizer, 0.1-0.5 phr processing aid; avoid fillers and pigments to preserve transparency",
+        "equipment_class": "precision balance and dry blending mixer",
+        "inputs": [
+          "PVC homopolymer resin",
+          "Polymeric polyester plasticizer or trioctyl trimellitate",
+          "Epoxidized soybean oil",
+          "Calcium-zinc heat stabilizer",
+          "Acrylic processing aid"
+        ]
+      },
+      {
+        "step_index": 3,
+        "description": "Premix dry blend until homogeneous and free-flowing",
+        "conditions": "Room temperature to about 60 C; 10-20 min mixing; avoid moisture contamination",
+        "equipment_class": "high-intensity mixer or planetary mixer",
+        "inputs": [
+          "PVC formulation blend"
+        ]
+      },
+      {
+        "step_index": 4,
+        "description": "Melt compound the formulation to fully fuse PVC and disperse additives",
+        "conditions": "Twin-screw microcompounder or internal mixer; melt temperature typically 160-185 C; residence time minimized to avoid degradation; inert venting desirable",
+        "equipment_class": "lab twin-screw extruder or torque rheometer/internal mixer",
+        "inputs": [
+          "Premixed PVC dry blend"
+        ]
+      },
+      {
+        "step_index": 5,
+        "description": "Form test articles as film, sheet, tubing, or molded plaques",
+        "conditions": "Compression molding at about 170-185 C or film extrusion/calandering; use polished tooling for optical clarity",
+        "equipment_class": "compression press, film die, or small tubing extruder",
+        "inputs": [
+          "Molten flexible PVC compound"
+        ]
+      },
+      {
+        "step_index": 6,
+        "description": "Condition samples and evaluate transparency, flexibility, barrier, and chemical compatibility",
+        "conditions": "Condition 24-48 h at ambient; test tensile properties, Shore hardness, oxygen or CO2 permeability, and immersion in representative acids, bases, oils, alcohols, acetone/MEK/THF/NMP/DMF, and salt solutions",
+        "equipment_class": "materials testing laboratory",
+        "inputs": [
+          "Flexible PVC test specimens",
+          "Chemical exposure media"
+        ]
+      },
+      {
+        "step_index": 7,
+        "description": "Iterate formulation to reduce solvent extraction and improve barrier if needed",
+        "conditions": "Decrease monomeric plasticizer content, increase polymeric plasticizer fraction, or slightly increase PVC resin fraction; reassess clarity-flexibility balance",
+        "equipment_class": "formulation and compounding line",
+        "inputs": [
+          "Initial flexible PVC formulation data"
+        ]
+      }
+    ],
+    "blocking_constraints": [],
+    "feedback_to_system2": "Manufacturable at lab scale with standard PVC compounding and film/molding equipment. However, broad resistance to aprotic solvents remains the principal performance risk versus THV. Validation must focus on solvent-specific swelling and plasticizer extraction. If the application includes frequent exposure to ketones, chlorinated solvents, THF, NMP, DMF, or similar aggressive aprotic media, flexible PVC may fail and the requirement set is likely overconstrained for a transparent PFAS-free flexible single-material substitute."
+  },
+  "metadata": {
+    "pipeline_run_id": "2026042516",
+    "timestamp": "2026-04-25T20:40:05.449846Z",
+    "final_outcome_status": "manufacturable",
+    "total_iterations": 1,
+    "total_rejected_candidates": 0,
+    "ablation_condition": "1agent_no_rag_openai",
+    "duration_seconds": 31.538208723068237,
+    "openai_model": "gpt-5.4"
+  },
+  "raw_responses": {
+    "single_agent": "{\n  \"required_material_properties\": {\n    \"properties\": [\n      \"Broad-spectrum chemical resistance to strong mineral acids, dilute and moderate bases, aqueous salt solutions, aliphatic hydrocarbons, lubricating oils, alcohols, and many polar aprotic solvents\",\n      \"Retention of mechanical integrity after prolonged liquid exposure with low swelling and low extractables\",\n      \"High flexibility/elastomer-like compliance relative to rigid engineering thermoplastics; low modulus and good bendability at room temperature\",\n      \"Optical transparency or at least high translucency in practical thicknesses\",\n      \"Low gas permeability relative to commodity elastomers and polyolefins\",\n      \"Good thermal stability for typical chemical-service temperatures, preferably continuous use above 100 C\",\n      \"Good environmental stress-cracking resistance\",\n      \"Processability into films, tubing, liners, seals, or molded parts at laboratory scale\"\n    ],\n    \"constraints\": [\n      \"Candidate must be completely PFAS-free and contain no carbon-fluorine bonds\",\n      \"Must substitute for THV in chemically aggressive service where fluoropolymer-like resistance is desired\",\n      \"Should prioritize flexibility similar to THV over maximum stiffness\",\n      \"Should prioritize transparency over opaque high-performance polymers\",\n      \"Should avoid materials known to be strongly attacked or heavily swollen by common aprotic solvents such as ketones, chlorinated solvents, NMP, DMF, or THF if broad chemical resistance is claimed\",\n      \"Should have lower gas permeability than silicone and typical thermoplastic elastomers if possible\",\n      \"Must be realistically manufacturable at lab scale using commercially accessible polymer processing methods\"\n    ]\n  },\n  \"candidate_selection\": {\n    \"final_candidate\": {\n      \"material_name\": \"Plasticized polyvinyl chloride (PVC-P), medical/chemical-grade transparent flexible PVC formulation\",\n      \"material_class\": \"Plasticized vinyl thermoplastic\",\n      \"justification\": \"Among PFAS-free transparent flexible materials, no single polymer fully matches THV across acids, bases, protic and aprotic solvents, oils, and low gas permeability. Flexible PVC is the best practical compromise when the priorities are broad chemical resistance, flexibility, transparency, and relatively low gas permeability. Compared with TPU, EVA, SEBS, and silicone, flexible PVC generally offers better resistance to aqueous acids, bases, salts, many oils, and many alcohols, while also providing substantially lower gas permeability than silicone and many soft elastomers. It is inherently transparent in properly compounded form and can be tuned over a wide hardness range to approach THV-like flexibility. PVC also has better barrier performance than most elastomers because of its polar, relatively dense chain structure. The main limitation is that PVC is not universally resistant to all aprotic solvents: ketones, cyclic ethers, chlorinated solvents, and some strong polar aprotic solvents can cause swelling or attack, and plasticizer extraction can occur depending on formulation. Therefore it is not a perfect one-for-one fluoropolymer replacement, but within the PFAS-free design space it is the most balanced transparent flexible barrier material that is commercially established and lab-processable. To maximize chemical robustness, the formulation should use a high-molecular-weight polymeric plasticizer or trimellitate plasticizer, low extractables stabilizer package, and minimal additives.\"\n    }\n  },\n  \"manufacturing_process\": {\n    \"status\": \"manufacturable\",\n    \"process_recipe\": [\n      {\n        \"step_index\": 1,\n        \"description\": \"Select a suspension-grade PVC resin suitable for flexible transparent compounds and define target hardness/barrier tradeoff\",\n        \"conditions\": \"K-value approximately 65-70; target Shore A about 75-90 depending on flexibility requirement\",\n        \"equipment_class\": \"materials selection and formulation workstation\",\n        \"inputs\": [\n          \"PVC homopolymer resin\"\n        ]\n      },\n      {\n        \"step_index\": 2,\n        \"description\": \"Prepare transparent flexible formulation using low-volatility, low-extractable plasticizer and heat stabilizer package\",\n        \"conditions\": \"Typical lab starting formulation per 100 phr PVC: 25-45 phr polymeric polyester plasticizer or TOTM, 2-5 phr epoxidized soybean oil, 1-3 phr Ca-Zn stabilizer, 0.1-0.5 phr processing aid; avoid fillers and pigments to preserve transparency\",\n        \"equipment_class\": \"precision balance and dry blending mixer\",\n        \"inputs\": [\n          \"PVC homopolymer resin\",\n          \"Polymeric polyester plasticizer or trioctyl trimellitate\",\n          \"Epoxidized soybean oil\",\n          \"Calcium-zinc heat stabilizer\",\n          \"Acrylic processing aid\"\n        ]\n      },\n      {\n        \"step_index\": 3,\n        \"description\": \"Premix dry blend until homogeneous and free-flowing\",\n        \"conditions\": \"Room temperature to about 60 C; 10-20 min mixing; avoid moisture contamination\",\n        \"equipment_class\": \"high-intensity mixer or planetary mixer\",\n        \"inputs\": [\n          \"PVC formulation blend\"\n        ]\n      },\n      {\n        \"step_index\": 4,\n        \"description\": \"Melt compound the formulation to fully fuse PVC and disperse additives\",\n        \"conditions\": \"Twin-screw microcompounder or internal mixer; melt temperature typically 160-185 C; residence time minimized to avoid degradation; inert venting desirable\",\n        \"equipment_class\": \"lab twin-screw extruder or torque rheometer/internal mixer\",\n        \"inputs\": [\n          \"Premixed PVC dry blend\"\n        ]\n      },\n      {\n        \"step_index\": 5,\n        \"description\": \"Form test articles as film, sheet, tubing, or molded plaques\",\n        \"conditions\": \"Compression molding at about 170-185 C or film extrusion/calandering; use polished tooling for optical clarity\",\n        \"equipment_class\": \"compression press, film die, or small tubing extruder\",\n        \"inputs\": [\n          \"Molten flexible PVC compound\"\n        ]\n      },\n      {\n        \"step_index\": 6,\n        \"description\": \"Condition samples and evaluate transparency, flexibility, barrier, and chemical compatibility\",\n        \"conditions\": \"Condition 24-48 h at ambient; test tensile properties, Shore hardness, oxygen or CO2 permeability, and immersion in representative acids, bases, oils, alcohols, acetone/MEK/THF/NMP/DMF, and salt solutions\",\n        \"equipment_class\": \"materials testing laboratory\",\n        \"inputs\": [\n          \"Flexible PVC test specimens\",\n          \"Chemical exposure media\"\n        ]\n      },\n      {\n        \"step_index\": 7,\n        \"description\": \"Iterate formulation to reduce solvent extraction and improve barrier if needed\",\n        \"conditions\": \"Decrease monomeric plasticizer content, increase polymeric plasticizer fraction, or slightly increase PVC resin fraction; reassess clarity-flexibility balance\",\n        \"equipment_class\": \"formulation and compounding line\",\n        \"inputs\": [\n          \"Initial flexible PVC formulation data\"\n        ]\n      }\n    ],\n    \"blocking_constraints\": [],\n    \"feedback_to_system2\": \"Manufacturable at lab scale with standard PVC compounding and film/molding equipment. However, broad resistance to aprotic solvents remains the principal performance risk versus THV. Validation must focus on solvent-specific swelling and plasticizer extraction. If the application includes frequent exposure to ketones, chlorinated solvents, THF, NMP, DMF, or similar aggressive aprotic media, flexible PVC may fail and the requirement set is likely overconstrained for a transparent PFAS-free flexible single-material substitute.\"\n  }\n}"
+  }
+}

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Large data files (KGs and embeddings live outside the repo)
+*.pkl
+*.graphml
+
+# Exceptions: dummy KG files that must be committed
+!data/MARS_Data/KGs/Patent_dummy_KG.graphml
+!data/MARS_Data/KGs/Patent_dummy_embeddings_nomic_v1_5.pkl
+
+# Runtime artifacts
+pipeline_logs/
+chroma/
+cache/
+*.log
+
+# Environment & secrets
+.env
+.env.*
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# NOTE: results/ is explicitly committed (frozen experiment outputs for the paper).

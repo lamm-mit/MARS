@@ -1,0 +1,48 @@
+# Fully reproduces the paper results using the locally-hosted LLM and all real data.
+#
+# Requires three environment variables to be set before running — these are the
+# "pointers" to your local data. The file itself contains no hardcoded paths and
+# is safe to commit, but it will only work on machines where these vars are exported:
+#
+#   export MARS_KG_DIR="/path/to/KGs"
+#   export MARS_CHROMA_DIR="/path/to/ChromaDBs"
+#   export MARS_MATERIAL_DB="/path/to/internal_material_database.json"
+
+llm:
+  base_url: "http://localhost:8081/v1"
+  api_key: "NULL"
+  model_name: "gpt-oss-20b"
+  temperature: 0
+
+data:
+  graphs:
+    kg_dir: "${MARS_KG_DIR}"
+    material_properties:
+      graph_file: "MatProp_62999.graphml"
+      embedding_file: "MatProp_62999_embeddings_nomic_v1_5.pkl"
+    pfas:
+      graph_file: "PFAS_4612.graphml"
+      embedding_file: "PFAS_embeddings_nomic_v1_5.pkl"
+    patents:
+      graph_file: "Patent_13654_US.graphml"
+      embedding_file: "Patent_13654_embeddings_nomic_v1_5.pkl"
+  chromadb:
+    base_path: "${MARS_CHROMA_DIR}"
+    pfas:
+      database_path: "PFAS/chromaDB_PFAS"
+      collection_name: "SG_KG_PFASpapers"
+    materialdb:
+      database_path: "MaterialDB/chromaDB_MaterialDB"
+      collection_name: null
+    patents:
+      database_path: "Patents"
+      collection_name: null
+    manufacturing_textbooks:
+      database_path: "Textbooks/chromaDB_textbooks"
+      collection_name: null
+    spec_sheets:
+      database_path: "SpecSheets/chromaDB_specsheets"
+      collection_name: null
+      enabled: false
+  material_database:
+    path: "${MARS_MATERIAL_DB}"

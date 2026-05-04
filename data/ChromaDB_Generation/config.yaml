@@ -1,0 +1,11 @@
+input_root: ../MARS_Data/MDs_paper/InternalMaterials
+output_dir: ../MARS_Data/ChromaDBs_paper/MaterialDB/chromaDB_MaterialDB
+collection_name: MaterialDB
+
+chunk_size: 500
+chunk_overlap: 50
+
+embeddings:
+  model_name: nomic-ai/nomic-embed-text-v1.5
+  device: auto   # auto picks CUDA if available, else CPU; or set "cuda:0", "cpu"
+  batch_size: 16

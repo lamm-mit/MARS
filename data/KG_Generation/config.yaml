@@ -1,0 +1,32 @@
+corpus: Patents   # label used for naming working directories and output files
+
+paths:
+  input_dir: ../MARS_Data/MDs_paper/Patents      # corpus: *.md here and/or legacy {doc_id}/{doc_id}.md
+  graph_dir: ./working/graphml_Patents           # per-document .graphml files (intermediate, not committed)
+  merged_dir: ./working/merged_Patents           # checkpoint merged graphs (intermediate, not committed)
+  output_dir: ../MARS_Data/KGs                   # final output directory
+  graph_output_file: Patent_dummy_KG.graphml           # final merged graph
+  embedding_file: Patent_dummy_embeddings_nomic_v1_5.pkl  # final node embeddings
+
+llm:
+  provider: local        # "local" (llama.cpp) or "openai" (OpenAI API)
+  # local settings (ignored when provider: openai):
+  base_url: http://localhost:8081/v1
+  api_key: "NULL"
+  model_name: llama-3.3-70B-Instruct 
+  # openai settings (ignored when provider: local):
+  # model_name: gpt-4o   # uncomment and replace model_name above when using openai
+  # API key is read from the OPENAI_API_KEY environment variable — never put it in this file
+  max_tokens: 20000
+  temperature: 0.333
+
+embeddings:
+  model_name: nomic-ai/nomic-embed-text-v1.5
+  device: auto   # auto picks CUDA if available, else CPU
+
+kg:
+  chunk_size: 10000      # max characters per text chunk sent to LLM
+  chunk_overlap: 0
+  similarity_threshold: 0.9   # cosine similarity above which two nodes are merged
+  simplify_every_n: 100        # run graph simplification every N documents
+  simplify_size_threshold: 10  # remove disconnected components smaller than this

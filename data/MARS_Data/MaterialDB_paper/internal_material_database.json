@@ -1,0 +1,43 @@
+{
+  "plastics-supplier-company-peek-polyetherether-ketone": {
+    "id": "plastics-supplier-company-peek-polyetherether-ketone",
+    "name": "PEEK, PolyEtherEther-Ketone",
+    "supplier": "Plastics Supplier Company",
+    "raw_markdown_text": "<!-- File: ../MARS_Data/MDs_paper/InternalMaterials/PEEK/dummy_example_material_specification_sheet.mmd -->\n\n\n# Material Specification Sheet\n\n**Name:** PEEK, PolyEtherEther-Ketone\n\n**Supplier:** Plastics Supplier Company\n\n# Material description\n\nPEEK is a high-performance engineering thermoplastic. It is strong, rigid, and highly resistant to chemicals,water, steam, and elevated temperatures. Because of this combination of properties, PEEK is commonly used in demanding environments where ordinary plastics would not perform well. In some harsh-service applications, it may also be used as a strong alternative to fluoropolymers.\n\n# Main benefits\n\nPEEK provides strong chemical resistance, low moisture uptake, good wear and abrasion resistance, high mechanical strength, and reliable performance in hot water or steam. It also has a UL94 V-0 flammability rating.\n\n# Common applications\n\nTypical application areas include automotive, marine, electronics, medical, aerospace, oil and gas, and alternative energy.\n\n# Key properties\n\n<table><tr><td>Property</td><td>Value</td></tr><tr><td>Density</td><td>~1.31-1.32 g/cm3</td></tr><tr><td>Water absorption, 24 h</td><td>0.10-0.15%</td></tr><tr><td>Tensile strength</td><td>14,500-16,000 psi, unfilled PEEK</td></tr><tr><td>Tensile modulus</td><td>450,000-550,000 psi, unfilled PEEK</td></tr><tr><td>Flexural strength</td><td>24,000-25,000 psi, unfilled PEEK</td></tr><tr><td>Compressive strength</td><td>17,000-20,000 psi, unfilled PEEK</td></tr><tr><td>Melting temperature</td><td>644\u00b0F/340\u00b0C</td></tr><tr><td>Maximum operating<br>temperature</td><td>480\u00b0F/249\u00b0C, unfilled PEEK</td></tr><tr><td>Volume resistivity</td><td>\\(4.9x10^{-}16\\) ohm-cm, extruded unfilled PEEK</td></tr></table>\n\n<--- Page Split --->\n\n\n",
+    "extracted": {
+      "Density": "~1.31-1.32 g/cm3",
+      "Water absorption, 24 h": "0.10-0.15%",
+      "Tensile strength": "14,500-16,000 psi, unfilled PEEK",
+      "Tensile modulus": "450,000-550,000 psi, unfilled PEEK",
+      "Flexural strength": "24,000-25,000 psi, unfilled PEEK",
+      "Compressive strength": "17,000-20,000 psi, unfilled PEEK",
+      "Melting temperature": "644\u00b0F/340\u00b0C",
+      "Maximum operating temperature": "480\u00b0F/249\u00b0C, unfilled PEEK",
+      "Volume resistivity": "\\(4.9x10^{-}16\\) ohm-cm, extruded unfilled PEEK",
+      "Flammability rating": "UL94 V-0"
+    },
+    "llm_prompt": "System: You are an expert in material science and technical documentation. Your task is to extract structured information from material datasheets and technical documents.\n\nYou must extract:\n1. supplier: The name of the material supplier/manufacturer\n2. name: The name/product identifier of the material\n3. extracted: A JSON object containing relevant material properties, specifications, and data\n\nImportant:\n- Extract values verbatim (no unit conversion)\n- Store all relevant properties in the extracted object\n- Output ONLY valid JSON, no commentary or markdown formatting\n- Be thorough and extract all available technical information\n\nUser: Extract material information from the following markdown content.\n\nUse this exact schema:\n\n{\n  \"supplier\": \"...\",\n  \"name\": \"...\",\n  \"extracted\": { ... }\n}\n\nMarkdown content:\n```markdown\n<!-- File: ../MARS_Data/MDs_paper/InternalMaterials/PEEK/dummy_example_material_specification_sheet.mmd -->\n\n\n# Material Specification Sheet\n\n**Name:** PEEK, PolyEtherEther-Ketone\n\n**Supplier:** Plastics Supplier Company\n\n# Material description\n\nPEEK is a high-performance engineering thermoplastic. It is strong, rigid, and highly resistant to chemicals,water, steam, and elevated temperatures. Because of this combination of properties, PEEK is commonly used in demanding environments where ordinary plastics would not perform well. In some harsh-service applications, it may also be used as a strong alternative to fluoropolymers.\n\n# Main benefits\n\nPEEK provides strong chemical resistance, low moisture uptake, good wear and abrasion resistance, high mechanical strength, and reliable performance in hot water or steam. It also has a UL94 V-0 flammability rating.\n\n# Common applications\n\nTypical application areas include automotive, marine, electronics, medical, aerospace, oil and gas, and alternative energy.\n\n# Key properties\n\n<table><tr><td>Property</td><td>Value</td></tr><tr><td>Density</td><td>~1.31-1.32 g/cm3</td></tr><tr><td>Water absorption, 24 h</td><td>0.10-0.15%</td></tr><tr><td>Tensile strength</td><td>14,500-16,000 psi, unfilled PEEK</td></tr><tr><td>Tensile modulus</td><td>450,000-550,000 psi, unfilled PEEK</td></tr><tr><td>Flexural strength</td><td>24,000-25,000 psi, unfilled PEEK</td></tr><tr><td>Compressive strength</td><td>17,000-20,000 psi, unfilled PEEK</td></tr><tr><td>Melting temperature</td><td>644\u00b0F/340\u00b0C</td></tr><tr><td>Maximum operating<br>temperature</td><td>480\u00b0F/249\u00b0C, unfilled PEEK</td></tr><tr><td>Volume resistivity</td><td>\\(4.9x10^{-}16\\) ohm-cm, extruded unfilled PEEK</td></tr></table>\n\n<--- Page Split --->\n\n\n\n```\n\nOutput the JSON now:",
+    "llm_response_raw": "{\n  \"supplier\": \"Plastics Supplier Company\",\n  \"name\": \"PEEK, PolyEtherEther-Ketone\",\n  \"extracted\": {\n    \"Density\": \"~1.31-1.32 g/cm3\",\n    \"Water absorption, 24 h\": \"0.10-0.15%\",\n    \"Tensile strength\": \"14,500-16,000 psi, unfilled PEEK\",\n    \"Tensile modulus\": \"450,000-550,000 psi, unfilled PEEK\",\n    \"Flexural strength\": \"24,000-25,000 psi, unfilled PEEK\",\n    \"Compressive strength\": \"17,000-20,000 psi, unfilled PEEK\",\n    \"Melting temperature\": \"644\u00b0F/340\u00b0C\",\n    \"Maximum operating temperature\": \"480\u00b0F/249\u00b0C, unfilled PEEK\",\n    \"Volume resistivity\": \"\\\\(4.9x10^{-}16\\\\) ohm-cm, extruded unfilled PEEK\",\n    \"Flammability rating\": \"UL94 V-0\"\n  }\n}",
+    "llm_response_json": {
+      "supplier": "Plastics Supplier Company",
+      "name": "PEEK, PolyEtherEther-Ketone",
+      "extracted": {
+        "Density": "~1.31-1.32 g/cm3",
+        "Water absorption, 24 h": "0.10-0.15%",
+        "Tensile strength": "14,500-16,000 psi, unfilled PEEK",
+        "Tensile modulus": "450,000-550,000 psi, unfilled PEEK",
+        "Flexural strength": "24,000-25,000 psi, unfilled PEEK",
+        "Compressive strength": "17,000-20,000 psi, unfilled PEEK",
+        "Melting temperature": "644\u00b0F/340\u00b0C",
+        "Maximum operating temperature": "480\u00b0F/249\u00b0C, unfilled PEEK",
+        "Volume resistivity": "\\(4.9x10^{-}16\\) ohm-cm, extruded unfilled PEEK",
+        "Flammability rating": "UL94 V-0"
+      }
+    },
+    "created_at": "2026-04-29T22:05:54.924137Z",
+    "updated_at": "2026-04-29T22:05:54.924137Z",
+    "source_files": [
+      "../MARS_Data/MDs_paper/InternalMaterials/PEEK/dummy_example_material_specification_sheet.mmd"
+    ]
+  }
+}
