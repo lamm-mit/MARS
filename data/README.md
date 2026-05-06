@@ -27,7 +27,7 @@ data/
     │   └── internal_material_database.json
     ├── Models/
     │   └── DeepSeek-OCR/          # OCR inference code; all weights on HuggingFace
-    ├── PDFs_paper/                # Example PDF structure — PDFs not included (copyright)
+    ├── PDFs_paper/                # Example PDF structure
     │   ├── InternalMaterials/     # one dummy example included
     │   ├── PFAS/
     │   ├── Patents/
@@ -168,7 +168,7 @@ MODEL_PATH = '/path/to/data/MARS_Data/Models/DeepSeek-OCR'
 
 ### PDFs_paper/ and MDs_paper/
 
-`PDFs_paper/` holds the folder structure for source PDF documents. PDFs are **not included** in this repository due to copyright restrictions. One dummy example spec sheet is provided in `InternalMaterials/` to illustrate the expected structure. The subfolders for PFAS papers, patents, and textbooks are empty stubs.
+`PDFs_paper/` holds the folder structure for source PDF documents. One dummy example spec sheet is provided in `InternalMaterials/` to illustrate the expected structure. The subfolders for PFAS papers, patents, and textbooks are empty stubs.
 
 `MDs_paper/` holds the corresponding markdown documents converted from PDFs. A dummy `InternalMaterials/` set is included (generated from the dummy spec sheet). The other subdirectories are empty stubs.
 

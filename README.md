@@ -4,7 +4,7 @@
 
 MARS is a three-system LLM pipeline for knowledge-grounded material substitution. Given a query, System 1 extracts required material properties from a domain knowledge graph and RAG corpus. System 2 proposes a candidate substitute by reasoning over two knowledge graphs and two retrieval corpora. System 3 assesses lab-scale manufacturability against three additional corpora, feeding blocking constraints back to System 2 if the candidate fails and looping until a viable substitute is found or the iteration limit is reached.
 
-![MARS system overview](fullSystem.png)
+MARS system overview
 
 ---
 
@@ -68,7 +68,7 @@ python data/download_data.py
 python scripts/run_mars.py --override config/overrides/downloaded_KGs.yaml
 ```
 
-**ChromaDB vector databases** — the four RAG corpora (PFAS literature, patent corpus, material database, manufacturing textbooks) used in the paper cannot be redistributed, as they were built from source documents whose licensing does not permit redistribution of derived works. The pipeline can be run with user-constructed ChromaDBs; `data/README.md` documents the full build pipeline. The downloaded knowledge graphs alone are not necessarily enough for producing comparable results.
+**ChromaDB vector databases** — four RAG corpora (PFAS literature, patent corpus, material database, manufacturing textbooks) are used in the paper. DOIs and references used for the vector databases and internal material database are available upon request. The pipeline can be run with user-constructed ChromaDBs; `data/README.md` documents the full build pipeline. The downloaded knowledge graphs alone are not necessarily enough for producing comparable results.
 
 ---
 
@@ -108,7 +108,7 @@ python scripts/run_evaluation.py --queries Query1 # LLM-as-judge blind evaluatio
 
 ### Important notes on reproduction
 
-**Data requirements.** The frozen results in `results_from_paper/` were produced using the full ChromaDB retrieval corpora, which are not publicly available due to the licensing terms of the underlying source documents. Users who build equivalent ChromaDBs from their own document collections (see `data/README.md`) can run the full pipeline under the same conditions.
+**Data requirements.** The frozen results in `results_from_paper/` were produced using the full ChromaDB retrieval corpora. Users who build equivalent ChromaDBs from their own document collections (see `data/README.md`) can run the full pipeline under the same conditions.
 
 **MARS candidate convergence.** MARS is iterative and may not find a manufacturable candidate within the configured maximum number of System 2 / System 2↔3 iterations. Before running the LLM-judge evaluation, verify that your MARS run produced an actual candidate by checking `results/Query1/mars.json`. Evaluating against a failed run will produce misleading scores.
 
@@ -190,4 +190,3 @@ MIT — see [LICENSE](LICENSE).
   primaryClass  = {cs.AI},
 }
 ```
-
