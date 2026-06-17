@@ -1,6 +1,6 @@
 # MARS: Hierarchical Multi-Agent Reasoning Systems Enable Knowledge-Grounded Material Substitution
 
-**Tarjei Paule Hage · Yu-Chuan Hsu · Wei Lu · Markus J. Buehler** — Massachusetts Institute of Technology
+**Tarjei Paule Hage · Yu-Chuan Hsu · Wei Lu · Gayle Lyon · Jiezhu Jin · Markus J. Buehler** — Massachusetts Institute of Technology
 
 MARS is a three-system LLM pipeline for knowledge-grounded material substitution. Given a query, System 1 extracts required material properties from a domain knowledge graph and RAG corpus. System 2 proposes a candidate substitute by reasoning over two knowledge graphs and two retrieval corpora. System 3 assesses lab-scale manufacturability against three additional corpora, feeding blocking constraints back to System 2 if the candidate fails and looping until a viable substitute is found or the iteration limit is reached.
 
@@ -183,7 +183,7 @@ MIT — see [LICENSE](LICENSE).
 ```bibtex
 @misc{hage2026mars,
   title         = {MARS: Hierarchical Multi-Agent Reasoning Systems Enable Knowledge-Grounded Material Substitution},
-  author        = {Tarjei Paule Hage and Yu-Chuan Hsu and Wei Lu and Markus J. Buehler},
+  author        = {Tarjei Paule Hage and Yu-Chuan Hsu and Wei Lu and Gayle Lyon and Jiezhu Jin and Markus J. Buehler},
   year          = {2026},
   eprint        = {TODO},
   archivePrefix = {arXiv},
