@@ -4,6 +4,8 @@
 
 MARS is a three-system LLM pipeline for knowledge-grounded material substitution. Given a query, System 1 extracts required material properties from a domain knowledge graph and RAG corpus. System 2 proposes a candidate substitute by reasoning over two knowledge graphs and two retrieval corpora. System 3 assesses lab-scale manufacturability against three additional corpora, feeding blocking constraints back to System 2 if the candidate fails and looping until a viable substitute is found or the iteration limit is reached.
 
+<img width="1203" height="301" alt="image" src="https://github.com/user-attachments/assets/7dd562db-7763-4732-b97f-564051f92c6f" />
+
 MARS system overview
 
 ---
@@ -171,6 +173,17 @@ For a description of how these files relate to specific figures and tables in th
 ├── SI.md                        # Supplementary information
 └── results_from_paper/          # Frozen paper outputs
 ```
+---
+
+## Sample results
+
+Visualization of the substitute material proposed by MARS for the THV case study: a three-layer composite film consisting of a polyolefin elastomer base, an EVOH gas-barrier layer, and an OTS oleophobic surface coating. 
+
+<img width="1093" height="268" alt="image" src="https://github.com/user-attachments/assets/4b21489c-5572-4979-989a-b1e7e2a6dd9f" />
+
+Left: Schematic cross-section of the proposed layer stack; layer thicknesses are not drawn to scale. Right: Illustrative AI-generated rendering of the proposed film, depicting oil droplets beading on the oleophobic surface of the flexed, transparent film (generated with Gemini 3.5 Flash [56]). No physical sample was fabricated; both panels visualize the proposed design.
+
+<img width="1560" height="372" alt="image" src="https://github.com/user-attachments/assets/c0660a80-3376-4c82-b7a0-92656d395efe" />
 
 ---
 
