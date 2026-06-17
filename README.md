@@ -196,7 +196,7 @@ MIT — see [LICENSE](LICENSE).
 ```bibtex
 @misc{hage2026mars,
   title         = {MARS: Hierarchical Multi-Agent Reasoning Systems Enable Knowledge-Grounded Material Substitution},
-  author        = {Tarjei Paule Hage and Yu-Chuan Hsu and Wei Lu and Gayle Lyon and Jiezhu Jin and Markus J. Buehler},
+  author        = {Tarjei Paule Hage and Yu-Chuan Hsu and Wei Lu and Gayla Lyon and Jiezhu Jin and Markus J. Buehler},
   year          = {2026},
   eprint        = {TODO},
   archivePrefix = {arXiv},
