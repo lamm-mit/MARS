@@ -36,7 +36,7 @@ Set `MODEL_PATH` in `data/MARS_Data/Models/DeepSeek-OCR/DeepSeek-OCR-master/Deep
 MODEL_PATH = 'deepseek-ai/DeepSeek-OCR'
 
 # Option 2 — project HuggingFace repo (exact weights used in the paper):
-MODEL_PATH = 'tphage/DeepSeek-OCR'
+MODEL_PATH = 'lamm-mit/DeepSeek-OCR'
 
 # Option 3 — local weights (if downloaded):
 MODEL_PATH = '/path/to/data/MARS_Data/Models/DeepSeek-OCR'

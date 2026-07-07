@@ -18,10 +18,10 @@ SKIP_REPEAT = True
 # Option 1 — official DeepSeek HuggingFace:
 #   MODEL_PATH = 'deepseek-ai/DeepSeek-OCR'
 # Option 2 — project HuggingFace repo (exact weights used in the paper):
-#   MODEL_PATH = 'tphage/DeepSeek-OCR'
+#   MODEL_PATH = 'lamm-mit/DeepSeek-OCR'
 # Option 3 — local weights:
 #   MODEL_PATH = '/path/to/MARS_Data/Models/DeepSeek-OCR'
-MODEL_PATH = 'tphage/DeepSeek-OCR'
+MODEL_PATH = 'lamm-mit/DeepSeek-OCR'
 
 # TODO: change INPUT_PATH
 # .pdf: run_dpsk_ocr_pdf.py; 

@@ -5,7 +5,7 @@ Run from the repo root: python data/download_data.py
 from pathlib import Path
 from huggingface_hub import hf_hub_download
 
-KG_REPO = "tphage/MARS-KGs"
+KG_REPO = "lamm-mit/MARS-KGs"
 KG_DIR = Path(__file__).parent / "MARS_Data" / "KGs"
 
 KG_FILES = [

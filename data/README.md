@@ -63,12 +63,12 @@ This places the files in `data/MARS_Data/KGs/` and skips any that already exist.
 All model weights are hosted on HuggingFace. Download and place them in `data/MARS_Data/Models/`:
 
 ```bash
-# From the project HuggingFace collection (https://huggingface.co/collections/tphage/mars-69f34fda285fd977a638da44):
+# From the project HuggingFace collection (https://huggingface.co/collections/lamm-mit/mars-69fb3118ccf8c28d06643c56):
 #   gpt-oss-20b-mxfp4.gguf                        → data/MARS_Data/Models/
 #   Llama-3.3-70B-Instruct-Q4_K_L.gguf            → data/MARS_Data/Models/
-#   tphage/DeepSeek-OCR weights                   → data/MARS_Data/Models/DeepSeek-OCR/
-#   tphage/nomic-embed-text-v1.5                  → data/MARS_Data/Models/nomic-embed-text-v1.5-standalone/
-#   (or set MODEL_PATH = 'tphage/DeepSeek-OCR' in config.py — weights download at runtime)
+#   lamm-mit/DeepSeek-OCR weights                 → data/MARS_Data/Models/DeepSeek-OCR/
+#   lamm-mit/nomic-embed-text-v1.5                → data/MARS_Data/Models/nomic-embed-text-v1.5-standalone/
+#   (or set MODEL_PATH = 'lamm-mit/DeepSeek-OCR' in config.py — weights download at runtime)
 ```
 
 **3. Run the pipeline**
@@ -81,7 +81,7 @@ See the main `README.md` for pipeline usage instructions. The dummy data works o
 
 ### KGs/ — Knowledge Graphs
 
-The full KG files (~2 GB total) are hosted on HuggingFace at `[tphage/MARS-KGs](https://huggingface.co/datasets/tphage/MARS-KGs)`. A dummy Patent KG is included in the repository for end-to-end testing without downloading the full data. Run `python data/download_data.py` to fetch all three KGs.
+The full KG files (~2 GB total) are hosted on HuggingFace at `[lamm-mit/MARS-KGs](https://huggingface.co/datasets/lamm-mit/MARS-KGs)`. A dummy Patent KG is included in the repository for end-to-end testing without downloading the full data. Run `python data/download_data.py` to fetch all three KGs.
 
 Three knowledge graphs, each stored as a GraphML file plus a precomputed node-embedding pickle. Embeddings were generated with `nomic-ai/nomic-embed-text-v1.5` and are required for cosine-similarity-based node mapping at runtime.
 
@@ -143,13 +143,13 @@ All model weights are hosted on HuggingFace — nothing is committed to this rep
 
 | Model                                | Format                      | Role                                                       | HuggingFace source                                                                      |
 | ------------------------------------ | --------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `nomic-embed-text-v1.5`              | HuggingFace model           | Embedding model for all Chroma queries and KG node mapping | `[tphage/nomic-embed-text-v1.5](https://huggingface.co/tphage/nomic-embed-text-v1.5)`   |
-| `DeepSeek-OCR/`                      | Inference code + HF weights | OCR model for converting spec sheet PDFs to markdown       | `[tphage/DeepSeek-OCR](https://huggingface.co/tphage/DeepSeek-OCR)`                     |
-| `gpt-oss-20b-mxfp4.gguf`             | GGUF (MXFP4)                | Primary LLM backbone for all MARS agents                   | `[tphage/gpt-oss-20b](https://huggingface.co/tphage/gpt-oss-20b)`                       |
+| `nomic-embed-text-v1.5`              | HuggingFace model           | Embedding model for all Chroma queries and KG node mapping | `[lamm-mit/nomic-embed-text-v1.5](https://huggingface.co/lamm-mit/nomic-embed-text-v1.5)`   |
+| `DeepSeek-OCR/`                      | Inference code + HF weights | OCR model for converting spec sheet PDFs to markdown       | `[lamm-mit/DeepSeek-OCR](https://huggingface.co/lamm-mit/DeepSeek-OCR)`                     |
+| `gpt-oss-20b-mxfp4.gguf`             | GGUF (MXFP4)                | Primary LLM backbone for all MARS agents                   | `[lamm-mit/gpt-oss-20b](https://huggingface.co/lamm-mit/gpt-oss-20b)`                       |
 | `Llama-3.3-70B-Instruct-Q4_K_L.gguf` | GGUF (Q4_K_L)               | LLM for knowledge graph construction                       | `[tphage/Llama-3.3-70B-Instruct](https://huggingface.co/tphage/Llama-3.3-70B-Instruct)` |
 
 
-The two GGUF models are served locally via `llama.cpp`. Download from `[tphage/gpt-oss-20b](https://huggingface.co/tphage/gpt-oss-20b)` and `[tphage/Llama-3.3-70B-Instruct](https://huggingface.co/tphage/Llama-3.3-70B-Instruct)`.
+The two GGUF models are served locally via `llama.cpp`. Download from `[lamm-mit/gpt-oss-20b](https://huggingface.co/lamm-mit/gpt-oss-20b)` and `[tphage/Llama-3.3-70B-Instruct](https://huggingface.co/tphage/Llama-3.3-70B-Instruct)`.
 
 **DeepSeek-OCR model weights** are available on HuggingFace. Set `MODEL_PATH` in `data/MARS_Data/Models/DeepSeek-OCR/DeepSeek-OCR-master/DeepSeek-OCR-vllm/config.py` to one of:
 
@@ -158,7 +158,7 @@ The two GGUF models are served locally via `llama.cpp`. Download from `[tphage/g
 MODEL_PATH = 'deepseek-ai/DeepSeek-OCR'
 
 # Option 2 — project HuggingFace repo (exact weights used in the paper):
-MODEL_PATH = 'tphage/DeepSeek-OCR'
+MODEL_PATH = 'lamm-mit/DeepSeek-OCR'
 
 # Option 3 — local weights (if downloaded):
 MODEL_PATH = '/path/to/data/MARS_Data/Models/DeepSeek-OCR'
