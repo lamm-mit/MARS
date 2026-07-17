@@ -1,0 +1,21 @@
+{
+  "run_id": "2026071718_0",
+  "timestamp": "2026-07-17T22:41:12.628526Z",
+  "application": "broad chemical resistance",
+  "properties": {
+    "required": [],
+    "target_values": {}
+  },
+  "constraints": [],
+  "success": false,
+  "candidate": null,
+  "iterations": 0,
+  "rejected_candidates": [],
+  "final_constraints": [
+    "Step 1 failed: Failed to extract material classes from KG: properties_W['required'] must be a non-empty list"
+  ],
+  "evidence_summary": {},
+  "iteration_history": [],
+  "property_mapping": null,
+  "chat_log_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query1/artifacts/chats/system2_chat_log_material_discovery_2026071718_0.json"
+}

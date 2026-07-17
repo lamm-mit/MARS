@@ -21,6 +21,11 @@ chroma/
 cache/
 *.log
 
+# Real data corpora (not for public repo — see data/MARS_Data/ for dummy versions)
+/ChromaDBs/
+/MaterialDB/
+/paper_metadata/
+
 # Environment & secrets
 .env
 .env.*
@@ -33,4 +38,5 @@ cache/
 # Jupyter
 .ipynb_checkpoints/
 
-# NOTE: results/ is explicitly committed (frozen experiment outputs for the paper).
+# NOTE: results/ is intentionally not ignored — frozen experiment outputs are meant
+# to be committed for the paper, even though this working tree hasn't staged them yet.

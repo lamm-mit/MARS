@@ -1,0 +1,50 @@
+{
+  "pipeline_run_id": "2026071718",
+  "start_time": "2026-07-17T22:14:35.085781Z",
+  "end_time": "2026-07-17T22:37:39.877398Z",
+  "total_duration_seconds": 1384.791617,
+  "system1": {
+    "run_id": "2026071718_0",
+    "start_time": "2026-07-17T22:14:35.111083Z",
+    "end_time": "2026-07-17T22:17:42.320687Z",
+    "duration_seconds": 187.209604,
+    "result_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query3/artifacts/system1_2026071718_0.json",
+    "chat_log_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query3/artifacts/chats/system1_chat_log_material_requirements_2026071718_0.json",
+    "properties_extracted": 40
+  },
+  "system2_system3_loop": {
+    "max_iterations": 5,
+    "total_iterations": 1,
+    "iterations": [
+      {
+        "iteration": 1,
+        "system2": {
+          "run_id": "2026071718_0",
+          "start_time": "2026-07-17T22:17:42.325265Z",
+          "end_time": "2026-07-17T22:34:23.093863Z",
+          "duration_seconds": 1000.768598,
+          "result_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query3/artifacts/system2_2026071718_0.json",
+          "chat_log_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query3/artifacts/chats/system2_chat_log_material_discovery_2026071718_0.json",
+          "candidate": "VESTAKEEP‑EVOH 7 µm Shrink‑Bar",
+          "internal_iterations": []
+        },
+        "system3": {
+          "run_id": "2026071718_0",
+          "start_time": "2026-07-17T22:34:23.105880Z",
+          "end_time": "2026-07-17T22:37:39.838084Z",
+          "duration_seconds": 196.732204,
+          "result_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query3/artifacts/system3_2026071718_0.json",
+          "chat_log_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query3/artifacts/chats/system3_chat_log_manufacturability_assessment_2026071718_0.json",
+          "status": "manufacturable",
+          "blocking_constraints": [],
+          "feedback_to_system2": ""
+        }
+      }
+    ]
+  },
+  "final_outcome": {
+    "status": "manufacturable",
+    "final_candidate": "VESTAKEEP‑EVOH 7 µm Shrink‑Bar",
+    "total_rejected_candidates": 2
+  }
+}

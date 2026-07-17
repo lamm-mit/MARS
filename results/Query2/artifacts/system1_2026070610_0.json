@@ -1,0 +1,20 @@
+{
+  "run_id": "2026070610_0",
+  "timestamp": "2026-07-06T14:09:33.681852Z",
+  "sentence": "Identify non-fluoropolymer thermoplastics that can withstand severe thermal shock, specifically direct immersion into liquid nitrogen (−196 °C) and maintain structural integrity (no cracking, embrittlement, or catastrophic failure). Please note that silicone doesn't account for thermoplastics. The identified material can be formulated to allow extrusion into films and injection molding components.",
+  "keywords": [
+    "Fluoropolymer thermoplastics",
+    "Severe thermal shock"
+  ],
+  "material_X": "Fluoropolymer thermoplastics",
+  "application_Y": "Severe thermal shock",
+  "properties_W": {
+    "required": [],
+    "target_values": {}
+  },
+  "extracted_keywords": [],
+  "extracted_constraints": [],
+  "num_keywords": 0,
+  "num_constraints": 0,
+  "chat_log_path": "/home/palsubhadeep/Github/MARS/results/Query2/artifacts/chats/system1_chat_log_material_requirements_2026070610_0.json"
+}

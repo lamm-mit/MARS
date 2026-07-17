@@ -30,7 +30,7 @@ data:
     base_path: "${MARS_CHROMA_DIR}"
     pfas:
       database_path: "PFAS/chromaDB_PFAS"
-      collection_name: "SG_KG_PFASpapers"
+      collection_name: "KG_PFASpapers"
     materialdb:
       database_path: "MaterialDB/chromaDB_MaterialDB"
       collection_name: null

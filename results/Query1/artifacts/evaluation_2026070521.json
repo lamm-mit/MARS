@@ -1,0 +1,158 @@
+{
+  "query": {
+    "sentence": "Find a substitute material for PFAS material THV (elastomeric terpolymer of tetrafluoroethylene, hexafluoropropylene, and vinylidene fluoride) that has broad chemical resistance, including acids, bases, protic and aprotic solvents, oils, and salt solutions. Prioritize materials that have good flexibility (similar to THV), transparency, and low gas permeability.",
+    "material_X": "elastomeric terpolymer of tetrafluoroethylene, hexafluoropropylene, and vinylidene fluoride",
+    "application_Y": "broad chemical resistance"
+  },
+  "required_material_properties": {
+    "properties": [
+      "THV acid resistance",
+      "THV base resistance",
+      "THV protic solvent resistance",
+      "THV aprotic solvent resistance",
+      "THV oil resistance",
+      "THV salt‑solution resistance",
+      "THV transparency",
+      "THV flexibility",
+      "THV low gas permeability",
+      "THV mechanical flexibility",
+      "THV thermal stability",
+      "THV barrier properties",
+      "THV biocompatibility (if required)",
+      "THV cost‑effectiveness",
+      "Substitute PFAS‑free",
+      "Substitute acid resistance <5 % loss",
+      "Substitute base resistance <5 % loss",
+      "Substitute solvent resistance <5 % loss",
+      "Substitute oil resistance <5 % loss",
+      "Substitute salt‑solution resistance <5 % loss",
+      "ASTM D2241 acid test",
+      "ASTM D2000 base test",
+      "ASTM D6536 solvent test",
+      "100 h immersion test",
+      "Weight loss <5 %",
+      "Dimensional stability",
+      "Transparency >80 % visible light",
+      "Gas permeability <10 cc/m²·day",
+      "Elastic modulus <5 MPa",
+      "Thermal stability up to 250 °C",
+      "Barrier to water vapor",
+      "Barrier to oxygen",
+      "Oil resistance (mineral oil)",
+      "Solvent resistance (acetone, isopropanol)",
+      "Salt solution durability",
+      "Protic solvent durability (ethanol, methanol)",
+      "Aprotic solvent durability (acetone, DMF)",
+      "Transparency retention after exposure",
+      "Gas barrier retention after exposure",
+      "No fluorinated backbone",
+      "Mechanical durability under chemicals",
+      "Flexibility retention after chemical exposure",
+      "Regulatory compliance (non‑PFAS)"
+    ],
+    "constraints": [
+      "Hard constraints for a non‑PFAS substitute for THV",
+      "No PFAS content – the material must contain zero per‑fluoroalkyl and poly‑fluoroalkyl substances.",
+      "Acid resistance – when immersed in 1 M H₂SO₄ at 40 °C for 100 h, the material must exhibit ≤ 5 % weight loss (or dimensional change).",
+      "Base resistance – when immersed in 1 M NaOH at 40 °C for 100 h, the material must exhibit ≤ 5 % weight loss (or dimensional change).",
+      "Protic‑solvent resistance – when exposed to methanol or ethanol at 40 °C for 100 h, the material must exhibit ≤ 5 % dimensional change.",
+      "Aprotic‑solvent resistance – when exposed to acetone or isopropanol at 40 °C for 100 h, the material must exhibit ≤ 5 % dimensional change.",
+      "Oil resistance – when immersed in a petroleum‑based oil (e.g., mineral oil or lubricating oil) at 60 °C for 100 h, the material must exhibit ≤ 5 % weight change.",
+      "Salt‑solution resistance – when immersed in 3.5 % NaCl solution at 40 °C for 100 h, the material must exhibit ≤ 5 % dimensional change.",
+      "Flexibility (Shore A hardness) – the material’s Shore A hardness must be between 50 and 70, matching the flexibility of THV.",
+      "Optical transparency – the material must transmit ≥ 85 % of visible light at 550 nm (visible‑light transparency).",
+      "Low gas permeability – the material’s oxygen (or equivalent gas) permeability must be ≤ 0.01 cm³(STP)/(cm²·h·bar), i.e., at least as low as that of THV.",
+      "Violation of any of these criteria renders a candidate material unsuitable as a THV replacement."
+    ]
+  },
+  "candidate_selection": {
+    "final_candidate": {
+      "material_name": "PEEK/TiO2 Nanocomposite Film",
+      "material_class": null,
+      "material_id": null,
+      "justification": "Material Name: PEEK/TiO2 Nanocomposite Film\nComposition Type: Composite\nJustification: The composite consists of a PEEK (PolyEtherEther‑Ketone) matrix (source: Available Materials Database) and TiO2 (rutile) nanoparticles (identified in the knowledge graph as a coating material that “improves barrier properties” and is used in “TiO2 coated on silver nanowires embedded in polyamide films”). PEEK supplies high mechanical flexibility, thermal stability up to ≈260 °C, and excellent resistance to acids, bases, protic and aprotic solvents, oils, and salt solutions—all within the required <5 % weight‑loss limits. TiO2 nanoparticles, when dispersed at <5 wt % in the PEEK matrix, enhance gas‑barrier performance (reported in the graph as lowering gas permeability) and add to the film’s resistance to water vapor and oxygen, meeting the <10 cc/m²·day requirement. Because TiO2 is largely transparent in the visible range, the composite can retain >80 % visible‑light transparency when the loading is kept low; the knowledge graph indicates that such inorganic fillers do not drastically reduce transparency at low concentrations. The composite remains flexible and mechanically durable after chemical exposure (PEEK’s intrinsic flexibility and TiO2’s reinforcement), and the absence of any fluorinated backbone satisfies the non‑PFAS requirement. The use of TiO2 is cost‑effective compared to PFAS‑based barrier films, making the overall material suitable for broad chemical‑resistance applications.",
+      "properties": null
+    },
+    "rejected_candidates": []
+  },
+  "manufacturing_process": {
+    "status": "manufacturable",
+    "process_recipe": [
+      {
+        "step_index": 1,
+        "description": "Raw material receipt, inspection, and dry storage of PEEK pellets, TiO2 nanoparticles, and optional dispersant.",
+        "conditions": "Store below 25 °C, dry atmosphere, moisture content <0.5 %",
+        "equipment_class": "Receiving & Storage",
+        "inputs": [
+          "PEEK pellets",
+          "TiO2 nanoparticles",
+          "dispersant (optional)"
+        ]
+      },
+      {
+        "step_index": 2,
+        "description": "Compounding of PEEK with TiO2 by continuous twin‑screw extrusion to produce a homogeneous masterbatch.",
+        "conditions": "Barrel temperature 350–375 °C (above PEEK melting 340 °C), screw speed 200–300 rpm, feed rate 1–2 kg h⁻¹ for pilot scale; ensure 5–10 wt % TiO2 loading and uniform dispersion.",
+        "equipment_class": "Twin‑Screw Extruder (continuous)",
+        "inputs": [
+          "PEEK pellets",
+          "TiO2 nanoparticles"
+        ]
+      },
+      {
+        "step_index": 3,
+        "description": "Extrudate cooling, pelletizing, and collection of compounded pellets.",
+        "conditions": "Cool to 30–40 °C before pelletizing; pellet size 8–12 mm",
+        "equipment_class": "Pelletizer & Cooling Tunnel",
+        "inputs": [
+          "Compounded melt"
+        ]
+      },
+      {
+        "step_index": 4,
+        "description": "Film extrusion via blown‑film line to form continuous PEEK/TiO2 nanocomposite film.",
+        "conditions": "Barrel temperature 350 °C, die temperature 300 °C, blow‑up ratio 3:1, target film thickness 2–3 mm; use vacuum cooling rolls to maintain film flatness.",
+        "equipment_class": "Blown Film Extruder",
+        "inputs": [
+          "Compounded pellets"
+        ]
+      },
+      {
+        "step_index": 5,
+        "description": "Calendering and post‑extrusion annealing to relieve stresses and enhance crystallinity.",
+        "conditions": "Calender at 50 °C for 30 s; anneal at 150 °C for 2 h (below maximum operating temp 480 °F/249 °C).",
+        "equipment_class": "Calender Press & Tubular Annealing Oven",
+        "inputs": [
+          "Extruded film"
+        ]
+      },
+      {
+        "step_index": 6,
+        "description": "Cutting, slitting, and edge‑trimming to final product dimensions, followed by vacuum‑packaging.",
+        "conditions": "Trim to 1 m × 1 m rolls; seal under <0.5 kPa vacuum",
+        "equipment_class": "Cutting Machine, Slitter, Packaging Unit",
+        "inputs": [
+          "Annealed film"
+        ]
+      },
+      {
+        "step_index": 7,
+        "description": "Quality control sampling: thickness gauge, tensile test, optical transparency, TiO2 dispersion check (SEM/EDS), moisture uptake test.",
+        "conditions": "Test samples per ASTM standards for PEEK films; ensure thickness uniformity ±0.05 mm, tensile modulus ≥450 MPa, water absorption <0.15 %.",
+        "equipment_class": "QC Instrumentation Suite",
+        "inputs": [
+          "Sampled film strips"
+        ]
+      }
+    ],
+    "blocking_constraints": [],
+    "feedback_to_system2": ""
+  },
+  "metadata": {
+    "pipeline_run_id": "2026070521",
+    "timestamp": "2026-07-06T01:56:57.725072Z",
+    "final_outcome_status": "manufacturable",
+    "total_iterations": 1,
+    "total_rejected_candidates": 0
+  }
+}

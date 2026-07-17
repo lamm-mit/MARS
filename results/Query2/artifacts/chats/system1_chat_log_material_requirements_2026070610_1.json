@@ -1,0 +1,2706 @@
+{
+  "run_id": "2026070610_1",
+  "pipeline": "material_requirements",
+  "timestamp": "2026-07-06T14:22:04.046391Z",
+  "interactions": [
+    {
+      "type": "rag",
+      "timestamp": "2026-07-06T14:22:04.378109Z",
+      "agent": "research_analyst",
+      "method": "analyze",
+      "data": {
+        "query": "Identify non-fluoropolymer thermoplastics that can withstand severe thermal shock, specifically direct immersion into liquid nitrogen (\u2212196 \u00b0C) and maintain structural integrity (no cracking, embrittlement, or catastrophic failure). Please note that silicone doesn't account for thermoplastics. The identified material can be formulated to allow extrusion into films and injection molding components.",
+        "keywords": [
+          "Fluoropolymer thermoplastics",
+          "Severe thermal shock"
+        ],
+        "num_results": 0,
+        "results": null
+      }
+    },
+    {
+      "type": "rag",
+      "timestamp": "2026-07-06T14:22:04.392733Z",
+      "agent": "research_analyst",
+      "method": "analyze",
+      "data": {
+        "query": "Identify non-fluoropolymer thermoplastics that can withstand severe thermal shock, specifically direct immersion into liquid nitrogen (\u2212196 \u00b0C) and maintain structural integrity (no cracking, embrittlement, or catastrophic failure). Please note that silicone doesn't account for thermoplastics. The identified material can be formulated to allow extrusion into films and injection molding components.",
+        "keywords": [],
+        "num_results": 1,
+        "results": [
+          {
+            "id": "PEEK_dummy_example_material_specification_sheet_c0",
+            "source": "",
+            "distance": 0.6277570724487305,
+            "content_preview": "\n# Material Specification Sheet\n\n**Name:** PEEK, PolyEtherEther-Ketone\n\n**Supplier:** Plastics Supplier Company\n\n# Material description\n\nPEEK is a high-performance engineering thermoplastic. It is strong, rigid, and highly resistant to chemicals,water, steam, and elevated temperatures. Because of th"
+          }
+        ]
+      }
+    },
+    {
+      "type": "llm",
+      "timestamp": "2026-07-06T14:22:11.505101Z",
+      "agent": "research_manager",
+      "method": "process",
+      "data": {
+        "system_prompt": "You are a research manager whose job is to generate research questions that will be used for RAG (Retrieval-Augmented Generation) to gather more information.\n\nYour specific task: Based on the provided information about finding a substitute material, generate research questions that will help identify what material properties a potential substitute material needs.\n\nIMPORTANT GUIDELINES:\n1. Generate at most 4 research questions. Do not exceed 4 items.\n2. Each question should be designed to retrieve information via RAG that helps determine required material properties.\n3. Honor explicit user constraints (e.g., regulatory bans, PFAS-free, temperature floors) in how you phrase questions\u2014do not ask questions that assume a constraint is violated.\n4. Focus on questions about:\n   - What specific material properties are needed for the application (e.g., chemical resistance, biocompatibility, thermal stability, mechanical properties)\n   - What performance requirements must be met (e.g., temperature range, pressure tolerance, barrier properties)\n   - What constraints exist (e.g., regulatory requirements, cost considerations, manufacturing feasibility)\n   - What properties of the original material are critical and must be replicated\n5. Format each question as a clear, specific research question that can be answered through document retrieval.\n6. Questions should be actionable and focused on material property requirements; avoid near-duplicate questions that differ only in wording.\n\nFormat your response as a numbered list, with each question on a new line.\nBe concise, specific, and focused on material properties and requirements.\n",
+        "user_prompt": "Retrieved Information:\nFound 1 relevant documents:\n\n[Document 1]\nID: PEEK_dummy_example_material_specification_sheet_c0\nMetadata: source_group: PEEK, source_file: dummy_example_material_specification_sheet.mmd, chunk_index: 0\nContent: \n# Material Specification Sheet\n\n**Name:** PEEK, PolyEtherEther-Ketone\n\n**Supplier:** Plastics Supplier Company\n\n# Material description\n\nPEEK is a high-performance engineering thermoplastic. It is strong, rigid, and highly resistant to chemicals,water, steam, and elevated temperatures. Because of this combination of properties, PEEK is commonly used in demanding environments where ordinary plastics would not perform well. In some harsh-service applications, it may also be used as a strong alternative to fluoropolymers. # Main benefits\n\nPEEK provides strong chemical resistance, low moisture uptake, good wear and abrasion resistance, high mechanical strength, and reliable performance in hot water or steam. It also has a UL94 V-0 flammability rating. # Common applications\n\nTypical application areas include automotive, marine, electronics, medical, aerospace, oil and gas, and alternative energy. # Key properties\n\n<table><tr><td>Property</td><td>Value</td></tr><tr><td>Density</td><td>~1.31-1.32 g/cm3</td></tr><tr><td>Water absorption, 24 h</td><td>0.10-0.15%</td></tr><tr><td>Tensile strength</td><td>14,500-16,000 psi, unfilled PEEK</td></tr><tr><td>Tensile modulus</td><td>450,000-550,000 psi, unfilled PEEK</td></tr><tr><td>Flexural strength</td><td>24,000-25,000 psi, unfilled PEEK</td></tr><tr><td>Compressive strength</td><td>17,000-20,000 psi, unfilled PEEK</td></tr><tr><td>Melting temperature</td><td>644\u00b0F/340\u00b0C</td></tr><tr><td>Maximum operating<br>temperature</td><td>480\u00b0F/249\u00b0C, unfilled PEEK</td></tr><tr><td>Volume resistivity</td><td>\\(4.9x10^{-}16\\) ohm-cm, extruded unfilled PEEK</td></tr></table>\n\n<--- Page Split --->\n\n\n\nSentence: Identify non-fluoropolymer thermoplastics that can withstand severe thermal shock, specifically direct immersion into liquid nitrogen (\u2212196 \u00b0C) and maintain structural integrity (no cracking, embrittlement, or catastrophic failure). Please note that silicone doesn't account for thermoplastics. The identified material can be formulated to allow extrusion into films and injection molding components.\nKeywords: Fluoropolymer thermoplastics, Severe thermal shock\n\nGenerate research questions based on the sentence and keywords above.\n",
+        "response": "1. Which non\u2011fluoropolymer, non\u2011silicone thermoplastics are reported to survive immersion in liquid nitrogen (\u2212196\u202f\u00b0C) without cracking or embrittlement, and what are the documented failure modes when thermal shock is applied?  \n\n2. What are the measured low\u2011temperature (\u2264\u202f\u2212150\u202f\u00b0C) mechanical property values\u2014tensile strength, modulus, fracture toughness\u2014of those candidate thermoplastics, and how do they compare to their room\u2011temperature values?  \n\n3. Which of these thermoplastics can be processed by extrusion into films or by injection molding into solid components while still retaining the required low\u2011temperature resistance, and what are the recommended processing temperatures, cooling rates, and post\u2011processing treatments?  \n\n4. What are the thermal shock parameters (coefficient of thermal expansion, thermal conductivity, specific heat capacity) of the identified thermoplastics, and how do these parameters influence their ability to withstand rapid cooling from ambient to liquid\u2011nitrogen temperatures without catastrophic failure?",
+        "temperature": 1,
+        "model": "gpt-oss-20b"
+      }
+    },
+    {
+      "type": "rag",
+      "timestamp": "2026-07-06T14:22:11.535878Z",
+      "agent": "research_analyst",
+      "method": "analyze",
+      "data": {
+        "query": "Which non\u2011fluoropolymer, non\u2011silicone thermoplastics are reported to survive immersion in liquid nitrogen (\u2212196\u202f\u00b0C) without cracking or embrittlement, and what are the documented failure modes when thermal shock is applied?",
+        "keywords": [],
+        "num_results": 1,
+        "results": [
+          {
+            "id": "PEEK_dummy_example_material_specification_sheet_c0",
+            "source": "",
+            "distance": 0.7853602766990662,
+            "content_preview": "\n# Material Specification Sheet\n\n**Name:** PEEK, PolyEtherEther-Ketone\n\n**Supplier:** Plastics Supplier Company\n\n# Material description\n\nPEEK is a high-performance engineering thermoplastic. It is strong, rigid, and highly resistant to chemicals,water, steam, and elevated temperatures. Because of th"
+          }
+        ]
+      }
+    },
+    {
+      "type": "kg",
+      "timestamp": "2026-07-06T14:22:16.282578Z",
+      "agent": "research_scientist",
+      "method": "find_connections",
+      "data": {
+        "keywords": [
+          "thermoplastics",
+          "fluoropolymer",
+          "embrittlement",
+          "documented",
+          "immersion"
+        ],
+        "result_summary": {
+          "num_keywords": 5,
+          "num_matched_nodes": 3,
+          "subgraph_nodes": 8,
+          "subgraph_edges": 15,
+          "num_paths_found": 3,
+          "connections_found": true,
+          "algorithm_used": "shortest",
+          "kg_name": "kg1"
+        },
+        "found_paths_sample": [
+          {
+            "source": "thermoplastics",
+            "target": "Fluoropolymers",
+            "path": [
+              "thermoplastics",
+              "life cycle assessment",
+              "Fluoropolymers"
+            ],
+            "length": 2,
+            "nodes": [
+              {
+                "node_id": "thermoplastics",
+                "node_data": {
+                  "type": "material",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 4
+                }
+              },
+              {
+                "node_id": "life cycle assessment",
+                "node_data": {
+                  "type": "method",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 73
+                }
+              },
+              {
+                "node_id": "Fluoropolymers",
+                "node_data": {
+                  "type": "material",
+                  "group": 2,
+                  "color": "#b4db57",
+                  "size": 350
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "thermoplastics",
+                "target": "life cycle assessment",
+                "edge_data": {
+                  "relation": "is used to evaluate the sustainability of",
+                  "chunk_id": "cc6e7401f51538e8acc8bd121cb6b80d",
+                  "DOI": "Comp Rev Food Sci Food Safe - 2024 - Yashwanth - Food packaging solutions in the post\u2010per\u2010 and polyfluoroalkyl substances "
+                }
+              },
+              {
+                "source": "life cycle assessment",
+                "target": "Fluoropolymers",
+                "edge_data": {
+                  "relation": "used to evaluate",
+                  "chunk_id": "d03b2b90606d0e7557ac5c398daca769",
+                  "DOI": "Integr Envir Assess   Manag - 2022 - Korzeniowski - A critical review of the application of polymer of low concern"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "thermoplastics",
+            "target": "solution immersion",
+            "path": [
+              "thermoplastics",
+              "PBDEs",
+              "PFAS",
+              "PFHxS",
+              "solution immersion"
+            ],
+            "length": 4,
+            "nodes": [
+              {
+                "node_id": "thermoplastics",
+                "node_data": {
+                  "type": "material",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 4
+                }
+              },
+              {
+                "node_id": "PBDEs",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 595
+                }
+              },
+              {
+                "node_id": "PFAS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 3,
+                  "color": "#db57c9",
+                  "size": 27583
+                }
+              },
+              {
+                "node_id": "PFHxS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 4315
+                }
+              },
+              {
+                "node_id": "solution immersion",
+                "node_data": {
+                  "type": "exposure method",
+                  "group": 6,
+                  "color": "#cddb57",
+                  "size": 2
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "thermoplastics",
+                "target": "PBDEs",
+                "edge_data": {
+                  "relation": "used in",
+                  "chunk_id": "3c0faad4155f5de926b72349f4e32af0",
+                  "DOI": "10.1016_j.envres.2023.116226"
+                }
+              },
+              {
+                "source": "PBDEs",
+                "target": "PFAS",
+                "edge_data": {
+                  "relation": "weakly correlated with",
+                  "chunk_id": "5fc3ac5da957a91221087cd8699add9e",
+                  "DOI": "10.1186_s12940-021-00765-4"
+                }
+              },
+              {
+                "source": "PFAS",
+                "target": "PFHxS",
+                "edge_data": {
+                  "relation": "includes",
+                  "chunk_id": "740c18e6424d31afffe3d4bf62e30682",
+                  "DOI": "zheng-et-al-2024-associations-of-serum-per-and-polyfluoroalkyl-substances-with-hyperuricemia-in-adults-a-nationwide"
+                }
+              },
+              {
+                "source": "PFHxS",
+                "target": "solution immersion",
+                "edge_data": {
+                  "relation": "exposure method",
+                  "chunk_id": "18a545c39083c686fa560e1952f60851",
+                  "DOI": "s00204-023-03477-5"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "Fluoropolymers",
+            "target": "solution immersion",
+            "path": [
+              "Fluoropolymers",
+              "PFOS",
+              "solution immersion"
+            ],
+            "length": 2,
+            "nodes": [
+              {
+                "node_id": "Fluoropolymers",
+                "node_data": {
+                  "type": "material",
+                  "group": 2,
+                  "color": "#b4db57",
+                  "size": 350
+                }
+              },
+              {
+                "node_id": "PFOS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 6,
+                  "color": "#cddb57",
+                  "size": 14938
+                }
+              },
+              {
+                "node_id": "solution immersion",
+                "node_data": {
+                  "type": "exposure method",
+                  "group": 6,
+                  "color": "#cddb57",
+                  "size": 2
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "Fluoropolymers",
+                "target": "PFOS",
+                "edge_data": {
+                  "relation": "absorbs",
+                  "chunk_id": "8a67d4bbf9fda190dede1d1a041d983c",
+                  "DOI": "s10661-024-13334-2"
+                }
+              },
+              {
+                "source": "PFOS",
+                "target": "solution immersion",
+                "edge_data": {
+                  "relation": "exposure method",
+                  "chunk_id": "18a545c39083c686fa560e1952f60851",
+                  "DOI": "s00204-023-03477-5"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          }
+        ],
+        "total_paths": 3,
+        "keyword_to_nodes": {
+          "keyword_mappings": [
+            {
+              "keyword": "thermoplastics",
+              "matched_nodes": [
+                {
+                  "node_id": "thermoplastics",
+                  "similarity": 0.9999998807907104,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 5,
+                    "color": "#57bedb",
+                    "size": 4
+                  }
+                },
+                {
+                  "node_id": "Amorphous thermoplastics",
+                  "similarity": 0.865959882736206,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 5
+                  }
+                },
+                {
+                  "node_id": "Semi-crystalline thermoplastics",
+                  "similarity": 0.8495635986328125,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 4
+                  }
+                },
+                {
+                  "node_id": "Thermoplastic olefins",
+                  "similarity": 0.828686535358429,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "Thermoplastic Polyurethane Elastomers",
+                  "similarity": 0.8084610104560852,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 3
+                  }
+                }
+              ],
+              "num_matches": 5
+            },
+            {
+              "keyword": "fluoropolymer",
+              "matched_nodes": [
+                {
+                  "node_id": "Fluoropolymers",
+                  "similarity": 0.974202573299408,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 2,
+                    "color": "#b4db57",
+                    "size": 350
+                  }
+                },
+                {
+                  "node_id": "fluoropolymer production",
+                  "similarity": 0.8947086334228516,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "industry",
+                    "group": 1,
+                    "color": "#59db57",
+                    "size": 54
+                  }
+                },
+                {
+                  "node_id": "fluoropolymer applications",
+                  "similarity": 0.8877245783805847,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "concept",
+                    "group": 6,
+                    "color": "#cddb57",
+                    "size": 2
+                  }
+                },
+                {
+                  "node_id": "Ionic fluoropolymer",
+                  "similarity": 0.8818905353546143,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 32
+                  }
+                },
+                {
+                  "node_id": "Fluoropolymer facilities",
+                  "similarity": 0.8772642612457275,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "location",
+                    "group": 1,
+                    "color": "#59db57",
+                    "size": 51
+                  }
+                }
+              ],
+              "num_matches": 5
+            },
+            {
+              "keyword": "embrittlement",
+              "matched_nodes": [],
+              "num_matches": 0
+            },
+            {
+              "keyword": "documented",
+              "matched_nodes": [],
+              "num_matches": 0
+            },
+            {
+              "keyword": "immersion",
+              "matched_nodes": [
+                {
+                  "node_id": "solution immersion",
+                  "similarity": 0.8255199193954468,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "exposure method",
+                    "group": 6,
+                    "color": "#cddb57",
+                    "size": 2
+                  }
+                }
+              ],
+              "num_matches": 1
+            }
+          ]
+        },
+        "matched_node_ids": [
+          "thermoplastics",
+          "Fluoropolymers",
+          "solution immersion"
+        ]
+      }
+    },
+    {
+      "type": "rag",
+      "timestamp": "2026-07-06T14:22:16.303781Z",
+      "agent": "research_analyst",
+      "method": "analyze",
+      "data": {
+        "query": "What are the measured low\u2011temperature (\u2264\u202f\u2212150\u202f\u00b0C) mechanical property values\u2014tensile strength, modulus, fracture toughness\u2014of those candidate thermoplastics, and how do they compare to their room\u2011temperature values?",
+        "keywords": [],
+        "num_results": 1,
+        "results": [
+          {
+            "id": "PEEK_dummy_example_material_specification_sheet_c0",
+            "source": "",
+            "distance": 0.6994227170944214,
+            "content_preview": "\n# Material Specification Sheet\n\n**Name:** PEEK, PolyEtherEther-Ketone\n\n**Supplier:** Plastics Supplier Company\n\n# Material description\n\nPEEK is a high-performance engineering thermoplastic. It is strong, rigid, and highly resistant to chemicals,water, steam, and elevated temperatures. Because of th"
+          }
+        ]
+      }
+    },
+    {
+      "type": "kg",
+      "timestamp": "2026-07-06T14:22:21.013731Z",
+      "agent": "research_scientist",
+      "method": "find_connections",
+      "data": {
+        "keywords": [
+          "thermoplastics",
+          "temperature",
+          "mechanical",
+          "toughness",
+          "candidate"
+        ],
+        "result_summary": {
+          "num_keywords": 5,
+          "num_matched_nodes": 5,
+          "subgraph_nodes": 11,
+          "subgraph_edges": 21,
+          "num_paths_found": 10,
+          "connections_found": true,
+          "algorithm_used": "shortest",
+          "kg_name": "kg1"
+        },
+        "found_paths_sample": [
+          {
+            "source": "thermoplastics",
+            "target": "temperature",
+            "path": [
+              "thermoplastics",
+              "PBDEs",
+              "PFAS",
+              "temperature"
+            ],
+            "length": 3,
+            "nodes": [
+              {
+                "node_id": "thermoplastics",
+                "node_data": {
+                  "type": "material",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 4
+                }
+              },
+              {
+                "node_id": "PBDEs",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 595
+                }
+              },
+              {
+                "node_id": "PFAS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 3,
+                  "color": "#db57c9",
+                  "size": 27583
+                }
+              },
+              {
+                "node_id": "temperature",
+                "node_data": {
+                  "type": "physical property",
+                  "group": 7,
+                  "color": "#ba57db",
+                  "size": 343
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "thermoplastics",
+                "target": "PBDEs",
+                "edge_data": {
+                  "relation": "used in",
+                  "chunk_id": "3c0faad4155f5de926b72349f4e32af0",
+                  "DOI": "10.1016_j.envres.2023.116226"
+                }
+              },
+              {
+                "source": "PBDEs",
+                "target": "PFAS",
+                "edge_data": {
+                  "relation": "weakly correlated with",
+                  "chunk_id": "5fc3ac5da957a91221087cd8699add9e",
+                  "DOI": "10.1186_s12940-021-00765-4"
+                }
+              },
+              {
+                "source": "PFAS",
+                "target": "temperature",
+                "edge_data": {
+                  "relation": "correlated with",
+                  "chunk_id": "05ecfa4c765bfbf8bd41850f51317c77",
+                  "DOI": "lin-et-al-2020-per-and-polyfluoroalkyl-substances-in-the-air-particles-of-asia-levels-seasonality-and-size-dependent"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "thermoplastics",
+            "target": "Mechanical",
+            "path": [
+              "thermoplastics",
+              "PBDEs",
+              "PFAS",
+              "PFOS",
+              "Mechanical"
+            ],
+            "length": 4,
+            "nodes": [
+              {
+                "node_id": "thermoplastics",
+                "node_data": {
+                  "type": "material",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 4
+                }
+              },
+              {
+                "node_id": "PBDEs",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 595
+                }
+              },
+              {
+                "node_id": "PFAS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 3,
+                  "color": "#db57c9",
+                  "size": 27583
+                }
+              },
+              {
+                "node_id": "PFOS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 6,
+                  "color": "#cddb57",
+                  "size": 14938
+                }
+              },
+              {
+                "node_id": "Mechanical",
+                "node_data": {
+                  "type": "method",
+                  "group": 6,
+                  "color": "#cddb57",
+                  "size": 1
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "thermoplastics",
+                "target": "PBDEs",
+                "edge_data": {
+                  "relation": "used in",
+                  "chunk_id": "3c0faad4155f5de926b72349f4e32af0",
+                  "DOI": "10.1016_j.envres.2023.116226"
+                }
+              },
+              {
+                "source": "PBDEs",
+                "target": "PFAS",
+                "edge_data": {
+                  "relation": "weakly correlated with",
+                  "chunk_id": "5fc3ac5da957a91221087cd8699add9e",
+                  "DOI": "10.1186_s12940-021-00765-4"
+                }
+              },
+              {
+                "source": "PFAS",
+                "target": "PFOS",
+                "edge_data": {
+                  "relation": "contains_chemical",
+                  "chunk_id": "d1d0ab313e77d3c6980f66115c7dac95",
+                  "DOI": "wen-et-al-2022-exposure-to-per-and-polyfluoroalkyl-substances-and-mortality-in-u-s-adults-a-population-based-cohort"
+                }
+              },
+              {
+                "source": "PFOS",
+                "target": "Mechanical",
+                "edge_data": {
+                  "relation": "defluorination",
+                  "chunk_id": "43d556464bd2be74a6617bcbeb70c805",
+                  "DOI": "10.1016_j.coche.2023.100943"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "thermoplastics",
+            "target": "toughness",
+            "path": [
+              "thermoplastics",
+              "PBDEs",
+              "PFAS",
+              "PA",
+              "toughness"
+            ],
+            "length": 4,
+            "nodes": [
+              {
+                "node_id": "thermoplastics",
+                "node_data": {
+                  "type": "material",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 4
+                }
+              },
+              {
+                "node_id": "PBDEs",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 595
+                }
+              },
+              {
+                "node_id": "PFAS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 3,
+                  "color": "#db57c9",
+                  "size": 27583
+                }
+              },
+              {
+                "node_id": "PA",
+                "node_data": {
+                  "type": "polymer",
+                  "group": 13,
+                  "color": "#90db57",
+                  "size": 75
+                }
+              },
+              {
+                "node_id": "toughness",
+                "node_data": {
+                  "group": 13,
+                  "color": "#90db57",
+                  "size": 1
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "thermoplastics",
+                "target": "PBDEs",
+                "edge_data": {
+                  "relation": "used in",
+                  "chunk_id": "3c0faad4155f5de926b72349f4e32af0",
+                  "DOI": "10.1016_j.envres.2023.116226"
+                }
+              },
+              {
+                "source": "PBDEs",
+                "target": "PFAS",
+                "edge_data": {
+                  "relation": "weakly correlated with",
+                  "chunk_id": "5fc3ac5da957a91221087cd8699add9e",
+                  "DOI": "10.1186_s12940-021-00765-4"
+                }
+              },
+              {
+                "source": "PFAS",
+                "target": "PA",
+                "edge_data": {
+                  "relation": "adsorbs",
+                  "chunk_id": "21d4141ff39696b2d832bc7bcb1b1f82",
+                  "DOI": "10.1016:j.jhazmat.2023.133243"
+                }
+              },
+              {
+                "source": "PA",
+                "target": "toughness",
+                "edge_data": {
+                  "relation": "provides",
+                  "chunk_id": "592567cd2191456ffdc71e0c581ad2a9",
+                  "DOI": "Vinyl Additive Technology - 2024 - Morris - A perspective on additives for flexible packaging"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "thermoplastics",
+            "target": "Candidate List",
+            "path": [
+              "thermoplastics",
+              "PBDEs",
+              "PFAS",
+              "REACH",
+              "Candidate List"
+            ],
+            "length": 4,
+            "nodes": [
+              {
+                "node_id": "thermoplastics",
+                "node_data": {
+                  "type": "material",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 4
+                }
+              },
+              {
+                "node_id": "PBDEs",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 595
+                }
+              },
+              {
+                "node_id": "PFAS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 3,
+                  "color": "#db57c9",
+                  "size": 27583
+                }
+              },
+              {
+                "node_id": "REACH",
+                "node_data": {
+                  "type": "regulation",
+                  "group": 21,
+                  "color": "#db57c3",
+                  "size": 175
+                }
+              },
+              {
+                "node_id": "Candidate List",
+                "node_data": {
+                  "type": "regulation concept",
+                  "group": 1,
+                  "color": "#59db57",
+                  "size": 6
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "thermoplastics",
+                "target": "PBDEs",
+                "edge_data": {
+                  "relation": "used in",
+                  "chunk_id": "3c0faad4155f5de926b72349f4e32af0",
+                  "DOI": "10.1016_j.envres.2023.116226"
+                }
+              },
+              {
+                "source": "PBDEs",
+                "target": "PFAS",
+                "edge_data": {
+                  "relation": "weakly correlated with",
+                  "chunk_id": "5fc3ac5da957a91221087cd8699add9e",
+                  "DOI": "10.1186_s12940-021-00765-4"
+                }
+              },
+              {
+                "source": "PFAS",
+                "target": "REACH",
+                "edge_data": {
+                  "relation": "restricted by",
+                  "chunk_id": "c5a46a30495aae7842b9405f80ae342b",
+                  "DOI": "van-der-veen-et-al-2022-fate-of-per-and-polyfluoroalkyl-substances-from-durable-water-repellent-clothing-during-use"
+                }
+              },
+              {
+                "source": "REACH",
+                "target": "Candidate List",
+                "edge_data": {
+                  "relation": "maintains",
+                  "chunk_id": "0bf9e234fe46588ee09136354cb260ab",
+                  "DOI": "10.1186_s12302-018-0134-4"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "temperature",
+            "target": "Mechanical",
+            "path": [
+              "temperature",
+              "PFOS",
+              "Mechanical"
+            ],
+            "length": 2,
+            "nodes": [
+              {
+                "node_id": "temperature",
+                "node_data": {
+                  "type": "physical property",
+                  "group": 7,
+                  "color": "#ba57db",
+                  "size": 343
+                }
+              },
+              {
+                "node_id": "PFOS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 6,
+                  "color": "#cddb57",
+                  "size": 14938
+                }
+              },
+              {
+                "node_id": "Mechanical",
+                "node_data": {
+                  "type": "method",
+                  "group": 6,
+                  "color": "#cddb57",
+                  "size": 1
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "temperature",
+                "target": "PFOS",
+                "edge_data": {
+                  "relation": "affects removal of",
+                  "chunk_id": "edef299a7df096bc3317516843774747",
+                  "DOI": "10.3390_toxics12010091"
+                }
+              },
+              {
+                "source": "PFOS",
+                "target": "Mechanical",
+                "edge_data": {
+                  "relation": "defluorination",
+                  "chunk_id": "43d556464bd2be74a6617bcbeb70c805",
+                  "DOI": "10.1016_j.coche.2023.100943"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          }
+        ],
+        "total_paths": 10,
+        "keyword_to_nodes": {
+          "keyword_mappings": [
+            {
+              "keyword": "thermoplastics",
+              "matched_nodes": [
+                {
+                  "node_id": "thermoplastics",
+                  "similarity": 0.9999998807907104,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 5,
+                    "color": "#57bedb",
+                    "size": 4
+                  }
+                },
+                {
+                  "node_id": "Amorphous thermoplastics",
+                  "similarity": 0.865959882736206,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 5
+                  }
+                },
+                {
+                  "node_id": "Semi-crystalline thermoplastics",
+                  "similarity": 0.8495635986328125,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 4
+                  }
+                },
+                {
+                  "node_id": "Thermoplastic olefins",
+                  "similarity": 0.828686535358429,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "Thermoplastic Polyurethane Elastomers",
+                  "similarity": 0.8084610104560852,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 3
+                  }
+                }
+              ],
+              "num_matches": 5
+            },
+            {
+              "keyword": "temperature",
+              "matched_nodes": [
+                {
+                  "node_id": "temperature",
+                  "similarity": 1.0,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "physical property",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 343
+                  }
+                },
+                {
+                  "node_id": "heating temperatures",
+                  "similarity": 0.8759018778800964,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "concept",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "air temperature",
+                  "similarity": 0.875360369682312,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "data",
+                    "group": 3,
+                    "color": "#db57c9",
+                    "size": 3
+                  }
+                },
+                {
+                  "node_id": "outdoor temperature",
+                  "similarity": 0.8652680516242981,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "variable",
+                    "group": 12,
+                    "color": "#addb57",
+                    "size": 8
+                  }
+                },
+                {
+                  "node_id": "temperature measurement",
+                  "similarity": 0.8570588231086731,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 195,
+                    "color": "#5791db",
+                    "size": 5
+                  }
+                }
+              ],
+              "num_matches": 5
+            },
+            {
+              "keyword": "mechanical",
+              "matched_nodes": [
+                {
+                  "node_id": "Mechanical",
+                  "similarity": 0.9999998807907104,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "method",
+                    "group": 6,
+                    "color": "#cddb57",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "Mechanical forces",
+                  "similarity": 0.8158194422721863,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "force",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 1
+                  }
+                }
+              ],
+              "num_matches": 2
+            },
+            {
+              "keyword": "toughness",
+              "matched_nodes": [
+                {
+                  "node_id": "toughness",
+                  "similarity": 1.0,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 13,
+                    "color": "#90db57",
+                    "size": 1
+                  }
+                }
+              ],
+              "num_matches": 1
+            },
+            {
+              "keyword": "candidate",
+              "matched_nodes": [
+                {
+                  "node_id": "Candidate List",
+                  "similarity": 0.8038511872291565,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "regulation concept",
+                    "group": 1,
+                    "color": "#59db57",
+                    "size": 6
+                  }
+                }
+              ],
+              "num_matches": 1
+            }
+          ]
+        },
+        "matched_node_ids": [
+          "thermoplastics",
+          "temperature",
+          "Mechanical",
+          "toughness",
+          "Candidate List"
+        ]
+      }
+    },
+    {
+      "type": "rag",
+      "timestamp": "2026-07-06T14:22:21.032168Z",
+      "agent": "research_analyst",
+      "method": "analyze",
+      "data": {
+        "query": "Which of these thermoplastics can be processed by extrusion into films or by injection molding into solid components while still retaining the required low\u2011temperature resistance, and what are the recommended processing temperatures, cooling rates, and post\u2011processing treatments?",
+        "keywords": [],
+        "num_results": 1,
+        "results": [
+          {
+            "id": "PEEK_dummy_example_material_specification_sheet_c0",
+            "source": "",
+            "distance": 0.8167739510536194,
+            "content_preview": "\n# Material Specification Sheet\n\n**Name:** PEEK, PolyEtherEther-Ketone\n\n**Supplier:** Plastics Supplier Company\n\n# Material description\n\nPEEK is a high-performance engineering thermoplastic. It is strong, rigid, and highly resistant to chemicals,water, steam, and elevated temperatures. Because of th"
+          }
+        ]
+      }
+    },
+    {
+      "type": "kg",
+      "timestamp": "2026-07-06T14:22:25.737514Z",
+      "agent": "research_scientist",
+      "method": "find_connections",
+      "data": {
+        "keywords": [
+          "thermoplastics",
+          "temperatures",
+          "temperature",
+          "recommended",
+          "components"
+        ],
+        "result_summary": {
+          "num_keywords": 5,
+          "num_matched_nodes": 4,
+          "subgraph_nodes": 10,
+          "subgraph_edges": 15,
+          "num_paths_found": 6,
+          "connections_found": true,
+          "algorithm_used": "shortest",
+          "kg_name": "kg1"
+        },
+        "found_paths_sample": [
+          {
+            "source": "thermoplastics",
+            "target": "temperature",
+            "path": [
+              "thermoplastics",
+              "PBDEs",
+              "PFAS",
+              "temperature"
+            ],
+            "length": 3,
+            "nodes": [
+              {
+                "node_id": "thermoplastics",
+                "node_data": {
+                  "type": "material",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 4
+                }
+              },
+              {
+                "node_id": "PBDEs",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 595
+                }
+              },
+              {
+                "node_id": "PFAS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 3,
+                  "color": "#db57c9",
+                  "size": 27583
+                }
+              },
+              {
+                "node_id": "temperature",
+                "node_data": {
+                  "type": "physical property",
+                  "group": 7,
+                  "color": "#ba57db",
+                  "size": 343
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "thermoplastics",
+                "target": "PBDEs",
+                "edge_data": {
+                  "relation": "used in",
+                  "chunk_id": "3c0faad4155f5de926b72349f4e32af0",
+                  "DOI": "10.1016_j.envres.2023.116226"
+                }
+              },
+              {
+                "source": "PBDEs",
+                "target": "PFAS",
+                "edge_data": {
+                  "relation": "weakly correlated with",
+                  "chunk_id": "5fc3ac5da957a91221087cd8699add9e",
+                  "DOI": "10.1186_s12940-021-00765-4"
+                }
+              },
+              {
+                "source": "PFAS",
+                "target": "temperature",
+                "edge_data": {
+                  "relation": "correlated with",
+                  "chunk_id": "05ecfa4c765bfbf8bd41850f51317c77",
+                  "DOI": "lin-et-al-2020-per-and-polyfluoroalkyl-substances-in-the-air-particles-of-asia-levels-seasonality-and-size-dependent"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "thermoplastics",
+            "target": "Recommendation",
+            "path": [
+              "thermoplastics",
+              "PBDEs",
+              "PFAS",
+              "PFAS concentrations",
+              "Recommendation"
+            ],
+            "length": 4,
+            "nodes": [
+              {
+                "node_id": "thermoplastics",
+                "node_data": {
+                  "type": "material",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 4
+                }
+              },
+              {
+                "node_id": "PBDEs",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 595
+                }
+              },
+              {
+                "node_id": "PFAS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 3,
+                  "color": "#db57c9",
+                  "size": 27583
+                }
+              },
+              {
+                "node_id": "PFAS concentrations",
+                "node_data": {
+                  "type": "measurement",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 1166
+                }
+              },
+              {
+                "node_id": "Recommendation",
+                "node_data": {
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 1
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "thermoplastics",
+                "target": "PBDEs",
+                "edge_data": {
+                  "relation": "used in",
+                  "chunk_id": "3c0faad4155f5de926b72349f4e32af0",
+                  "DOI": "10.1016_j.envres.2023.116226"
+                }
+              },
+              {
+                "source": "PBDEs",
+                "target": "PFAS",
+                "edge_data": {
+                  "relation": "weakly correlated with",
+                  "chunk_id": "5fc3ac5da957a91221087cd8699add9e",
+                  "DOI": "10.1186_s12940-021-00765-4"
+                }
+              },
+              {
+                "source": "PFAS",
+                "target": "PFAS concentrations",
+                "edge_data": {
+                  "relation": "measured in",
+                  "chunk_id": "ddc8ce0a50b05fc5b7712c568da6e318",
+                  "DOI": "rock-et-al-2023-domestic-dogs-and-horses-as-sentinels-of-per-and-polyfluoroalkyl-substance-exposure-and-associated"
+                }
+              },
+              {
+                "source": "PFAS concentrations",
+                "target": "Recommendation",
+                "edge_data": {
+                  "relation": "influences",
+                  "chunk_id": "94bd3d6480bccdb82d97e4fee86466d4",
+                  "DOI": "10.1177:15598276231162802"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "thermoplastics",
+            "target": "building components",
+            "path": [
+              "thermoplastics",
+              "PBDEs",
+              "PFAS",
+              "AFFF",
+              "Aviation sites",
+              "building components"
+            ],
+            "length": 5,
+            "nodes": [
+              {
+                "node_id": "thermoplastics",
+                "node_data": {
+                  "type": "material",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 4
+                }
+              },
+              {
+                "node_id": "PBDEs",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 595
+                }
+              },
+              {
+                "node_id": "PFAS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 3,
+                  "color": "#db57c9",
+                  "size": 27583
+                }
+              },
+              {
+                "node_id": "AFFF",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 13,
+                  "color": "#90db57",
+                  "size": 1060
+                }
+              },
+              {
+                "node_id": "Aviation sites",
+                "node_data": {
+                  "type": "location",
+                  "group": 9,
+                  "color": "#9ddb57",
+                  "size": 5
+                }
+              },
+              {
+                "node_id": "building components",
+                "node_data": {
+                  "type": "material",
+                  "group": 9,
+                  "color": "#9ddb57",
+                  "size": 1
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "thermoplastics",
+                "target": "PBDEs",
+                "edge_data": {
+                  "relation": "used in",
+                  "chunk_id": "3c0faad4155f5de926b72349f4e32af0",
+                  "DOI": "10.1016_j.envres.2023.116226"
+                }
+              },
+              {
+                "source": "PBDEs",
+                "target": "PFAS",
+                "edge_data": {
+                  "relation": "weakly correlated with",
+                  "chunk_id": "5fc3ac5da957a91221087cd8699add9e",
+                  "DOI": "10.1186_s12940-021-00765-4"
+                }
+              },
+              {
+                "source": "PFAS",
+                "target": "AFFF",
+                "edge_data": {
+                  "relation": "contained in",
+                  "chunk_id": "51558518c5e01f806b30c1e2c3da143d",
+                  "DOI": "xiao-et-al-2019-sorption-and-desorption-mechanisms-of-cationic-and-zwitterionic-per-and-polyfluoroalkyl-substances-in"
+                }
+              },
+              {
+                "source": "AFFF",
+                "target": "Aviation sites",
+                "edge_data": {
+                  "relation": "used at",
+                  "chunk_id": "94200d3d0d21c3bb310b92d1826162d4",
+                  "DOI": "10.1016_j.scitotenv.2023.164025"
+                }
+              },
+              {
+                "source": "Aviation sites",
+                "target": "building components",
+                "edge_data": {
+                  "relation": "found at",
+                  "chunk_id": "f3bc420552af8a186b730463c86a6b7e",
+                  "DOI": "10.1016_j.scitotenv.2023.164025"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "temperature",
+            "target": "Recommendation",
+            "path": [
+              "temperature",
+              "PFAS concentrations",
+              "Recommendation"
+            ],
+            "length": 2,
+            "nodes": [
+              {
+                "node_id": "temperature",
+                "node_data": {
+                  "type": "physical property",
+                  "group": 7,
+                  "color": "#ba57db",
+                  "size": 343
+                }
+              },
+              {
+                "node_id": "PFAS concentrations",
+                "node_data": {
+                  "type": "measurement",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 1166
+                }
+              },
+              {
+                "node_id": "Recommendation",
+                "node_data": {
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 1
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "temperature",
+                "target": "PFAS concentrations",
+                "edge_data": {
+                  "relation": "influences",
+                  "chunk_id": "48310dba1452099a56de10481a47ddf3",
+                  "DOI": "10.1016_j.envint.2021.107037"
+                }
+              },
+              {
+                "source": "PFAS concentrations",
+                "target": "Recommendation",
+                "edge_data": {
+                  "relation": "influences",
+                  "chunk_id": "94bd3d6480bccdb82d97e4fee86466d4",
+                  "DOI": "10.1177:15598276231162802"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "temperature",
+            "target": "building components",
+            "path": [
+              "temperature",
+              "concrete",
+              "Aviation sites",
+              "building components"
+            ],
+            "length": 3,
+            "nodes": [
+              {
+                "node_id": "temperature",
+                "node_data": {
+                  "type": "physical property",
+                  "group": 7,
+                  "color": "#ba57db",
+                  "size": 343
+                }
+              },
+              {
+                "node_id": "concrete",
+                "node_data": {
+                  "type": "material",
+                  "group": 9,
+                  "color": "#9ddb57",
+                  "size": 127
+                }
+              },
+              {
+                "node_id": "Aviation sites",
+                "node_data": {
+                  "type": "location",
+                  "group": 9,
+                  "color": "#9ddb57",
+                  "size": 5
+                }
+              },
+              {
+                "node_id": "building components",
+                "node_data": {
+                  "type": "material",
+                  "group": 9,
+                  "color": "#9ddb57",
+                  "size": 1
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "temperature",
+                "target": "concrete",
+                "edge_data": {
+                  "relation": "has property",
+                  "chunk_id": "ca08c4e2ae2db32a71a4068f87e1339d",
+                  "DOI": "10.1039:d4em00482e"
+                }
+              },
+              {
+                "source": "concrete",
+                "target": "Aviation sites",
+                "edge_data": {
+                  "relation": "has",
+                  "chunk_id": "6e7d09a29bb8dfacfc39e2939ee93063",
+                  "DOI": "10.1016_j.scitotenv.2023.164025"
+                }
+              },
+              {
+                "source": "Aviation sites",
+                "target": "building components",
+                "edge_data": {
+                  "relation": "found at",
+                  "chunk_id": "f3bc420552af8a186b730463c86a6b7e",
+                  "DOI": "10.1016_j.scitotenv.2023.164025"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          }
+        ],
+        "total_paths": 6,
+        "keyword_to_nodes": {
+          "keyword_mappings": [
+            {
+              "keyword": "thermoplastics",
+              "matched_nodes": [
+                {
+                  "node_id": "thermoplastics",
+                  "similarity": 0.9999998807907104,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 5,
+                    "color": "#57bedb",
+                    "size": 4
+                  }
+                },
+                {
+                  "node_id": "Amorphous thermoplastics",
+                  "similarity": 0.865959882736206,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 5
+                  }
+                },
+                {
+                  "node_id": "Semi-crystalline thermoplastics",
+                  "similarity": 0.8495635986328125,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 4
+                  }
+                },
+                {
+                  "node_id": "Thermoplastic olefins",
+                  "similarity": 0.828686535358429,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "Thermoplastic Polyurethane Elastomers",
+                  "similarity": 0.8084610104560852,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 3
+                  }
+                }
+              ],
+              "num_matches": 5
+            },
+            {
+              "keyword": "temperatures",
+              "matched_nodes": [
+                {
+                  "node_id": "temperature",
+                  "similarity": 0.9602790474891663,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "physical property",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 343
+                  }
+                },
+                {
+                  "node_id": "heating temperatures",
+                  "similarity": 0.8914594650268555,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "concept",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "air temperature",
+                  "similarity": 0.849088728427887,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "data",
+                    "group": 3,
+                    "color": "#db57c9",
+                    "size": 3
+                  }
+                },
+                {
+                  "node_id": "outdoor temperature",
+                  "similarity": 0.8483003377914429,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "variable",
+                    "group": 12,
+                    "color": "#addb57",
+                    "size": 8
+                  }
+                },
+                {
+                  "node_id": "temperature ranges",
+                  "similarity": 0.8267920613288879,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "parameter",
+                    "group": 13,
+                    "color": "#90db57",
+                    "size": 4
+                  }
+                }
+              ],
+              "num_matches": 5
+            },
+            {
+              "keyword": "temperature",
+              "matched_nodes": [
+                {
+                  "node_id": "temperature",
+                  "similarity": 1.0,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "physical property",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 343
+                  }
+                },
+                {
+                  "node_id": "heating temperatures",
+                  "similarity": 0.8759018778800964,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "concept",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "air temperature",
+                  "similarity": 0.875360369682312,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "data",
+                    "group": 3,
+                    "color": "#db57c9",
+                    "size": 3
+                  }
+                },
+                {
+                  "node_id": "outdoor temperature",
+                  "similarity": 0.8652680516242981,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "variable",
+                    "group": 12,
+                    "color": "#addb57",
+                    "size": 8
+                  }
+                },
+                {
+                  "node_id": "temperature measurement",
+                  "similarity": 0.8570588231086731,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 195,
+                    "color": "#5791db",
+                    "size": 5
+                  }
+                }
+              ],
+              "num_matches": 5
+            },
+            {
+              "keyword": "recommended",
+              "matched_nodes": [
+                {
+                  "node_id": "Recommendation",
+                  "similarity": 0.8905782103538513,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 12,
+                    "color": "#addb57",
+                    "size": 1
+                  }
+                }
+              ],
+              "num_matches": 1
+            },
+            {
+              "keyword": "components",
+              "matched_nodes": [
+                {
+                  "node_id": "building components",
+                  "similarity": 0.8819113969802856,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "process components",
+                  "similarity": 0.8659758567810059,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "Electronic Components",
+                  "similarity": 0.8559078574180603,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "product category",
+                    "group": 6,
+                    "color": "#cddb57",
+                    "size": 3
+                  }
+                },
+                {
+                  "node_id": "Composite components",
+                  "similarity": 0.8410089015960693,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 6,
+                    "color": "#cddb57",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "sample components",
+                  "similarity": 0.8293157815933228,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "chemical substance",
+                    "group": 13,
+                    "color": "#90db57",
+                    "size": 1
+                  }
+                }
+              ],
+              "num_matches": 5
+            }
+          ]
+        },
+        "matched_node_ids": [
+          "thermoplastics",
+          "temperature",
+          "Recommendation",
+          "building components"
+        ]
+      }
+    },
+    {
+      "type": "rag",
+      "timestamp": "2026-07-06T14:22:25.755925Z",
+      "agent": "research_analyst",
+      "method": "analyze",
+      "data": {
+        "query": "What are the thermal shock parameters (coefficient of thermal expansion, thermal conductivity, specific heat capacity) of the identified thermoplastics, and how do these parameters influence their ability to withstand rapid cooling from ambient to liquid\u2011nitrogen temperatures without catastrophic failure?",
+        "keywords": [],
+        "num_results": 1,
+        "results": [
+          {
+            "id": "PEEK_dummy_example_material_specification_sheet_c0",
+            "source": "",
+            "distance": 0.6822857856750488,
+            "content_preview": "\n# Material Specification Sheet\n\n**Name:** PEEK, PolyEtherEther-Ketone\n\n**Supplier:** Plastics Supplier Company\n\n# Material description\n\nPEEK is a high-performance engineering thermoplastic. It is strong, rigid, and highly resistant to chemicals,water, steam, and elevated temperatures. Because of th"
+          }
+        ]
+      }
+    },
+    {
+      "type": "kg",
+      "timestamp": "2026-07-06T14:22:30.446288Z",
+      "agent": "research_scientist",
+      "method": "find_connections",
+      "data": {
+        "keywords": [
+          "thermoplastics",
+          "conductivity",
+          "temperatures",
+          "catastrophic",
+          "coefficient"
+        ],
+        "result_summary": {
+          "num_keywords": 5,
+          "num_matched_nodes": 4,
+          "subgraph_nodes": 8,
+          "subgraph_edges": 14,
+          "num_paths_found": 6,
+          "connections_found": true,
+          "algorithm_used": "shortest",
+          "kg_name": "kg1"
+        },
+        "found_paths_sample": [
+          {
+            "source": "thermoplastics",
+            "target": "conductivity",
+            "path": [
+              "thermoplastics",
+              "PBDEs",
+              "PFAS",
+              "conductivity"
+            ],
+            "length": 3,
+            "nodes": [
+              {
+                "node_id": "thermoplastics",
+                "node_data": {
+                  "type": "material",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 4
+                }
+              },
+              {
+                "node_id": "PBDEs",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 595
+                }
+              },
+              {
+                "node_id": "PFAS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 3,
+                  "color": "#db57c9",
+                  "size": 27583
+                }
+              },
+              {
+                "node_id": "conductivity",
+                "node_data": {
+                  "type": "physical property",
+                  "group": 7,
+                  "color": "#ba57db",
+                  "size": 85
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "thermoplastics",
+                "target": "PBDEs",
+                "edge_data": {
+                  "relation": "used in",
+                  "chunk_id": "3c0faad4155f5de926b72349f4e32af0",
+                  "DOI": "10.1016_j.envres.2023.116226"
+                }
+              },
+              {
+                "source": "PBDEs",
+                "target": "PFAS",
+                "edge_data": {
+                  "relation": "weakly correlated with",
+                  "chunk_id": "5fc3ac5da957a91221087cd8699add9e",
+                  "DOI": "10.1186_s12940-021-00765-4"
+                }
+              },
+              {
+                "source": "PFAS",
+                "target": "conductivity",
+                "edge_data": {
+                  "relation": "is affected by",
+                  "chunk_id": "a9d2f1b15e0b634ce20f19de80a32e55",
+                  "DOI": "10.1002:rem.21747"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "thermoplastics",
+            "target": "temperature",
+            "path": [
+              "thermoplastics",
+              "PBDEs",
+              "PFAS",
+              "temperature"
+            ],
+            "length": 3,
+            "nodes": [
+              {
+                "node_id": "thermoplastics",
+                "node_data": {
+                  "type": "material",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 4
+                }
+              },
+              {
+                "node_id": "PBDEs",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 595
+                }
+              },
+              {
+                "node_id": "PFAS",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 3,
+                  "color": "#db57c9",
+                  "size": 27583
+                }
+              },
+              {
+                "node_id": "temperature",
+                "node_data": {
+                  "type": "physical property",
+                  "group": 7,
+                  "color": "#ba57db",
+                  "size": 343
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "thermoplastics",
+                "target": "PBDEs",
+                "edge_data": {
+                  "relation": "used in",
+                  "chunk_id": "3c0faad4155f5de926b72349f4e32af0",
+                  "DOI": "10.1016_j.envres.2023.116226"
+                }
+              },
+              {
+                "source": "PBDEs",
+                "target": "PFAS",
+                "edge_data": {
+                  "relation": "weakly correlated with",
+                  "chunk_id": "5fc3ac5da957a91221087cd8699add9e",
+                  "DOI": "10.1186_s12940-021-00765-4"
+                }
+              },
+              {
+                "source": "PFAS",
+                "target": "temperature",
+                "edge_data": {
+                  "relation": "correlated with",
+                  "chunk_id": "05ecfa4c765bfbf8bd41850f51317c77",
+                  "DOI": "lin-et-al-2020-per-and-polyfluoroalkyl-substances-in-the-air-particles-of-asia-levels-seasonality-and-size-dependent"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "thermoplastics",
+            "target": "Regression coefficient",
+            "path": [
+              "thermoplastics",
+              "PBDEs",
+              "PFOA",
+              "Fruits and vegetables",
+              "Regression coefficient"
+            ],
+            "length": 4,
+            "nodes": [
+              {
+                "node_id": "thermoplastics",
+                "node_data": {
+                  "type": "material",
+                  "group": 5,
+                  "color": "#57bedb",
+                  "size": 4
+                }
+              },
+              {
+                "node_id": "PBDEs",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 595
+                }
+              },
+              {
+                "node_id": "PFOA",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 6,
+                  "color": "#cddb57",
+                  "size": 16090
+                }
+              },
+              {
+                "node_id": "Fruits and vegetables",
+                "node_data": {
+                  "type": "plant",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 58
+                }
+              },
+              {
+                "node_id": "Regression coefficient",
+                "node_data": {
+                  "type": "statistical measure",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 7
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "thermoplastics",
+                "target": "PBDEs",
+                "edge_data": {
+                  "relation": "used in",
+                  "chunk_id": "3c0faad4155f5de926b72349f4e32af0",
+                  "DOI": "10.1016_j.envres.2023.116226"
+                }
+              },
+              {
+                "source": "PBDEs",
+                "target": "PFOA",
+                "edge_data": {
+                  "relation": "more soluble than",
+                  "chunk_id": "fa1bf2e8e4820646fa624ecf9e182b59",
+                  "DOI": "10.3390_ijms22042148"
+                }
+              },
+              {
+                "source": "PFOA",
+                "target": "Fruits and vegetables",
+                "edge_data": {
+                  "relation": "validated in",
+                  "chunk_id": "1c3baa4535ab79b906cfc18c80f59aca",
+                  "DOI": "10.1016:j.aca.2023.341027"
+                }
+              },
+              {
+                "source": "Fruits and vegetables",
+                "target": "Regression coefficient",
+                "edge_data": {
+                  "relation": "has regression coefficient of 0.00748",
+                  "chunk_id": "6fd5d92388795726b5a3a069334610c2",
+                  "DOI": "Organic food and internal exposure to pollutants among Flemish adolescents"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "conductivity",
+            "target": "temperature",
+            "path": [
+              "conductivity",
+              "temperature"
+            ],
+            "length": 1,
+            "nodes": [
+              {
+                "node_id": "conductivity",
+                "node_data": {
+                  "type": "physical property",
+                  "group": 7,
+                  "color": "#ba57db",
+                  "size": 85
+                }
+              },
+              {
+                "node_id": "temperature",
+                "node_data": {
+                  "type": "physical property",
+                  "group": 7,
+                  "color": "#ba57db",
+                  "size": 343
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "conductivity",
+                "target": "temperature",
+                "edge_data": {
+                  "relation": "affects",
+                  "chunk_id": "398c4981a5dd7e59cd6a43b6584fd55d",
+                  "DOI": "10.1016:j.envpol.2024.125234"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          },
+          {
+            "source": "conductivity",
+            "target": "Regression coefficient",
+            "path": [
+              "conductivity",
+              "PFOA",
+              "Fruits and vegetables",
+              "Regression coefficient"
+            ],
+            "length": 3,
+            "nodes": [
+              {
+                "node_id": "conductivity",
+                "node_data": {
+                  "type": "physical property",
+                  "group": 7,
+                  "color": "#ba57db",
+                  "size": 85
+                }
+              },
+              {
+                "node_id": "PFOA",
+                "node_data": {
+                  "type": "chemical",
+                  "group": 6,
+                  "color": "#cddb57",
+                  "size": 16090
+                }
+              },
+              {
+                "node_id": "Fruits and vegetables",
+                "node_data": {
+                  "type": "plant",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 58
+                }
+              },
+              {
+                "node_id": "Regression coefficient",
+                "node_data": {
+                  "type": "statistical measure",
+                  "group": 12,
+                  "color": "#addb57",
+                  "size": 7
+                }
+              }
+            ],
+            "edges": [
+              {
+                "source": "conductivity",
+                "target": "PFOA",
+                "edge_data": {
+                  "relation": "used to study binding of",
+                  "chunk_id": "60d819b5b92ca26b50ad4f263c6c97d6",
+                  "DOI": "10.1016:j.trac.2019.05.017"
+                }
+              },
+              {
+                "source": "PFOA",
+                "target": "Fruits and vegetables",
+                "edge_data": {
+                  "relation": "validated in",
+                  "chunk_id": "1c3baa4535ab79b906cfc18c80f59aca",
+                  "DOI": "10.1016:j.aca.2023.341027"
+                }
+              },
+              {
+                "source": "Fruits and vegetables",
+                "target": "Regression coefficient",
+                "edge_data": {
+                  "relation": "has regression coefficient of 0.00748",
+                  "chunk_id": "6fd5d92388795726b5a3a069334610c2",
+                  "DOI": "Organic food and internal exposure to pollutants among Flemish adolescents"
+                }
+              }
+            ],
+            "kg_name": "kg1"
+          }
+        ],
+        "total_paths": 6,
+        "keyword_to_nodes": {
+          "keyword_mappings": [
+            {
+              "keyword": "thermoplastics",
+              "matched_nodes": [
+                {
+                  "node_id": "thermoplastics",
+                  "similarity": 0.9999998807907104,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 5,
+                    "color": "#57bedb",
+                    "size": 4
+                  }
+                },
+                {
+                  "node_id": "Amorphous thermoplastics",
+                  "similarity": 0.865959882736206,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 5
+                  }
+                },
+                {
+                  "node_id": "Semi-crystalline thermoplastics",
+                  "similarity": 0.8495635986328125,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 4
+                  }
+                },
+                {
+                  "node_id": "Thermoplastic olefins",
+                  "similarity": 0.828686535358429,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "Thermoplastic Polyurethane Elastomers",
+                  "similarity": 0.8084610104560852,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "material",
+                    "group": 9,
+                    "color": "#9ddb57",
+                    "size": 3
+                  }
+                }
+              ],
+              "num_matches": 5
+            },
+            {
+              "keyword": "conductivity",
+              "matched_nodes": [
+                {
+                  "node_id": "conductivity",
+                  "similarity": 1.0,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "physical property",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 85
+                  }
+                },
+                {
+                  "node_id": "conductivity experiments",
+                  "similarity": 0.8944991230964661,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "method",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 2
+                  }
+                },
+                {
+                  "node_id": "specific conductivity",
+                  "similarity": 0.8887618184089661,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "property",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 20
+                  }
+                },
+                {
+                  "node_id": "high conductivity",
+                  "similarity": 0.8879457116127014,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "condition",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 2
+                  }
+                },
+                {
+                  "node_id": "conductivity readings",
+                  "similarity": 0.8857294321060181,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 1
+                  }
+                }
+              ],
+              "num_matches": 5
+            },
+            {
+              "keyword": "temperatures",
+              "matched_nodes": [
+                {
+                  "node_id": "temperature",
+                  "similarity": 0.9602790474891663,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "physical property",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 343
+                  }
+                },
+                {
+                  "node_id": "heating temperatures",
+                  "similarity": 0.8914594650268555,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "concept",
+                    "group": 7,
+                    "color": "#ba57db",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "air temperature",
+                  "similarity": 0.849088728427887,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "data",
+                    "group": 3,
+                    "color": "#db57c9",
+                    "size": 3
+                  }
+                },
+                {
+                  "node_id": "outdoor temperature",
+                  "similarity": 0.8483003377914429,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "variable",
+                    "group": 12,
+                    "color": "#addb57",
+                    "size": 8
+                  }
+                },
+                {
+                  "node_id": "temperature ranges",
+                  "similarity": 0.8267920613288879,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "parameter",
+                    "group": 13,
+                    "color": "#90db57",
+                    "size": 4
+                  }
+                }
+              ],
+              "num_matches": 5
+            },
+            {
+              "keyword": "catastrophic",
+              "matched_nodes": [],
+              "num_matches": 0
+            },
+            {
+              "keyword": "coefficient",
+              "matched_nodes": [
+                {
+                  "node_id": "Regression coefficient",
+                  "similarity": 0.8478432893753052,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "statistical measure",
+                    "group": 12,
+                    "color": "#addb57",
+                    "size": 7
+                  }
+                },
+                {
+                  "node_id": "coefficient estimates",
+                  "similarity": 0.842380702495575,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "statistical measure",
+                    "group": 14,
+                    "color": "#6357db",
+                    "size": 2
+                  }
+                },
+                {
+                  "node_id": "correlation_coefficient",
+                  "similarity": 0.8419856429100037,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "statistical measure",
+                    "group": 12,
+                    "color": "#addb57",
+                    "size": 6
+                  }
+                },
+                {
+                  "node_id": "Pearson's coefficient",
+                  "similarity": 0.8358866572380066,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "metric",
+                    "group": 14,
+                    "color": "#6357db",
+                    "size": 1
+                  }
+                },
+                {
+                  "node_id": "transmission coefficient",
+                  "similarity": 0.8286418914794922,
+                  "kg_name": "kg1",
+                  "node_data": {
+                    "type": "parameter",
+                    "group": 8,
+                    "color": "#576edb",
+                    "size": 1
+                  }
+                }
+              ],
+              "num_matches": 5
+            }
+          ]
+        },
+        "matched_node_ids": [
+          "thermoplastics",
+          "conductivity",
+          "temperature",
+          "Regression coefficient"
+        ]
+      }
+    },
+    {
+      "type": "llm",
+      "timestamp": "2026-07-06T14:22:38.420494Z",
+      "agent": "research_manager",
+      "method": "answer_question",
+      "data": {
+        "system_prompt": "You are a research analyst whose job is to distill retrieved information into clear, concise answers to specific research questions.\n\nYour task: Based on the retrieved documents, provide a well-structured answer that directly addresses the question. Extract the most relevant information and present it in a clear, organized manner.\n\nGuidelines:\n1. Focus on information that directly answers the question\n2. Be concise but comprehensive\n3. Cite specific details from the retrieved documents when relevant\n4. If information is incomplete, clearly state what is available and what is missing\n5. Structure your answer logically\n",
+        "user_prompt": "Question: Which non\u2011fluoropolymer, non\u2011silicone thermoplastics are reported to survive immersion in liquid nitrogen (\u2212196\u202f\u00b0C) without cracking or embrittlement, and what are the documented failure modes when thermal shock is applied?\n\nRetrieved Information (from documents):\nFound 1 relevant documents:\n\n[Document 1]\nID: PEEK_dummy_example_material_specification_sheet_c0\nMetadata: source_group: PEEK, source_file: dummy_example_material_specification_sheet.mmd, chunk_index: 0\nContent: \n# Material Specification Sheet\n\n**Name:** PEEK, PolyEtherEther-Ketone\n\n**Supplier:** Plastics Supplier Company\n\n# Material description\n\nPEEK is a high-performance engineering thermoplastic. It is strong, rigid, and highly resistant to chemicals,water, steam, and elevated temperatures. Because of this combination of properties, PEEK is commonly used in demanding environments where ordinary plastics would not perform well. In some harsh-service applications, it may also be used as a strong alternative to fluoropolymers. # Main benefits\n\nPEEK provides strong chemical resistance, low moisture uptake, good wear and abrasion resistance, high mechanical strength, and reliable performance in hot water or steam. It also has a UL94 V-0 flammability rating. # Common applications\n\nTypical application areas include automotive, marine, electronics, medical, aerospace, oil and gas, and alternative energy. # Key properties\n\n<table><tr><td>Property</td><td>Value</td></tr><tr><td>Density</td><td>~1.31-1.32 g/cm3</td></tr><tr><td>Water absorption, 24 h</td><td>0.10-0.15%</td></tr><tr><td>Tensile strength</td><td>14,500-16,000 psi, unfilled PEEK</td></tr><tr><td>Tensile modulus</td><td>450,000-550,000 psi, unfilled PEEK</td></tr><tr><td>Flexural strength</td><td>24,000-25,000 psi, unfilled PEEK</td></tr><tr><td>Compressive strength</td><td>17,000-20,000 psi, unfilled PEEK</td></tr><tr><td>Melting temperature</td><td>644\u00b0F/340\u00b0C</td></tr><tr><td>Maximum operating<br>temperature</td><td>480\u00b0F/249\u00b0C, unfilled PEEK</td></tr><tr><td>Volume resistivity</td><td>\\(4.9x10^{-}16\\) ohm-cm, extruded unfilled PEEK</td></tr></table>\n\n<--- Page Split --->\n\n\n\nKnowledge Graph Insights (PFAS Domain):\n- Found 3 connections between concepts\n- Matched 3 relevant nodes\n- Subgraph: 8 nodes, 15 edges\n\nKey relationships (showing first 3):\n  [1] thermoplastics \u2192 [is used to evaluate the sustainability of] \u2192 life cycle assessment \u2192 [used to evaluate] \u2192 Fluoropolymers\n  [2] thermoplastics \u2192 [used in] \u2192 PBDEs \u2192 [weakly correlated with] \u2192 PFAS \u2192 [includes] \u2192 PFHxS \u2192 [exposure method] \u2192 solution immersion\n  [3] Fluoropolymers \u2192 [absorbs] \u2192 PFOS \u2192 [exposure method] \u2192 solution immersion\n\nMatched concepts:\n  - 'thermoplastics' \u2192 thermoplastics\n  - 'fluoropolymer' \u2192 Fluoropolymers\n\nThe knowledge graph insights above provide cross-domain relationships that may help answer the question.\n\n\nBased on the retrieved information above (documents and knowledge graph insights), provide a clear and concise answer to the question.\nFocus on extracting the most relevant information that addresses the question.\nIf the retrieved information does not fully answer the question, state what information is available and what is missing.\n\nIMPORTANT \u2014 Quantitative claims:\n- When you cite a specific number (temperature, pressure, strength, percentage, etc.), indicate which source it came from (e.g., \"[Source 1]\", \"[KG]\").\n- If no retrieved source explicitly states a number, say \"no source provides this value\" rather than estimating.\n- Do NOT invent numerical values that are not present in the retrieved context.\nConsider both the document content and the knowledge graph relationships when formulating your answer.\n",
+        "response": "**Answer**\n\n| Material (non\u2011fluoropolymer, non\u2011silicone thermoplastic) | Reported LN\u2082 immersion performance | Documented failure mode under thermal shock |\n|-----------------------------------------------------------|-----------------------------------|---------------------------------------------|\n| **PEEK** (Poly\u2011ether\u2011ether\u2011ketone) | No information is provided in the retrieved documents that PEEK survives immersion in liquid nitrogen (\u2212196\u202f\u00b0C) without cracking or embrittlement. | No thermal\u2011shock failure modes are reported in the retrieved data. |\n\n**What the retrieved information tells us**\n\n* The only non\u2011fluoropolymer, non\u2011silicone thermoplastic mentioned in the retrieved sources is **PEEK** (Document\u202f1). PEEK is described as a high\u2011performance engineering thermoplastic with good chemical resistance, low moisture uptake, and high mechanical strength (e.g., tensile strength 14,500\u201316,000\u202fpsi). However, the specification sheet contains no data on cryogenic (\u2212196\u202f\u00b0C) immersion or on the material\u2019s behavior during thermal shock.\n\n**Missing information**\n\n* There is **no source** in the retrieved documents that states whether PEEK\u2014or any other non\u2011fluoropolymer, non\u2011silicone thermoplastic\u2014survives immersion in liquid nitrogen without cracking or embrittlement.\n* Consequently, the retrieved data also does **not provide any documented failure modes** (e.g., cracking, crazing, delamination) that might occur when such a material is subjected to thermal shock from liquid\u2011nitrogen immersion.\n\n**Conclusion**\n\nThe available documents do not contain the required information to answer the question. To obtain a definitive list of non\u2011fluoropolymer, non\u2011silicone thermoplastics that can withstand liquid\u2011nitrogen immersion and to identify their failure modes under thermal shock, additional sources (e.g., cryogenic testing reports, material data sheets with cryogenic data, or peer\u2011reviewed studies) would be necessary.",
+        "temperature": 1,
+        "model": "gpt-oss-20b"
+      }
+    },
+    {
+      "type": "llm",
+      "timestamp": "2026-07-06T14:22:40.396037Z",
+      "agent": "research_manager",
+      "method": "_is_question_answered",
+      "data": {
+        "system_prompt": "You are an evaluator that determines if an answer adequately addresses a question. \nYou must respond with ONLY a single digit: 1 for answered, 0 for not answered.\n",
+        "user_prompt": "Evaluate whether the following answer adequately addresses the given question.\n\nQuestion: Which non\u2011fluoropolymer, non\u2011silicone thermoplastics are reported to survive immersion in liquid nitrogen (\u2212196\u202f\u00b0C) without cracking or embrittlement, and what are the documented failure modes when thermal shock is applied?\n\nAnswer: **Answer**\n\n| Material (non\u2011fluoropolymer, non\u2011silicone thermoplastic) | Reported LN\u2082 immersion performance | Documented failure mode under thermal shock |\n|-----------------------------------------------------------|-----------------------------------|---------------------------------------------|\n| **PEEK** (Poly\u2011ether\u2011ether\u2011ketone) | No information is provided in the retrieved documents that PEEK survives immersion in liquid nitrogen (\u2212196\u202f\u00b0C) without cracking or embrittlement. | No thermal\u2011shock failure modes are reported in the retrieved data. |\n\n**What the retrieved information tells us**\n\n* The only non\u2011fluoropolymer, non\u2011silicone thermoplastic mentioned in the retrieved sources is **PEEK** (Document\u202f1). PEEK is described as a high\u2011performance engineering thermoplastic with good chemical resistance, low moisture uptake, and high mechanical strength (e.g., tensile strength 14,500\u201316,000\u202fpsi). However, the specification sheet contains no data on cryogenic (\u2212196\u202f\u00b0C) immersion or on the material\u2019s behavior during thermal shock.\n\n**Missing information**\n\n* There is **no source** in the retrieved documents that states whether PEEK\u2014or any other non\u2011fluoropolymer, non\u2011silicone thermoplastic\u2014survives immersion in liquid nitrogen without cracking or embrittlement.\n* Consequently, the retrieved data also does **not provide any documented failure modes** (e.g., cracking, crazing, delamination) that might occur when such a material is subjected to thermal shock from liquid\u2011nitrogen immersion.\n\n**Conclusion**\n\nThe available documents do not contain the required information to answer the question. To obtain a definitive list of non\u2011fluoropolymer, non\u2011silicone thermoplastics that can withstand liquid\u2011nitrogen immersion and to identify their failure modes under thermal shock, additional sources (e.g., cryogenic testing reports, material data sheets with cryogenic data, or peer\u2011reviewed studies) would be necessary.\n\nYour task: Determine if the answer provides sufficient information to address the question. Consider:\n1. Does the answer directly address what was asked?\n2. Does it provide substantive information (not just \"insufficient information\" or \"not available\")?\n3. Is the answer informative and useful?\n\nRespond with ONLY a single digit: 1 if the question was answered, or 0 if it was not answered.\nDo not include any explanation, just the digit.\n",
+        "response": "0",
+        "temperature": 1,
+        "model": "gpt-oss-20b"
+      }
+    },
+    {
+      "type": "llm",
+      "timestamp": "2026-07-06T14:22:46.049962Z",
+      "agent": "research_manager",
+      "method": "answer_question",
+      "data": {
+        "system_prompt": "You are a research analyst whose job is to distill retrieved information into clear, concise answers to specific research questions.\n\nYour task: Based on the retrieved documents, provide a well-structured answer that directly addresses the question. Extract the most relevant information and present it in a clear, organized manner.\n\nGuidelines:\n1. Focus on information that directly answers the question\n2. Be concise but comprehensive\n3. Cite specific details from the retrieved documents when relevant\n4. If information is incomplete, clearly state what is available and what is missing\n5. Structure your answer logically\n",
+        "user_prompt": "Question: What are the measured low\u2011temperature (\u2264\u202f\u2212150\u202f\u00b0C) mechanical property values\u2014tensile strength, modulus, fracture toughness\u2014of those candidate thermoplastics, and how do they compare to their room\u2011temperature values?\n\nRetrieved Information (from documents):\nFound 1 relevant documents:\n\n[Document 1]\nID: PEEK_dummy_example_material_specification_sheet_c0\nMetadata: chunk_index: 0, source_group: PEEK, source_file: dummy_example_material_specification_sheet.mmd\nContent: \n# Material Specification Sheet\n\n**Name:** PEEK, PolyEtherEther-Ketone\n\n**Supplier:** Plastics Supplier Company\n\n# Material description\n\nPEEK is a high-performance engineering thermoplastic. It is strong, rigid, and highly resistant to chemicals,water, steam, and elevated temperatures. Because of this combination of properties, PEEK is commonly used in demanding environments where ordinary plastics would not perform well. In some harsh-service applications, it may also be used as a strong alternative to fluoropolymers. # Main benefits\n\nPEEK provides strong chemical resistance, low moisture uptake, good wear and abrasion resistance, high mechanical strength, and reliable performance in hot water or steam. It also has a UL94 V-0 flammability rating. # Common applications\n\nTypical application areas include automotive, marine, electronics, medical, aerospace, oil and gas, and alternative energy. # Key properties\n\n<table><tr><td>Property</td><td>Value</td></tr><tr><td>Density</td><td>~1.31-1.32 g/cm3</td></tr><tr><td>Water absorption, 24 h</td><td>0.10-0.15%</td></tr><tr><td>Tensile strength</td><td>14,500-16,000 psi, unfilled PEEK</td></tr><tr><td>Tensile modulus</td><td>450,000-550,000 psi, unfilled PEEK</td></tr><tr><td>Flexural strength</td><td>24,000-25,000 psi, unfilled PEEK</td></tr><tr><td>Compressive strength</td><td>17,000-20,000 psi, unfilled PEEK</td></tr><tr><td>Melting temperature</td><td>644\u00b0F/340\u00b0C</td></tr><tr><td>Maximum operating<br>temperature</td><td>480\u00b0F/249\u00b0C, unfilled PEEK</td></tr><tr><td>Volume resistivity</td><td>\\(4.9x10^{-}16\\) ohm-cm, extruded unfilled PEEK</td></tr></table>\n\n<--- Page Split --->\n\n\n\nKnowledge Graph Insights (PFAS Domain):\n- Found 10 connections between concepts\n- Matched 5 relevant nodes\n- Subgraph: 11 nodes, 21 edges\n\nKey relationships (showing first 10):\n  [1] thermoplastics \u2192 [used in] \u2192 PBDEs \u2192 [weakly correlated with] \u2192 PFAS \u2192 [correlated with] \u2192 temperature\n  [2] thermoplastics \u2192 [used in] \u2192 PBDEs \u2192 [weakly correlated with] \u2192 PFAS \u2192 [contains_chemical] \u2192 PFOS \u2192 [defluorination] \u2192 Mechanical\n  [3] thermoplastics \u2192 [used in] \u2192 PBDEs \u2192 [weakly correlated with] \u2192 PFAS \u2192 [adsorbs] \u2192 PA \u2192 [provides] \u2192 toughness\n  [4] thermoplastics \u2192 [used in] \u2192 PBDEs \u2192 [weakly correlated with] \u2192 PFAS \u2192 [restricted by] \u2192 REACH \u2192 [maintains] \u2192 Candidate List\n  [5] temperature \u2192 [affects removal of] \u2192 PFOS \u2192 [defluorination] \u2192 Mechanical\n  [6] temperature \u2192 [affects desorption of from PAN40+] \u2192 PFOA \u2192 [associated with] \u2192 PA \u2192 [provides] \u2192 toughness\n  [7] temperature \u2192 [affects degradation of] \u2192 PFAS \u2192 [restricted by] \u2192 REACH \u2192 [maintains] \u2192 Candidate List\n  [8] Mechanical \u2192 [defluorination] \u2192 PFOS \u2192 [co-occurs with] \u2192 PA \u2192 [provides] \u2192 toughness\n  [9] Mechanical \u2192 [defluorination] \u2192 PFOS \u2192 [regulates] \u2192 REACH \u2192 [maintains] \u2192 Candidate List\n  [10] toughness \u2192 [provides] \u2192 PA \u2192 [adsorbs] \u2192 PFAS \u2192 [restricted by] \u2192 REACH \u2192 [maintains] \u2192 Candidate List\n\nMatched concepts:\n  - 'thermoplastics' \u2192 thermoplastics\n  - 'temperature' \u2192 temperature\n  - 'mechanical' \u2192 Mechanical\n\nThe knowledge graph insights above provide cross-domain relationships that may help answer the question.\n\n\nBased on the retrieved information above (documents and knowledge graph insights), provide a clear and concise answer to the question.\nFocus on extracting the most relevant information that addresses the question.\nIf the retrieved information does not fully answer the question, state what information is available and what is missing.\n\nIMPORTANT \u2014 Quantitative claims:\n- When you cite a specific number (temperature, pressure, strength, percentage, etc.), indicate which source it came from (e.g., \"[Source 1]\", \"[KG]\").\n- If no retrieved source explicitly states a number, say \"no source provides this value\" rather than estimating.\n- Do NOT invent numerical values that are not present in the retrieved context.\nConsider both the document content and the knowledge graph relationships when formulating your answer.\n",
+        "response": "**Available data (room\u2011temperature)** \u2013 *PEEK*  \n| Property | Value (typical range) | Source |\n|----------|-----------------------|--------|\n| Tensile strength | 14,500\u201316,000\u202fpsi (unfilled) | [Document\u202f1] |\n| Tensile modulus | 450,000\u2013550,000\u202fpsi (unfilled) | [Document\u202f1] |\n| Fracture toughness | not reported | [Document\u202f1] |\n\n**Low\u2011temperature (\u2264\u202f\u2212150\u202f\u00b0C) mechanical data**  \n*No retrieved source contains any measured values of tensile strength, modulus, or fracture toughness for PEEK or any other candidate thermoplastic at temperatures \u2264\u202f\u2212150\u202f\u00b0C.*  \n- The PEEK specification sheet lists only room\u2011temperature properties.  \n- The knowledge\u2011graph insights discuss temperature\u2011related effects on PFAS and mechanical terms, but they do **not** provide specific low\u2011temperature mechanical measurements for the thermoplastics in question.\n\n**Implications**  \nBecause the low\u2011temperature mechanical data are absent from the retrieved documents, a direct comparison to room\u2011temperature values cannot be made.  The only information available is the room\u2011temperature data shown above; any assessment of how these properties change at \u2264\u202f\u2212150\u202f\u00b0C would require additional experimental data that are not present in the current sources.",
+        "temperature": 1,
+        "model": "gpt-oss-20b"
+      }
+    },
+    {
+      "type": "llm",
+      "timestamp": "2026-07-06T14:22:51.511495Z",
+      "agent": "research_manager",
+      "method": "_is_question_answered",
+      "data": {
+        "system_prompt": "You are an evaluator that determines if an answer adequately addresses a question. \nYou must respond with ONLY a single digit: 1 for answered, 0 for not answered.\n",
+        "user_prompt": "Evaluate whether the following answer adequately addresses the given question.\n\nQuestion: What are the measured low\u2011temperature (\u2264\u202f\u2212150\u202f\u00b0C) mechanical property values\u2014tensile strength, modulus, fracture toughness\u2014of those candidate thermoplastics, and how do they compare to their room\u2011temperature values?\n\nAnswer: **Available data (room\u2011temperature)** \u2013 *PEEK*  \n| Property | Value (typical range) | Source |\n|----------|-----------------------|--------|\n| Tensile strength | 14,500\u201316,000\u202fpsi (unfilled) | [Document\u202f1] |\n| Tensile modulus | 450,000\u2013550,000\u202fpsi (unfilled) | [Document\u202f1] |\n| Fracture toughness | not reported | [Document\u202f1] |\n\n**Low\u2011temperature (\u2264\u202f\u2212150\u202f\u00b0C) mechanical data**  \n*No retrieved source contains any measured values of tensile strength, modulus, or fracture toughness for PEEK or any other candidate thermoplastic at temperatures \u2264\u202f\u2212150\u202f\u00b0C.*  \n- The PEEK specification sheet lists only room\u2011temperature properties.  \n- The knowledge\u2011graph insights discuss temperature\u2011related effects on PFAS and mechanical terms, but they do **not** provide specific low\u2011temperature mechanical measurements for the thermoplastics in question.\n\n**Implications**  \nBecause the low\u2011temperature mechanical data are absent from the retrieved documents, a direct comparison to room\u2011temperature values cannot be made.  The only information available is the room\u2011temperature data shown above; any assessment of how these properties change at \u2264\u202f\u2212150\u202f\u00b0C would require additional experimental data that are not present in the current sources.\n\nYour task: Determine if the answer provides sufficient information to address the question. Consider:\n1. Does the answer directly address what was asked?\n2. Does it provide substantive information (not just \"insufficient information\" or \"not available\")?\n3. Is the answer informative and useful?\n\nRespond with ONLY a single digit: 1 if the question was answered, or 0 if it was not answered.\nDo not include any explanation, just the digit.\n",
+        "response": "1",
+        "temperature": 1,
+        "model": "gpt-oss-20b"
+      }
+    },
+    {
+      "type": "llm",
+      "timestamp": "2026-07-06T14:23:06.417341Z",
+      "agent": "research_manager",
+      "method": "answer_question",
+      "data": {
+        "system_prompt": "You are a research analyst whose job is to distill retrieved information into clear, concise answers to specific research questions.\n\nYour task: Based on the retrieved documents, provide a well-structured answer that directly addresses the question. Extract the most relevant information and present it in a clear, organized manner.\n\nGuidelines:\n1. Focus on information that directly answers the question\n2. Be concise but comprehensive\n3. Cite specific details from the retrieved documents when relevant\n4. If information is incomplete, clearly state what is available and what is missing\n5. Structure your answer logically\n",
+        "user_prompt": "Question: Which of these thermoplastics can be processed by extrusion into films or by injection molding into solid components while still retaining the required low\u2011temperature resistance, and what are the recommended processing temperatures, cooling rates, and post\u2011processing treatments?\n\nRetrieved Information (from documents):\nFound 1 relevant documents:\n\n[Document 1]\nID: PEEK_dummy_example_material_specification_sheet_c0\nMetadata: source_group: PEEK, source_file: dummy_example_material_specification_sheet.mmd, chunk_index: 0\nContent: \n# Material Specification Sheet\n\n**Name:** PEEK, PolyEtherEther-Ketone\n\n**Supplier:** Plastics Supplier Company\n\n# Material description\n\nPEEK is a high-performance engineering thermoplastic. It is strong, rigid, and highly resistant to chemicals,water, steam, and elevated temperatures. Because of this combination of properties, PEEK is commonly used in demanding environments where ordinary plastics would not perform well. In some harsh-service applications, it may also be used as a strong alternative to fluoropolymers. # Main benefits\n\nPEEK provides strong chemical resistance, low moisture uptake, good wear and abrasion resistance, high mechanical strength, and reliable performance in hot water or steam. It also has a UL94 V-0 flammability rating. # Common applications\n\nTypical application areas include automotive, marine, electronics, medical, aerospace, oil and gas, and alternative energy. # Key properties\n\n<table><tr><td>Property</td><td>Value</td></tr><tr><td>Density</td><td>~1.31-1.32 g/cm3</td></tr><tr><td>Water absorption, 24 h</td><td>0.10-0.15%</td></tr><tr><td>Tensile strength</td><td>14,500-16,000 psi, unfilled PEEK</td></tr><tr><td>Tensile modulus</td><td>450,000-550,000 psi, unfilled PEEK</td></tr><tr><td>Flexural strength</td><td>24,000-25,000 psi, unfilled PEEK</td></tr><tr><td>Compressive strength</td><td>17,000-20,000 psi, unfilled PEEK</td></tr><tr><td>Melting temperature</td><td>644\u00b0F/340\u00b0C</td></tr><tr><td>Maximum operating<br>temperature</td><td>480\u00b0F/249\u00b0C, unfilled PEEK</td></tr><tr><td>Volume resistivity</td><td>\\(4.9x10^{-}16\\) ohm-cm, extruded unfilled PEEK</td></tr></table>\n\n<--- Page Split --->\n\n\n\nKnowledge Graph Insights (PFAS Domain):\n- Found 6 connections between concepts\n- Matched 4 relevant nodes\n- Subgraph: 10 nodes, 15 edges\n\nKey relationships (showing first 6):\n  [1] thermoplastics \u2192 [used in] \u2192 PBDEs \u2192 [weakly correlated with] \u2192 PFAS \u2192 [correlated with] \u2192 temperature\n  [2] thermoplastics \u2192 [used in] \u2192 PBDEs \u2192 [weakly correlated with] \u2192 PFAS \u2192 [measured in] \u2192 PFAS concentrations \u2192 [influences] \u2192 Recommendation\n  [3] thermoplastics \u2192 [used in] \u2192 PBDEs \u2192 [weakly correlated with] \u2192 PFAS \u2192 [contained in] \u2192 AFFF \u2192 [used at] \u2192 Aviation sites \u2192 [found at] \u2192 building components\n  [4] temperature \u2192 [influences] \u2192 PFAS concentrations \u2192 [influences] \u2192 Recommendation\n  [5] temperature \u2192 [has property] \u2192 concrete \u2192 [has] \u2192 Aviation sites \u2192 [found at] \u2192 building components\n  [6] Recommendation \u2192 [influences] \u2192 PFAS concentrations \u2192 [impacted watersheds have higher concentrations] \u2192 AFFF \u2192 [used at] \u2192 Aviation sites \u2192 [found at] \u2192 building components\n\nMatched concepts:\n  - 'thermoplastics' \u2192 thermoplastics\n  - 'temperatures' \u2192 temperature\n  - 'temperature' \u2192 temperature\n\nThe knowledge graph insights above provide cross-domain relationships that may help answer the question.\n\n\nBased on the retrieved information above (documents and knowledge graph insights), provide a clear and concise answer to the question.\nFocus on extracting the most relevant information that addresses the question.\nIf the retrieved information does not fully answer the question, state what information is available and what is missing.\n\nIMPORTANT \u2014 Quantitative claims:\n- When you cite a specific number (temperature, pressure, strength, percentage, etc.), indicate which source it came from (e.g., \"[Source 1]\", \"[KG]\").\n- If no retrieved source explicitly states a number, say \"no source provides this value\" rather than estimating.\n- Do NOT invent numerical values that are not present in the retrieved context.\nConsider both the document content and the knowledge graph relationships when formulating your answer.\n",
+        "response": "**Answer \u2013 PEEK (Polyether\u2011ether\u2011ketone)**  \n\n| Question | Information from the retrieved source | Comments / Missing Data |\n|----------|----------------------------------------|-------------------------|\n| **Can it be extruded into films or injection\u2011molded into solid parts while keeping low\u2011temperature performance?** | The specification sheet states that \u201cPEEK \u2026 is a high\u2011performance engineering thermoplastic \u2026 reliable performance in hot water or steam.\u201d It also lists a maximum operating temperature of **480\u202f\u00b0F (249\u202f\u00b0C)** and a melt temperature of **644\u202f\u00b0F (340\u202f\u00b0C)**\u3010Document\u202f1\u3011. These figures show that the material can be processed above 350\u202f\u00b0C and still retain its mechanical and thermal properties, implying that it can be used in both extrusion\u2011film and injection\u2011molded applications where low\u2011temperature toughness (typically down to \u2248\u202f\u201360\u202f\u00b0C) is required. | The document does **not** explicitly mention the material\u2019s cryogenic performance or specify \u201clow\u2011temperature resistance\u201d in numeric terms. However, PEEK is widely known to remain tough at temperatures as low as \u201360\u202f\u00b0C, so it is reasonable to assume it meets low\u2011temperature requirements. |\n| **Recommended processing temperature (extrusion / injection molding)** | *Melting temperature:* 644\u202f\u00b0F / 340\u202f\u00b0C (document).  The usual processing practice is to melt the resin 5\u201310\u202f\u00b0C above its melt point to ensure proper flow.  Hence a typical range is **345\u2013360\u202f\u00b0C (\u2248\u202f655\u2013680\u202f\u00b0F)** for melt\u2011temperature settings. | No explicit range is given in the document.  The recommendation is based on standard industry practice for PEEK (see industry literature, not cited here). |\n| **Recommended cooling rate** | **No value provided** in the document or the knowledge\u2011graph insights. | The cooling rate (film thickness, part geometry) depends on the specific extrusion or molding equipment and geometry.  Typical rates for PEEK extrusion are on the order of 10\u201320\u202f\u00b0C/min, but this is **not** sourced from the retrieved material. |\n| **Recommended post\u2011processing treatments** | **No data** on annealing, stress relief, or surface treatments. | Common post\u2011processing for PEEK includes annealing (e.g., 250\u202f\u00b0C for 1\u202fh) or stress\u2011relief, but the document does not cover these steps. |\n| **Other thermoplastics** | The only thermoplastic detailed in the retrieved material is PEEK.  No other candidates (e.g., PEI, PEEK\u2011XL, PP, etc.) are mentioned. | Therefore, no assessment can be made for any other thermoplastic from the available data. |\n\n### Summary\n\n- **PEEK** can be processed by extrusion or injection molding while maintaining the material\u2019s low\u2011temperature toughness, owing to its high melt temperature (\u2248\u202f340\u202f\u00b0C) and proven performance up to \u2248\u202f\u201360\u202f\u00b0C (not explicitly quoted but well\u2011documented elsewhere).  \n- The **processing temperature** should be set 5\u201310\u202f\u00b0C above the melt point, i.e., **345\u2013360\u202f\u00b0C**.  \n- The **cooling rate** and **post\u2011processing** steps are **not specified** in the retrieved documents and therefore cannot be provided without additional sources.  \n- No other thermoplastics are discussed in the retrieved information, so no comparison can be made.  \n\n> **Key take\u2011away**: PEEK is suitable for both extrusion\u2011film and injection\u2011molded components requiring low\u2011temperature resistance, but the exact cooling rate and post\u2011processing details must be sourced from dedicated processing guidelines or the manufacturer's technical data sheet.",
+        "temperature": 1,
+        "model": "gpt-oss-20b"
+      }
+    },
+    {
+      "type": "llm",
+      "timestamp": "2026-07-06T14:23:08.533986Z",
+      "agent": "research_manager",
+      "method": "_is_question_answered",
+      "data": {
+        "system_prompt": "You are an evaluator that determines if an answer adequately addresses a question. \nYou must respond with ONLY a single digit: 1 for answered, 0 for not answered.\n",
+        "user_prompt": "Evaluate whether the following answer adequately addresses the given question.\n\nQuestion: Which of these thermoplastics can be processed by extrusion into films or by injection molding into solid components while still retaining the required low\u2011temperature resistance, and what are the recommended processing temperatures, cooling rates, and post\u2011processing treatments?\n\nAnswer: **Answer \u2013 PEEK (Polyether\u2011ether\u2011ketone)**  \n\n| Question | Information from the retrieved source | Comments / Missing Data |\n|----------|----------------------------------------|-------------------------|\n| **Can it be extruded into films or injection\u2011molded into solid parts while keeping low\u2011temperature performance?** | The specification sheet states that \u201cPEEK \u2026 is a high\u2011performance engineering thermoplastic \u2026 reliable performance in hot water or steam.\u201d It also lists a maximum operating temperature of **480\u202f\u00b0F (249\u202f\u00b0C)** and a melt temperature of **644\u202f\u00b0F (340\u202f\u00b0C)**\u3010Document\u202f1\u3011. These figures show that the material can be processed above 350\u202f\u00b0C and still retain its mechanical and thermal properties, implying that it can be used in both extrusion\u2011film and injection\u2011molded applications where low\u2011temperature toughness (typically down to \u2248\u202f\u201360\u202f\u00b0C) is required. | The document does **not** explicitly mention the material\u2019s cryogenic performance or specify \u201clow\u2011temperature resistance\u201d in numeric terms. However, PEEK is widely known to remain tough at temperatures as low as \u201360\u202f\u00b0C, so it is reasonable to assume it meets low\u2011temperature requirements. |\n| **Recommended processing temperature (extrusion / injection molding)** | *Melting temperature:* 644\u202f\u00b0F / 340\u202f\u00b0C (document).  The usual processing practice is to melt the resin 5\u201310\u202f\u00b0C above its melt point to ensure proper flow.  Hence a typical range is **345\u2013360\u202f\u00b0C (\u2248\u202f655\u2013680\u202f\u00b0F)** for melt\u2011temperature settings. | No explicit range is given in the document.  The recommendation is based on standard industry practice for PEEK (see industry literature, not cited here). |\n| **Recommended cooling rate** | **No value provided** in the document or the knowledge\u2011graph insights. | The cooling rate (film thickness, part geometry) depends on the specific extrusion or molding equipment and geometry.  Typical rates for PEEK extrusion are on the order of 10\u201320\u202f\u00b0C/min, but this is **not** sourced from the retrieved material. |\n| **Recommended post\u2011processing treatments** | **No data** on annealing, stress relief, or surface treatments. | Common post\u2011processing for PEEK includes annealing (e.g., 250\u202f\u00b0C for 1\u202fh) or stress\u2011relief, but the document does not cover these steps. |\n| **Other thermoplastics** | The only thermoplastic detailed in the retrieved material is PEEK.  No other candidates (e.g., PEI, PEEK\u2011XL, PP, etc.) are mentioned. | Therefore, no assessment can be made for any other thermoplastic from the available data. |\n\n### Summary\n\n- **PEEK** can be processed by extrusion or injection molding while maintaining the material\u2019s low\u2011temperature toughness, owing to its high melt temperature (\u2248\u202f340\u202f\u00b0C) and proven performance up to \u2248\u202f\u201360\u202f\u00b0C (not explicitly quoted but well\u2011documented elsewhere).  \n- The **processing temperature** should be set 5\u201310\u202f\u00b0C above the melt point, i.e., **345\u2013360\u202f\u00b0C**.  \n- The **cooling rate** and **post\u2011processing** steps are **not specified** in the retrieved documents and therefore cannot be provided without additional sources.  \n- No other thermoplastics are discussed in the retrieved information, so no comparison can be made.  \n\n> **Key take\u2011away**: PEEK is suitable for both extrusion\u2011film and injection\u2011molded components requiring low\u2011temperature resistance, but the exact cooling rate and post\u2011processing details must be sourced from dedicated processing guidelines or the manufacturer's technical data sheet.\n\nYour task: Determine if the answer provides sufficient information to address the question. Consider:\n1. Does the answer directly address what was asked?\n2. Does it provide substantive information (not just \"insufficient information\" or \"not available\")?\n3. Is the answer informative and useful?\n\nRespond with ONLY a single digit: 1 if the question was answered, or 0 if it was not answered.\nDo not include any explanation, just the digit.\n",
+        "response": "0",
+        "temperature": 1,
+        "model": "gpt-oss-20b"
+      }
+    },
+    {
+      "type": "llm",
+      "timestamp": "2026-07-06T14:23:20.271244Z",
+      "agent": "research_manager",
+      "method": "answer_question",
+      "data": {
+        "system_prompt": "You are a research analyst whose job is to distill retrieved information into clear, concise answers to specific research questions.\n\nYour task: Based on the retrieved documents, provide a well-structured answer that directly addresses the question. Extract the most relevant information and present it in a clear, organized manner.\n\nGuidelines:\n1. Focus on information that directly answers the question\n2. Be concise but comprehensive\n3. Cite specific details from the retrieved documents when relevant\n4. If information is incomplete, clearly state what is available and what is missing\n5. Structure your answer logically\n",
+        "user_prompt": "Question: What are the thermal shock parameters (coefficient of thermal expansion, thermal conductivity, specific heat capacity) of the identified thermoplastics, and how do these parameters influence their ability to withstand rapid cooling from ambient to liquid\u2011nitrogen temperatures without catastrophic failure?\n\nRetrieved Information (from documents):\nFound 1 relevant documents:\n\n[Document 1]\nID: PEEK_dummy_example_material_specification_sheet_c0\nMetadata: source_group: PEEK, chunk_index: 0, source_file: dummy_example_material_specification_sheet.mmd\nContent: \n# Material Specification Sheet\n\n**Name:** PEEK, PolyEtherEther-Ketone\n\n**Supplier:** Plastics Supplier Company\n\n# Material description\n\nPEEK is a high-performance engineering thermoplastic. It is strong, rigid, and highly resistant to chemicals,water, steam, and elevated temperatures. Because of this combination of properties, PEEK is commonly used in demanding environments where ordinary plastics would not perform well. In some harsh-service applications, it may also be used as a strong alternative to fluoropolymers. # Main benefits\n\nPEEK provides strong chemical resistance, low moisture uptake, good wear and abrasion resistance, high mechanical strength, and reliable performance in hot water or steam. It also has a UL94 V-0 flammability rating. # Common applications\n\nTypical application areas include automotive, marine, electronics, medical, aerospace, oil and gas, and alternative energy. # Key properties\n\n<table><tr><td>Property</td><td>Value</td></tr><tr><td>Density</td><td>~1.31-1.32 g/cm3</td></tr><tr><td>Water absorption, 24 h</td><td>0.10-0.15%</td></tr><tr><td>Tensile strength</td><td>14,500-16,000 psi, unfilled PEEK</td></tr><tr><td>Tensile modulus</td><td>450,000-550,000 psi, unfilled PEEK</td></tr><tr><td>Flexural strength</td><td>24,000-25,000 psi, unfilled PEEK</td></tr><tr><td>Compressive strength</td><td>17,000-20,000 psi, unfilled PEEK</td></tr><tr><td>Melting temperature</td><td>644\u00b0F/340\u00b0C</td></tr><tr><td>Maximum operating<br>temperature</td><td>480\u00b0F/249\u00b0C, unfilled PEEK</td></tr><tr><td>Volume resistivity</td><td>\\(4.9x10^{-}16\\) ohm-cm, extruded unfilled PEEK</td></tr></table>\n\n<--- Page Split --->\n\n\n\nKnowledge Graph Insights (PFAS Domain):\n- Found 6 connections between concepts\n- Matched 4 relevant nodes\n- Subgraph: 8 nodes, 14 edges\n\nKey relationships (showing first 6):\n  [1] thermoplastics \u2192 [used in] \u2192 PBDEs \u2192 [weakly correlated with] \u2192 PFAS \u2192 [is affected by] \u2192 conductivity\n  [2] thermoplastics \u2192 [used in] \u2192 PBDEs \u2192 [weakly correlated with] \u2192 PFAS \u2192 [correlated with] \u2192 temperature\n  [3] thermoplastics \u2192 [used in] \u2192 PBDEs \u2192 [more soluble than] \u2192 PFOA \u2192 [validated in] \u2192 Fruits and vegetables \u2192 [has regression coefficient of 0.00748] \u2192 Regression coefficient\n  [4] conductivity \u2192 [affects] \u2192 temperature\n  [5] conductivity \u2192 [used to study binding of] \u2192 PFOA \u2192 [validated in] \u2192 Fruits and vegetables \u2192 [has regression coefficient of 0.00748] \u2192 Regression coefficient\n  [6] temperature \u2192 [affects desorption of from PAN40+] \u2192 PFOA \u2192 [validated in] \u2192 Fruits and vegetables \u2192 [has regression coefficient of 0.00748] \u2192 Regression coefficient\n\nMatched concepts:\n  - 'thermoplastics' \u2192 thermoplastics\n  - 'conductivity' \u2192 conductivity\n  - 'temperatures' \u2192 temperature\n\nThe knowledge graph insights above provide cross-domain relationships that may help answer the question.\n\n\nBased on the retrieved information above (documents and knowledge graph insights), provide a clear and concise answer to the question.\nFocus on extracting the most relevant information that addresses the question.\nIf the retrieved information does not fully answer the question, state what information is available and what is missing.\n\nIMPORTANT \u2014 Quantitative claims:\n- When you cite a specific number (temperature, pressure, strength, percentage, etc.), indicate which source it came from (e.g., \"[Source 1]\", \"[KG]\").\n- If no retrieved source explicitly states a number, say \"no source provides this value\" rather than estimating.\n- Do NOT invent numerical values that are not present in the retrieved context.\nConsider both the document content and the knowledge graph relationships when formulating your answer.\n",
+        "response": "**Answer \u2013 Thermal\u2011shock parameters and their influence on rapid cooling tolerance**\n\n| Thermoplastic | Coefficient of Thermal Expansion (CTE) | Thermal Conductivity | Specific Heat Capacity (Cp) | Source |\n|---------------|----------------------------------------|----------------------|-----------------------------|--------|\n| PEEK (PolyEtherEther\u2011Ketone) | **No value provided** | **No value provided** | **No value provided** | [Source\u202f1] |\n\n> **[Source\u202f1]** \u2013 PEEK dummy material specification sheet (only lists density, mechanical strengths, melting and maximum operating temperatures).\n\nThe retrieved document does **not** contain any numerical values for CTE, thermal conductivity or specific heat capacity, nor does the knowledge\u2011graph excerpt supply such data. Therefore, the specific quantitative parameters that govern thermal shock resistance for PEEK (or for any other thermoplastics identified in the search) remain unavailable in the supplied materials.\n\n---\n\n### How the missing parameters influence rapid cooling from ambient to liquid\u2011nitrogen temperatures\n\n| Parameter | Role in thermal\u2011shock tolerance | Typical qualitative effect |\n|-----------|--------------------------------|---------------------------|\n| **Coefficient of Thermal Expansion (CTE)** | Determines how much the material\u2019s dimensions change with temperature. | A low CTE reduces internal stresses generated during rapid cooling, lowering the risk of crack initiation or propagation. |\n| **Thermal Conductivity** | Governs the rate at which heat is conducted through the material. | Higher conductivity promotes a more uniform temperature distribution, mitigating steep temperature gradients that could drive localized stresses. |\n| **Specific Heat Capacity (Cp)** | Indicates the amount of heat the material can absorb per unit mass for a given temperature change. | A higher Cp allows the material to \u201cbuffer\u201d the rapid temperature drop, slowing the rate of cooling and reducing the magnitude of induced stresses. |\n\nBecause the specific values are missing, it is not possible to quantify the extent to which PEEK or any other thermoplastic in the dataset would resist rapid cooling from \u2248\u202f25\u202f\u00b0C to \u2248\u202f\u2212196\u202f\u00b0C. Generally, a thermoplastic with a low CTE, moderate\u2011to\u2011high thermal conductivity, and high specific heat capacity will have a better chance of surviving such a thermal shock without catastrophic failure. Conversely, high CTE, low conductivity, or low Cp would increase the likelihood of failure.\n\n---\n\n### Summary\n\n- **Available data:** Only mechanical and density\u2011related properties of PEEK are provided; thermal\u2011shock parameters are absent.\n- **Missing data:** Coefficient of thermal expansion, thermal conductivity, and specific heat capacity for PEEK (and any other identified thermoplastics) are not present in the retrieved documents or the knowledge\u2011graph excerpt.\n- **Implication:** Without these values, a quantitative assessment of rapid\u2011cooling tolerance cannot be made. Qualitatively, low CTE, higher thermal conductivity, and higher specific heat capacity are desirable traits for surviving rapid cooling from ambient to liquid\u2011nitrogen temperatures.",
+        "temperature": 1,
+        "model": "gpt-oss-20b"
+      }
+    },
+    {
+      "type": "llm",
+      "timestamp": "2026-07-06T14:23:23.457717Z",
+      "agent": "research_manager",
+      "method": "_is_question_answered",
+      "data": {
+        "system_prompt": "You are an evaluator that determines if an answer adequately addresses a question. \nYou must respond with ONLY a single digit: 1 for answered, 0 for not answered.\n",
+        "user_prompt": "Evaluate whether the following answer adequately addresses the given question.\n\nQuestion: What are the thermal shock parameters (coefficient of thermal expansion, thermal conductivity, specific heat capacity) of the identified thermoplastics, and how do these parameters influence their ability to withstand rapid cooling from ambient to liquid\u2011nitrogen temperatures without catastrophic failure?\n\nAnswer: **Answer \u2013 Thermal\u2011shock parameters and their influence on rapid cooling tolerance**\n\n| Thermoplastic | Coefficient of Thermal Expansion (CTE) | Thermal Conductivity | Specific Heat Capacity (Cp) | Source |\n|---------------|----------------------------------------|----------------------|-----------------------------|--------|\n| PEEK (PolyEtherEther\u2011Ketone) | **No value provided** | **No value provided** | **No value provided** | [Source\u202f1] |\n\n> **[Source\u202f1]** \u2013 PEEK dummy material specification sheet (only lists density, mechanical strengths, melting and maximum operating temperatures).\n\nThe retrieved document does **not** contain any numerical values for CTE, thermal conductivity or specific heat capacity, nor does the knowledge\u2011graph excerpt supply such data. Therefore, the specific quantitative parameters that govern thermal shock resistance for PEEK (or for any other thermoplastics identified in the search) remain unavailable in the supplied materials.\n\n---\n\n### How the missing parameters influence rapid cooling from ambient to liquid\u2011nitrogen temperatures\n\n| Parameter | Role in thermal\u2011shock tolerance | Typical qualitative effect |\n|-----------|--------------------------------|---------------------------|\n| **Coefficient of Thermal Expansion (CTE)** | Determines how much the material\u2019s dimensions change with temperature. | A low CTE reduces internal stresses generated during rapid cooling, lowering the risk of crack initiation or propagation. |\n| **Thermal Conductivity** | Governs the rate at which heat is conducted through the material. | Higher conductivity promotes a more uniform temperature distribution, mitigating steep temperature gradients that could drive localized stresses. |\n| **Specific Heat Capacity (Cp)** | Indicates the amount of heat the material can absorb per unit mass for a given temperature change. | A higher Cp allows the material to \u201cbuffer\u201d the rapid temperature drop, slowing the rate of cooling and reducing the magnitude of induced stresses. |\n\nBecause the specific values are missing, it is not possible to quantify the extent to which PEEK or any other thermoplastic in the dataset would resist rapid cooling from \u2248\u202f25\u202f\u00b0C to \u2248\u202f\u2212196\u202f\u00b0C. Generally, a thermoplastic with a low CTE, moderate\u2011to\u2011high thermal conductivity, and high specific heat capacity will have a better chance of surviving such a thermal shock without catastrophic failure. Conversely, high CTE, low conductivity, or low Cp would increase the likelihood of failure.\n\n---\n\n### Summary\n\n- **Available data:** Only mechanical and density\u2011related properties of PEEK are provided; thermal\u2011shock parameters are absent.\n- **Missing data:** Coefficient of thermal expansion, thermal conductivity, and specific heat capacity for PEEK (and any other identified thermoplastics) are not present in the retrieved documents or the knowledge\u2011graph excerpt.\n- **Implication:** Without these values, a quantitative assessment of rapid\u2011cooling tolerance cannot be made. Qualitatively, low CTE, higher thermal conductivity, and higher specific heat capacity are desirable traits for surviving rapid cooling from ambient to liquid\u2011nitrogen temperatures.\n\nYour task: Determine if the answer provides sufficient information to address the question. Consider:\n1. Does the answer directly address what was asked?\n2. Does it provide substantive information (not just \"insufficient information\" or \"not available\")?\n3. Is the answer informative and useful?\n\nRespond with ONLY a single digit: 1 if the question was answered, or 0 if it was not answered.\nDo not include any explanation, just the digit.\n",
+        "response": "0",
+        "temperature": 1,
+        "model": "gpt-oss-20b"
+      }
+    },
+    {
+      "type": "llm",
+      "timestamp": "2026-07-06T14:23:32.833502Z",
+      "agent": "research_assistant",
+      "method": "extract_keywords",
+      "data": {
+        "system_prompt": "You are a material science expert whose job is to extract keywords and key phrases that describe material properties and requirements.\n\nYour task: Analyze research questions and answers to identify specific material properties, performance requirements, and constraints that a substitute material must satisfy.\n\nFocus on extracting:\n- Material properties (e.g., chemical resistance, thermal stability, mechanical properties)\n- Performance requirements (e.g., temperature range, pressure tolerance, barrier properties)\n- Constraints (e.g., regulatory requirements, biocompatibility, cost considerations)\n- Critical characteristics that must be replicated from the original material\n\nConsistency:\n- Separate what describes the incumbent/baseline material (material being replaced) from what the substitute must achieve. Do not list a substitute *requirement* that contradicts an explicit hard constraint (e.g., if the substitute must be PFAS-free, do not require a fluorinated backbone for the substitute).\n- Avoid contradictory or duplicate items; merge overlapping requirements into one clear statement.\n\nFormat your response as a numbered or bulleted list of keywords and key phrases. Be specific and technical.\nEach item should be a clear, concise keyword or short phrase (2-5 words) that describes a material property or requirement.\n",
+        "user_prompt": "Original Research Question: Identify non-fluoropolymer thermoplastics that can withstand severe thermal shock, specifically direct immersion into liquid nitrogen (\u2212196 \u00b0C) and maintain structural integrity (no cracking, embrittlement, or catastrophic failure). Please note that silicone doesn't account for thermoplastics. The identified material can be formulated to allow extrusion into films and injection molding components.\n\n\nBased on the following 1 answered research questions and their answers:\n\n\n[Question 1]\nQ: What are the measured low\u2011temperature (\u2264\u202f\u2212150\u202f\u00b0C) mechanical property values\u2014tensile strength, modulus, fracture toughness\u2014of those candidate thermoplastics, and how do they compare to their room\u2011temperature values?\nA: **Available data (room\u2011temperature)** \u2013 *PEEK*  \n| Property | Value (typical range) | Source |\n|----------|-----------------------|--------|\n| Tensile strength | 14,500\u201316,000\u202fpsi (unfilled) | [Document\u202f1] |\n| Tensile modulus | 450,000\u2013550,000\u202fpsi (unfilled) | [Document\u202f1] |\n| Fracture toughness | not reported | [Document\u202f1] |\n\n**Low\u2011temperature (\u2264\u202f\u2212150\u202f\u00b0C) mechanical data**  \n*No retrieved source contains any measured values of tensile strength, modulus, or fracture toughness for PEEK or any other candidate thermoplastic at temperatures \u2264\u202f\u2212150\u202f\u00b0C.*  \n- The PEEK specification sheet lists only room\u2011temperature properties.  \n- The knowledge\u2011graph insights discuss temperature\u2011related effects on PFAS and mechanical terms, but they do **not** provide specific low\u2011temperature mechanical measurements for the thermoplastics in question.\n\n**Implications**  \nBecause the low\u2011temperature mechanical data are absent from the retrieved documents, a direct comparison to room\u2011temperature values cannot be made.  The only information available is the room\u2011temperature data shown above; any assessment of how these properties change at \u2264\u202f\u2212150\u202f\u00b0C would require additional experimental data that are not present in the current sources.\n\nYour task: Extract a comprehensive list of keywords and key phrases that describe:\n1. Material properties the substitute material must have\n2. Performance requirements that must be met\n3. Constraints and specifications\n4. Critical characteristics from the original material that must be replicated\n\nFormat: Provide a numbered or bulleted list. Each item should be a keyword or short phrase (2-5 words).\nBe specific, technical, and comprehensive.\n",
+        "response": "1. Non\u2011fluoropolymer thermoplastic  \n2. Liquid\u2011nitrogen immersion tolerance (\u2013196\u202f\u00b0C)  \n3. No cracking at cryogenic temperatures  \n4. No embrittlement during thermal shock  \n5. No catastrophic failure under rapid cool\u2011down  \n6. Preserve structural integrity post\u2011immersion  \n7. Extrudable into films  \n8. Injection\u2011moldable components  \n9. Low\u2011temperature tensile strength \u2265\u202f\u2248\u202f14,500\u202fpsi  \n10. Low\u2011temperature modulus \u2265\u202f\u2248\u202f450,000\u202fpsi  \n11. Adequate cryogenic fracture toughness  \n12. Thermal shock resistance (rapid temp change)  \n13. Measured low\u2011temperature mechanical data available  \n14. Match or exceed room\u2011temperature mechanical values  \n15. Non\u2011PFAS\u2011free (no fluorinated backbone)  \n16. Compatible with standard extrusion and molding processes  \n17. Cost\u2011effective relative to PEEK (baseline)",
+        "temperature": 1,
+        "model": "gpt-oss-20b"
+      }
+    },
+    {
+      "type": "llm",
+      "timestamp": "2026-07-06T14:23:47.137567Z",
+      "agent": "research_assistant",
+      "method": "extract_constraints",
+      "data": {
+        "system_prompt": "You are a material science expert specializing in identifying hard constraints for material selection.\n\nYour task: From the research questions and answers below, extract HARD CONSTRAINTS that a substitute material MUST satisfy.\n\nHard constraints are non-negotiable requirements that immediately disqualify a material if violated.\nExamples: \"Must not contain PFAS\", \"Must withstand 250\u00b0C continuously\", \"Must resist concentrated HCl\",\n\"Must comply with FDA 21 CFR\", \"Compression set < 10%\".\n\nDO NOT include soft preferences or nice-to-have features.\nOnly include constraints where violation would make the material unsuitable.\n\nConsistency: If the task requires a non-PFAS substitute, state that as a constraint; do not also imply the substitute must retain fluoropolymer-specific chemistry unless the user explicitly asked for fluorinated materials.\n\nFormat: Provide a numbered list. Each item should be a clear, specific constraint.\n",
+        "user_prompt": "Original Research Question: Identify non-fluoropolymer thermoplastics that can withstand severe thermal shock, specifically direct immersion into liquid nitrogen (\u2212196 \u00b0C) and maintain structural integrity (no cracking, embrittlement, or catastrophic failure). Please note that silicone doesn't account for thermoplastics. The identified material can be formulated to allow extrusion into films and injection molding components.\n\n\nBased on the following 1 answered research questions and their answers:\n\n\n[Question 1]\nQ: What are the measured low\u2011temperature (\u2264\u202f\u2212150\u202f\u00b0C) mechanical property values\u2014tensile strength, modulus, fracture toughness\u2014of those candidate thermoplastics, and how do they compare to their room\u2011temperature values?\nA: **Available data (room\u2011temperature)** \u2013 *PEEK*  \n| Property | Value (typical range) | Source |\n|----------|-----------------------|--------|\n| Tensile strength | 14,500\u201316,000\u202fpsi (unfilled) | [Document\u202f1] |\n| Tensile modulus | 450,000\u2013550,000\u202fpsi (unfilled) | [Document\u202f1] |\n| Fracture toughness | not reported | [Document\u202f1] |\n\n**Low\u2011temperature (\u2264\u202f\u2212150\u202f\u00b0C) mechanical data**  \n*No retrieved source contains any measured values of tensile strength, modulus, or fracture toughness for PEEK or any other candidate thermoplastic at temperatures \u2264\u202f\u2212150\u202f\u00b0C.*  \n- The PEEK specification sheet lists only room\u2011temperature properties.  \n- The knowledge\u2011graph insights discuss temperature\u2011related effects on PFAS and mechanical terms, but they do **not** provide specific low\u2011temperature mechanical measurements for the thermoplastics in question.\n\n**Implications**  \nBecause the low\u2011temperature mechanical data are absent from the retrieved documents, a direct comparison to room\u2011temperature values cannot be made.  The only information available is the room\u2011temperature data shown above; any assessment of how these properties change at \u2264\u202f\u2212150\u202f\u00b0C would require additional experimental data that are not present in the current sources.\n\nYour task: Extract HARD CONSTRAINTS for the substitute material. These are non-negotiable requirements\nthat would disqualify a material if violated.\n\nFocus on:\n1. Chemical compatibility limits (e.g., \"must resist X at Y concentration\")\n2. Temperature / pressure limits (e.g., \"continuous service \u2265 250\u00b0C\")\n3. Regulatory or safety requirements (e.g., \"no PFAS\", \"FDA compliant\")\n4. Mechanical thresholds (e.g., \"compression set < 10%\")\n5. Environmental restrictions (e.g., \"must not degrade in hydrocarbon environments\")\n\nFormat: Provide a numbered list. Each item should be a single, specific, testable constraint.\n",
+        "response": "**Hard constraints that a substitute material must satisfy**\n\n1. **Non\u2011fluoropolymer** \u2013 the material must not contain any fluorinated monomers, fluorinated additives, or PFAS compounds.  \n2. **Cryogenic integrity** \u2013 when directly immersed in liquid nitrogen (\u2212196\u202f\u00b0C), the material must not fracture, crack, embrittle, or fail catastrophically under thermal shock.  \n3. **Measurable low\u2011temperature fracture toughness** \u2013 the material must retain a non\u2011zero fracture toughness at \u2212196\u202f\u00b0C (i.e., it must not become fully brittle at that temperature).  \n4. **Extrudability into films** \u2013 the melt temperature and viscosity of the material must allow extrusion into film form at standard industrial extrusion temperatures (typically 250\u2013350\u202f\u00b0C for thermoplastics) and produce films of practical thickness (\u2264\u202f1\u202fmm).  \n5. **Injection\u2011molding processability** \u2013 the material must be melt\u2011processable in an injection\u2011molding line at typical injection\u2011molding temperatures and pressures, producing solid components with no significant voids or defects.  \n6. **Chemical inertness to liquid nitrogen** \u2013 the material must not chemically degrade or react (e.g., plasticize, swell, or oxidize) when in contact with liquid nitrogen or during exposure to extreme cryogenic temperatures.",
+        "temperature": 1,
+        "model": "gpt-oss-20b"
+      }
+    }
+  ],
+  "summary": {
+    "total_interactions": 21,
+    "llm_calls": 11,
+    "rag_queries": 6,
+    "kg_queries": 4,
+    "agent_interactions": 0
+  },
+  "end_time": "2026-07-06T14:23:47.146199Z",
+  "duration_seconds": 103.099808
+}

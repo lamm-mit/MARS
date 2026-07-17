@@ -251,7 +251,7 @@ Experiments were run on a single node with 4× NVIDIA Tesla V100S (32 GB VRAM ea
 ```bibtex
 @misc{hage2026mars,
   title         = {MARS: Hierarchical Multi-Agent Reasoning Systems Enable Knowledge-Grounded Material Substitution},
-  author        = {Tarjei Paule Hage and Yu-Chuan Hsu and Wei Lu and Markus J. Buehler},
+  author        = {Tarjei Paule Hage and Yu-Chuan Hsu and Wei Lu and Gayla Lyon and Jiezhu Jin and Markus J. Buehler},
   year          = {2026},
   eprint        = {TODO},  % TODO: replace with arXiv eprint ID
   archivePrefix = {arXiv},

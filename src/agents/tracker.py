@@ -95,7 +95,16 @@ class RejectedCandidateTracker:
             try:
                 with open(self.log_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                    self.rejected_candidates = data.get("rejected_candidates", [])
+                    raw = data.get("rejected_candidates", [])
+                    # Normalize entries: the persisted file may store bare candidate
+                    # name strings (that is how runner.py writes it via
+                    # get_all_rejected()), whereas the tracker's consumers expect
+                    # dict entries with a "candidate" key. Wrap any string entries so
+                    # loading a previous run's file does not crash downstream calls.
+                    self.rejected_candidates = [
+                        e if isinstance(e, dict) else {"candidate": e}
+                        for e in raw if e
+                    ]
             except (IOError, json.JSONDecodeError, OSError) as e:
                 logger.warning("Could not load rejected candidates from %s: %s", self.log_file, e)
                 self.rejected_candidates = []

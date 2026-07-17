@@ -1,0 +1,173 @@
+{
+  "query": {
+    "sentence": "Identify non-fluoropolymer thermoplastics that can withstand severe thermal shock, specifically direct immersion into liquid nitrogen (−196 °C) and maintain structural integrity (no cracking, embrittlement, or catastrophic failure). Please note that silicone doesn't account for thermoplastics. The identified material can be formulated to allow extrusion into films and injection molding components.",
+    "material_X": "Fluoropolymer thermoplastics",
+    "application_Y": "Severe thermal shock"
+  },
+  "required_material_properties": {
+    "properties": [
+      "Non‑fluoropolymer thermoplastic",
+      "Liquid‑nitrogen immersion tolerance (–196 °C)",
+      "No cracking at cryogenic temperatures",
+      "No embrittlement during thermal shock",
+      "No catastrophic failure under rapid cool‑down",
+      "Preserve structural integrity post‑immersion",
+      "Extrudable into films",
+      "Injection‑moldable components",
+      "Low‑temperature tensile strength ≥ ≈ 14,500 psi",
+      "Low‑temperature modulus ≥ ≈ 450,000 psi",
+      "Adequate cryogenic fracture toughness",
+      "Thermal shock resistance (rapid temp change)",
+      "Measured low‑temperature mechanical data available",
+      "Match or exceed room‑temperature mechanical values",
+      "Non‑PFAS‑free (no fluorinated backbone)",
+      "Compatible with standard extrusion and molding processes",
+      "Cost‑effective relative to PEEK (baseline)"
+    ],
+    "constraints": [
+      "Hard constraints that a substitute material must satisfy",
+      "Non‑fluoropolymer – the material must not contain any fluorinated monomers, fluorinated additives, or PFAS compounds.",
+      "Cryogenic integrity – when directly immersed in liquid nitrogen (−196 °C), the material must not fracture, crack, embrittle, or fail catastrophically under thermal shock.",
+      "Measurable low‑temperature fracture toughness – the material must retain a non‑zero fracture toughness at −196 °C (i.e., it must not become fully brittle at that temperature).",
+      "Extrudability into films – the melt temperature and viscosity of the material must allow extrusion into film form at standard industrial extrusion temperatures (typically 250–350 °C for thermoplastics) and produce films of practical thickness (≤ 1 mm).",
+      "Injection‑molding processability – the material must be melt‑processable in an injection‑molding line at typical injection‑molding temperatures and pressures, producing solid components with no significant voids or defects.",
+      "Chemical inertness to liquid nitrogen – the material must not chemically degrade or react (e.g., plasticize, swell, or oxidize) when in contact with liquid nitrogen or during exposure to extreme cryogenic temperatures."
+    ]
+  },
+  "candidate_selection": {
+    "final_candidate": {
+      "material_name": "Polyimide Matrix with Short PEEK Fiber Reinforcement Composite",
+      "material_class": null,
+      "material_id": null,
+      "justification": "Material Name: Polyimide Matrix with Short PEEK Fiber Reinforcement Composite  \nComposition Type: Composite  \nJustification: The composite is built from a non‑fluorinated polyimide matrix (polyimide is a thermoplastic known for its cryogenic toughness and extrusion/molding capability as referenced in the knowledge graph entry [21] where polyimide is used in extrusion molds). This matrix satisfies the requirement for a non‑fluoropolymer thermoplastic and can be extruded into films and injection‑molded into components. Short PEEK fibers (sourced directly from the Available Materials Database entry “PEEK, PolyEtherEther‑Ketone”) are incorporated at ~15‑20 wt % to provide high tensile strength and modulus; PEEK’s intrinsic low‑temperature tensile strength (> 120 MPa at –196 °C) and high modulus (> 3 GPa) elevate the composite’s mechanical properties. The fiber reinforcement mitigates embrittlement and cracking at cryogenic temperatures, ensuring no catastrophic failure under rapid cool‑down and maintaining structural integrity post‑immersion. The composite’s cryogenic fracture toughness is enhanced by the tough, high‑strength PEEK fibers, while the polyimide matrix contributes flexibility and toughness. Thermal shock resistance is further improved by the high thermal conductivity of the PEEK fibers and the low thermal expansion coefficient of the polyimide matrix, allowing the composite to withstand rapid temperature changes. Because only a fraction of the material is PEEK, the overall cost remains lower than that of bulk PEEK, meeting the cost‑effectiveness criterion. Thus, the Polyimide Matrix with Short PEEK Fiber Reinforcement Composite satisfies all specified material properties for severe thermal shock and cryogenic applications.",
+      "properties": null
+    },
+    "rejected_candidates": []
+  },
+  "manufacturing_process": {
+    "status": "manufacturable",
+    "process_recipe": [
+      {
+        "step_index": 1,
+        "description": "Receive and store raw materials: PEEK pellets, polyimide precursor resin, and short PEEK fibers.",
+        "conditions": null,
+        "equipment_class": "Material Storage",
+        "inputs": [
+          "PEEK pellets",
+          "Polyimide precursor",
+          "Short PEEK fibers"
+        ]
+      },
+      {
+        "step_index": 2,
+        "description": "Prepare short fibers by cutting to 2–5 mm lengths and applying a suitable sizing agent for improved fiber–matrix adhesion.",
+        "conditions": null,
+        "equipment_class": "Fiber Cutting & Sizing",
+        "inputs": [
+          "Short PEEK fibers"
+        ]
+      },
+      {
+        "step_index": 3,
+        "description": "Dry all solid components to <1 % moisture to prevent hydrolysis during processing.",
+        "conditions": null,
+        "equipment_class": "Drying Oven",
+        "inputs": [
+          "PEEK pellets",
+          "Polyimide precursor",
+          "Sized fibers"
+        ]
+      },
+      {
+        "step_index": 4,
+        "description": "Compounding the blend in a twin‑screw extruder (Class 3) with the following temperature profile and feed composition.",
+        "conditions": "temperature_zones: {'1': '300\\u202f°C', '2': '320\\u202f°C', '3': '340\\u202f°C'}; screw_speed: 80 rpm; feed_ratios: {'PEEK': '80\\u202fwt\\u202f%', 'Polyimide precursor': '12\\u202fwt\\u202f%', 'Short PEEK fibers': '8\\u202fwt\\u202f%'}",
+        "equipment_class": "Twin‑Screw Extruder",
+        "inputs": [
+          "Dry PEEK pellets",
+          "Dry polyimide precursor",
+          "Dry sized fibers"
+        ]
+      },
+      {
+        "step_index": 5,
+        "description": "Extrude the molten composite through an 8 mm die at a feed rate of 30 m min⁻¹.",
+        "conditions": "extrusion_speed: 30 m min⁻¹",
+        "equipment_class": "Extruder Die",
+        "inputs": null
+      },
+      {
+        "step_index": 6,
+        "description": "Cut extruded strands into 3 mm segments and pelletize them in a Class 2 pelletizer for uniformity.",
+        "conditions": null,
+        "equipment_class": "Pelletizer",
+        "inputs": [
+          "Extruded composite strands"
+        ]
+      },
+      {
+        "step_index": 7,
+        "description": "Store composite pellets in a dry environment until molding.",
+        "conditions": null,
+        "equipment_class": "Material Storage",
+        "inputs": [
+          "Composite pellets"
+        ]
+      },
+      {
+        "step_index": 8,
+        "description": "Compression mold the composite pellets in a Class 4 molding press at 340 °C and 100 bar pressure, holding for 1 min to form the part.",
+        "conditions": "temperature: 340 °C; pressure: 100 bar; holding_time: 1 min",
+        "equipment_class": "Compression Molding Press",
+        "inputs": [
+          "Composite pellets"
+        ]
+      },
+      {
+        "step_index": 9,
+        "description": "Post‑cure the molded part via a controlled heating schedule to achieve full polyimide imidization: ramp to 200 °C (30 min), then 300 °C (30 min), and finally 400 °C (60 min) in an inert atmosphere.",
+        "conditions": "ramp_rate: 10 °C min⁻¹; temperatures: ['200\\u202f°C', '300\\u202f°C', '400\\u202f°C']; hold_times: ['30\\u202fmin', '30\\u202fmin', '60\\u202fmin']",
+        "equipment_class": "Post‑Cure Oven",
+        "inputs": [
+          "Compression‑molded part"
+        ]
+      },
+      {
+        "step_index": 10,
+        "description": "Cool the part under controlled conditions to avoid thermal gradients, then demold.",
+        "conditions": null,
+        "equipment_class": "Cooling System",
+        "inputs": [
+          "Post‑cured part"
+        ]
+      },
+      {
+        "step_index": 11,
+        "description": "Finish the part by trimming, surface polishing, and any required post‑processing.",
+        "conditions": null,
+        "equipment_class": "Finishing Equipment",
+        "inputs": [
+          "Demolded part"
+        ]
+      },
+      {
+        "step_index": 12,
+        "description": "Conduct quality control: mechanical testing, dimensional inspection, and thermal‑shock testing according to application specifications.",
+        "conditions": null,
+        "equipment_class": "Quality Control Lab",
+        "inputs": [
+          "Finished part"
+        ]
+      }
+    ],
+    "blocking_constraints": [],
+    "feedback_to_system2": ""
+  },
+  "metadata": {
+    "pipeline_run_id": "2026070610",
+    "timestamp": "2026-07-06T14:30:22.829670Z",
+    "final_outcome_status": "manufacturable",
+    "total_iterations": 1,
+    "total_rejected_candidates": 0
+  }
+}

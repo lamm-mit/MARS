@@ -1,0 +1,2237 @@
+{
+  "run_id": "2026071719_0",
+  "timestamp": "2026-07-17T23:10:08.152217Z",
+  "application": "broad chemical resistance",
+  "properties": {
+    "required": [
+      "Chemical resistance: strong acids, bases, protic & aprotic solvents, oils, saline solutions",
+      "Flexibility: room‑temperature stretch > 200 %, low modulus",
+      "Transparency: optical clarity, < 5 % haze",
+      "Low gas permeability: O₂ and H₂O vapor < X cm³/m²·day (benchmarking THV)",
+      "PFAS‑free composition (no perfluoro groups)",
+      "Low cross‑link density (≈ 1–2 %) to preserve elasticity",
+      "Elastomeric additive (5–15 wt %) for stretch‑to‑break & recovery",
+      "Nucleating agent (0.5–2 wt %) for fine crystalline lamellae",
+      "Tie‑resin/compatibilizer (1–3 wt % MAPP or equivalent) to reduce voids & creep",
+      "No high‑permeability plasticizers (use low‑molecular‑weight, immiscible additives only)",
+      "Mechanical performance: stretch‑to‑break > 200 %, recovery > 90 %, creep ≤ Y % (as per THV)",
+      "Processability: extrusion, injection molding, coating, scalable to commercial volumes",
+      "Cost‑efficiency: unit price comparable to or lower than PFAS THV",
+      "Regulatory compliance: meets REACH, EPA PFAS‑free criteria, no “fluorinated” labeling",
+      "Scalability: pilot‑scale data available, production‑scale feasibility confirmed",
+      "Critical THV traits to replicate:",
+      "Broad chemical resistance spectrum",
+      "Room‑temperature flexibility & recoverability",
+      "Optical transparency & low haze",
+      "Low gas permeability (barrier performance)",
+      "High stretch‑to‑break with minimal creep",
+      "Processable into tubing, seals, and film forms"
+    ],
+    "target_values": {}
+  },
+  "constraints": [
+    "Acid resistance – The material must withstand continuous exposure to at least 10 % (w/w) HCl at room temperature for 24 h without any measurable mass loss or loss of mechanical integrity.",
+    "Base resistance – The material must withstand continuous exposure to at least 10 % (w/w) NaOH at room temperature for 24 h without measurable mass loss or loss of mechanical integrity.",
+    "Solvent resistance – The material must resist both protic (e.g., ethanol) and aprotic (e.g., acetone) solvents at room temperature for 24 h, showing no measurable swelling or softening.",
+    "Oil resistance – The material must resist mineral oil (or comparable hydrocarbon oil) exposure at room temperature for 24 h without swelling, softening, or chemical degradation.",
+    "Salt‑solution resistance – The material must resist immersion in a 3.5 % (w/w) NaCl solution at room temperature for 24 h without measurable mass loss or loss of mechanical integrity.",
+    "Flexibility (elongation) – The material must exhibit an elongation‑to‑break of ≥ 200 % at 23 °C (i.e., comparable to THV’s typical flexibility).",
+    "Transparency – The material must have optical transmittance ≥ 80 % at 550 nm over a 1 mm thickness (i.e., be sufficiently clear for visual inspection and optical applications).",
+    "Gas‑permeability – The material must have an O₂ permeability ≤ 5 × 10⁻⁹ cm³(STP)·cm/(cm²·s·cmHg) (i.e., be a low‑permeability barrier suitable for food‑contact or pharmaceutical use).",
+    "PFAS‑free – The material must contain no per‑ or poly‑fluoroalkyl substances (including short‑chain fluorocarbon monomers, PFOS, PFOA, and any derivatives).",
+    "Hydrocarbon inertness – The material must not degrade (mass loss > 0.5 %) when exposed to n‑hexane or equivalent hydrocarbon for 24 h at room temperature.",
+    "Regulatory compliance – The material must meet FDA 21 CFR 170.1102 (or equivalent FDA medical‑device‑contact material) and REACH “polymers of low concern” requirements for non‑PFAS elastomers.",
+    "Temperature endurance – The material must sustain continuous service at ≥ 200 °C (i.e., retain its mechanical and barrier properties for 24 h at 200 °C)."
+  ],
+  "success": true,
+  "candidate": {
+    "material_name": "VESTAKEEP Care / CBC‑1608 / GNPs / MAPP Barrier‑Flex Composite",
+    "justification": "Material Name: VESTAKEEP Care / CBC‑1608 / GNPs / MAPP Barrier‑Flex Composite\nComposition Type: Composite\nJustification: The base matrix is VESTAKEEP® Care, a low‑density polyethylene elastomer (Evonik) that delivers high room‑temperature stretch (>200 % strain), excellent optical clarity (<5 % haze) and inherent chemical tolerance to oils, neutral solvents, and saline solutions.  To broaden acid/base resistance, 12 wt % of Cyclic Block Copolymer (CBC) ViviOn™ 1608 (USI) is blended; this styrene‑ethylene‑butylene‑styrene type block copolymer is highly flexible, chemically resistant to a wide range of protic and aprotic solvents, and supplies the required elastomeric additive (5–15 wt %) to achieve >200 % stretch‑to‑break and >90 % recovery while keeping cross‑link density low (~1–2 %).  Graphene nanoplatelets (GNPs) at 1 wt % act as a barrier filler and nucleating agent, dramatically lowering O₂/H₂O vapor permeability (THV) without compromising transparency, as GNPs have been shown to reduce gas permeability via tortuous pathways (KG link 4–12).  Maleic anhydride‑grafted polypropylene (MAPP) is incorporated at 2 wt % to compatibilize the polyolefin matrix with the block copolymer, reducing voids, suppressing creep, and maintaining elasticity.  This system is PFAS‑free, uses only commercially available, REACH‑compliant materials, and can be processed by extrusion or injection molding at commercial scale, meeting all mechanical, optical, barrier, and chemical resistance targets for tubing, seals, and film applications.",
+    "kg_nodes": []
+  },
+  "iterations": 1,
+  "rejected_candidates": [],
+  "final_constraints": [],
+  "evidence_summary": {
+    "total_queries": 6,
+    "total_documents": 60,
+    "queries_with_evidence": 6
+  },
+  "iteration_history": [
+    {
+      "iteration": 1,
+      "candidate": "VESTAKEEP Care / CBC‑1608 / GNPs / MAPP Barrier‑Flex Composite",
+      "feasible": true,
+      "constraints_violated": [],
+      "reasoning": "",
+      "num_queries": 6,
+      "num_evidence_docs": 60
+    }
+  ],
+  "property_mapping": {
+    "property_mappings": [
+      {
+        "property": "Chemical resistance: strong acids, bases, protic & aprotic solvents, oils, saline solutions",
+        "target_value": null
+      },
+      {
+        "property": "Flexibility: room‑temperature stretch > 200 %, low modulus",
+        "target_value": null
+      },
+      {
+        "property": "Transparency: optical clarity, < 5 % haze",
+        "target_value": null
+      },
+      {
+        "property": "Low gas permeability: O₂ and H₂O vapor < X cm³/m²·day (benchmarking THV)",
+        "target_value": null
+      },
+      {
+        "property": "PFAS‑free composition (no perfluoro groups)",
+        "target_value": null
+      },
+      {
+        "property": "Low cross‑link density (≈ 1–2 %) to preserve elasticity",
+        "target_value": null
+      },
+      {
+        "property": "Elastomeric additive (5–15 wt %) for stretch‑to‑break & recovery",
+        "target_value": null
+      },
+      {
+        "property": "Nucleating agent (0.5–2 wt %) for fine crystalline lamellae",
+        "target_value": null
+      },
+      {
+        "property": "Tie‑resin/compatibilizer (1–3 wt % MAPP or equivalent) to reduce voids & creep",
+        "target_value": null
+      },
+      {
+        "property": "No high‑permeability plasticizers (use low‑molecular‑weight, immiscible additives only)",
+        "target_value": null
+      },
+      {
+        "property": "Mechanical performance: stretch‑to‑break > 200 %, recovery > 90 %, creep ≤ Y % (as per THV)",
+        "target_value": null
+      },
+      {
+        "property": "Processability: extrusion, injection molding, coating, scalable to commercial volumes",
+        "target_value": null
+      },
+      {
+        "property": "Cost‑efficiency: unit price comparable to or lower than PFAS THV",
+        "target_value": null
+      },
+      {
+        "property": "Regulatory compliance: meets REACH, EPA PFAS‑free criteria, no “fluorinated” labeling",
+        "target_value": null
+      },
+      {
+        "property": "Scalability: pilot‑scale data available, production‑scale feasibility confirmed",
+        "target_value": null
+      },
+      {
+        "property": "Critical THV traits to replicate:",
+        "target_value": null
+      },
+      {
+        "property": "Broad chemical resistance spectrum",
+        "target_value": null
+      },
+      {
+        "property": "Room‑temperature flexibility & recoverability",
+        "target_value": null
+      },
+      {
+        "property": "Optical transparency & low haze",
+        "target_value": null
+      },
+      {
+        "property": "Low gas permeability (barrier performance)",
+        "target_value": null
+      },
+      {
+        "property": "High stretch‑to‑break with minimal creep",
+        "target_value": null
+      },
+      {
+        "property": "Processable into tubing, seals, and film forms",
+        "target_value": null
+      }
+    ],
+    "material_classes": [],
+    "kg_insights": {
+      "num_properties_mapped": 22,
+      "num_property_nodes": 7,
+      "num_material_nodes": 0,
+      "num_paths_found": 21,
+      "connection_algorithm": "shortest",
+      "found_paths": [
+        {
+          "source": "chemical resistance",
+          "target": "room-temperature flexibility",
+          "path": [
+            "chemical resistance",
+            "film thickness",
+            "numerical simulations",
+            "Composite phase change material (CPCM)",
+            "room-temperature flexibility"
+          ],
+          "length": 4,
+          "nodes": [
+            {
+              "node_id": "chemical resistance",
+              "node_data": {
+                "type": "property",
+                "group": 13,
+                "color": "#cc57db",
+                "size": 284,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "patents__group": 3,
+                "patents__color": "#57db71",
+                "patents__size": 380
+              }
+            },
+            {
+              "node_id": "film thickness",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 204,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "numerical simulations",
+              "node_data": {
+                "type": "method",
+                "group": 20,
+                "color": "#db5774",
+                "size": 163,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "Composite phase change material (CPCM)",
+              "node_data": {
+                "type": "material",
+                "group": 11,
+                "color": "#57db75",
+                "size": 78,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "room-temperature flexibility",
+              "node_data": {
+                "type": "property",
+                "group": 11,
+                "color": "#57db75",
+                "size": 3,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "chemical resistance",
+              "target": "film thickness",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "ef31e424db4912c9583d0a1c0c036ecb",
+                "DOI": NaN,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "film thickness",
+              "target": "numerical simulations",
+              "edge_data": {
+                "relation": "not considered in",
+                "chunk_id": "07e48ebba69f3b2b56ddcb58bf69e623",
+                "DOI": "10.1016/j.jmbbm.2018.03.028",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "numerical simulations",
+              "target": "Composite phase change material (CPCM)",
+              "edge_data": {
+                "relation": "visualizes liquid fraction of",
+                "chunk_id": "6f6403597625db6422728d887e95b4eb",
+                "DOI": "10.1016/j.est.2024.110607",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "Composite phase change material (CPCM)",
+              "target": "room-temperature flexibility",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "42e855e309ebc13528094a4ef45bc130",
+                "DOI": "10.1016/j.renene.2024.121253",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.18181818181818182
+        },
+        {
+          "source": "chemical resistance",
+          "target": "Optical transparency",
+          "path": [
+            "chemical resistance",
+            "film thickness",
+            "Optical transparency"
+          ],
+          "length": 2,
+          "nodes": [
+            {
+              "node_id": "chemical resistance",
+              "node_data": {
+                "type": "property",
+                "group": 13,
+                "color": "#cc57db",
+                "size": 284,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "patents__group": 3,
+                "patents__color": "#57db71",
+                "patents__size": 380
+              }
+            },
+            {
+              "node_id": "film thickness",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 204,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "Optical transparency",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 116,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__group": 76,
+                "patents__color": "#db5782",
+                "patents__size": 5,
+                "patents__type": "material property"
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "chemical resistance",
+              "target": "film thickness",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "ef31e424db4912c9583d0a1c0c036ecb",
+                "DOI": NaN,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "film thickness",
+              "target": "Optical transparency",
+              "edge_data": {
+                "relation": "controlled by",
+                "chunk_id": "be880b73356f1f9100b48c12ca4170c5",
+                "DOI": "10.1088/0957-4484/23/34/344016",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.18181818181818182
+        },
+        {
+          "source": "chemical resistance",
+          "target": "gas permeability",
+          "path": [
+            "chemical resistance",
+            "temperature",
+            "gas permeability"
+          ],
+          "length": 2,
+          "nodes": [
+            {
+              "node_id": "chemical resistance",
+              "node_data": {
+                "type": "property",
+                "group": 13,
+                "color": "#cc57db",
+                "size": 284,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "patents__group": 3,
+                "patents__color": "#57db71",
+                "patents__size": 380
+              }
+            },
+            {
+              "node_id": "temperature",
+              "node_data": {
+                "type": "parameter",
+                "group": 16,
+                "color": "#db7357",
+                "size": 3343,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "gas permeability",
+              "node_data": {
+                "type": "property",
+                "group": 2,
+                "color": "#575bdb",
+                "size": 37,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "patents__group": 3,
+                "patents__color": "#57db71",
+                "patents__size": 8
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "chemical resistance",
+              "target": "temperature",
+              "edge_data": {
+                "relation": "strongly_affects",
+                "chunk_id": "678341db63afd42e4eb242f9f1904684",
+                "DOI": "10.1021/ie0508076",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "temperature",
+              "target": "gas permeability",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "23e7b66935dc0214de312792f77c5fbf",
+                "DOI": "10.1007/s11440-022-01624-3",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.18181818181818182
+        },
+        {
+          "source": "room-temperature flexibility",
+          "target": "gas permeability",
+          "path": [
+            "room-temperature flexibility",
+            "Composite phase change material (CPCM)",
+            "Graphene nanoplatelets (GNPs)",
+            "gas permeability"
+          ],
+          "length": 3,
+          "nodes": [
+            {
+              "node_id": "room-temperature flexibility",
+              "node_data": {
+                "type": "property",
+                "group": 11,
+                "color": "#57db75",
+                "size": 3,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "Composite phase change material (CPCM)",
+              "node_data": {
+                "type": "material",
+                "group": 11,
+                "color": "#57db75",
+                "size": 78,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "Graphene nanoplatelets (GNPs)",
+              "node_data": {
+                "type": "material",
+                "group": 7,
+                "color": "#cfdb57",
+                "size": 153,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "gas permeability",
+              "node_data": {
+                "type": "property",
+                "group": 2,
+                "color": "#575bdb",
+                "size": 37,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "patents__group": 3,
+                "patents__color": "#57db71",
+                "patents__size": 8
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "room-temperature flexibility",
+              "target": "Composite phase change material (CPCM)",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "42e855e309ebc13528094a4ef45bc130",
+                "DOI": "10.1016/j.renene.2024.121253",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "Composite phase change material (CPCM)",
+              "target": "Graphene nanoplatelets (GNPs)",
+              "edge_data": {
+                "relation": "is a component of",
+                "chunk_id": "bb412224b26d6b092f32551afc1552c1",
+                "DOI": "10.1016/j.est.2024.114273",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "Graphene nanoplatelets (GNPs)",
+              "target": "gas permeability",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "e5ec76be6011ea2625fe4fdbf105baa2",
+                "DOI": "10.1007/12_2016_1",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.18181818181818182
+        },
+        {
+          "source": "Optical transparency",
+          "target": "gas permeability",
+          "path": [
+            "Optical transparency",
+            "copolymers",
+            "gas permeability"
+          ],
+          "length": 2,
+          "nodes": [
+            {
+              "node_id": "Optical transparency",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 116,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__group": 76,
+                "patents__color": "#db5782",
+                "patents__size": 5,
+                "patents__type": "material property"
+              }
+            },
+            {
+              "node_id": "copolymers",
+              "node_data": {
+                "type": "material",
+                "group": 2,
+                "color": "#575bdb",
+                "size": 358,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "gas permeability",
+              "node_data": {
+                "type": "property",
+                "group": 2,
+                "color": "#575bdb",
+                "size": 37,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "patents__group": 3,
+                "patents__color": "#57db71",
+                "patents__size": 8
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "Optical transparency",
+              "target": "copolymers",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "f9c1ec89c9195e1c1e5103c94cf8c254",
+                "DOI": "10.1002/pola.21278",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "copolymers",
+              "target": "gas permeability",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "06ee90c57a360e0e4c05966f9d247e43",
+                "DOI": "10.1016/j.polymdegradstab.2019.108963",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.18181818181818182
+        },
+        {
+          "source": "resistance to acids, alkaline and organic solvents",
+          "target": "room-temperature flexibility",
+          "path": [
+            "resistance to acids, alkaline and organic solvents",
+            "basalt fibres",
+            "thermal properties",
+            "Flexible Composite PCM (FCPCM)",
+            "room-temperature flexibility"
+          ],
+          "length": 4,
+          "nodes": [
+            {
+              "node_id": "resistance to acids, alkaline and organic solvents",
+              "node_data": {
+                "type": "property",
+                "group": 7,
+                "color": "#cfdb57",
+                "size": 2,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "basalt fibres",
+              "node_data": {
+                "group": 7,
+                "color": "#cfdb57",
+                "size": 50,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "thermal properties",
+              "node_data": {
+                "group": 10,
+                "color": "#9557db",
+                "size": 267,
+                "type": "property",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "Flexible Composite PCM (FCPCM)",
+              "node_data": {
+                "type": "material",
+                "group": 11,
+                "color": "#57db75",
+                "size": 46,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "room-temperature flexibility",
+              "node_data": {
+                "type": "property",
+                "group": 11,
+                "color": "#57db75",
+                "size": 3,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "resistance to acids, alkaline and organic solvents",
+              "target": "basalt fibres",
+              "edge_data": {
+                "relation": "has",
+                "chunk_id": "01f320e8719814d2d11a1f69bbcfcc11",
+                "DOI": "10.4028/www.scientific.net/AMM.238.17",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "basalt fibres",
+              "target": "thermal properties",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "2d313f8da8552487a4f29ee07823696f",
+                "DOI": "10.5604/01.3001.0014.0934",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "thermal properties",
+              "target": "Flexible Composite PCM (FCPCM)",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "8267b24a33da39e81988b441337345d9",
+                "DOI": "10.1016/j.applthermaleng.2025.125708",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "Flexible Composite PCM (FCPCM)",
+              "target": "room-temperature flexibility",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "b4759ae26bb09870ae3eba42e8db39fd",
+                "DOI": "10.1007/s10765-024-03361-z",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.13636363636363635
+        },
+        {
+          "source": "resistance to acids, alkaline and organic solvents",
+          "target": "Optical transparency",
+          "path": [
+            "resistance to acids, alkaline and organic solvents",
+            "solubility results",
+            "Polyimides",
+            "Optical transparency"
+          ],
+          "length": 3,
+          "nodes": [
+            {
+              "node_id": "resistance to acids, alkaline and organic solvents",
+              "node_data": {
+                "type": "property",
+                "group": 7,
+                "color": "#cfdb57",
+                "size": 2,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "solubility results",
+              "node_data": {
+                "type": "property",
+                "group": 4,
+                "color": "#5796db",
+                "size": 69,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "Polyimides",
+              "node_data": {
+                "type": "material",
+                "group": 10,
+                "color": "#9557db",
+                "size": 645,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "Optical transparency",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 116,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__group": 76,
+                "patents__color": "#db5782",
+                "patents__size": 5,
+                "patents__type": "material property"
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "resistance to acids, alkaline and organic solvents",
+              "target": "solubility results",
+              "edge_data": {
+                "relation": "reveals",
+                "chunk_id": "01f320e8719814d2d11a1f69bbcfcc11",
+                "DOI": "10.4028/www.scientific.net/AMM.238.17",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "solubility results",
+              "target": "Polyimides",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "8b599ba2f61a752ae26d1a7cafe34b71",
+                "DOI": "10.1016/j.polymer.2023.126245",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "Polyimides",
+              "target": "Optical transparency",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "5f4c017b7c75f0c6c846f677626f137b",
+                "DOI": "10.1039/c4ra17030j",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.13636363636363635
+        },
+        {
+          "source": "resistance to acids, alkaline and organic solvents",
+          "target": "gas permeability",
+          "path": [
+            "resistance to acids, alkaline and organic solvents",
+            "solubility results",
+            "temperature",
+            "gas permeability"
+          ],
+          "length": 3,
+          "nodes": [
+            {
+              "node_id": "resistance to acids, alkaline and organic solvents",
+              "node_data": {
+                "type": "property",
+                "group": 7,
+                "color": "#cfdb57",
+                "size": 2,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "solubility results",
+              "node_data": {
+                "type": "property",
+                "group": 4,
+                "color": "#5796db",
+                "size": 69,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "temperature",
+              "node_data": {
+                "type": "parameter",
+                "group": 16,
+                "color": "#db7357",
+                "size": 3343,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "gas permeability",
+              "node_data": {
+                "type": "property",
+                "group": 2,
+                "color": "#575bdb",
+                "size": 37,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "patents__group": 3,
+                "patents__color": "#57db71",
+                "patents__size": 8
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "resistance to acids, alkaline and organic solvents",
+              "target": "solubility results",
+              "edge_data": {
+                "relation": "reveals",
+                "chunk_id": "01f320e8719814d2d11a1f69bbcfcc11",
+                "DOI": "10.4028/www.scientific.net/AMM.238.17",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "solubility results",
+              "target": "temperature",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "5ff4bff3ace9008748bc6fadfb1324b4",
+                "DOI": "10.1371/journal.pone.0037863",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "temperature",
+              "target": "gas permeability",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "23e7b66935dc0214de312792f77c5fbf",
+                "DOI": "10.1007/s11440-022-01624-3",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.13636363636363635
+        },
+        {
+          "source": "chemical resistance",
+          "target": "cross-linking density",
+          "path": [
+            "chemical resistance",
+            "annealing temperature",
+            "cross-linking density"
+          ],
+          "length": 2,
+          "nodes": [
+            {
+              "node_id": "chemical resistance",
+              "node_data": {
+                "type": "property",
+                "group": 13,
+                "color": "#cc57db",
+                "size": 284,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "patents__group": 3,
+                "patents__color": "#57db71",
+                "patents__size": 380
+              }
+            },
+            {
+              "node_id": "annealing temperature",
+              "node_data": {
+                "type": "parameter",
+                "group": 10,
+                "color": "#9557db",
+                "size": 283,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "cross-linking density",
+              "node_data": {
+                "type": "property",
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "group": 3,
+                "color": "#57db71",
+                "size": 28
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "chemical resistance",
+              "target": "annealing temperature",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "22c0b4627a247cb4d7a72f6d4ad52560",
+                "DOI": "10.1038/s41598-023-43772-w",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "annealing temperature",
+              "target": "cross-linking density",
+              "edge_data": {
+                "relation": "increases at",
+                "chunk_id": "68d968686d54b7328e0a2230237b1893",
+                "DOI": "10.3390/ma17164125",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.13636363636363635
+        },
+        {
+          "source": "chemical resistance",
+          "target": "gas-barrier performance",
+          "path": [
+            "chemical resistance",
+            "composite films",
+            "HfO2",
+            "gas-barrier performance"
+          ],
+          "length": 3,
+          "nodes": [
+            {
+              "node_id": "chemical resistance",
+              "node_data": {
+                "type": "property",
+                "group": 13,
+                "color": "#cc57db",
+                "size": 284,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "patents__group": 3,
+                "patents__color": "#57db71",
+                "patents__size": 380
+              }
+            },
+            {
+              "node_id": "composite films",
+              "node_data": {
+                "type": "material",
+                "group": 10,
+                "color": "#9557db",
+                "size": 373,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "HfO2",
+              "node_data": {
+                "type": "material",
+                "group": 10,
+                "color": "#9557db",
+                "size": 104,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "gas-barrier performance",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 16,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "chemical resistance",
+              "target": "composite films",
+              "edge_data": {
+                "relation": "has",
+                "chunk_id": "024d021c63da8d0396a2d2958ceaced2",
+                "DOI": "10.1021/acssuschemeng.5b01273",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "composite films",
+              "target": "HfO2",
+              "edge_data": {
+                "relation": "component of",
+                "chunk_id": "cdc48a5e139d6b89671c079d148751ca",
+                "DOI": "10.1139/cjp-2013-0570",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "HfO2",
+              "target": "gas-barrier performance",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "2773dea59fabd9a2af0de4e7c1fe06c4",
+                "DOI": "10.1088/0957-4484/27/29/295706",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.13636363636363635
+        },
+        {
+          "source": "room-temperature flexibility",
+          "target": "cross-linking density",
+          "path": [
+            "room-temperature flexibility",
+            "Composite phase change material (CPCM)",
+            "Expanded graphite (EG)",
+            "80 degrees C",
+            "cross-linking density"
+          ],
+          "length": 4,
+          "nodes": [
+            {
+              "node_id": "room-temperature flexibility",
+              "node_data": {
+                "type": "property",
+                "group": 11,
+                "color": "#57db75",
+                "size": 3,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "Composite phase change material (CPCM)",
+              "node_data": {
+                "type": "material",
+                "group": 11,
+                "color": "#57db75",
+                "size": 78,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "Expanded graphite (EG)",
+              "node_data": {
+                "type": "lubricant",
+                "group": 11,
+                "color": "#57db75",
+                "size": 54,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "80 degrees C",
+              "node_data": {
+                "type": "value",
+                "group": 10,
+                "color": "#9557db",
+                "size": 137,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "cross-linking density",
+              "node_data": {
+                "type": "property",
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "group": 3,
+                "color": "#57db71",
+                "size": 28
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "room-temperature flexibility",
+              "target": "Composite phase change material (CPCM)",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "42e855e309ebc13528094a4ef45bc130",
+                "DOI": "10.1016/j.renene.2024.121253",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "Composite phase change material (CPCM)",
+              "target": "Expanded graphite (EG)",
+              "edge_data": {
+                "relation": "component of",
+                "chunk_id": "6f6403597625db6422728d887e95b4eb",
+                "DOI": "10.1016/j.est.2024.110607",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "Expanded graphite (EG)",
+              "target": "80 degrees C",
+              "edge_data": {
+                "relation": "used as preparation condition for",
+                "chunk_id": "c27dd0abdfcce6c2d649e2e59473a8b2",
+                "DOI": "10.1016/S1872-5805(20)60488-7",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "80 degrees C",
+              "target": "cross-linking density",
+              "edge_data": {
+                "relation": "results in high",
+                "chunk_id": "68d968686d54b7328e0a2230237b1893",
+                "DOI": "10.3390/ma17164125",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.13636363636363635
+        },
+        {
+          "source": "room-temperature flexibility",
+          "target": "gas-barrier performance",
+          "path": [
+            "room-temperature flexibility",
+            "Composite phase change material (CPCM)",
+            "thermal conductivity",
+            "H2O",
+            "gas-barrier performance"
+          ],
+          "length": 4,
+          "nodes": [
+            {
+              "node_id": "room-temperature flexibility",
+              "node_data": {
+                "type": "property",
+                "group": 11,
+                "color": "#57db75",
+                "size": 3,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "Composite phase change material (CPCM)",
+              "node_data": {
+                "type": "material",
+                "group": 11,
+                "color": "#57db75",
+                "size": 78,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "thermal conductivity",
+              "node_data": {
+                "type": "property",
+                "group": 11,
+                "color": "#57db75",
+                "size": 1131,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "H2O",
+              "node_data": {
+                "type": "chemical",
+                "group": 1,
+                "color": "#57a9db",
+                "size": 557,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "gas-barrier performance",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 16,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "room-temperature flexibility",
+              "target": "Composite phase change material (CPCM)",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "42e855e309ebc13528094a4ef45bc130",
+                "DOI": "10.1016/j.renene.2024.121253",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "Composite phase change material (CPCM)",
+              "target": "thermal conductivity",
+              "edge_data": {
+                "relation": "enhances",
+                "chunk_id": "6682df88d1e8ec4a30d5ef1e7517f0cc",
+                "DOI": "10.1016/j.apenergy.2024.123899",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "thermal conductivity",
+              "target": "H2O",
+              "edge_data": {
+                "relation": "facilitates",
+                "chunk_id": "ec40debf5bb42f5b25a45d334e884247",
+                "DOI": "10.1021/acsami.1c19613",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "H2O",
+              "target": "gas-barrier performance",
+              "edge_data": {
+                "relation": "improves",
+                "chunk_id": "2773dea59fabd9a2af0de4e7c1fe06c4",
+                "DOI": "10.1088/0957-4484/27/29/295706",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.13636363636363635
+        },
+        {
+          "source": "Optical transparency",
+          "target": "cross-linking density",
+          "path": [
+            "Optical transparency",
+            "electrolytes",
+            "80 degrees C",
+            "cross-linking density"
+          ],
+          "length": 3,
+          "nodes": [
+            {
+              "node_id": "Optical transparency",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 116,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__group": 76,
+                "patents__color": "#db5782",
+                "patents__size": 5,
+                "patents__type": "material property"
+              }
+            },
+            {
+              "node_id": "electrolytes",
+              "node_data": {
+                "type": "material",
+                "group": 21,
+                "color": "#db577a",
+                "size": 422,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "80 degrees C",
+              "node_data": {
+                "type": "value",
+                "group": 10,
+                "color": "#9557db",
+                "size": 137,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "cross-linking density",
+              "node_data": {
+                "type": "property",
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "group": 3,
+                "color": "#57db71",
+                "size": 28
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "Optical transparency",
+              "target": "electrolytes",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "4436065a8c7b6a535e2fcc621c1e3fb3",
+                "DOI": "10.1016/j.solmat.2021.111449",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "electrolytes",
+              "target": "80 degrees C",
+              "edge_data": {
+                "relation": "sustains 400 stable cycles at",
+                "chunk_id": "516bd566d8df514eed6461715ba7d72b",
+                "DOI": "10.1021/jacs.4c13011",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "80 degrees C",
+              "target": "cross-linking density",
+              "edge_data": {
+                "relation": "results in high",
+                "chunk_id": "68d968686d54b7328e0a2230237b1893",
+                "DOI": "10.3390/ma17164125",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.13636363636363635
+        },
+        {
+          "source": "Optical transparency",
+          "target": "gas-barrier performance",
+          "path": [
+            "Optical transparency",
+            "ZnO",
+            "gas-barrier performance"
+          ],
+          "length": 2,
+          "nodes": [
+            {
+              "node_id": "Optical transparency",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 116,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__group": 76,
+                "patents__color": "#db5782",
+                "patents__size": 5,
+                "patents__type": "material property"
+              }
+            },
+            {
+              "node_id": "ZnO",
+              "node_data": {
+                "type": "material",
+                "group": 10,
+                "color": "#9557db",
+                "size": 726,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "gas-barrier performance",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 16,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "Optical transparency",
+              "target": "ZnO",
+              "edge_data": {
+                "relation": "has property",
+                "chunk_id": "0308dfb096782141121af97606189858",
+                "DOI": "10.1063/1.1993762",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "ZnO",
+              "target": "gas-barrier performance",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "2773dea59fabd9a2af0de4e7c1fe06c4",
+                "DOI": "10.1088/0957-4484/27/29/295706",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.13636363636363635
+        },
+        {
+          "source": "gas permeability",
+          "target": "cross-linking density",
+          "path": [
+            "gas permeability",
+            "temperature",
+            "80 degrees C",
+            "cross-linking density"
+          ],
+          "length": 3,
+          "nodes": [
+            {
+              "node_id": "gas permeability",
+              "node_data": {
+                "type": "property",
+                "group": 2,
+                "color": "#575bdb",
+                "size": 37,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "patents__group": 3,
+                "patents__color": "#57db71",
+                "patents__size": 8
+              }
+            },
+            {
+              "node_id": "temperature",
+              "node_data": {
+                "type": "parameter",
+                "group": 16,
+                "color": "#db7357",
+                "size": 3343,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "80 degrees C",
+              "node_data": {
+                "type": "value",
+                "group": 10,
+                "color": "#9557db",
+                "size": 137,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "cross-linking density",
+              "node_data": {
+                "type": "property",
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "group": 3,
+                "color": "#57db71",
+                "size": 28
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "gas permeability",
+              "target": "temperature",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "23e7b66935dc0214de312792f77c5fbf",
+                "DOI": "10.1007/s11440-022-01624-3",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "temperature",
+              "target": "80 degrees C",
+              "edge_data": {
+                "relation": "is a value of",
+                "chunk_id": "2f7d63769cab78439d15abd3c35bdc53",
+                "DOI": "10.1109/TED.2013.2249067",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "80 degrees C",
+              "target": "cross-linking density",
+              "edge_data": {
+                "relation": "results in high",
+                "chunk_id": "68d968686d54b7328e0a2230237b1893",
+                "DOI": "10.3390/ma17164125",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.13636363636363635
+        },
+        {
+          "source": "resistance to acids, alkaline and organic solvents",
+          "target": "cross-linking density",
+          "path": [
+            "resistance to acids, alkaline and organic solvents",
+            "solubility results",
+            "temperature",
+            "80 degrees C",
+            "cross-linking density"
+          ],
+          "length": 4,
+          "nodes": [
+            {
+              "node_id": "resistance to acids, alkaline and organic solvents",
+              "node_data": {
+                "type": "property",
+                "group": 7,
+                "color": "#cfdb57",
+                "size": 2,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "solubility results",
+              "node_data": {
+                "type": "property",
+                "group": 4,
+                "color": "#5796db",
+                "size": 69,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "temperature",
+              "node_data": {
+                "type": "parameter",
+                "group": 16,
+                "color": "#db7357",
+                "size": 3343,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "80 degrees C",
+              "node_data": {
+                "type": "value",
+                "group": 10,
+                "color": "#9557db",
+                "size": 137,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "cross-linking density",
+              "node_data": {
+                "type": "property",
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "group": 3,
+                "color": "#57db71",
+                "size": 28
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "resistance to acids, alkaline and organic solvents",
+              "target": "solubility results",
+              "edge_data": {
+                "relation": "reveals",
+                "chunk_id": "01f320e8719814d2d11a1f69bbcfcc11",
+                "DOI": "10.4028/www.scientific.net/AMM.238.17",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "solubility results",
+              "target": "temperature",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "5ff4bff3ace9008748bc6fadfb1324b4",
+                "DOI": "10.1371/journal.pone.0037863",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "temperature",
+              "target": "80 degrees C",
+              "edge_data": {
+                "relation": "is a value of",
+                "chunk_id": "2f7d63769cab78439d15abd3c35bdc53",
+                "DOI": "10.1109/TED.2013.2249067",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "80 degrees C",
+              "target": "cross-linking density",
+              "edge_data": {
+                "relation": "results in high",
+                "chunk_id": "68d968686d54b7328e0a2230237b1893",
+                "DOI": "10.3390/ma17164125",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.09090909090909091
+        },
+        {
+          "source": "resistance to acids, alkaline and organic solvents",
+          "target": "gas-barrier performance",
+          "path": [
+            "resistance to acids, alkaline and organic solvents",
+            "solubility results",
+            "temperature",
+            "H2O",
+            "gas-barrier performance"
+          ],
+          "length": 4,
+          "nodes": [
+            {
+              "node_id": "resistance to acids, alkaline and organic solvents",
+              "node_data": {
+                "type": "property",
+                "group": 7,
+                "color": "#cfdb57",
+                "size": 2,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "solubility results",
+              "node_data": {
+                "type": "property",
+                "group": 4,
+                "color": "#5796db",
+                "size": 69,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "temperature",
+              "node_data": {
+                "type": "parameter",
+                "group": 16,
+                "color": "#db7357",
+                "size": 3343,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "H2O",
+              "node_data": {
+                "type": "chemical",
+                "group": 1,
+                "color": "#57a9db",
+                "size": 557,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "gas-barrier performance",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 16,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "resistance to acids, alkaline and organic solvents",
+              "target": "solubility results",
+              "edge_data": {
+                "relation": "reveals",
+                "chunk_id": "01f320e8719814d2d11a1f69bbcfcc11",
+                "DOI": "10.4028/www.scientific.net/AMM.238.17",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "solubility results",
+              "target": "temperature",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "5ff4bff3ace9008748bc6fadfb1324b4",
+                "DOI": "10.1371/journal.pone.0037863",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "temperature",
+              "target": "H2O",
+              "edge_data": {
+                "relation": "controlled by",
+                "chunk_id": "79977ed008be833d254d42460761e57c",
+                "DOI": "10.1029/2023JE008088",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "H2O",
+              "target": "gas-barrier performance",
+              "edge_data": {
+                "relation": "improves",
+                "chunk_id": "2773dea59fabd9a2af0de4e7c1fe06c4",
+                "DOI": "10.1088/0957-4484/27/29/295706",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.09090909090909091
+        },
+        {
+          "source": "gas permeability",
+          "target": "gas-barrier performance",
+          "path": [
+            "gas permeability",
+            "nitrogen",
+            "HfO2",
+            "gas-barrier performance"
+          ],
+          "length": 3,
+          "nodes": [
+            {
+              "node_id": "gas permeability",
+              "node_data": {
+                "type": "property",
+                "group": 2,
+                "color": "#575bdb",
+                "size": 37,
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "patents__group": 3,
+                "patents__color": "#57db71",
+                "patents__size": 8
+              }
+            },
+            {
+              "node_id": "nitrogen",
+              "node_data": {
+                "type": "chemical",
+                "group": 10,
+                "color": "#9557db",
+                "size": 250,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "HfO2",
+              "node_data": {
+                "type": "material",
+                "group": 10,
+                "color": "#9557db",
+                "size": 104,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "gas-barrier performance",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 16,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "gas permeability",
+              "target": "nitrogen",
+              "edge_data": {
+                "relation": "measured with",
+                "chunk_id": "06ee90c57a360e0e4c05966f9d247e43",
+                "DOI": "10.1016/j.polymdegradstab.2019.108963",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "nitrogen",
+              "target": "HfO2",
+              "edge_data": {
+                "relation": "incorporation",
+                "chunk_id": "3968344809322a52f01942437da3a53b",
+                "DOI": "10.1063/1.2422746",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "HfO2",
+              "target": "gas-barrier performance",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "2773dea59fabd9a2af0de4e7c1fe06c4",
+                "DOI": "10.1088/0957-4484/27/29/295706",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.09090909090909091
+        },
+        {
+          "source": "cross-linking density",
+          "target": "gas-barrier performance",
+          "path": [
+            "cross-linking density",
+            "annealing temperature",
+            "HfO2",
+            "gas-barrier performance"
+          ],
+          "length": 3,
+          "nodes": [
+            {
+              "node_id": "cross-linking density",
+              "node_data": {
+                "type": "property",
+                "source_kgs": [
+                  "material_properties",
+                  "patents"
+                ],
+                "patents__type": "property",
+                "group": 3,
+                "color": "#57db71",
+                "size": 28
+              }
+            },
+            {
+              "node_id": "annealing temperature",
+              "node_data": {
+                "type": "parameter",
+                "group": 10,
+                "color": "#9557db",
+                "size": 283,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "HfO2",
+              "node_data": {
+                "type": "material",
+                "group": 10,
+                "color": "#9557db",
+                "size": 104,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "node_id": "gas-barrier performance",
+              "node_data": {
+                "type": "property",
+                "group": 10,
+                "color": "#9557db",
+                "size": 16,
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "cross-linking density",
+              "target": "annealing temperature",
+              "edge_data": {
+                "relation": "increases at",
+                "chunk_id": "68d968686d54b7328e0a2230237b1893",
+                "DOI": "10.3390/ma17164125",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "annealing temperature",
+              "target": "HfO2",
+              "edge_data": {
+                "relation": "affects properties of",
+                "chunk_id": "811648992d915954eccf54ad8f43cfdd",
+                "DOI": "10.1007/s10971-016-4231-9",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            },
+            {
+              "source": "HfO2",
+              "target": "gas-barrier performance",
+              "edge_data": {
+                "relation": "affects",
+                "chunk_id": "2773dea59fabd9a2af0de4e7c1fe06c4",
+                "DOI": "10.1088/0957-4484/27/29/295706",
+                "source_kgs": [
+                  "material_properties"
+                ]
+              }
+            }
+          ],
+          "path_type": "B",
+          "score": 0.09090909090909091
+        }
+      ]
+    },
+    "subgraph_insights": {
+      "material_nodes": [
+        "chitosan",
+        "aluminum",
+        "Polyimides",
+        "HfO2",
+        "Composite phase change material (CPCM)",
+        "H2O",
+        "Graphene nanoplatelets (GNPs)",
+        "nitrogen",
+        "electrolytes",
+        "silane coupling agent"
+      ],
+      "property_nodes": [
+        "room-temperature flexibility",
+        "cross-linking density",
+        "protein adsorption",
+        "gas permeability",
+        "microstructure",
+        "film thickness",
+        "ultraviolet resistance",
+        "adhesion",
+        "solubility results",
+        "resistance to acids, alkaline and organic solvents"
+      ],
+      "total_nodes": 113,
+      "total_edges": 978
+    }
+  },
+  "chat_log_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query1/artifacts/chats/system2_chat_log_material_discovery_2026071719_0.json"
+}

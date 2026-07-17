@@ -140,6 +140,7 @@ For a description of how these files relate to specific figures and tables in th
 
 - `notebooks/walkthrough.ipynb` — interactive demo that loads a pre-computed result and visualises the full pipeline run: execution timeline, agent chat logs, KG subgraph, and per-system outputs.
 - `notebooks/graph_viz.ipynb` — visualises the Material Informed Subgraph produced during System 2, at multiple levels of detail from ego-graphs around individual nodes to the full graph topology.
+- `notebooks/mars_showcase_detailed.ipynb` — renders any MARS run end-to-end for a chosen query: requirements, the closed-loop System 2⇄3 search, the knowledge subgraph, the manufacturing route, agent reasoning traces, and (where available) the blind evaluation.
 
 ---
 
@@ -161,10 +162,12 @@ For a description of how these files relate to specific figures and tables in th
 ├── scripts/
 │   ├── run_mars.py              # Full MARS pipeline
 │   ├── run_ablations.py         # Ablation conditions
-│   └── run_evaluation.py        # LLM-as-judge evaluation
+│   ├── run_evaluation.py        # LLM-as-judge evaluation
+│   └── build_showcase.py        # Generates the mars_showcase notebook
 ├── notebooks/
 │   ├── walkthrough.ipynb        # Interactive pipeline demo
-│   └── graph_viz.ipynb          # Material Informed Subgraph visualisation
+│   ├── graph_viz.ipynb          # Material Informed Subgraph visualisation
+│   └── mars_showcase_detailed.ipynb  # Full per-query showcase report
 ├── data/                        # Data and generation tooling — see data/README.md
 │   ├── MARS_Data/               # KGs, ChromaDBs, MaterialDB (dummy data included)
 │   └── download_data.py         # Download full KGs from HuggingFace

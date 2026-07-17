@@ -1,0 +1,50 @@
+{
+  "pipeline_run_id": "2026071717",
+  "start_time": "2026-07-17T21:54:38.402913Z",
+  "end_time": "2026-07-17T22:08:36.153825Z",
+  "total_duration_seconds": 837.750912,
+  "system1": {
+    "run_id": "2026071717_0",
+    "start_time": "2026-07-17T21:54:38.428570Z",
+    "end_time": "2026-07-17T21:57:00.674974Z",
+    "duration_seconds": 142.246404,
+    "result_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query2/artifacts/system1_2026071717_0.json",
+    "chat_log_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query2/artifacts/chats/system1_chat_log_material_requirements_2026071717_0.json",
+    "properties_extracted": 37
+  },
+  "system2_system3_loop": {
+    "max_iterations": 5,
+    "total_iterations": 1,
+    "iterations": [
+      {
+        "iteration": 1,
+        "system2": {
+          "run_id": "2026071717_0",
+          "start_time": "2026-07-17T21:57:00.679404Z",
+          "end_time": "2026-07-17T22:05:10.498234Z",
+          "duration_seconds": 489.81883,
+          "result_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query2/artifacts/system2_2026071717_0.json",
+          "chat_log_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query2/artifacts/chats/system2_chat_log_material_discovery_2026071717_0.json",
+          "candidate": "ENGAGE 030902 HEALTH+™ Polyolefin Elastomer / 5 wt% BN / 5 wt% Organically‑Modified Montmorillonite (OMMT) / Laminated E",
+          "internal_iterations": []
+        },
+        "system3": {
+          "run_id": "2026071717_0",
+          "start_time": "2026-07-17T22:05:10.510694Z",
+          "end_time": "2026-07-17T22:08:36.125600Z",
+          "duration_seconds": 205.614906,
+          "result_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query2/artifacts/system3_2026071717_0.json",
+          "chat_log_path": "/home/palsubhadeep/Github/MARS_backup_20260707_204426/results/Query2/artifacts/chats/system3_chat_log_manufacturability_assessment_2026071717_0.json",
+          "status": "manufacturable",
+          "blocking_constraints": [],
+          "feedback_to_system2": ""
+        }
+      }
+    ]
+  },
+  "final_outcome": {
+    "status": "manufacturable",
+    "final_candidate": "ENGAGE 030902 HEALTH+™ Polyolefin Elastomer / 5 wt% BN / 5 wt% Organically‑Modified Montmorillonite (OMMT) / Laminated E",
+    "total_rejected_candidates": 0
+  }
+}

@@ -1,4 +1,4 @@
-"""Evaluation export utility for SG_MIT_EvalPlan framework.
+"""Evaluation export utility for the MARS evaluation framework.
 
 Builds a self-contained, evaluation-ready JSON payload from pipeline_run
 and saved system outputs. Used to create evaluation documents for material scientists.

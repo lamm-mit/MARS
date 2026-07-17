@@ -35,6 +35,17 @@ def parse_to_list(content: str) -> List[str]:
     result: List[str] = []
     current_item: List[str] = []
 
+    numbered_re = re.compile(r"^(\d+)[.\)]\s+(.+)$")
+    bullet_re = re.compile(r"^[-*•]\s+(.+)$")
+
+    # LLMs commonly precede a real bulleted/numbered list with an unmarked title
+    # line (e.g. "Key material attributes for X:" or "Hard Constraints for Y").
+    # If the content has an actual list, any plain line before the first marker
+    # is that intro/header — not a list item — so it's dropped rather than
+    # becoming item #1 (see notebook bug: header rendered as "1.").
+    has_marker = any(numbered_re.match(ln.strip()) or bullet_re.match(ln.strip()) for ln in lines)
+    seen_marker = False
+
     for line in lines:
         line = line.strip()
 
@@ -46,10 +57,11 @@ def parse_to_list(content: str) -> List[str]:
                 current_item = []
             continue
 
-        numbered_match = re.match(r"^(\d+)[.\)]\s+(.+)$", line)
-        bullet_match = re.match(r"^[-*•]\s+(.+)$", line)
+        numbered_match = numbered_re.match(line)
+        bullet_match = bullet_re.match(line)
 
         if numbered_match or bullet_match:
+            seen_marker = True
             if current_item:
                 item_text = " ".join(current_item).strip()
                 if item_text and len(item_text) >= 1:
@@ -61,6 +73,8 @@ def parse_to_list(content: str) -> List[str]:
 
             if item_text and len(item_text) >= 1:
                 result.append(item_text)
+        elif has_marker and not seen_marker:
+            continue  # header/preamble line before the real list — discard
         else:
             if line.startswith(("  ", "\t", "- ", "* ")) or not line[0].isupper():
                 if current_item or result:

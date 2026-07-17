@@ -1,0 +1,15 @@
+{
+  "run_id": "2026070610_0",
+  "pipeline": "material_discovery",
+  "timestamp": "2026-07-06T14:09:33.682073Z",
+  "interactions": [],
+  "summary": {
+    "total_interactions": 0,
+    "llm_calls": 0,
+    "rag_queries": 0,
+    "kg_queries": 0,
+    "agent_interactions": 0
+  },
+  "end_time": "2026-07-06T14:09:41.897461Z",
+  "duration_seconds": 8.215388
+}

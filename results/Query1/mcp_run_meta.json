@@ -1,0 +1,12 @@
+{
+  "name": "Query1",
+  "pid": 3397314,
+  "start_time": "2026-07-06T02:36:45.502659+00:00",
+  "override": "config/overrides/local_LLM_downloaded_KGs.yaml",
+  "log": "/home/palsubhadeep/Github/MARS/results/Query1/run.log",
+  "query": {
+    "sentence": "Find a non-PFAS substitute for THV terpolymer used as a fuel hose liner that maintains chemical resistance, flexibility, and barrier properties.",
+    "material_X": "THV terpolymer",
+    "application_Y": "fuel hose liner"
+  }
+}

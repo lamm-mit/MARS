@@ -1,0 +1,2264 @@
+{
+  "_type": "networkx_graph",
+  "data": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "type": "material",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 301,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "titanium"
+      },
+      {
+        "type": "parameter",
+        "group": 16,
+        "color": "#db7357",
+        "size": 3343,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "temperature"
+      },
+      {
+        "type": "material",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 1,
+        "source_kgs": [
+          "material_properties",
+          "patents"
+        ],
+        "patents__type": "chemical_group",
+        "patents__group": 0,
+        "patents__color": "#57bcdb",
+        "patents__size": 1,
+        "id": "R18"
+      },
+      {
+        "type": "material",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 39,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "Tool steels"
+      },
+      {
+        "type": "material",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 364,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "aluminum"
+      },
+      {
+        "type": "material",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 8,
+        "source_kgs": [
+          "material_properties",
+          "patents"
+        ],
+        "patents__type": "material",
+        "patents__group": 3,
+        "patents__color": "#57db71",
+        "patents__size": 97,
+        "id": "Poly(propylene sulphide) (PPS)"
+      },
+      {
+        "type": "material",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 59,
+        "source_kgs": [
+          "material_properties",
+          "patents"
+        ],
+        "patents__type": "material",
+        "patents__group": 3,
+        "patents__color": "#57db71",
+        "patents__size": 172,
+        "id": "PPS"
+      },
+      {
+        "type": "material",
+        "group": 10,
+        "color": "#9557db",
+        "size": 345,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "Si3N4"
+      },
+      {
+        "type": "bacteriophage",
+        "group": 1,
+        "color": "#57a9db",
+        "size": 4,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "K1-ULINTec4"
+      },
+      {
+        "type": "bacterial strain",
+        "group": 1,
+        "color": "#57a9db",
+        "size": 9,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "C5"
+      },
+      {
+        "type": "material",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 70,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "wood composite material"
+      },
+      {
+        "type": "material",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 80,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "Inconel 718"
+      },
+      {
+        "type": "bacterial strain",
+        "group": 1,
+        "color": "#57a9db",
+        "size": 1,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "APEC 45"
+      },
+      {
+        "type": "method",
+        "group": 10,
+        "color": "#9557db",
+        "size": 1222,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "Scanning electron microscopy"
+      },
+      {
+        "type": "material",
+        "group": 2,
+        "color": "#575bdb",
+        "size": 1,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "medical plastics"
+      },
+      {
+        "type": "material",
+        "group": 2,
+        "color": "#575bdb",
+        "size": 21,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "C5a"
+      },
+      {
+        "type": "material",
+        "group": 166,
+        "color": "#db6257",
+        "size": 4,
+        "source_kgs": [
+          "material_properties",
+          "patents"
+        ],
+        "patents__type": "material",
+        "patents__group": 3,
+        "patents__color": "#57db71",
+        "patents__size": 182,
+        "id": "PPS resin"
+      },
+      {
+        "type": "material_property",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 7437,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "friction coefficient"
+      },
+      {
+        "type": "surface modification",
+        "group": 2,
+        "color": "#575bdb",
+        "size": 8,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "liquid-impregnated surface (LIS)"
+      },
+      {
+        "type": "material",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 935,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "composite"
+      },
+      {
+        "type": "material",
+        "group": 4,
+        "color": "#5796db",
+        "size": 303,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "silica"
+      },
+      {
+        "type": "material",
+        "group": 10,
+        "color": "#9557db",
+        "size": 516,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "Polymer nanocomposites"
+      },
+      {
+        "type": "property",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 1711,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "mechanical properties"
+      },
+      {
+        "type": "material",
+        "group": 4,
+        "color": "#5796db",
+        "size": 646,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "chitosan"
+      },
+      {
+        "type": "material phase",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 41,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "Laves phases"
+      },
+      {
+        "type": "process",
+        "group": 2,
+        "color": "#575bdb",
+        "size": 2249,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "protein adsorption"
+      },
+      {
+        "type": "method",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 167,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "Additive manufacturing"
+      },
+      {
+        "type": "material",
+        "group": 10,
+        "color": "#9557db",
+        "size": 311,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "Tin"
+      },
+      {
+        "type": "material",
+        "group": 7,
+        "color": "#cfdb57",
+        "size": 125,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "id": "Polyether ether ketone (PEEK)"
+      },
+      {
+        "type": "image",
+        "group": 34,
+        "color": "#57db9f",
+        "size": 463,
+        "source_kgs": [
+          "patents"
+        ],
+        "id": "FIG. 18"
+      },
+      {
+        "type": "material",
+        "group": 3,
+        "color": "#57db71",
+        "size": 249,
+        "source_kgs": [
+          "patents"
+        ],
+        "id": "thermoplastic elastomer"
+      },
+      {
+        "type": "material",
+        "group": 9,
+        "color": "#57db65",
+        "size": 2,
+        "source_kgs": [
+          "patents"
+        ],
+        "id": "EngageTM Polyolefin Elastomers"
+      },
+      {
+        "type": "chemical formula",
+        "group": 0,
+        "color": "#57bcdb",
+        "size": 49,
+        "source_kgs": [
+          "patents"
+        ],
+        "id": "Chemical Formula 1"
+      },
+      {
+        "type": "component",
+        "group": 9,
+        "color": "#57db65",
+        "size": 11,
+        "source_kgs": [
+          "patents"
+        ],
+        "id": "distal liner section"
+      },
+      {
+        "type": "material",
+        "group": 3,
+        "color": "#57db71",
+        "size": 5,
+        "source_kgs": [
+          "patents"
+        ],
+        "id": "Victrex PEEK 450G"
+      },
+      {
+        "type": "component",
+        "group": 9,
+        "color": "#57db65",
+        "size": 156,
+        "source_kgs": [
+          "patents"
+        ],
+        "id": "inner liner"
+      },
+      {
+        "type": "image",
+        "group": 0,
+        "color": "#57bcdb",
+        "size": 6420,
+        "source_kgs": [
+          "patents"
+        ],
+        "id": "0_image_0.png"
+      },
+      {
+        "type": "example",
+        "group": 3,
+        "color": "#57db71",
+        "size": 34,
+        "source_kgs": [
+          "patents"
+        ],
+        "id": "Comparative Example 12"
+      },
+      {
+        "type": "image",
+        "group": 0,
+        "color": "#57bcdb",
+        "size": 2226,
+        "source_kgs": [
+          "patents"
+        ],
+        "id": "3_image_1.png"
+      },
+      {
+        "type": "material",
+        "group": 3,
+        "color": "#57db71",
+        "size": 77,
+        "source_kgs": [
+          "patents"
+        ],
+        "id": "Polyetheretherketone"
+      }
+    ],
+    "links": [
+      {
+        "relation": "decreases with addition",
+        "chunk_id": "e23ffd37e68b9efbec4a3ecd619a4d35",
+        "DOI": "10.1002/mawe.201700163",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "titanium",
+        "target": "friction coefficient"
+      },
+      {
+        "relation": "is_component_of",
+        "chunk_id": "01993973a8b9fd8fed1231b60baf9ae1",
+        "DOI": NaN,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "titanium",
+        "target": "composite"
+      },
+      {
+        "relation": "can form compound",
+        "chunk_id": "b7b2bb6305ed81b2911b3900584fd558",
+        "DOI": "10.1590/1980-5373-MR-2023-0272",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "titanium",
+        "target": "Tin"
+      },
+      {
+        "relation": "undergoes",
+        "chunk_id": "1fd94b70ea0f1bd152c1d2062ddb4503",
+        "DOI": "10.1163/156856297X00560",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "titanium",
+        "target": "protein adsorption"
+      },
+      {
+        "relation": "forms_frictional_pair_with",
+        "chunk_id": "c0b23f4917906dd9c6675643ab31ac10",
+        "DOI": "10.4028/www.scientific.net/KEM.410-411.279",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "titanium",
+        "target": "Tool steels"
+      },
+      {
+        "relation": "has property",
+        "chunk_id": "92d3b59fad50c9536cf301a66d09fe3c",
+        "DOI": "10.1007/s00170-022-10318-9",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "titanium",
+        "target": "mechanical properties"
+      },
+      {
+        "relation": "compared to",
+        "chunk_id": "e8cd0b607c3eb09deb4bed063ab8f7e3",
+        "DOI": "10.7860/JCDR/2023/66902.18557",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "titanium",
+        "target": "Polyether ether ketone (PEEK)"
+      },
+      {
+        "relation": "isAffectedBy",
+        "chunk_id": "3243c4a1710461f38b16077698cf25d7",
+        "DOI": "10.1016/j.msea.2003.09.049",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "temperature",
+        "target": "friction coefficient"
+      },
+      {
+        "relation": "dependent on",
+        "chunk_id": "cdcef2e02a5ea98c844f380957fa8126",
+        "DOI": "10.1007/s11182-022-02504-9",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "temperature",
+        "target": "mechanical properties"
+      },
+      {
+        "relation": "influenced by",
+        "chunk_id": "9a62f7210e6b824c1630ae197ef8b335",
+        "DOI": "10.1021/acs.analchem.7b03921",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "temperature",
+        "target": "protein adsorption"
+      },
+      {
+        "relation": "experiences lower",
+        "chunk_id": "da5e90b47c6273cea9d8fb98ea60e55e",
+        "DOI": "10.1016/S0921-5093(01)01924-4",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "temperature",
+        "target": "composite"
+      },
+      {
+        "relation": "studied at",
+        "chunk_id": "7db133b925cd264bd380162570888874",
+        "DOI": "10.1098/rsta.1996.0058",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "temperature",
+        "target": "silica"
+      },
+      {
+        "relation": "reduces_at_high_temperatures",
+        "chunk_id": "8f4ae2f7c05d0e44be8401adc80f4ad8",
+        "DOI": "10.1002/pola.10560",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "temperature",
+        "target": "PPS"
+      },
+      {
+        "relation": "is_type_of",
+        "chunk_id": "a4cc54a0cfdff0a69561c3911a8f4930",
+        "DOI": NaN,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "R18",
+        "target": "Tool steels"
+      },
+      {
+        "relation": "linked to",
+        "chunk_id": "e5e58a7d314413a10b7b446bf592f4d3",
+        "DOI": "US20150056413",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "R18",
+        "target": "Chemical Formula 1"
+      },
+      {
+        "relation": "forms_frictional_pair_with",
+        "chunk_id": "c0b23f4917906dd9c6675643ab31ac10",
+        "DOI": "10.4028/www.scientific.net/KEM.410-411.279",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Tool steels",
+        "target": "titanium"
+      },
+      {
+        "relation": "is_type_of",
+        "chunk_id": "a4cc54a0cfdff0a69561c3911a8f4930",
+        "DOI": NaN,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Tool steels",
+        "target": "R18"
+      },
+      {
+        "relation": "enables design of",
+        "chunk_id": "d5f6b49a3adc691652c3fc014635e376",
+        "DOI": "10.1016/j.wear.2020.203449",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Tool steels",
+        "target": "Additive manufacturing"
+      },
+      {
+        "relation": "deposited on",
+        "chunk_id": "f6ec15fdf535415975808c510c4e0ab3",
+        "DOI": "10.1016/S0043-1648(02)00113-8",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Tool steels",
+        "target": "Tin"
+      },
+      {
+        "relation": "tested against",
+        "chunk_id": "588b737e005207b35d0f911f23f86b77",
+        "DOI": "10.1111/j.1151-2916.1999.tb01859.x",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Tool steels",
+        "target": "Si3N4"
+      },
+      {
+        "relation": "is transferred to",
+        "chunk_id": "5dc54c7cd117466d802a4608ff672cfd",
+        "DOI": "10.1016/j.surfcoat.2010.04.025",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Tool steels",
+        "target": "aluminum"
+      },
+      {
+        "relation": "is transferred to",
+        "chunk_id": "5dc54c7cd117466d802a4608ff672cfd",
+        "DOI": "10.1016/j.surfcoat.2010.04.025",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "aluminum",
+        "target": "Tool steels"
+      },
+      {
+        "relation": "used to analyze",
+        "chunk_id": "9439b1651e53f370ea9f5d65d8b5f47a",
+        "DOI": "10.1021/acsami.0c05429",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "aluminum",
+        "target": "Scanning electron microscopy"
+      },
+      {
+        "relation": "has",
+        "chunk_id": "df07de6316c231b59ac0e1d16a6db5a9",
+        "DOI": "10.1134/S0031918X20070029",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "aluminum",
+        "target": "mechanical properties"
+      },
+      {
+        "relation": "contains",
+        "chunk_id": "2b7a1b1e424fb3be2b66ac2170f25445",
+        "DOI": "10.1177/09544089241277692",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "aluminum",
+        "target": "composite"
+      },
+      {
+        "relation": "increases",
+        "chunk_id": "0c855935b65e0eadf3d76f0bb86b9d98",
+        "DOI": "10.1177/13506501221109042",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "aluminum",
+        "target": "friction coefficient"
+      },
+      {
+        "relation": "interfacial adhesion between",
+        "chunk_id": "a15060b42bb9ee1d33b643773b2ba46b",
+        "DOI": NaN,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "aluminum",
+        "target": "PPS resin"
+      },
+      {
+        "relation": "compared_with",
+        "chunk_id": "c63e5fdf46e93c3892f2ff0bb6bee292",
+        "DOI": "10.4028/www.scientific.net/AMR.683.90",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Poly(propylene sulphide) (PPS)",
+        "target": "Polyether ether ketone (PEEK)"
+      },
+      {
+        "relation": "abbreviation for",
+        "chunk_id": "d9d88f9203126bf33ef26e5bb4801549",
+        "DOI": "10.1021/mp7001297",
+        "source_kgs": [
+          "material_properties",
+          "patents"
+        ],
+        "patents__relation": "is_same_as",
+        "patents__chunk_id": "9965153dca4b2cb919f399bef338e340",
+        "patents__DOI": "US8168732",
+        "source": "Poly(propylene sulphide) (PPS)",
+        "target": "PPS"
+      },
+      {
+        "relation": "contains",
+        "chunk_id": "b362fbaefeece7d3ded342dcfcc47c6b",
+        "DOI": "10.17212/1994-6309-2025-27.1-203-217",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Poly(propylene sulphide) (PPS)",
+        "target": "wood composite material"
+      },
+      {
+        "relation": "represented by formula",
+        "chunk_id": "146b7c5abdb22b3635158e2fed485e23",
+        "DOI": "US5164454",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "Poly(propylene sulphide) (PPS)",
+        "target": "0_image_0.png"
+      },
+      {
+        "relation": "chemical structure of",
+        "chunk_id": "46f6406ccb01807e6a2e35d0508f0450",
+        "DOI": "US5037900",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "Poly(propylene sulphide) (PPS)",
+        "target": "3_image_1.png"
+      },
+      {
+        "relation": "reduces_at_high_temperatures",
+        "chunk_id": "8f4ae2f7c05d0e44be8401adc80f4ad8",
+        "DOI": "10.1002/pola.10560",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "PPS",
+        "target": "temperature"
+      },
+      {
+        "relation": "abbreviation for",
+        "chunk_id": "d9d88f9203126bf33ef26e5bb4801549",
+        "DOI": "10.1021/mp7001297",
+        "source_kgs": [
+          "material_properties",
+          "patents"
+        ],
+        "patents__relation": "is_same_as",
+        "patents__chunk_id": "9965153dca4b2cb919f399bef338e340",
+        "patents__DOI": "US8168732",
+        "source": "PPS",
+        "target": "Poly(propylene sulphide) (PPS)"
+      },
+      {
+        "relation": "reduces_at_high_temperatures",
+        "chunk_id": "8f4ae2f7c05d0e44be8401adc80f4ad8",
+        "DOI": "10.1002/pola.10560",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "PPS",
+        "target": "friction coefficient"
+      },
+      {
+        "relation": "part_of",
+        "chunk_id": "1f0fe0fed370cd9c8c52b2097ec135bf",
+        "DOI": "10.1016/j.matchemphys.2012.04.057",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "PPS",
+        "target": "Polymer nanocomposites"
+      },
+      {
+        "relation": "illustrates structure",
+        "chunk_id": "f29749217179747272264f7c8f69c0f6",
+        "DOI": "US4678831",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "PPS",
+        "target": "0_image_0.png"
+      },
+      {
+        "relation": "illustrates end group",
+        "chunk_id": "f29749217179747272264f7c8f69c0f6",
+        "DOI": "US4678831",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "PPS",
+        "target": "3_image_1.png"
+      },
+      {
+        "relation": "tested against",
+        "chunk_id": "588b737e005207b35d0f911f23f86b77",
+        "DOI": "10.1111/j.1151-2916.1999.tb01859.x",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Si3N4",
+        "target": "Tool steels"
+      },
+      {
+        "relation": "results in high friction coefficient when tested against AISI304",
+        "chunk_id": "1686fbcec52495fd84ecedfeb3add5bf",
+        "DOI": NaN,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Si3N4",
+        "target": "friction coefficient"
+      },
+      {
+        "relation": "has",
+        "chunk_id": "1fa52c8233d3bcb4e176360a4e6beeb0",
+        "DOI": "10.1007/s10853-023-08575-4",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Si3N4",
+        "target": "mechanical properties"
+      },
+      {
+        "relation": "affects",
+        "chunk_id": "493c14e9c94b5852af1e19c97d098234",
+        "DOI": "10.1016/j.actbio.2015.08.014",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Si3N4",
+        "target": "protein adsorption"
+      },
+      {
+        "relation": "contains",
+        "chunk_id": "aa2b6e8d4a277745ff902fd84f225264",
+        "DOI": "10.4028/www.scientific.net/KEM.317-318.363",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Si3N4",
+        "target": "Si3N4"
+      },
+      {
+        "relation": "reacts with Ti to form",
+        "chunk_id": "fa5c0ef3a4050580903c595a552f934f",
+        "DOI": "10.1016/j.mtcomm.2024.109416",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Si3N4",
+        "target": "Tin"
+      },
+      {
+        "relation": "reinforces",
+        "chunk_id": "b096165825a47726a78ce7a0dc7076b1",
+        "DOI": "10.1016/j.jeurceramsoc.2019.01.053",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Si3N4",
+        "target": "composite"
+      },
+      {
+        "relation": "exposed to",
+        "chunk_id": "03b92d09794b1720133bc46d0bcde7b9",
+        "DOI": "10.1093/jambio/lxae109",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "K1-ULINTec4",
+        "target": "C5"
+      },
+      {
+        "relation": "exposed to",
+        "chunk_id": "03b92d09794b1720133bc46d0bcde7b9",
+        "DOI": "10.1093/jambio/lxae109",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "K1-ULINTec4",
+        "target": "APEC 45"
+      },
+      {
+        "relation": "exposed to",
+        "chunk_id": "03b92d09794b1720133bc46d0bcde7b9",
+        "DOI": "10.1093/jambio/lxae109",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "C5",
+        "target": "K1-ULINTec4"
+      },
+      {
+        "relation": "adsorbs noncovalently to",
+        "chunk_id": "afa35441eb8553edab88965aeef44b2f",
+        "DOI": "10.1002/jbm.a.32638",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "C5",
+        "target": "chitosan"
+      },
+      {
+        "relation": "has polymorph",
+        "chunk_id": "f080385b0f84045e067839f2c0155498",
+        "DOI": "10.1016/S0925-8388(03)00728-X",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "C5",
+        "target": "Laves phases"
+      },
+      {
+        "relation": "cleaved to produce",
+        "chunk_id": "afa35441eb8553edab88965aeef44b2f",
+        "DOI": "10.1002/jbm.a.32638",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "C5",
+        "target": "C5a"
+      },
+      {
+        "relation": "contains",
+        "chunk_id": "b362fbaefeece7d3ded342dcfcc47c6b",
+        "DOI": "10.17212/1994-6309-2025-27.1-203-217",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "wood composite material",
+        "target": "Poly(propylene sulphide) (PPS)"
+      },
+      {
+        "relation": "componentOf",
+        "chunk_id": "c464665ee070c1b3d125525ebb6f77ac",
+        "DOI": "10.1002/adfm.201000144",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "wood composite material",
+        "target": "silica"
+      },
+      {
+        "relation": "has_lower",
+        "chunk_id": "15fe624ed6bdbde990320efe0a4da735",
+        "DOI": "10.1023/A:1019166129670",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "wood composite material",
+        "target": "friction coefficient"
+      },
+      {
+        "relation": "suitable for",
+        "chunk_id": "116607afcaa99c774e6418a0b96b8d4e",
+        "DOI": "10.1016/j.engfailanal.2025.109507",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Inconel 718",
+        "target": "Additive manufacturing"
+      },
+      {
+        "relation": "has",
+        "chunk_id": "b97e29b155dd9d7afa7b8892144824af",
+        "DOI": "10.3390/app14188574",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Inconel 718",
+        "target": "mechanical properties"
+      },
+      {
+        "relation": "compared with",
+        "chunk_id": "b65031f4c7ee9cdf1758a919235cc95f",
+        "DOI": "10.2514/6.2021-0537",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Inconel 718",
+        "target": "Inconel 718"
+      },
+      {
+        "relation": "contains",
+        "chunk_id": "b7f8182a9d03cd706aff30e9ee075bb9",
+        "DOI": "10.1016/j.mtcomm.2024.110789",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Inconel 718",
+        "target": "Laves phases"
+      },
+      {
+        "relation": "exposed to",
+        "chunk_id": "03b92d09794b1720133bc46d0bcde7b9",
+        "DOI": "10.1093/jambio/lxae109",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "APEC 45",
+        "target": "K1-ULINTec4"
+      },
+      {
+        "relation": "used to analyze",
+        "chunk_id": "9439b1651e53f370ea9f5d65d8b5f47a",
+        "DOI": "10.1021/acsami.0c05429",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Scanning electron microscopy",
+        "target": "aluminum"
+      },
+      {
+        "relation": "analyzes",
+        "chunk_id": "caa6529790df4d51f61492c8c261fada",
+        "DOI": "10.1007/s11664-017-5567-9",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Scanning electron microscopy",
+        "target": "Polymer nanocomposites"
+      },
+      {
+        "relation": "used to study",
+        "chunk_id": "cb227ccffa2931650ff5cfe32a79f606",
+        "DOI": "10.1002/jctb.280630112",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Scanning electron microscopy",
+        "target": "protein adsorption"
+      },
+      {
+        "relation": "analyzed by",
+        "chunk_id": "f1e5423844e974f7a74847f471d6f6d8",
+        "DOI": "10.1002/arch.21499",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Scanning electron microscopy",
+        "target": "chitosan"
+      },
+      {
+        "relation": "is_analyzed_by",
+        "chunk_id": "6171a16dc889a8f5f3d9dbe07e245c08",
+        "DOI": "10.1016/j.compositesa.2018.07.016",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Scanning electron microscopy",
+        "target": "composite"
+      },
+      {
+        "relation": "applied to",
+        "chunk_id": "86659f80ad4c81d40866c7dab2da11c4",
+        "DOI": "10.1177/02676591221095469",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "medical plastics",
+        "target": "liquid-impregnated surface (LIS)"
+      },
+      {
+        "relation": "cleaved to produce",
+        "chunk_id": "afa35441eb8553edab88965aeef44b2f",
+        "DOI": "10.1002/jbm.a.32638",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "C5a",
+        "target": "C5"
+      },
+      {
+        "relation": "generates in whole blood",
+        "chunk_id": "afa35441eb8553edab88965aeef44b2f",
+        "DOI": "10.1002/jbm.a.32638",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "C5a",
+        "target": "chitosan"
+      },
+      {
+        "relation": "is a type of",
+        "chunk_id": "21e6686407207f2f1692727e349c9edd",
+        "DOI": "10.1163/156856208X399936",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "C5a",
+        "target": "protein adsorption"
+      },
+      {
+        "relation": "used as reinforcement in",
+        "chunk_id": "2fbb0a7f489444a210da6507475616da",
+        "DOI": "10.1115/1.4033188",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "C5a",
+        "target": "Polymer nanocomposites"
+      },
+      {
+        "relation": "interfacial adhesion between",
+        "chunk_id": "a15060b42bb9ee1d33b643773b2ba46b",
+        "DOI": NaN,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "PPS resin",
+        "target": "aluminum"
+      },
+      {
+        "relation": "structural formula shown in",
+        "chunk_id": "30ee5d279e782a1b45ed85db41e3f4c1",
+        "DOI": "US6485806",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "PPS resin",
+        "target": "0_image_0.png"
+      },
+      {
+        "relation": "comprises",
+        "chunk_id": "b99d6288b2e2e9032866a4c852be7020",
+        "DOI": "US6943137",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "PPS resin",
+        "target": "thermoplastic elastomer"
+      },
+      {
+        "relation": "contains",
+        "chunk_id": "03bc470532defbc5fabd5b42c8c4dc02",
+        "DOI": "US7250469",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "PPS resin",
+        "target": "PPS resin"
+      },
+      {
+        "relation": "decreases with addition",
+        "chunk_id": "e23ffd37e68b9efbec4a3ecd619a4d35",
+        "DOI": "10.1002/mawe.201700163",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "friction coefficient",
+        "target": "titanium"
+      },
+      {
+        "relation": "isAffectedBy",
+        "chunk_id": "3243c4a1710461f38b16077698cf25d7",
+        "DOI": "10.1016/j.msea.2003.09.049",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "friction coefficient",
+        "target": "temperature"
+      },
+      {
+        "relation": "increases",
+        "chunk_id": "0c855935b65e0eadf3d76f0bb86b9d98",
+        "DOI": "10.1177/13506501221109042",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "friction coefficient",
+        "target": "aluminum"
+      },
+      {
+        "relation": "reduces_at_high_temperatures",
+        "chunk_id": "8f4ae2f7c05d0e44be8401adc80f4ad8",
+        "DOI": "10.1002/pola.10560",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "friction coefficient",
+        "target": "PPS"
+      },
+      {
+        "relation": "results in high friction coefficient when tested against AISI304",
+        "chunk_id": "1686fbcec52495fd84ecedfeb3add5bf",
+        "DOI": NaN,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "friction coefficient",
+        "target": "Si3N4"
+      },
+      {
+        "relation": "has_lower",
+        "chunk_id": "15fe624ed6bdbde990320efe0a4da735",
+        "DOI": "10.1023/A:1019166129670",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "friction coefficient",
+        "target": "wood composite material"
+      },
+      {
+        "relation": "influenced by",
+        "chunk_id": "f778e8b787ebd9f77659d688a940dfcf",
+        "DOI": "10.1016/j.wear.2013.03.044",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "friction coefficient",
+        "target": "mechanical properties"
+      },
+      {
+        "relation": "changes to",
+        "chunk_id": "5e3418c365d94e44af06f68eb57213a2",
+        "DOI": NaN,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "friction coefficient",
+        "target": "friction coefficient"
+      },
+      {
+        "relation": "showed unstable value when sliding on",
+        "chunk_id": "9857bb0cb8cdf70d343e4f9681419be7",
+        "DOI": "10.1016/0301-679X(93)90019-W",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "friction coefficient",
+        "target": "Tin"
+      },
+      {
+        "relation": "has_property",
+        "chunk_id": "66a6fc418c169002548072280246d2a2",
+        "DOI": "10.4028/www.scientific.net/AMR.79-82.429",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "friction coefficient",
+        "target": "Polymer nanocomposites"
+      },
+      {
+        "relation": "has property",
+        "chunk_id": "c8837054e94592d7609058ed327d65f6",
+        "DOI": "10.1080/03602559.2016.1275685",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "friction coefficient",
+        "target": "composite"
+      },
+      {
+        "relation": "has property",
+        "chunk_id": "e570c74be9a6e7f930bee8f02a335924",
+        "DOI": "10.1177/09544119211042992",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "friction coefficient",
+        "target": "Polyether ether ketone (PEEK)"
+      },
+      {
+        "relation": "applied to",
+        "chunk_id": "86659f80ad4c81d40866c7dab2da11c4",
+        "DOI": "10.1177/02676591221095469",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "liquid-impregnated surface (LIS)",
+        "target": "medical plastics"
+      },
+      {
+        "relation": "minimizes",
+        "chunk_id": "86659f80ad4c81d40866c7dab2da11c4",
+        "DOI": "10.1177/02676591221095469",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "liquid-impregnated surface (LIS)",
+        "target": "protein adsorption"
+      },
+      {
+        "relation": "is_component_of",
+        "chunk_id": "01993973a8b9fd8fed1231b60baf9ae1",
+        "DOI": NaN,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "composite",
+        "target": "titanium"
+      },
+      {
+        "relation": "experiences lower",
+        "chunk_id": "da5e90b47c6273cea9d8fb98ea60e55e",
+        "DOI": "10.1016/S0921-5093(01)01924-4",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "composite",
+        "target": "temperature"
+      },
+      {
+        "relation": "contains",
+        "chunk_id": "2b7a1b1e424fb3be2b66ac2170f25445",
+        "DOI": "10.1177/09544089241277692",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "composite",
+        "target": "aluminum"
+      },
+      {
+        "relation": "reinforces",
+        "chunk_id": "b096165825a47726a78ce7a0dc7076b1",
+        "DOI": "10.1016/j.jeurceramsoc.2019.01.053",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "composite",
+        "target": "Si3N4"
+      },
+      {
+        "relation": "is_analyzed_by",
+        "chunk_id": "6171a16dc889a8f5f3d9dbe07e245c08",
+        "DOI": "10.1016/j.compositesa.2018.07.016",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "composite",
+        "target": "Scanning electron microscopy"
+      },
+      {
+        "relation": "has property",
+        "chunk_id": "c8837054e94592d7609058ed327d65f6",
+        "DOI": "10.1080/03602559.2016.1275685",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "composite",
+        "target": "friction coefficient"
+      },
+      {
+        "relation": "improves",
+        "chunk_id": "93e28223ce9b268018101272ef65e985",
+        "DOI": "10.1016/j.triboint.2022.108095",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "composite",
+        "target": "mechanical properties"
+      },
+      {
+        "relation": "component of",
+        "chunk_id": "9745cb931183188b161c7ce707adca59",
+        "DOI": "10.1016/j.ijbiomac.2023.125970",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "composite",
+        "target": "chitosan"
+      },
+      {
+        "relation": "reinforces",
+        "chunk_id": "db7d121836e578f7418cca01808c4e82",
+        "DOI": "10.1016/j.eurpolymj.2017.09.036",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "composite",
+        "target": "silica"
+      },
+      {
+        "relation": "studied at",
+        "chunk_id": "7db133b925cd264bd380162570888874",
+        "DOI": "10.1098/rsta.1996.0058",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "silica",
+        "target": "temperature"
+      },
+      {
+        "relation": "componentOf",
+        "chunk_id": "c464665ee070c1b3d125525ebb6f77ac",
+        "DOI": "10.1002/adfm.201000144",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "silica",
+        "target": "wood composite material"
+      },
+      {
+        "relation": "reinforces",
+        "chunk_id": "db7d121836e578f7418cca01808c4e82",
+        "DOI": "10.1016/j.eurpolymj.2017.09.036",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "silica",
+        "target": "composite"
+      },
+      {
+        "relation": "guides and catalyzes formation of",
+        "chunk_id": "5a1ba66d6cb9dcf2372e06621cdb9b27",
+        "DOI": NaN,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "silica",
+        "target": "chitosan"
+      },
+      {
+        "relation": "part_of",
+        "chunk_id": "1f0fe0fed370cd9c8c52b2097ec135bf",
+        "DOI": "10.1016/j.matchemphys.2012.04.057",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Polymer nanocomposites",
+        "target": "PPS"
+      },
+      {
+        "relation": "analyzes",
+        "chunk_id": "caa6529790df4d51f61492c8c261fada",
+        "DOI": "10.1007/s11664-017-5567-9",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Polymer nanocomposites",
+        "target": "Scanning electron microscopy"
+      },
+      {
+        "relation": "used as reinforcement in",
+        "chunk_id": "2fbb0a7f489444a210da6507475616da",
+        "DOI": "10.1115/1.4033188",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Polymer nanocomposites",
+        "target": "C5a"
+      },
+      {
+        "relation": "has_property",
+        "chunk_id": "66a6fc418c169002548072280246d2a2",
+        "DOI": "10.4028/www.scientific.net/AMR.79-82.429",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Polymer nanocomposites",
+        "target": "friction coefficient"
+      },
+      {
+        "relation": "contains",
+        "chunk_id": "3d6e626bb3ab2fc6d1a1185745cb4242",
+        "DOI": "10.1080/0371750X.2011.10600163",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Polymer nanocomposites",
+        "target": "chitosan"
+      },
+      {
+        "relation": "has_property",
+        "chunk_id": "1f0fe0fed370cd9c8c52b2097ec135bf",
+        "DOI": "10.1016/j.matchemphys.2012.04.057",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Polymer nanocomposites",
+        "target": "mechanical properties"
+      },
+      {
+        "relation": "exhibits high",
+        "chunk_id": "dd78b010ae319c20e156fd06eacebec7",
+        "DOI": "10.1002/slct.202103051",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Polymer nanocomposites",
+        "target": "protein adsorption"
+      },
+      {
+        "relation": "has property",
+        "chunk_id": "92d3b59fad50c9536cf301a66d09fe3c",
+        "DOI": "10.1007/s00170-022-10318-9",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "mechanical properties",
+        "target": "titanium"
+      },
+      {
+        "relation": "dependent on",
+        "chunk_id": "cdcef2e02a5ea98c844f380957fa8126",
+        "DOI": "10.1007/s11182-022-02504-9",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "mechanical properties",
+        "target": "temperature"
+      },
+      {
+        "relation": "has",
+        "chunk_id": "df07de6316c231b59ac0e1d16a6db5a9",
+        "DOI": "10.1134/S0031918X20070029",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "mechanical properties",
+        "target": "aluminum"
+      },
+      {
+        "relation": "has",
+        "chunk_id": "1fa52c8233d3bcb4e176360a4e6beeb0",
+        "DOI": "10.1007/s10853-023-08575-4",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "mechanical properties",
+        "target": "Si3N4"
+      },
+      {
+        "relation": "has",
+        "chunk_id": "b97e29b155dd9d7afa7b8892144824af",
+        "DOI": "10.3390/app14188574",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "mechanical properties",
+        "target": "Inconel 718"
+      },
+      {
+        "relation": "influenced by",
+        "chunk_id": "f778e8b787ebd9f77659d688a940dfcf",
+        "DOI": "10.1016/j.wear.2013.03.044",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "mechanical properties",
+        "target": "friction coefficient"
+      },
+      {
+        "relation": "improves",
+        "chunk_id": "93e28223ce9b268018101272ef65e985",
+        "DOI": "10.1016/j.triboint.2022.108095",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "mechanical properties",
+        "target": "composite"
+      },
+      {
+        "relation": "has_property",
+        "chunk_id": "1f0fe0fed370cd9c8c52b2097ec135bf",
+        "DOI": "10.1016/j.matchemphys.2012.04.057",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "mechanical properties",
+        "target": "Polymer nanocomposites"
+      },
+      {
+        "relation": "alters",
+        "chunk_id": "9745cb931183188b161c7ce707adca59",
+        "DOI": "10.1016/j.ijbiomac.2023.125970",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "mechanical properties",
+        "target": "chitosan"
+      },
+      {
+        "relation": "has property",
+        "chunk_id": "350a7fb5bbc247041f38a0428be43b9f",
+        "DOI": "10.1177/0954008317715313",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "mechanical properties",
+        "target": "Polyether ether ketone (PEEK)"
+      },
+      {
+        "relation": "adsorbs noncovalently to",
+        "chunk_id": "afa35441eb8553edab88965aeef44b2f",
+        "DOI": "10.1002/jbm.a.32638",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "chitosan",
+        "target": "C5"
+      },
+      {
+        "relation": "analyzed by",
+        "chunk_id": "f1e5423844e974f7a74847f471d6f6d8",
+        "DOI": "10.1002/arch.21499",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "chitosan",
+        "target": "Scanning electron microscopy"
+      },
+      {
+        "relation": "generates in whole blood",
+        "chunk_id": "afa35441eb8553edab88965aeef44b2f",
+        "DOI": "10.1002/jbm.a.32638",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "chitosan",
+        "target": "C5a"
+      },
+      {
+        "relation": "component of",
+        "chunk_id": "9745cb931183188b161c7ce707adca59",
+        "DOI": "10.1016/j.ijbiomac.2023.125970",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "chitosan",
+        "target": "composite"
+      },
+      {
+        "relation": "guides and catalyzes formation of",
+        "chunk_id": "5a1ba66d6cb9dcf2372e06621cdb9b27",
+        "DOI": NaN,
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "chitosan",
+        "target": "silica"
+      },
+      {
+        "relation": "contains",
+        "chunk_id": "3d6e626bb3ab2fc6d1a1185745cb4242",
+        "DOI": "10.1080/0371750X.2011.10600163",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "chitosan",
+        "target": "Polymer nanocomposites"
+      },
+      {
+        "relation": "alters",
+        "chunk_id": "9745cb931183188b161c7ce707adca59",
+        "DOI": "10.1016/j.ijbiomac.2023.125970",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "chitosan",
+        "target": "mechanical properties"
+      },
+      {
+        "relation": "has polymorph",
+        "chunk_id": "f080385b0f84045e067839f2c0155498",
+        "DOI": "10.1016/S0925-8388(03)00728-X",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Laves phases",
+        "target": "C5"
+      },
+      {
+        "relation": "contains",
+        "chunk_id": "b7f8182a9d03cd706aff30e9ee075bb9",
+        "DOI": "10.1016/j.mtcomm.2024.110789",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Laves phases",
+        "target": "Inconel 718"
+      },
+      {
+        "relation": "undergoes",
+        "chunk_id": "1fd94b70ea0f1bd152c1d2062ddb4503",
+        "DOI": "10.1163/156856297X00560",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "protein adsorption",
+        "target": "titanium"
+      },
+      {
+        "relation": "influenced by",
+        "chunk_id": "9a62f7210e6b824c1630ae197ef8b335",
+        "DOI": "10.1021/acs.analchem.7b03921",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "protein adsorption",
+        "target": "temperature"
+      },
+      {
+        "relation": "affects",
+        "chunk_id": "493c14e9c94b5852af1e19c97d098234",
+        "DOI": "10.1016/j.actbio.2015.08.014",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "protein adsorption",
+        "target": "Si3N4"
+      },
+      {
+        "relation": "used to study",
+        "chunk_id": "cb227ccffa2931650ff5cfe32a79f606",
+        "DOI": "10.1002/jctb.280630112",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "protein adsorption",
+        "target": "Scanning electron microscopy"
+      },
+      {
+        "relation": "is a type of",
+        "chunk_id": "21e6686407207f2f1692727e349c9edd",
+        "DOI": "10.1163/156856208X399936",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "protein adsorption",
+        "target": "C5a"
+      },
+      {
+        "relation": "minimizes",
+        "chunk_id": "86659f80ad4c81d40866c7dab2da11c4",
+        "DOI": "10.1177/02676591221095469",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "protein adsorption",
+        "target": "liquid-impregnated surface (LIS)"
+      },
+      {
+        "relation": "exhibits high",
+        "chunk_id": "dd78b010ae319c20e156fd06eacebec7",
+        "DOI": "10.1002/slct.202103051",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "protein adsorption",
+        "target": "Polymer nanocomposites"
+      },
+      {
+        "relation": "reduces",
+        "chunk_id": "a33448d46e8b41dfd0b872e405ce3023",
+        "DOI": "10.1023/B:JMSM.0000036275.60508.50",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "protein adsorption",
+        "target": "Polyether ether ketone (PEEK)"
+      },
+      {
+        "relation": "measures",
+        "chunk_id": "a0d16670cd30a573da2acb033e60a570",
+        "DOI": "10.1002/polb.21034",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "protein adsorption",
+        "target": "protein adsorption"
+      },
+      {
+        "relation": "enables design of",
+        "chunk_id": "d5f6b49a3adc691652c3fc014635e376",
+        "DOI": "10.1016/j.wear.2020.203449",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Additive manufacturing",
+        "target": "Tool steels"
+      },
+      {
+        "relation": "suitable for",
+        "chunk_id": "116607afcaa99c774e6418a0b96b8d4e",
+        "DOI": "10.1016/j.engfailanal.2025.109507",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Additive manufacturing",
+        "target": "Inconel 718"
+      },
+      {
+        "relation": "can form compound",
+        "chunk_id": "b7b2bb6305ed81b2911b3900584fd558",
+        "DOI": "10.1590/1980-5373-MR-2023-0272",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Tin",
+        "target": "titanium"
+      },
+      {
+        "relation": "deposited on",
+        "chunk_id": "f6ec15fdf535415975808c510c4e0ab3",
+        "DOI": "10.1016/S0043-1648(02)00113-8",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Tin",
+        "target": "Tool steels"
+      },
+      {
+        "relation": "reacts with Ti to form",
+        "chunk_id": "fa5c0ef3a4050580903c595a552f934f",
+        "DOI": "10.1016/j.mtcomm.2024.109416",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Tin",
+        "target": "Si3N4"
+      },
+      {
+        "relation": "showed unstable value when sliding on",
+        "chunk_id": "9857bb0cb8cdf70d343e4f9681419be7",
+        "DOI": "10.1016/0301-679X(93)90019-W",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Tin",
+        "target": "friction coefficient"
+      },
+      {
+        "relation": "compared to",
+        "chunk_id": "e8cd0b607c3eb09deb4bed063ab8f7e3",
+        "DOI": "10.7860/JCDR/2023/66902.18557",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Polyether ether ketone (PEEK)",
+        "target": "titanium"
+      },
+      {
+        "relation": "compared_with",
+        "chunk_id": "c63e5fdf46e93c3892f2ff0bb6bee292",
+        "DOI": "10.4028/www.scientific.net/AMR.683.90",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Polyether ether ketone (PEEK)",
+        "target": "Poly(propylene sulphide) (PPS)"
+      },
+      {
+        "relation": "has property",
+        "chunk_id": "e570c74be9a6e7f930bee8f02a335924",
+        "DOI": "10.1177/09544119211042992",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Polyether ether ketone (PEEK)",
+        "target": "friction coefficient"
+      },
+      {
+        "relation": "has property",
+        "chunk_id": "350a7fb5bbc247041f38a0428be43b9f",
+        "DOI": "10.1177/0954008317715313",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Polyether ether ketone (PEEK)",
+        "target": "mechanical properties"
+      },
+      {
+        "relation": "reduces",
+        "chunk_id": "a33448d46e8b41dfd0b872e405ce3023",
+        "DOI": "10.1023/B:JMSM.0000036275.60508.50",
+        "source_kgs": [
+          "material_properties"
+        ],
+        "source": "Polyether ether ketone (PEEK)",
+        "target": "protein adsorption"
+      },
+      {
+        "relation": "is part of",
+        "chunk_id": "c6ef0693266c0f6261be6eebf42dd4e1",
+        "DOI": "US9594211",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "FIG. 18",
+        "target": "0_image_0.png"
+      },
+      {
+        "relation": "illustrates results of",
+        "chunk_id": "c71031c89dd2b896269a79161602508e",
+        "DOI": "US11243343",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "FIG. 18",
+        "target": "Comparative Example 12"
+      },
+      {
+        "relation": "illustrates layers of",
+        "chunk_id": "27a5b56c1938d7cf57905c5b4d1a3dcf",
+        "DOI": "US11446053",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "FIG. 18",
+        "target": "inner liner"
+      },
+      {
+        "relation": "comprises",
+        "chunk_id": "b99d6288b2e2e9032866a4c852be7020",
+        "DOI": "US6943137",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "thermoplastic elastomer",
+        "target": "PPS resin"
+      },
+      {
+        "relation": "is a type of",
+        "chunk_id": "fc5ecceacfa2700555659f71f8d400d0",
+        "DOI": "US7005465",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "thermoplastic elastomer",
+        "target": "thermoplastic elastomer"
+      },
+      {
+        "relation": "comprises",
+        "chunk_id": "8bc33d64819ef0f5c745fab12aa0e0b3",
+        "DOI": "US10926060",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "thermoplastic elastomer",
+        "target": "distal liner section"
+      },
+      {
+        "relation": "used in",
+        "chunk_id": "abba9373b4a1be552773400a943fdc9e",
+        "DOI": "US10926060",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "EngageTM Polyolefin Elastomers",
+        "target": "distal liner section"
+      },
+      {
+        "relation": "illustrated in",
+        "chunk_id": "a69ecbba5f2498050f1646df900293c4",
+        "DOI": "US9290655",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "Chemical Formula 1",
+        "target": "0_image_0.png"
+      },
+      {
+        "relation": "illustrated in",
+        "chunk_id": "afc5caf00911868fd50ace4f874c7376",
+        "DOI": "US9023479",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "Chemical Formula 1",
+        "target": "3_image_1.png"
+      },
+      {
+        "relation": "can be polymerized to form",
+        "chunk_id": "e8591382519e70d2b7a986271a367032",
+        "DOI": "US11687002",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "Chemical Formula 1",
+        "target": "Chemical Formula 1"
+      },
+      {
+        "relation": "linked to",
+        "chunk_id": "e5e58a7d314413a10b7b446bf592f4d3",
+        "DOI": "US20150056413",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "Chemical Formula 1",
+        "target": "R18"
+      },
+      {
+        "relation": "comprises",
+        "chunk_id": "8bc33d64819ef0f5c745fab12aa0e0b3",
+        "DOI": "US10926060",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "distal liner section",
+        "target": "thermoplastic elastomer"
+      },
+      {
+        "relation": "used in",
+        "chunk_id": "abba9373b4a1be552773400a943fdc9e",
+        "DOI": "US10926060",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "distal liner section",
+        "target": "EngageTM Polyolefin Elastomers"
+      },
+      {
+        "relation": "comprises",
+        "chunk_id": "a17b8cd60e008fde2ee17d595f4edd72",
+        "DOI": "US10926060",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "distal liner section",
+        "target": "inner liner"
+      },
+      {
+        "relation": "is a type of",
+        "chunk_id": "87066659e5874c2a34de7372cc2c8c20",
+        "DOI": "US5149581",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "Victrex PEEK 450G",
+        "target": "Polyetheretherketone"
+      },
+      {
+        "relation": "used in",
+        "chunk_id": "e1f933e16d38c709cd5ad407bfca7a51",
+        "DOI": "US5149581",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "Victrex PEEK 450G",
+        "target": "Comparative Example 12"
+      },
+      {
+        "relation": "illustrates layers of",
+        "chunk_id": "27a5b56c1938d7cf57905c5b4d1a3dcf",
+        "DOI": "US11446053",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "inner liner",
+        "target": "FIG. 18"
+      },
+      {
+        "relation": "comprises",
+        "chunk_id": "a17b8cd60e008fde2ee17d595f4edd72",
+        "DOI": "US10926060",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "inner liner",
+        "target": "distal liner section"
+      },
+      {
+        "relation": "illustrates",
+        "chunk_id": "5ed92170f4fff636ab5177694cdc1d1b",
+        "DOI": "US10799672",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "inner liner",
+        "target": "3_image_1.png"
+      },
+      {
+        "relation": "structural formula shown in",
+        "chunk_id": "30ee5d279e782a1b45ed85db41e3f4c1",
+        "DOI": "US6485806",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "0_image_0.png",
+        "target": "PPS resin"
+      },
+      {
+        "relation": "is part of",
+        "chunk_id": "c6ef0693266c0f6261be6eebf42dd4e1",
+        "DOI": "US9594211",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "0_image_0.png",
+        "target": "FIG. 18"
+      },
+      {
+        "relation": "illustrated in",
+        "chunk_id": "a69ecbba5f2498050f1646df900293c4",
+        "DOI": "US9290655",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "0_image_0.png",
+        "target": "Chemical Formula 1"
+      },
+      {
+        "relation": "related to",
+        "chunk_id": "e45c6e370429dfa382cac9fc4b0545c8",
+        "DOI": "US11643716",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "0_image_0.png",
+        "target": "0_image_0.png"
+      },
+      {
+        "relation": "illustrates structure",
+        "chunk_id": "f29749217179747272264f7c8f69c0f6",
+        "DOI": "US4678831",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "0_image_0.png",
+        "target": "PPS"
+      },
+      {
+        "relation": "has_formula",
+        "chunk_id": "2a05b9f29f3096af7c96d2cf98583985",
+        "DOI": "US10119023",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "0_image_0.png",
+        "target": "Polyetheretherketone"
+      },
+      {
+        "relation": "represented by formula",
+        "chunk_id": "146b7c5abdb22b3635158e2fed485e23",
+        "DOI": "US5164454",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "0_image_0.png",
+        "target": "Poly(propylene sulphide) (PPS)"
+      },
+      {
+        "relation": "is a representation of",
+        "chunk_id": "da09627aac156bce1660a957490397d3",
+        "DOI": "US6759460",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "0_image_0.png",
+        "target": "3_image_1.png"
+      },
+      {
+        "relation": "illustrates results of",
+        "chunk_id": "c71031c89dd2b896269a79161602508e",
+        "DOI": "US11243343",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "Comparative Example 12",
+        "target": "FIG. 18"
+      },
+      {
+        "relation": "used in",
+        "chunk_id": "e1f933e16d38c709cd5ad407bfca7a51",
+        "DOI": "US5149581",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "Comparative Example 12",
+        "target": "Victrex PEEK 450G"
+      },
+      {
+        "relation": "illustrated in",
+        "chunk_id": "afc5caf00911868fd50ace4f874c7376",
+        "DOI": "US9023479",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "3_image_1.png",
+        "target": "Chemical Formula 1"
+      },
+      {
+        "relation": "illustrates",
+        "chunk_id": "5ed92170f4fff636ab5177694cdc1d1b",
+        "DOI": "US10799672",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "3_image_1.png",
+        "target": "inner liner"
+      },
+      {
+        "relation": "is a representation of",
+        "chunk_id": "da09627aac156bce1660a957490397d3",
+        "DOI": "US6759460",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "3_image_1.png",
+        "target": "0_image_0.png"
+      },
+      {
+        "relation": "illustrates end group",
+        "chunk_id": "f29749217179747272264f7c8f69c0f6",
+        "DOI": "US4678831",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "3_image_1.png",
+        "target": "PPS"
+      },
+      {
+        "relation": "chemical structure of",
+        "chunk_id": "46f6406ccb01807e6a2e35d0508f0450",
+        "DOI": "US5037900",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "3_image_1.png",
+        "target": "Poly(propylene sulphide) (PPS)"
+      },
+      {
+        "relation": "is a type of",
+        "chunk_id": "87066659e5874c2a34de7372cc2c8c20",
+        "DOI": "US5149581",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "Polyetheretherketone",
+        "target": "Victrex PEEK 450G"
+      },
+      {
+        "relation": "has_formula",
+        "chunk_id": "2a05b9f29f3096af7c96d2cf98583985",
+        "DOI": "US10119023",
+        "source_kgs": [
+          "patents"
+        ],
+        "source": "Polyetheretherketone",
+        "target": "0_image_0.png"
+      }
+    ]
+  },
+  "run_id": "2026071718_0",
+  "subgraph_type": "material_informed",
+  "num_nodes": 40,
+  "num_edges": 182
+}

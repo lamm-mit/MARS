@@ -124,6 +124,7 @@ The 12 evaluation criteria (4 per subsystem, Table 2 in the paper):
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `notebooks/walkthrough.ipynb` | Loads the frozen paper results and visualises the full pipeline run: execution timeline (Gantt), agent chat logs, KG subgraph, and per-system outputs     |
 | `notebooks/graph_viz.ipynb`   | Visualises the Material-Informed Subgraph at multiple levels of detail: ego-graphs around individual property nodes, and the full 507-node graph topology |
+| `notebooks/mars_showcase_detailed.ipynb` | Full per-query showcase report: requirements, closed-loop System 2⇄3 search, knowledge subgraph, manufacturing route, agent reasoning traces, and blind evaluation (where available) |
 
 
 ---

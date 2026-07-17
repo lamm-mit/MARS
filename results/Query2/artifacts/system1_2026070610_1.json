@@ -1,0 +1,64 @@
+{
+  "run_id": "2026070610_1",
+  "timestamp": "2026-07-06T14:23:47.148438Z",
+  "sentence": "Identify non-fluoropolymer thermoplastics that can withstand severe thermal shock, specifically direct immersion into liquid nitrogen (−196 °C) and maintain structural integrity (no cracking, embrittlement, or catastrophic failure). Please note that silicone doesn't account for thermoplastics. The identified material can be formulated to allow extrusion into films and injection molding components.",
+  "keywords": [
+    "Fluoropolymer thermoplastics",
+    "Severe thermal shock"
+  ],
+  "material_X": "Fluoropolymer thermoplastics",
+  "application_Y": "Severe thermal shock",
+  "properties_W": {
+    "required": [
+      "Non‑fluoropolymer thermoplastic",
+      "Liquid‑nitrogen immersion tolerance (–196 °C)",
+      "No cracking at cryogenic temperatures",
+      "No embrittlement during thermal shock",
+      "No catastrophic failure under rapid cool‑down",
+      "Preserve structural integrity post‑immersion",
+      "Extrudable into films",
+      "Injection‑moldable components",
+      "Low‑temperature tensile strength ≥ ≈ 14,500 psi",
+      "Low‑temperature modulus ≥ ≈ 450,000 psi",
+      "Adequate cryogenic fracture toughness",
+      "Thermal shock resistance (rapid temp change)",
+      "Measured low‑temperature mechanical data available",
+      "Match or exceed room‑temperature mechanical values",
+      "Non‑PFAS‑free (no fluorinated backbone)",
+      "Compatible with standard extrusion and molding processes",
+      "Cost‑effective relative to PEEK (baseline)"
+    ],
+    "target_values": {}
+  },
+  "extracted_keywords": [
+    "Non‑fluoropolymer thermoplastic",
+    "Liquid‑nitrogen immersion tolerance (–196 °C)",
+    "No cracking at cryogenic temperatures",
+    "No embrittlement during thermal shock",
+    "No catastrophic failure under rapid cool‑down",
+    "Preserve structural integrity post‑immersion",
+    "Extrudable into films",
+    "Injection‑moldable components",
+    "Low‑temperature tensile strength ≥ ≈ 14,500 psi",
+    "Low‑temperature modulus ≥ ≈ 450,000 psi",
+    "Adequate cryogenic fracture toughness",
+    "Thermal shock resistance (rapid temp change)",
+    "Measured low‑temperature mechanical data available",
+    "Match or exceed room‑temperature mechanical values",
+    "Non‑PFAS‑free (no fluorinated backbone)",
+    "Compatible with standard extrusion and molding processes",
+    "Cost‑effective relative to PEEK (baseline)"
+  ],
+  "extracted_constraints": [
+    "Hard constraints that a substitute material must satisfy",
+    "Non‑fluoropolymer – the material must not contain any fluorinated monomers, fluorinated additives, or PFAS compounds.",
+    "Cryogenic integrity – when directly immersed in liquid nitrogen (−196 °C), the material must not fracture, crack, embrittle, or fail catastrophically under thermal shock.",
+    "Measurable low‑temperature fracture toughness – the material must retain a non‑zero fracture toughness at −196 °C (i.e., it must not become fully brittle at that temperature).",
+    "Extrudability into films – the melt temperature and viscosity of the material must allow extrusion into film form at standard industrial extrusion temperatures (typically 250–350 °C for thermoplastics) and produce films of practical thickness (≤ 1 mm).",
+    "Injection‑molding processability – the material must be melt‑processable in an injection‑molding line at typical injection‑molding temperatures and pressures, producing solid components with no significant voids or defects.",
+    "Chemical inertness to liquid nitrogen – the material must not chemically degrade or react (e.g., plasticize, swell, or oxidize) when in contact with liquid nitrogen or during exposure to extreme cryogenic temperatures."
+  ],
+  "num_keywords": 17,
+  "num_constraints": 7,
+  "chat_log_path": "/home/palsubhadeep/Github/MARS/results/Query2/artifacts/chats/system1_chat_log_material_requirements_2026070610_1.json"
+}

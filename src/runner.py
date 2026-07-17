@@ -643,6 +643,13 @@ def run_query(
             generate_fn=c.generate, chat_logger=chat_logger_s3,
         )
 
+        # Attach the System 3 chat logger to each source analyst wrapped by the
+        # MultiAnalyst so their RAG retrievals are logged too (mirrors System 2,
+        # which back-fills chat_logger onto its analysts). Without this, System 3's
+        # multi-source retrievals run but never appear in the chat log.
+        for _src_analyst in c.process_analyst.analysts.values():
+            _src_analyst.chat_logger = chat_logger_s3
+
         s3_start = datetime.utcnow()
 
         system3_result = run_manufacturability_assessment_pipeline(

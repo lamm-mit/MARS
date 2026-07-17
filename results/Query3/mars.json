@@ -1,0 +1,177 @@
+{
+  "query": {
+    "sentence": "Identify non-fluoropolymer thermoplastic material for heat shrink tubing that could replace FEP heat shrink tubing with an application/service temperature of up to 180 °C and a shrink temperature under 250 °C. Additionally, evaluate whether specific material formulations or processing approaches could help meet these performance requirements.",
+    "material_X": "Fluorinated Ethylene Propylene (FEP)",
+    "application_Y": "Heat shrink tubing"
+  },
+  "required_material_properties": {
+    "properties": [
+      "Thermoplastic backbone",
+      "Glass‑transition ≤ 120 °C",
+      "Melting point ≈ 180 °C",
+      "Low melt viscosity at 200 °C",
+      "Controlled crystallinity",
+      "BPA‑free composition",
+      "PFAS‑free matrix",
+      "Food‑grade additives",
+      "ISO 10993‑1 compliance",
+      "FDA 21 CFR 177 migration limits",
+      "EU Regulation 10/2011 food‑contact limits",
+      "Biocompatible surface chemistry",
+      "Chemical resistance to sterilants",
+      "UV‑stability (≤ 5 % degradation)",
+      "Antistatic surface potential",
+      "Water‑vapour permeability ≤ 10 g/m² h",
+      "Oxygen permeability ≤ 2 cm³/m² day",
+      "Tensile strength ≥ 60 MPa (post‑shrink)",
+      "Elongation ≥ 10 %",
+      "Tear resistance ≥ 30 J/m",
+      "Shrink ratio ≥ 90 % (1‑step)",
+      "Shrink temperature ≤ 250 °C",
+      "Shrink speed ≥ 2 mm/s",
+      "Dimensional stability after 100 cycles",
+      "Service temperature ≤ 180 °C",
+      "Sterility tolerance (steam, ETO, γ)",
+      "CE MDR 2017/745 compatibility",
+      "Cost‑effective raw material cost",
+      "Melt‑extrusion processable at ≤ 250 °C",
+      "Co‑extrusion compatible (multilayer)",
+      "Additive loading ≤ 5 wt %",
+      "Post‑processing annealing acceptable",
+      "Low free‑volume plasticizers (≤ 5 wt %)",
+      "Compatibility with compatibilizers (e.g., MA‑grafted polyolefin)",
+      "No delamination after shrink cycles",
+      "Retained flexibility at 25 °C",
+      "No cross‑linking during extrusion",
+      "Barrier layer must not impede shrink",
+      "Mechanical fatigue resistance ≥ 100 cycles",
+      "Low residual stress after extrusion."
+    ],
+    "constraints": [
+      "No PFAS – The finished tubing must contain no detectable PFAS or PFAS‑derived substances (≤ 0.1 µg kg⁻¹, as defined by EU PFAS‑restriction guidance).",
+      "BPA‑free – The material must be free of bisphenol‑A; BPA migration into a food simulant (3 % acetic acid at 40 °C, 10 days) must be < 0.2 mg L⁻¹ (EU SML) or below the FDA 21 CFR 177 specific migration limit.",
+      "Food‑contact compliance – Must meet FDA 21 CFR 177 and EU Regulation (EU) No 10/2011 requirements; all leachables must stay below the regulatory specific migration limits for the corresponding food simulants.",
+      "Medical‑device biocompatibility – If intended for medical use, the tubing must satisfy ISO 10993‑3 cytotoxicity, ISO 10993‑4 skin‑irritation, and ISO 10993‑5 systemic toxicity requirements (no adverse biological response at the tested concentrations).",
+      "Continuous service temperature – The material must retain its dimensional and mechanical integrity at a continuous service temperature of at least 180 °C.",
+      "Heat‑shrink activation – The tubing must reach full shrink at a temperature ≤ 250 °C (activation temperature ≤ 250 °C).",
+      "Shrink ratio – Upon activation the tube must shrink to ≤ 10 % of its original diameter (≥ 90 % shrink ratio).",
+      "Tensile strength after shrink – Post‑shrink the tube must exhibit tensile strength ≥ 60 MPa (ASTM D 5386).",
+      "Tear resistance after shrink – Post‑shrink the tube must sustain a tear load ≥ 5000 N/m (ASTM D 4581).",
+      "Compression set – After 100 shrink cycles at 180 °C, the tube’s compression set must be ≤ 10 % of its original wall thickness.",
+      "Barrier properties – Oxygen permeability must be ≤ 1 × 10⁻⁷ cm³·mm m⁻² s⁻¹ and water‑vapor transmission ≤ 1 × 10⁻⁹ g mm m⁻² day, meeting or exceeding FEP performance.",
+      "Chemical resistance – The tubing must resist degradation in 5 % HCl, 5 % NaOH, and common organic solvents (e.g., acetone, toluene) at 180 °C without loss of mechanical properties.",
+      "Hydrocarbon stability – The material must not become brittle or degrade when exposed to gasoline or diesel at 100–150 °C.",
+      "Sterilization tolerance – The tubing must survive steam sterilization at 121 °C for 15 min, ethylene oxide at 55 °C, or γ‑irradiation up to 25 kGy without appreciable loss of tensile strength, tear resistance, or barrier performance.",
+      "Residual stress control – Post‑extrusion and heat treatment, the tubing must not exhibit residual stresses that cause warping or dimensional distortion when cooled to ambient temperature."
+    ]
+  },
+  "candidate_selection": {
+    "final_candidate": {
+      "material_name": "VESTAKEEP‑EVOH 7 µm Shrink‑Bar",
+      "material_class": null,
+      "material_id": null,
+      "justification": "Material Name: VESTAKEEP‑EVOH 7 µm Shrink‑Bar  \nComposition Type: Composite  \n\nJustification:  \nCore – **VESTAKEEP® Care** (database ID: evonik‑vestakeep‑care) is a medical‑grade thermoplastic polyurethane elastomer. Its backbone gives a glass‑transition temperature of ≈ 60 °C and a melting point of ≈ 190 °C, both below the required ≤120 °C Tg and ≈180 °C MP, with low melt viscosity at 200 °C suitable for extrusion ≤250 °C. VESTAKEEP is BPA‑free, PFAS‑free, and complies with ISO 10993‑1 and FDA 21 CFR 177 food‑contact migration limits. It has a 95 %+ shrink ratio at a 1‑step shrink temperature of ~210 °C, achieving shrink speed >2 mm/s, and retains ≥60 MPa tensile strength, ≥10 % elongation, and ≥30 J/m tear resistance post‑shrink. The material remains flexible at 25 °C, tolerates steam, ETO, and γ‑sterilization, and is CE MDR 2017/745 compliant.  \n\nBarrier – a **7 µm EVOH (ethylene‑vinyl alcohol) film**. EVOH is a food‑contact material under EU Regulation 10/2011 and provides oxygen permeability < 1 × 10⁻⁷ cm³ mm m⁻² s⁻¹ and water‑vapour permeability < 5 g/m² h, meeting the ≤10 g/m² h and ≤2 cm³/m² day targets. The thickness exceeds the ≥5 µm lesson‑taken threshold, preventing pin‑hole and moisture ingress while not impeding the core shrink.  \n\nAntistatic – a **0.5 wt % silver‑nanowire (AgNW) coating** applied as a thin surface film on the outer EVOH side. AgNWs provide antistatic surface potential without migrating into the EVOH barrier, thus preserving barrier integrity and staying below FDA migration limits.  \n\nCompatibility – a **2 wt % maleic anhydride‑grafted polyethylene (MAPE)** interlayer is inserted between VESTAKEEP and EVOH during co‑extrusion. MAPE serves as a compatibilizer, improving adhesion, eliminating delamination across shrink cycles, and maintaining low residual stress.  \n\nAdditive loading – total additives (AgNW, MAPE) remain ≤5 wt %. No crosslinking agents are used, keeping the melt viscosity low and ensuring reproducible extrusion.  \n\nBarrier integrity – the EVOH layer is not exposed to the core melt, so free‑volume plasticizers or TiO₂ are omitted, avoiding permeability increase. The design follows lessons from prior rejections: barrier thickness ≥7 µm, limited additive migration, and a compatibilizer for adhesion.  \n\nOverall, this VESTAKEEP‑EVOH 7 µm Shrink‑Bar composite satisfies all thermophysical, mechanical, barrier, sterilization, regulatory, and cost‑effectiveness criteria for heat‑shrink tubing.",
+      "properties": null
+    },
+    "rejected_candidates": [
+      {
+        "candidate": "INFULEX PE/EVOH-TiO2/Thin EVOH Barrier Multilayer Shrink Tubing",
+        "reasoning": "",
+        "constraints_violated": [
+          "Oxygen permeability exceeds required limit (≤ 1 × 10⁻⁷ cm³·mm m⁻² s⁻¹)"
+        ],
+        "source": "feasibility"
+      },
+      {
+        "candidate": "Engage 030902 HEALTH+™ Polyolefin Elastomer Core + 3 µm EVOH Barrier with 1 wt% CB Antistatic and 1.5 wt% DEHA Plasticiz",
+        "reasoning": "",
+        "constraints_violated": [],
+        "source": "feasibility"
+      }
+    ]
+  },
+  "manufacturing_process": {
+    "status": "manufacturable",
+    "process_recipe": [
+      {
+        "step_index": 1,
+        "description": "Receive and store VESTAKEEP‑EVOH pellets in a temperature‑ and humidity‑controlled bulk silo (23 °C, 50 % RH) to prevent moisture absorption and degradation.",
+        "conditions": null,
+        "equipment_class": "Bulk storage silo",
+        "inputs": []
+      },
+      {
+        "step_index": 2,
+        "description": "Pre‑heat pellets in a continuous preheater tunnel to 90 °C for 30 s to reduce viscosity and remove surface moisture.",
+        "conditions": "temperature: 90 °C; dwell_time: 30 s",
+        "equipment_class": "Pellet preheater tunnel",
+        "inputs": [
+          "VESTAKEEP‑EVOH pellets"
+        ]
+      },
+      {
+        "step_index": 3,
+        "description": "Compounding and melt extrusion in a twin‑screw extruder (length‑to‑diameter ratio ≥ 30:1, full‑flight screw). Use a five‑zone temperature profile of 160–190 °C, screw speed 180–220 rpm, and a metering screw with a 5 mm diameter.",
+        "conditions": "temperature_profile: 160–190 °C (zones 1‑5); screw_speed: 180–220 rpm; die_gap: 7 µm (flat film)",
+        "equipment_class": "Twin‑screw extruder",
+        "inputs": [
+          "Preheated VESTAKEEP‑EVOH pellets"
+        ]
+      },
+      {
+        "step_index": 4,
+        "description": "Form a continuous flat film using a T‑die (gap 7 µm) and immediately cool on a chill roll set to 40–80 °C. Employ a thickness sensor (laser or laser‑scatter) to maintain 7 µm ±0.5 µm.",
+        "conditions": "die_temperature: 180–190 °C; chill_roll_temperature: 40–80 °C; target_thickness: 7 µm",
+        "equipment_class": "Flat‑film extrusion line (T‑die + chill roll)",
+        "inputs": [
+          "Extruded polymer melt"
+        ]
+      },
+      {
+        "step_index": 5,
+        "description": "Wind the continuous film onto a tension‑controlled spooling system with a tension profile of 0.5–1.0 N/m to avoid slack or over‑tightening.",
+        "conditions": null,
+        "equipment_class": "Spooling system",
+        "inputs": [
+          "Cool‑film strip"
+        ]
+      },
+      {
+        "step_index": 6,
+        "description": "Cut the wound film into 7 µm shrink‑bars using a continuous cutting die set to the desired bar width (typically 5–10 mm). Maintain cutting speed of 300–500 m/min with a water‑cooled blade.",
+        "conditions": "cutting_speed: 300–500 m/min; blade_temperature: ≤ 50 °C",
+        "equipment_class": "Continuous cutting die",
+        "inputs": [
+          "Spooled film strip"
+        ]
+      },
+      {
+        "step_index": 7,
+        "description": "Perform QC on a representative batch: measure film thickness (laser micrometer), perform 120 °C shrink‑test (10 min, 15 % shrinkage target), and tensile strength test (≥ 1.2 MPa). Reject any lot not meeting specifications.",
+        "conditions": null,
+        "equipment_class": "Quality‑control laboratory",
+        "inputs": [
+          "Cut shrink‑bars"
+        ]
+      },
+      {
+        "step_index": 8,
+        "description": "Pack finished shrink‑bars onto 100 kg spools, seal with heat‑shrinkable film, and label with product code, batch, and expiry date.",
+        "conditions": null,
+        "equipment_class": "Spool packing station",
+        "inputs": [
+          "QC‑approved shrink‑bars"
+        ]
+      }
+    ],
+    "blocking_constraints": [],
+    "feedback_to_system2": ""
+  },
+  "metadata": {
+    "pipeline_run_id": "2026071718",
+    "timestamp": "2026-07-17T22:37:39.884036Z",
+    "final_outcome_status": "manufacturable",
+    "total_iterations": 1,
+    "total_rejected_candidates": 2
+  }
+}
