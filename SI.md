@@ -127,6 +127,20 @@ The 12 evaluation criteria (4 per subsystem, Table 2 in the paper):
 | `notebooks/mars_showcase_detailed.ipynb` | Full per-query showcase report: requirements, closed-loop System 2⇄3 search, knowledge subgraph, manufacturing route, agent reasoning traces, and blind evaluation (where available) |
 
 
+### 9. Source Literature Metadata (Paper Names, DOIs, Abstracts)
+
+`paper_metadata/` documents the literature search results behind the PFAS and Material-Properties knowledge graphs: paper titles, authors, DOIs, journals, publication years, and abstracts. No full text is included.
+
+
+| File                                        | Contents                                                                                     |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `Full_Paper_metadata.xlsx`                   | Metadata for the 4,825 full-text papers behind the PFAS corpus, organised by publisher tab     |
+| `Full_paper_publisher_paper_counts.csv`      | Paper counts per publisher tab in `Full_Paper_metadata.xlsx`                                   |
+| `Properties abstracts/`                      | Abstract-level metadata organised by targeted material-property keyword (~160k unique abstracts; 63,222 sampled for the Material-Properties KG) |
+| `Abstracts_paper_counts.csv`                 | Abstract counts per property-keyword file in `Properties abstracts/`                           |
+
+See [`paper_metadata/README.md`](paper_metadata/README.md) for the full breakdown.
+
 ---
 
 ## Note on LLM Backend

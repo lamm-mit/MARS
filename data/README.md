@@ -238,6 +238,8 @@ See `**[KG_Generation/README.md](KG_Generation/README.md)**` for setup and usage
 
 `data/KG_Generation/` contains the pipeline for building the knowledge graphs in `data/MARS_Data/KGs/` from source documents using the [GraphReasoning](https://github.com/lamm-mit/GraphReasoning) framework.
 
+The literature search results behind the PFAS and Material Properties KGs — paper metadata, abstracts, and per-search-term counts — are in [`paper_metadata/`](../paper_metadata/README.md) at the repo root.
+
 ---
 
 ## Experimental Setup

@@ -24,7 +24,6 @@ cache/
 # Real data corpora (not for public repo — see data/MARS_Data/ for dummy versions)
 /ChromaDBs/
 /MaterialDB/
-/paper_metadata/
 
 # Environment & secrets
 .env

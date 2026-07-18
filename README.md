@@ -70,7 +70,9 @@ python data/download_data.py
 python scripts/run_mars.py --override config/overrides/downloaded_KGs.yaml
 ```
 
-**ChromaDB vector databases** — four RAG corpora (PFAS literature, patent corpus, material database, manufacturing textbooks) are used in the paper. DOIs and references used for the vector databases and internal material database are available upon request. The pipeline can be run with user-constructed ChromaDBs; `data/README.md` documents the full build pipeline. The downloaded knowledge graphs alone are not necessarily enough for producing comparable results.
+**ChromaDB vector databases** — four RAG corpora (PFAS literature, patent corpus, material database, manufacturing textbooks) are used in the paper. The pipeline can be run with user-constructed ChromaDBs; `data/README.md` documents the full build pipeline. The downloaded knowledge graphs alone are not necessarily enough for producing comparable results.
+
+**Paper metadata** — the literature search results behind the PFAS and Material-Properties knowledge graphs and RAG corpora — paper titles, authors, DOIs, journals, and abstracts (no full text) — are in [`paper_metadata/`](paper_metadata/README.md).
 
 ---
 
@@ -171,6 +173,7 @@ For a description of how these files relate to specific figures and tables in th
 ├── data/                        # Data and generation tooling — see data/README.md
 │   ├── MARS_Data/               # KGs, ChromaDBs, MaterialDB (dummy data included)
 │   └── download_data.py         # Download full KGs from HuggingFace
+├── paper_metadata/              # Literature metadata/abstracts behind the KGs — see paper_metadata/README.md
 ├── environment.yml              # Conda environment (exact version pins)
 ├── run_experiments.sh           # One-command reproducer
 ├── SI.md                        # Supplementary information
