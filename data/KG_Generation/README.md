@@ -10,11 +10,10 @@ Adapted from `make_KG_PFAS.ipynb` in [GraphAgents.](https://github.com/lamm-mit/
 
 - Python 3.8+
 - A running local LLM server at `http://localhost:8081/v1`
-- [GraphReasoning](https://github.com/lamm-mit/GraphReasoning) installed separately
+- No separate GraphReasoning install. `build_kg.py` imports the pinned copy vendored at `src/vendor/graphreasoning/` (see [VENDORED.md](../../src/vendor/graphreasoning/VENDORED.md)).
 
 ```bash
 pip install -r requirements.txt
-pip install git+https://github.com/lamm-mit/GraphReasoning
 ```
 
 ## Usage
@@ -64,7 +63,7 @@ The included `config.yaml` targets the Patents corpus. Copy and edit it for othe
 | **Configuration**            | Hardcoded paths and parameters                                                                | `config.yaml`                                                                                                                                                                                                                                        |
 | **Corpus**                   | PFAS papers only                                                                              | Any corpus via config                                                                                                                                                                                                                                |
 | **Markdown layout**          | Only `{doc_data_dir}/{doc_id}/{doc_id}.md` (one subfolder per paper, filename matches folder) | Same nested layout **or** flat `input_dir/*.md` files; `collect_documents()` merges both (deduplicated)                                                                                                                                              |
-| **GraphReasoning / Louvain** | Relies on whatever version you had when the notebook last ran                                 | Defines `colors2Community` on `GraphReasoning.graph_tools` at import if missing — current PyPI GraphReasoning calls it from `graph_Louvain` but leaves the helper commented out, which would raise `NameError` during merge when simplification runs |
+| **GraphReasoning / Louvain** | Relies on whatever version you had when the notebook last ran                                 | Imports the pinned copy at `src/vendor/graphreasoning/`, so the version is fixed and the Louvain/`colors2Community` fix lives in the source rather than in an import-time patch. See [VENDORED.md](../../src/vendor/graphreasoning/VENDORED.md) |
 | **Checkpoint finding**       | Fragile `split('_')[2]` path parsing                                                          | Regex on filename                                                                                                                                                                                                                                    |
 | **Image nodes**              | Vision LLM call                                                                               | Stub returning empty graph (not used)                                                                                                                                                                                                                |
 

@@ -43,6 +43,7 @@ from .utils import (
     llm,
     save_evaluation_export,
 )
+from .utils.human_review import wait_for_review, write_review_file
 
 from .vendor.graphreasoning import load_embeddings
 
@@ -530,6 +531,72 @@ def run_query(
           f"{len(extracted_constraints)} constraints ({s1_dur:.0f}s)")
 
     # =========================================================================
+    # Human-in-the-loop review gate (optional, config: pipelines.human_review)
+    # =========================================================================
+    hr_cfg = config["pipelines"].get("human_review", {}) or {}
+    hr_outcome: Dict[str, Any] = {
+        "enabled": bool(hr_cfg.get("enabled", False)),
+        "status": "disabled",
+    }
+    if hr_outcome["enabled"]:
+        review_path = os.path.join(artifacts_dir, "human_review.md")
+        write_review_file(
+            review_path,
+            query_name=query.get("name", "query"),
+            constraints=extracted_constraints,
+            properties=extracted_keywords,
+        )
+        hr_poll = float(hr_cfg.get("poll_interval_seconds", 15))
+        hr_timeout = float(hr_cfg.get("timeout_seconds", 1800))
+        # flush=True throughout the gate: stdout is block-buffered when piped
+        # (e.g. through tee), and these prints precede a long silent sleep.
+        print(flush=True)
+        print("=" * 70, flush=True)
+        print("HUMAN REVIEW REQUIRED", flush=True)
+        print(f"Edit:  {review_path}", flush=True)
+        print(f"Set 'Status: APPROVED' in that file to continue "
+              f"(timeout {hr_timeout:.0f}s, polling every {hr_poll:.0f}s)", flush=True)
+        print("=" * 70, flush=True)
+        hr_start = time.monotonic()
+        review = wait_for_review(review_path, poll_interval=hr_poll, timeout=hr_timeout)
+        hr_duration = time.monotonic() - hr_start
+        if review is None:
+            print("Expert review skipped (timeout or unparseable file); "
+                  "proceeding with original System 1 output", flush=True)
+            hr_outcome.update({"status": "timeout", "duration_seconds": hr_duration})
+        else:
+            n_props_before = len(extracted_keywords)
+            extracted_keywords = review.properties
+            extracted_constraints = review.final_constraints
+            # Rebuild rather than mutate: the original extraction stays
+            # untouched in s1_payload / system1_<id>.json.
+            properties_W = {"required": extracted_keywords, "target_values": {}}
+            hr_outcome.update({
+                "status": "approved",
+                "duration_seconds": hr_duration,
+                "constraints_removed": review.constraints_removed,
+                "properties_removed": n_props_before - len(review.properties),
+                "properties_promoted": len(review.promoted),
+                "constraints_added": len(review.added),
+            })
+            # An expert may remove every constraint; System 2 still auto-inserts
+            # the PFAS constraint (material_discovery.py), so the loop is never
+            # fully unconstrained.
+            print(f"Expert review applied: {len(extracted_constraints)} constraints "
+                  f"({review.constraints_removed} removed, {len(review.promoted)} promoted, "
+                  f"{len(review.added)} added), {len(extracted_keywords)} properties",
+                  flush=True)
+            hr_result_path = os.path.join(artifacts_dir, "human_review_result.json")
+            with open(hr_result_path, "w", encoding="utf-8") as f:
+                json.dump({
+                    **hr_outcome,
+                    "reviewed_constraints": extracted_constraints,
+                    "reviewed_properties": extracted_keywords,
+                    "timestamp": datetime.utcnow().isoformat() + "Z",
+                }, f, indent=2, ensure_ascii=False)
+    pipeline_run["system1"]["human_review"] = hr_outcome
+
+    # =========================================================================
     # System 2 <-> System 3 loop
     # =========================================================================
     max_iterations = config["pipelines"]["material_discovery"].get("max_iterations", 5)
@@ -565,6 +632,11 @@ def run_query(
         manager_s2 = ResearchManager(
             name="research_manager", system_message=None,
             generate_fn=c.generate, chat_logger=chat_logger_s2,
+        )
+        # ResearchManager reads the base config on its own; the effective
+        # (override + CLI) value must be pushed in explicitly.
+        manager_s2.itemized_property_check = bool(
+            config["pipelines"]["material_discovery"].get("itemized_property_check", False)
         )
 
         s2_start = datetime.utcnow()

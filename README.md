@@ -23,7 +23,6 @@ This repository serves as both a reproduction package and the supplementary mate
 ```bash
 git clone https://github.com/LAMM-MIT/MARS && cd MARS
 conda env create -f environment.yml && conda activate MARS
-pip install git+https://github.com/lamm-mit/GraphReasoning.git
 export OPENAI_API_KEY="sk-..."
 ./run_experiments.sh -a -e
 ```
@@ -41,11 +40,7 @@ conda env create -f environment.yml
 conda activate MARS
 ```
 
-**GraphReasoning** — installed separately because it is not on PyPI and has its own dependency chain:
-
-```bash
-pip install git+https://github.com/lamm-mit/GraphReasoning.git
-```
+**GraphReasoning** — no separate install. A pinned copy of [lamm-mit/GraphReasoning](https://github.com/lamm-mit/GraphReasoning) (commit `f1d6d44`) is vendored at `src/vendor/graphreasoning/` and imported from there. It was previously pip-installed from unpinned `master`, so two people installing on different days got different code; the copy makes KG generation reproducible and lets the compatibility fixes live where they take effect rather than in import-time monkeypatches. Do **not** `pip install GraphReasoning` alongside it — the vendored copy takes precedence and the installed one would sit unused. All modifications are documented in [`src/vendor/graphreasoning/VENDORED.md`](src/vendor/graphreasoning/VENDORED.md).
 
 **LLM backend** — the default backend for this repository is the OpenAI API (`gpt-5-nano`), which requires an API key and allows anyone to run the pipeline without local infrastructure. The paper itself used `gpt-oss-20b` served locally via llama.cpp, and the repository fully supports locally-hosted models as well. Set your OpenAI key to use the default:
 
@@ -93,6 +88,20 @@ python scripts/run_mars.py --queries Query1       # System 1 → System 2 ↔ Sy
 python scripts/run_ablations.py --queries Query1  # 3-agent, 1-agent+RAG, 1-agent, 1-agent-GPT-5.4
 python scripts/run_evaluation.py --queries Query1 # LLM-as-judge blind evaluation
 ```
+
+### Human-in-the-loop review
+
+System 1 extracts hard constraints and required properties from the query. `--human-review` pauses the run there and waits for a domain expert to approve or amend that output before System 2 begins:
+
+```bash
+python scripts/run_mars.py --queries Query1 --human-review
+```
+
+The run writes `results/<Query>/artifacts/human_review.md` and polls it. In that file the expert can uncheck a constraint to remove it, check a property to promote it to a hard constraint, delete a property line to drop it, edit any line's text in place, and add free-text constraints. Setting `Status: APPROVED` resumes the pipeline; the applied edits are recorded in `human_review_result.json`.
+
+Promotion is copy-not-move: a promoted property stays in the property list, because System 2's candidate proposal and KG grounding read only properties, so an item that moved rather than copied would silently vanish from grounding. If no approval arrives within `timeout_seconds` (default 1800) the run continues with the original System 1 output rather than failing. Configure under `pipelines.human_review` in `config/config.yaml`; the gate is off by default.
+
+A related flag, `--itemized-check`, makes System 2's feasibility validation return a SATISFIED / VIOLATED / NO_EVIDENCE verdict for every property and constraint, producing an auditable per-candidate table instead of the model selecting a few "critical" properties. Only VIOLATED rejects a candidate; NO_EVIDENCE never does.
 
 ### Ablation conditions
 
@@ -160,7 +169,9 @@ For a description of how these files relate to specific figures and tables in th
 │   ├── agents/                  # ResearchManager, ResearchScientist, …
 │   ├── pipelines/               # System 1, 2, 3 pipeline logic
 │   ├── config/                  # YAML loader with ${ENV_VAR} interpolation
-│   └── utils/                   # LLM wrapper, embeddings, ChromaDB, KG tools, …
+│   ├── utils/                   # LLM wrapper, embeddings, ChromaDB, KG tools,
+│   │                            #   human_review.py (System 1 review gate), …
+│   └── vendor/graphreasoning/   # Pinned GraphReasoning copy — see VENDORED.md
 ├── scripts/
 │   ├── run_mars.py              # Full MARS pipeline
 │   ├── run_ablations.py         # Ablation conditions

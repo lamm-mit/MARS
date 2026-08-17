@@ -13,6 +13,43 @@ def _get_parsing_config() -> dict:
         return {}
 
 
+_TABLE_SEP_RE = re.compile(r"^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?\s*$")
+
+
+def _parse_markdown_table_items(content: str) -> List[str]:
+    """If *content* contains a Markdown table, return one item per data row.
+
+    Row handling: header and ``|---|---|`` separator rows are dropped; a
+    leading cell that is purely numeric (an index column) is skipped; the
+    first remaining non-empty cell is the item.  Returns [] when no table
+    with at least two data rows is found so the caller falls through to
+    the ordinary list parser.
+    """
+    rows = []
+    for raw in content.split("\n"):
+        line = raw.strip()
+        if not line.startswith("|") or line.count("|") < 2:
+            continue
+        if _TABLE_SEP_RE.match(line):
+            rows.append(None)  # marks the header/body boundary
+            continue
+        cells = [c.strip().strip("*").strip() for c in line.strip("|").split("|")]
+        rows.append(cells)
+    if None in rows:
+        rows = rows[rows.index(None) + 1:]  # drop header row(s) before the separator
+    data_rows = [r for r in rows if r]
+    if len(data_rows) < 2:
+        return []
+    items: List[str] = []
+    for cells in data_rows:
+        if cells and re.fullmatch(r"\d+\.?", cells[0]):
+            cells = cells[1:]
+        pick = next((c for c in cells if c), "")
+        if pick:
+            items.append(pick)
+    return items
+
+
 def parse_to_list(content: str) -> List[str]:
     """Parse LLM response content into a list of strings.
 
@@ -31,6 +68,14 @@ def parse_to_list(content: str) -> List[str]:
         return [str(content)] if content else [""]
 
     content = content.strip()
+
+    # Markdown tables: take one cell per data row rather than gluing every
+    # row into a single item (the local model sometimes answers "list the
+    # keywords" with a | # | keyword | why | table).
+    table_items = _parse_markdown_table_items(content)
+    if table_items:
+        return table_items
+
     lines = content.split("\n")
     result: List[str] = []
     current_item: List[str] = []

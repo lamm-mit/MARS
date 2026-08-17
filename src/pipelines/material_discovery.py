@@ -465,6 +465,18 @@ def run_material_substitution_step(
     return result
 
 
+def _summarize_item_verdicts(item_verdicts: List[Dict[str, Any]]) -> Dict[str, Dict[str, int]]:
+    """Count verdicts per kind so coverage (how many items had evidence) is auditable."""
+    summary: Dict[str, Dict[str, int]] = {}
+    for kind in ("constraint", "property"):
+        counts = {"SATISFIED": 0, "VIOLATED": 0, "NO_EVIDENCE": 0, "MISSING": 0}
+        for v in item_verdicts:
+            if v.get("kind") == kind:
+                counts[v.get("verdict", "MISSING")] = counts.get(v.get("verdict", "MISSING"), 0) + 1
+        summary[kind] = counts
+    return summary
+
+
 def run_material_discovery_pipeline(
     material_X: str,
     application_Y: str,
@@ -1054,6 +1066,7 @@ def run_material_discovery_pipeline(
             is_feasible = feasibility_result.get("is_feasible", False)
             constraints_violated = feasibility_result.get("constraints_violated", [])
             reasoning = feasibility_result.get("reasoning", "")
+            item_verdicts = feasibility_result.get("item_verdicts", []) or []
             
             print(f"\n      Feasibility Assessment:")
             print(f"         Feasible: {'[YES]' if is_feasible else '[NO]'}")
@@ -1069,6 +1082,18 @@ def run_material_discovery_pipeline(
             else:
                 print(f"         [OK] No constraints violated")
             
+            verdict_summary = None
+            if item_verdicts:
+                verdict_summary = _summarize_item_verdicts(item_verdicts)
+                print(f"\n      Itemized check ({len(item_verdicts)} items):")
+                for kind in ("constraint", "property"):
+                    c = verdict_summary[kind]
+                    print(f"         {kind + 's':<12} satisfied={c['SATISFIED']:<3} violated={c['VIOLATED']:<3} "
+                          f"no_evidence={c['NO_EVIDENCE']:<3} missing={c['MISSING']}")
+                for v in item_verdicts:
+                    if v["verdict"] == "VIOLATED":
+                        print(f"           [VIOLATED] {v['id']}: {v['text'][:90]}  ({v['citation'] or 'no citation'})")
+            
             # Record iteration
             iteration_record = {
                 "iteration": iteration,
@@ -1077,7 +1102,9 @@ def run_material_discovery_pipeline(
                 "constraints_violated": constraints_violated,
                 "reasoning": reasoning,  # Full reasoning preserved for downstream analysis
                 "num_queries": len(validation_queries),
-                "num_evidence_docs": sum(ev.get("num_documents", 0) for ev in evidence_I)
+                "num_evidence_docs": sum(ev.get("num_documents", 0) for ev in evidence_I),
+                "item_verdicts": item_verdicts,
+                "item_verdict_summary": verdict_summary,
             }
             iteration_history.append(iteration_record)
             
