@@ -56,13 +56,15 @@ dependencies:
     - ipywidgets==8.1.8
     - reportlab>=4.0
 
-    # langchain pinned to 0.3.x — GraphReasoning uses the old langchain.document_loaders
-    # API which was moved to langchain_community in langchain 1.x. Pre-pinning here
-    # prevents the GraphReasoning post-install step from pulling in langchain 1.x.
+    # langchain 0.3.x. The vendored GraphReasoning imports from langchain_community
+    # and langchain_text_splitters directly, so the 1.x split is already handled;
+    # these pins keep the loader/splitter APIs stable.
     - langchain==0.3.25
     - langchain-community==0.3.24
     - langchain-core==0.3.64
     - langchain-text-splitters==0.3.8
 
-    # GraphReasoning must be installed separately after env creation:
-    #   pip install git+https://github.com/lamm-mit/GraphReasoning.git
+    # Do NOT pip install GraphReasoning. A pinned copy lives in this repo at
+    # src/vendor/graphreasoning; see its VENDORED.md. Installing the upstream
+    # package alongside it will not be used, and its unpinned master has already
+    # broken MARS once by changing find_best_fitting_node_list's signature.

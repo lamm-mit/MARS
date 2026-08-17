@@ -41,77 +41,21 @@ from pydantic import BaseModel, ValidationError
 from sentence_transformers import SentenceTransformer
 
 # ---------------------------------------------------------------------------
-# GraphReasoning compatibility shims
-# GraphReasoning uses old LangChain APIs moved in LangChain >= 0.1:
-#   langchain.document_loaders → langchain_community.document_loaders
-#   langchain.text_splitter    → langchain_text_splitters
-# guidance.models.Chat was removed in guidance >= 0.2.
-# Patch all three before importing so GraphReasoning loads without a downgrade.
+# GraphReasoning is vendored in this repo at src/vendor/graphreasoning.
+# The langchain/guidance shims that used to live here are gone: the vendored
+# copy imports langchain_community / langchain_text_splitters directly and no
+# longer pulls in agents.py (llama_index, guidance). See its VENDORED.md.
 # ---------------------------------------------------------------------------
 import sys as _sys
-try:
-    import langchain_community.document_loaders as _dl
-    _sys.modules.setdefault('langchain.document_loaders', _dl)
-except ImportError:
-    pass
-try:
-    import langchain_text_splitters as _ts
-    _sys.modules.setdefault('langchain.text_splitter', _ts)
-except ImportError:
-    pass
-try:
-    import guidance.models as _gm
-    if not hasattr(_gm, 'Chat'):
-        class _Chat:
-            pass
-        _gm.Chat = _Chat
-except ImportError:
-    pass
+_sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from GraphReasoning import (
+from src.vendor.graphreasoning import (
     make_graph_from_text,
     add_new_subgraph_from_text,
     generate_node_embeddings,
     load_embeddings,
     save_embeddings,
 )
-
-
-def _patch_graphreasoning_colors2community() -> None:
-    """graph_tools.graph_Louvain() calls colors2Community(); upstream has the body commented out."""
-
-    try:
-        import random
-
-        import pandas as pd
-        import seaborn as sns
-
-        import GraphReasoning.graph_tools as gr_gt
-    except ImportError:
-        return
-
-    if getattr(gr_gt, "colors2Community", None) is not None:
-        return
-
-    def colors2Community(communities):  # noqa: N802 — match upstream GraphReasoning name
-        plat = getattr(gr_gt, "palette", "hls")
-        n = max(1, len(communities))
-        palette_colors = sns.color_palette(plat, n).as_hex()
-        colors_pool = list(palette_colors)
-        random.shuffle(colors_pool)
-        rows = []
-        group = 0
-        for community in communities:
-            color = colors_pool.pop()
-            group += 1
-            for node in community:
-                rows.append({"node": node, "color": color, "group": group})
-        return pd.DataFrame(rows)
-
-    gr_gt.colors2Community = colors2Community
-
-
-_patch_graphreasoning_colors2community()
 
 
 _HERE = Path(__file__).parent
@@ -386,7 +330,8 @@ def main(config_path: Path) -> None:
                 logger.warning(f"  Cannot read {doc_graph}: {e}. Skipping.")
                 continue
 
-            _, G, _, node_embeddings, _ = add_new_subgraph_from_text(
+            # returns (graph_GraphML, G_new, G_loaded, G_original, node_embeddings, res)
+            _, G, _, _, node_embeddings, _ = add_new_subgraph_from_text(
                 txt='',
                 node_embeddings=node_embeddings,
                 tokenizer=embedding_tokenizer,

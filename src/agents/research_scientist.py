@@ -5,7 +5,7 @@ import json
 from typing import List, Dict, Any, Optional
 import numpy as np
 import networkx as nx
-from GraphReasoning import find_best_fitting_node_list
+from ..vendor.graphreasoning import find_best_fitting_node_list
 from ..config import load_prompts, load_config
 
 

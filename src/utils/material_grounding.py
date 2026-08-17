@@ -3,7 +3,7 @@
 import networkx as nx
 import numpy as np
 from typing import List, Dict, Any, Optional, Set
-from GraphReasoning import find_best_fitting_node_list
+from ..vendor.graphreasoning import find_best_fitting_node_list
 from ..config import load_config
 
 
