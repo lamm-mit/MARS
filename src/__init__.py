@@ -35,66 +35,10 @@ class _PatchListRepoTemplates:
 
 _sys.meta_path.insert(0, _PatchListRepoTemplates())
 
-# GraphReasoning.__init__ does `from GraphReasoning.agents import *`, but agents.py
-# pulls in many optional packages (guidance, llama_index, etc.) with brittle version
-# requirements that MARS does not need. Pre-stubbing the module prevents agents.py
-# from loading entirely. MARS only uses GraphReasoning's graph utilities
-# (find_best_fitting_node_list, load_embeddings) which are unaffected.
-if "GraphReasoning.agents" not in _sys.modules:
-    _sys.modules["GraphReasoning.agents"] = _types.ModuleType("GraphReasoning.agents")
-
-# GraphReasoning's find_best_fitting_node_list changed API between the version used
-# when MARS was developed and the current public release. Specifically:
-#   - current version: HuggingFace tokenizer+model style, no similarity_threshold
-#   - MARS usage: SentenceTransformer (tokenizer=""), with similarity_threshold kwarg
-# Intercept the import of GraphReasoning.graph_tools and replace the function.
-class _PatchGraphReasoning:
-    def find_module(self, name, path=None):
-        return self if name == "GraphReasoning.graph_tools" else None
-
-    def load_module(self, name):
-        _sys.meta_path.remove(self)
-        import importlib as _il
-        mod = _il.import_module(name)
-
-        import heapq as _hq
-        import numpy as _np
-
-        def _find_best_fitting_node_list(
-            keyword, embeddings, tokenizer, model,
-            N_samples=5, similarity_threshold=0.0, **kwargs
-        ):
-            from scipy.spatial.distance import cosine as _cos
-            # Embed the keyword — SentenceTransformer when tokenizer is falsy
-            if not tokenizer:
-                kw = model.encode(keyword, show_progress_bar=False)
-            else:
-                inputs = tokenizer(keyword, return_tensors="pt")
-                outputs = model(**inputs)
-                kw = outputs.last_hidden_state.mean(dim=1).detach().numpy()
-            kw = _np.array(kw).flatten()
-
-            heap = []
-            _hq.heapify(heap)
-            for node, emb in embeddings.items():
-                emb = _np.array(emb).flatten()
-                try:
-                    sim = float(1 - _cos(kw, emb))
-                except Exception:
-                    continue
-                if sim < similarity_threshold:
-                    continue
-                if len(heap) < N_samples:
-                    _hq.heappush(heap, (sim, node))
-                elif sim > heap[0][0]:
-                    _hq.heapreplace(heap, (sim, node))
-
-            return [(node, sim) for sim, node in sorted(heap, key=lambda x: -x[0])]
-
-        mod.find_best_fitting_node_list = _find_best_fitting_node_list
-        return mod
-
-_sys.meta_path.insert(0, _PatchGraphReasoning())
+# GraphReasoning is vendored at src/vendor/graphreasoning (see its VENDORED.md).
+# The former agents-stub and the find_best_fitting_node_list meta_path hook that
+# lived here are no longer needed: the vendored __init__ does not import agents,
+# and the MARS signature is now folded into the vendored graph_tools.py.
 
 __version__ = "0.1.0"
 

@@ -256,10 +256,7 @@ def _init_rag_resources(config):
     """Load KGs, ChromaDB, and material DB needed by the 1agent_rag condition."""
     from chromadb import PersistentClient
     from sentence_transformers import SentenceTransformer
-    try:
-        from GraphReasoning import load_embeddings
-    except ImportError:
-        raise ImportError("GraphReasoning is required for the 1agent_rag condition.")
+    from src.vendor.graphreasoning import load_embeddings
 
     os.environ["TQDM_DISABLE"] = "1"
 

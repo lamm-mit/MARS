@@ -4,7 +4,7 @@ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 import networkx as nx
 import numpy as np
-from GraphReasoning import find_best_fitting_node_list
+from ..vendor.graphreasoning import find_best_fitting_node_list
 
 
 @dataclass(frozen=True)

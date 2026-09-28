@@ -44,13 +44,7 @@ from .utils import (
     save_evaluation_export,
 )
 
-try:
-    from GraphReasoning import load_embeddings
-except ImportError:
-    raise ImportError(
-        "GraphReasoning is required but not installed. "
-        "Install it with: pip install GraphReasoning"
-    )
+from .vendor.graphreasoning import load_embeddings
 
 logger = logging.getLogger(__name__)
 

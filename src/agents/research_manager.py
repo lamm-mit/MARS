@@ -8,7 +8,7 @@ from typing import List, Dict, Any, Optional
 from ..config import load_prompts, load_config
 from ..utils.parsing import parse_to_list, clean_material_name
 from ..utils.ablation_utils import extract_json_from_response
-from GraphReasoning import find_best_fitting_node_list
+from ..vendor.graphreasoning import find_best_fitting_node_list
 
 
 class ResearchManager:
