@@ -23,12 +23,11 @@ This repository serves as both a reproduction package and the supplementary mate
 ```bash
 git clone https://github.com/LAMM-MIT/MARS && cd MARS
 conda env create -f environment.yml && conda activate MARS
-pip install git+https://github.com/lamm-mit/GraphReasoning.git
 export OPENAI_API_KEY="sk-..."
 ./run_experiments.sh -a -e
 ```
 
-Results are written to `results/Query1/`. The frozen paper outputs are in `results_from_paper/`.
+Results are written to `results/Query1/`. The frozen paper outputs are in `results_from_paper/` (the THV case-study run) and `paper_data/` (figures and the CSV/JSON data behind the ablation study, run-time analysis and SI feedback experiments).
 
 ---
 
@@ -41,11 +40,7 @@ conda env create -f environment.yml
 conda activate MARS
 ```
 
-**GraphReasoning** — installed separately because it is not on PyPI and has its own dependency chain:
-
-```bash
-pip install git+https://github.com/lamm-mit/GraphReasoning.git
-```
+**GraphReasoning** — no separate install. A pinned copy of [lamm-mit/GraphReasoning](https://github.com/lamm-mit/GraphReasoning) (commit `f1d6d44`) is vendored at `src/vendor/graphreasoning/` and imported from there. It was previously pip-installed from unpinned `master`, so two people installing on different days got different code; the copy makes KG generation reproducible and lets the compatibility fixes live where they take effect rather than in import-time monkeypatches. Do **not** `pip install GraphReasoning` alongside it — the vendored copy takes precedence and the installed one would sit unused. All modifications are documented in [`src/vendor/graphreasoning/VENDORED.md`](src/vendor/graphreasoning/VENDORED.md).
 
 **LLM backend** — the default backend for this repository is the OpenAI API (`gpt-5-nano`), which requires an API key and allows anyone to run the pipeline without local infrastructure. The paper itself used `gpt-oss-20b` served locally via llama.cpp, and the repository fully supports locally-hosted models as well. Set your OpenAI key to use the default:
 
@@ -94,21 +89,38 @@ python scripts/run_ablations.py --queries Query1  # 3-agent, 1-agent+RAG, 1-agen
 python scripts/run_evaluation.py --queries Query1 # LLM-as-judge blind evaluation
 ```
 
+### Human-in-the-loop review
+
+System 1 extracts hard constraints and required properties from the query. `--human-review` pauses the run there and waits for a domain expert to approve or amend that output before System 2 begins:
+
+```bash
+python scripts/run_mars.py --queries Query1 --human-review
+```
+
+The run writes `results/<Query>/artifacts/human_review.md` and polls it. In that file the expert can uncheck a constraint to remove it, check a property to promote it to a hard constraint, delete a property line to drop it, edit any line's text in place, and add free-text constraints. Setting `Status: APPROVED` resumes the pipeline; the applied edits are recorded in `human_review_result.json`.
+
+Promotion is copy-not-move: a promoted property stays in the property list, because System 2's candidate proposal and KG grounding read only properties, so an item that moved rather than copied would silently vanish from grounding. If no approval arrives within `timeout_seconds` (default 1800) the run continues with the original System 1 output rather than failing. Configure under `pipelines.human_review` in `config/config.yaml`; the gate is off by default.
+
+A related flag, `--itemized-check`, makes System 2's feasibility validation return a SATISFIED / VIOLATED / NO_EVIDENCE verdict for every property and constraint, producing an auditable per-candidate table instead of the model selecting a few "critical" properties. Only VIOLATED rejects a candidate; NO_EVIDENCE never does.
+
 ### Ablation conditions
 
 
-| Condition                        | Description                                                 |
-| -------------------------------- | ----------------------------------------------------------- |
-| **MARS (full pipeline)**         | System 1 → System 2 ↔ System 3 with RAG + dual-KG reasoning |
-| **3-agent**                      | 3 sequential LLM calls, no RAG or KG                        |
-| **1-agent + RAG/KG**             | Single LLM call with pre-retrieved RAG + KG context         |
-| **1-agent (no RAG/KG)**          | Single LLM call, purely parametric                          |
-| **1-agent (no RAG/KG, GPT-5.4)** | Same as above using a GPT-5.4 backend                       |
+| Condition                            | Description                                                      |
+| ------------------------------------ | ---------------------------------------------------------------- |
+| **MARS (gpt-oss-20b)**               | System 1 → System 2 ↔ System 3 with RAG + dual-KG reasoning      |
+| **MARS (GPT-5.6-sol)**               | Same framework with GPT-5.6-sol as the backbone of every agent   |
+| **3 LLM calls (no RAG/KG)**          | Three sequential calls mirroring the subsystem decomposition     |
+| **1 LLM call (w/ RAG/KG)**           | Single call with a static RAG + KG packet retrieved from the query |
+| **1 LLM call (no RAG/KG)**           | Single call, purely parametric (gpt-oss-20b)                     |
+| **1 LLM call (GPT-5.6-sol)**         | Single parametric call with the closed-source backbone           |
+
+Each configuration is run over five fixed seeds (`config/overrides/seed_*.yaml`, `gpt56sol_seed_*.yaml`). `scripts/run_mars_no_retrieval.py` runs the full multi-agent framework with retrieval ablated; it fails closed at System 1 and is reported as a negative result.
 
 
 ### LLM-judge evaluation
 
-`run_evaluation.py` randomises system labels (A–E) for blind scoring across 12 subsystem criteria on a 1–5 ordinal scale. See `config/evaluation_rubric.yaml` for the full rubric and choice of judge model.
+The evaluation reported in the paper is the pooled, blind protocol in `evaluation_refined/`: each configuration's run is rendered into three standardized subsystem reports (`build_subsystem_summaries.py`, `run_v2_reports.py`), and for every seed and subsystem the six reports are anonymised, shuffled and scored in one judge call by GPT-6-astra against `rubric_s{1,2,3}_final.yaml` (four criteria per subsystem, 0–10 in steps of 0.5; capabilities a configuration lacks by construction score null and count as zero). The judge outputs are in `evaluation_trial/pooled_final6_astra/`; per-call scores of both judges (GPT-6-astra and the GPT-5.6-sol agreement run) and the aggregated tables are in `paper_data/ablation/`. `scripts/run_evaluation.py` with `config/evaluation_rubric.yaml` is the earlier single-run protocol and is kept for reference.
 
 ### Important notes on reproduction
 
@@ -134,6 +146,8 @@ For information on switching LLM backends, using override files, or pointing the
 | `evaluation/aggregate_results.json` | Aggregate rankings across all systems                                                               |
 
 
+`paper_data/` holds the figures and the CSV/JSON data behind the ablation study (Table 2, Figures 5–7), the run-time analysis and the SI feedback-isolation experiments; `paper_data/README.md` maps every manuscript item to its files and `manifest.json` records a SHA-256 per file.
+
 For a description of how these files relate to specific figures and tables in the paper, see **[SI.md](SI.md)**.
 
 ---
@@ -153,19 +167,27 @@ For a description of how these files relate to specific figures and tables in th
 │   ├── config.yaml              # Base config: LLM, embeddings, data paths, hyperparameters
 │   ├── prompts.yaml             # All LLM system and user prompts
 │   ├── queries.yaml             # Benchmark query definitions
-│   ├── evaluation_rubric.yaml   # LLM-judge rubric
-│   └── overrides/               # Drop-in override files (local LLM, full data, etc.)
+│   ├── evaluation_rubric.yaml   # Earlier LLM-judge rubric (see evaluation_refined/ for the paper's)
+│   └── overrides/               # Drop-in overrides: local LLM, full data, per-seed and per-backbone runs,
+│                                #   replay_feedback_* for the SI feedback experiment
 ├── src/                         # Pipeline source code
 │   ├── runner.py                # Orchestrator (initialize + run_query)
 │   ├── agents/                  # ResearchManager, ResearchScientist, …
 │   ├── pipelines/               # System 1, 2, 3 pipeline logic
 │   ├── config/                  # YAML loader with ${ENV_VAR} interpolation
-│   └── utils/                   # LLM wrapper, embeddings, ChromaDB, KG tools, …
+│   ├── utils/                   # LLM wrapper, embeddings, ChromaDB, KG tools,
+│   │                            #   human_review.py (System 1 review gate), …
+│   └── vendor/graphreasoning/   # Pinned GraphReasoning copy — see VENDORED.md
 ├── scripts/
 │   ├── run_mars.py              # Full MARS pipeline
 │   ├── run_ablations.py         # Ablation conditions
-│   ├── run_evaluation.py        # LLM-as-judge evaluation
+│   ├── run_mars_no_retrieval.py # Full framework with RAG/KG ablated (negative control)
+│   ├── run_grounding_evaluation.py  # Per-run claim-verification protocol
+│   ├── run_evaluation.py        # Earlier single-run LLM-as-judge evaluation
 │   └── build_showcase.py        # Generates the mars_showcase notebook
+├── evaluation_refined/          # Pooled blind judging used in the paper: report builders, final rubrics
+├── evaluation_trial/pooled_final6_astra/  # Primary judge outputs (GPT-6-astra), 5 seeds x 3 subsystems
+├── paper_data/                  # Figures + CSV/JSON data behind every figure/table — see paper_data/README.md
 ├── notebooks/
 │   ├── walkthrough.ipynb        # Interactive pipeline demo
 │   ├── graph_viz.ipynb          # Material Informed Subgraph visualisation

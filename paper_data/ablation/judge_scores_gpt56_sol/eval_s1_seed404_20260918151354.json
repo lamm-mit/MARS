@@ -1,0 +1,344 @@
+{
+  "study": "6-condition pooled, S1, seed 404",
+  "seed": 404,
+  "sysno": 1,
+  "judge_model": "gpt-5.6-sol",
+  "rubric": "rubric_s1_v6.yaml",
+  "shuffle": {
+    "A": "1agent_no_rag",
+    "B": "mars",
+    "C": "3agent",
+    "D": "1agent_rag",
+    "E": "mars_sol",
+    "F": "sol1"
+  },
+  "dimensions": [
+    "system1_completeness",
+    "system1_scientific",
+    "system1_grounding",
+    "system1_investigation"
+  ],
+  "results": {
+    "1agent_no_rag": {
+      "letter": "A",
+      "scores": {
+        "system1_completeness": {
+          "score": 8.0,
+          "strengths": [
+            "Covers the central chemical classes, solvent swelling, elastomeric flexibility, transparency, gas permeability, thermal range, processing, and PFAS-free composition.",
+            "Adds useful secondary considerations including adhesion, toxic degradation products, and flex-fatigue durability."
+          ],
+          "weaknesses": [
+            "Mechanical coverage omits common screening properties such as tensile strength, hardness, tear strength, compression set, and elastic recovery.",
+            "Chemical resistance lacks explicit property-retention and exposure-condition framing beyond the qualitative low-swelling requirement."
+          ],
+          "rationale": "The important requirement categories for a transparent, flexible, low-permeability THV substitute are well represented. The omissions are meaningful but localized rather than structural.",
+          "confidence": "high"
+        },
+        "system1_scientific": {
+          "score": 7.5,
+          "strengths": [
+            "Correctly organizes the problem around chemical compatibility and swelling, deformation, optical transmission, gas transport, thermal stability, processing, and composition.",
+            "The qualitative directions—broad resistance, high elongation, low permeability, and PFAS avoidance—would guide screening toward relevant materials."
+          ],
+          "weaknesses": [
+            "The toughness requirement of at least 50 J cm^-2 is nonstandard and unexplained for elastomer screening.",
+            "The thresholds of 90% transmission, 50 Barrer, 150 degrees Celsius, and one million flex cycles are unsupported and may overconstrain an application whose exact conditions are unknown."
+          ],
+          "rationale": "The core scientific strategy is sound despite several provisional or poorly defined numerical requirements. Correcting those numbers would not change the major screening categories.",
+          "confidence": "high"
+        },
+        "system1_grounding": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No RAG retrieval, knowledge graph, cited answer, or evidence packet exists in this configuration."
+          ],
+          "rationale": "Evidence grounding is not scoreable because retrieval was absent by construction.",
+          "confidence": "high"
+        },
+        "system1_investigation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No research questions, per-question evidence, self-checks, or staged investigation trace were produced."
+          ],
+          "rationale": "Investigation quality is not scoreable under the rubric because this was a single direct generation without an investigation trace.",
+          "confidence": "high"
+        }
+      },
+      "mean": 7.75
+    },
+    "mars": {
+      "letter": "B",
+      "scores": {
+        "system1_completeness": {
+          "score": 8.5,
+          "strengths": [
+            "Covers each requested chemical class plus optical transmission, gas transport, tensile behavior, elongation, hardness, fatigue, temperature, processing, additives, regulation, durability, and cost.",
+            "The hard constraints introduce representative exposure chemicals and property-retention concepts, making the chemical-resistance category operational."
+          ],
+          "weaknesses": [
+            "Health and environmental safety of the substitute and its degradation or cure products receive little explicit treatment.",
+            "Application-specific geometry, adhesion, tear behavior, and sealing metrics are not developed, although the query itself leaves the exact component unspecified."
+          ],
+          "rationale": "The final requirement set has broad category coverage and is close to comprehensive for the stated generic application. Remaining omissions are mainly secondary or dependent on clarification of the actual component.",
+          "confidence": "high"
+        },
+        "system1_scientific": {
+          "score": 7.0,
+          "strengths": [
+            "The framework correctly emphasizes chemical-specific compatibility, swelling or retained integrity, mechanical flexibility, optical clarity, gas barrier behavior, processing, thermal behavior, and PFAS restrictions.",
+            "Representative acid, base, solvent, oil, and salt exposures provide a sensible general structure for comparative screening."
+          ],
+          "weaknesses": [
+            "The gas requirement is scientifically underdefined as a 'total gas permeability' in cm3/(m2 day), without gas identity, film thickness, pressure gradient, or humidity.",
+            "Continuous operation at at least 200 degrees Celsius, compression set at most 10%, and FDA 21 CFR 177.2602 compliance are severe or application-specific additions not justified by the generic query."
+          ],
+          "rationale": "The overall scientific framework remains useful, but several hard constraints could improperly eliminate viable substitutes because their conditions or relevance are poorly defined. These are primarily local specification problems rather than a wholesale failure of the strategy.",
+          "confidence": "high"
+        },
+        "system1_grounding": {
+          "score": 3.5,
+          "strengths": [
+            "The answers repeatedly and honestly state that retrieved sources lack THV-specific mechanical, optical, permeability, processing, and chemical-exposure values.",
+            "Mechanical ranges of 1-4 MPa, 300-800%, Shore A 70-85, and over one million cycles are at least identified in Question 3 as nonsource typical assumptions."
+          ],
+          "weaknesses": [
+            "Despite explicit negative evidence, the final hard constraints fabricate repeated specific conditions, including 24 hours, 25 degrees Celsius, chemical concentrations, 90% retention, 10% compression set, and 200 degrees Celsius operation.",
+            "The final 90% transmission and 10 cm3/(m2 day) permeability values are promoted as requirements even though Question 2 explicitly says no retrieved source provides them."
+          ],
+          "rationale": "Some qualitative requirements and declared working ranges have traceable provenance, but lineage is repeatedly broken for load-bearing quantitative constraints. The repeated conversion of missing values into unlabelled specifications warrants the rubric's repeated-fabrication cap.",
+          "confidence": "high"
+        },
+        "system1_investigation": {
+          "score": 5.5,
+          "strengths": [
+            "The problem is decomposed into purposeful questions on alternative classes, optical and barrier behavior, mechanical specifications, and processing constraints.",
+            "Each question has document and knowledge-graph sources, and the answers are generally candid about the evidence gaps."
+          ],
+          "weaknesses": [
+            "Retrieval is largely about PFAS or fluoropolymers rather than THV datasheets and fluorine-free elastomer performance, with no effective follow-up after the deficiencies were identified.",
+            "The synthesis disregards much of the negative evidence by emitting numerous precise chemical, thermal, optical, and processing constraints that the investigation did not establish."
+          ],
+          "rationale": "This is a genuine but weakly executed investigation with sensible decomposition and honest gap recognition. Poor retrieval targeting and an evidence-disconnected synthesis substantially limit its quality.",
+          "confidence": "high"
+        }
+      },
+      "mean": 6.12
+    },
+    "3agent": {
+      "letter": "C",
+      "scores": {
+        "system1_completeness": {
+          "score": 7.0,
+          "strengths": [
+            "Includes the requested chemical spectrum, swelling, mechanical flexibility, transparency and haze, gas permeability, thermal range, and molding or extrusion.",
+            "Provides multiple mechanical descriptors, including tensile strength, elongation, hardness, and modulus."
+          ],
+          "weaknesses": [
+            "It does not explicitly require PFAS-free composition, despite PFAS substitution being central to the query; only hazardous leachable additives are excluded.",
+            "Durability, chemical property retention, tear or compression behavior, regulatory status, and availability are underdeveloped, while electrical insulation is not requested."
+          ],
+          "rationale": "Most performance categories are present, but omission of an explicit PFAS-free requirement is significant. Coverage is otherwise reasonably broad for the generic application.",
+          "confidence": "high"
+        },
+        "system1_scientific": {
+          "score": 6.5,
+          "strengths": [
+            "Correctly recognizes chemical compatibility, swelling, elastomeric deformation, optical haze and transmission, gas transport, thermal stability, and processability as relevant phenomena.",
+            "The mechanical targets are organized using recognizable elastomer properties rather than a single vague flexibility label."
+          ],
+          "weaknesses": [
+            "Demanding permeability at least an order of magnitude below THV is not requested and the approximately 10^-12 coefficient is exceptionally severe for a flexible polymer; O2 and H2O also should not share one undifferentiated permeability specification.",
+            "Requiring resistance to every listed chemical for six months with no more than 5% swelling may systematically exclude useful candidates without reference to actual service concentration and temperature."
+          ],
+          "rationale": "The scientific categories are sound, but unusually severe barrier and universal-compatibility constraints could materially narrow screening inappropriately. The framework remains recognizable and usable after correction of those constraints.",
+          "confidence": "high"
+        },
+        "system1_grounding": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No retrieval, knowledge graph, evidence packet, or citations are present."
+          ],
+          "rationale": "Evidence grounding is not scoreable because the configuration had no retrieval capability.",
+          "confidence": "high"
+        },
+        "system1_investigation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "There are no research questions, per-question sources, self-checks, or visible evidence-gathering stages."
+          ],
+          "rationale": "The report contains direct generation rather than an investigation trace, so this dimension is not scoreable.",
+          "confidence": "high"
+        }
+      },
+      "mean": 6.75
+    },
+    "1agent_rag": {
+      "letter": "D",
+      "scores": {
+        "system1_completeness": {
+          "score": 7.5,
+          "strengths": [
+            "Captures broad chemical resistance, modulus and elongation, transparency, oxygen permeability, thermal stability, PFAS status, availability, and processing.",
+            "Adds density and a clear requirement that the candidate remain elastomeric or semi-elastic."
+          ],
+          "weaknesses": [
+            "Chemical swelling and retained mechanical properties, fatigue, tear strength, compression behavior, hydrolytic durability, and toxicological concerns are absent.",
+            "Restricting processing to standard melt equipment overlooks thermoset and solution-processed elastomers that could be valid substitutes."
+          ],
+          "rationale": "The major categories are covered well, but chemical durability metrics and several important elastomer-performance attributes are missing. The melt-processing constraint also narrows the substitution space unnecessarily.",
+          "confidence": "high"
+        },
+        "system1_scientific": {
+          "score": 7.0,
+          "strengths": [
+            "The framework correctly links substitution to chemical compatibility, elastomeric deformation, optical transmission, molecular gas transport, thermal behavior, composition, and processing.",
+            "Using both modulus and elongation is a scientifically sensible way to distinguish a genuinely flexible candidate from a merely ductile rigid plastic."
+          ],
+          "weaknesses": [
+            "The exact modulus, elongation, permeability, transmission, density, and 200 degrees Celsius thresholds are not established by the packet and some are unnecessarily restrictive.",
+            "The PFAS language is inconsistent between 'no perfluoroalkyl or perfluoroaryl groups' and excluding carbon-fluorine bonds that qualify as PFAS, leaving the operative compositional boundary unclear."
+          ],
+          "rationale": "The scientific organization is sound and would search broadly relevant phenomena. Its main deficiencies are correctable threshold and definition issues rather than errors in the core strategy.",
+          "confidence": "high"
+        },
+        "system1_grounding": {
+          "score": 3.0,
+          "strengths": [
+            "The packet supports the general importance of C-F chemistry, broad fluoropolymer resistance, gas permeation, transparency, and PFAS-free substitution.",
+            "Commercial availability and melt processing have limited qualitative support through the material database and patent or textbook excerpts."
+          ],
+          "weaknesses": [
+            "The load-bearing values—modulus below 5 MPa, elongation above 300%, transmission above 80%, oxygen permeability below 2.5 x 10^-11, density below 1.3 g/cm3, and 200 degrees Celsius stability—do not appear in the packet and are not labelled as assumptions.",
+            "The evidence packet discusses mostly fluoropolymers, rigid PPS or TPX, and generic material lists; it does not establish that a PFAS-free elastomer should meet the emitted quantitative targets."
+          ],
+          "rationale": "General qualitative categories have some lineage, but nearly every quantitative screening value is untraceable. The one-shot output does not distinguish evidence-derived values from assumptions.",
+          "confidence": "high"
+        },
+        "system1_investigation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "The report contains a pre-retrieved packet but no generated research questions, per-question investigation, self-checks, or iterative follow-up."
+          ],
+          "rationale": "Under the rubric, a single direct generation with a pasted evidence packet has no scoreable investigation trace.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.83
+    },
+    "mars_sol": {
+      "letter": "E",
+      "scores": {
+        "system1_completeness": {
+          "score": 6.5,
+          "strengths": [
+            "The combined list spans chemical compatibility, PFAS definition and verification, toxicity, processing, adhesion, thermal behavior, reliability, supply, and cost.",
+            "It honestly preserves many unknown qualification limits rather than inventing numerical values."
+          ],
+          "weaknesses": [
+            "The synthesis incorrectly pivots to FCBGA underfill, producing numerous irrelevant requirements such as flip-chip gap filling, fillet geometry, bump adhesion, and package warpage.",
+            "Flexibility, optical transparency, and low gas permeability appear only as incumbent characteristics and are not carried into the substitute requirements or hard constraints."
+          ],
+          "rationale": "Category breadth is high, but the final requirements are substantially mis-scoped to an unrelated semiconductor underfill application. Several of the user's highest-priority properties are consequently not operationalized for candidate screening.",
+          "confidence": "high"
+        },
+        "system1_scientific": {
+          "score": 5.0,
+          "strengths": [
+            "Questions 1-3 correctly identify chemical exposure conditions, swelling and retention, elastomer mechanics, optical behavior, and gas-permeability test conditions as central phenomena.",
+            "The regulatory and hazard framework appropriately distinguishes PFAS-free status from broader toxicity and environmental safety."
+          ],
+          "weaknesses": [
+            "Question 4 falsely declares the intended application to be FCBGA underfill, and the final synthesis systematically redirects screening toward semiconductor dispensing, cure, warpage, and package reliability.",
+            "The final hard constraints omit the central flexibility, transparency, and gas-barrier requirements despite the earlier questions identifying them."
+          ],
+          "rationale": "The initial scientific decomposition is largely appropriate, but the application hallucination materially changes the final screening strategy. This is a substantive framework-level distortion rather than a local numerical error.",
+          "confidence": "high"
+        },
+        "system1_grounding": {
+          "score": 8.5,
+          "strengths": [
+            "The answers clearly document that quantitative chemical, mechanical, optical, and barrier targets were not retrieved, and the synthesis carries many of these forward as explicitly 'unspecified qualification limits.'",
+            "Most detailed regulatory, processing, adhesion, reliability, supply, and cost items are visibly synthesized from Question 4 and its cited Source 2 discussion."
+          ],
+          "weaknesses": [
+            "The evidence about one FCBGA underfill case is improperly treated as defining the user's intended application, even though the query never identifies that application.",
+            "The synthesis disproportionately uses Question 4 while failing to carry the investigated mechanical, optical, and gas-barrier phenomena into substitute hard constraints."
+          ],
+          "rationale": "Lineage is unusually transparent and negative evidence is handled honestly without fabricated numbers. The main grounding defect is misuse of application-specific evidence, not broken citation traceability.",
+          "confidence": "high"
+        },
+        "system1_investigation": {
+          "score": 6.0,
+          "strengths": [
+            "The report asks distinct questions about chemical testing, mechanics and optics, gas transport, and regulatory, processing, durability, availability, and cost constraints.",
+            "It uses per-question documents and KG nodes and marks the first three questions unanswered when numerical evidence is absent."
+          ],
+          "weaknesses": [
+            "There is no follow-up retrieval for THV datasheets or relevant elastomer sources after three central questions are found unanswered.",
+            "The fourth question drifts to an unrelated FCBGA application, and the final synthesis heavily favors that erroneous branch over the findings from Questions 1-3."
+          ],
+          "rationale": "The trace demonstrates genuine decomposition, evidence gathering, and honest self-assessment. However, failure to correct application drift and the unbalanced synthesis prevent it from being a strong investigation.",
+          "confidence": "high"
+        }
+      },
+      "mean": 6.5
+    },
+    "sol1": {
+      "letter": "F",
+      "scores": {
+        "system1_completeness": {
+          "score": 8.5,
+          "strengths": [
+            "Thoroughly covers the requested chemical classes, swelling and extraction, hydrolysis, flexibility, tensile and tear strength, optical transmission and haze, multiple gas and vapor barriers, and PFAS-free processing.",
+            "Explicitly calls for chemical-specific concentration, temperature, pressure, duration, humidity, thickness, immersion, permeation, and property-retention testing."
+          ],
+          "weaknesses": [
+            "A general service-temperature requirement is not defined; the 160-170 degrees Celsius limit is candidate-specific to PVDC rather than a substitution requirement.",
+            "Elastic recovery, compression set, adhesion, commercial availability, cost, and broader environmental hazard criteria are not substantially developed."
+          ],
+          "rationale": "The requirement set is well tailored to the query and unusually strong on practical chemical and barrier qualification. Remaining gaps are mostly secondary or dependent on the unspecified component geometry.",
+          "confidence": "high"
+        },
+        "system1_scientific": {
+          "score": 8.0,
+          "strengths": [
+            "Correctly recognizes that broad chemical resistance is conditional on chemical identity, concentration, temperature, pressure, and time, and that no non-PFAS elastomer should be assumed universally compatible.",
+            "Scientifically distinguishes gas species and humidity effects while coupling chemical exposure to swelling, dimensional change, cracking, and retained mechanical performance."
+          ],
+          "weaknesses": [
+            "The blanket equation of PFAS-free with no carbon-fluorine bonds is more restrictive than many regulatory PFAS definitions.",
+            "Several hard constraints are specific to the selected PVDC copolymer, including dehydrochlorination and residual vinylidene chloride, which prematurely embeds one candidate's limitations in the general requirement set."
+          ],
+          "rationale": "The core scientific framework is coherent, realistic, and directly useful for screening transparent barrier materials with chemical resistance. Candidate-specific constraints and an overbroad compositional definition are correctable without changing the overall strategy.",
+          "confidence": "high"
+        },
+        "system1_grounding": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No retrieval, cited evidence, knowledge graph, or evidence packet is present."
+          ],
+          "rationale": "Evidence grounding is not scoreable because this configuration used parametric knowledge only.",
+          "confidence": "high"
+        },
+        "system1_investigation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No research-question decomposition, per-question evidence gathering, self-checks, or iteration is visible."
+          ],
+          "rationale": "This was a single direct generation, so investigation quality is not scoreable under the rubric.",
+          "confidence": "high"
+        }
+      },
+      "mean": 8.25
+    }
+  },
+  "timestamp": "2026-09-18T15:15:17.550285Z"
+}

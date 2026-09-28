@@ -1,0 +1,7 @@
+configuration,system1_mean,system1_sd,system1_n,system2_mean,system2_sd,system2_n,system3_mean,system3_sd,system3_n,total_mean,total_sd,total_n
+MARS (gpt-oss-20b),5.85,0.479,5,5.217,0.347,5,5.35,0.409,5,5.472,0.368,5
+MARS (GPT-5.6-sol),6.725,0.768,5,6.258,0.375,5,7.25,0.368,4,6.785,0.418,4
+3 LLM Calls (No RAG/KG),3.45,0.227,5,2.05,0.143,5,2.425,1.283,5,2.642,0.514,5
+1 LLM Call (w/ RAG/KG),4.525,0.533,5,1.7,0.19,5,4.1,0.311,5,3.442,0.271,5
+1 LLM Call (No RAG/KG),3.4,0.311,5,1.725,0.056,5,3.85,0.479,5,2.992,0.185,5
+1 LLM Call (GPT-5.6-sol),4.0,0.25,5,2.175,0.112,5,4.475,0.056,5,3.55,0.09,5

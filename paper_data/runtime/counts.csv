@@ -1,0 +1,9 @@
+Query,LLM,RAG,KG,Total,Wall-clock (min)
+Query1,38,75,5,118,12.4
+Query2,43,82,5,130,14.0
+Query3,75,103,5,183,23.1
+Query5,43,18,5,66,14.3
+Query6,66,40,5,111,17.7
+Average,53.0,63.6,5.0,121.6,16.3
+
+Note: RAG counts for Queries 5/6 exclude System 3 retrieval (runs 2026070722 predate the System 3 logging fix); lower bounds. Queries 1-3 (runs 20260717xx) are complete.

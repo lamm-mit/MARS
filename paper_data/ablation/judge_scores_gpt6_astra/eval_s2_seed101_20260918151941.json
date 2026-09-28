@@ -1,0 +1,319 @@
+{
+  "study": "6-condition pooled, S2, seed 101",
+  "seed": 101,
+  "sysno": 2,
+  "judge_model": "gpt-6-astra",
+  "rubric": "rubric_s2_v3.yaml",
+  "shuffle": {
+    "A": "3agent",
+    "B": "1agent_rag",
+    "C": "mars",
+    "D": "1agent_no_rag",
+    "E": "mars_sol",
+    "F": "sol1"
+  },
+  "dimensions": [
+    "system2_alignment",
+    "system2_verification",
+    "system2_anchoring",
+    "system2_adaptation"
+  ],
+  "results": {
+    "3agent": {
+      "letter": "A",
+      "scores": {
+        "system2_alignment": {
+          "score": 6.5,
+          "strengths": [
+            "Section 5.2 explicitly relates the proposal to chemical resistance, flexibility, transparency, thermal stability, viscosity, hysteresis, flammability, moisture uptake, and degradation-product constraints.",
+            "The candidate rationale addresses the requested acid, base, solvent, oil, and salt exposure categories rather than relying only on generic chemical-resistance language."
+          ],
+          "weaknesses": [
+            "The permeability comparison replaces the input limit of 5×10⁻¹⁶ with 5×10⁻⁶ and changes its units, so that quantitative requirement does not guide the comparison faithfully.",
+            "The glass-transition hard constraint is not assessed."
+          ],
+          "rationale": "The independent System 1 requirements clearly shape the proposal, although coverage and numerical fidelity are uneven. This score credits requirement-directed reasoning, not the unsupported assertion that every requirement is met.",
+          "confidence": "high"
+        },
+        "system2_verification": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "Section 5 explicitly records no PFAS gate, validation questions, retrieved evidence, or feasibility verdict."
+          ],
+          "rationale": "Verification machinery is absent by construction in this direct candidate-generation condition. The proposal's references to data and cycling studies do not constitute independent verification.",
+          "confidence": "high"
+        },
+        "system2_anchoring": {
+          "score": 1.0,
+          "strengths": [
+            "The proposal supplies a nominal product designation, Flex PPSU 2000."
+          ],
+          "weaknesses": [
+            "No inventory record, supplier datasheet, or retrieved source establishes the identity or commercial availability of Flex PPSU 2000.",
+            "The claimed elastomer classification, >350% elongation, approximately 80 Pa·s viscosity, LOI 35–38, and inert degradation fragments have no supporting evidence inside the report."
+          ],
+          "rationale": "A commercial-sounding name is presented without any evidentiary anchor. Neither the candidate identity nor its extensive quantitative property claims can be traced to in-report sources.",
+          "confidence": "high"
+        },
+        "system2_adaptation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [],
+          "rationale": "Adaptation is absent by construction: Section 5 describes one direct proposal with no rejection loop or feedback-driven revision.",
+          "confidence": "high"
+        }
+      },
+      "mean": 3.75
+    },
+    "1agent_rag": {
+      "letter": "B",
+      "scores": {
+        "system2_alignment": {
+          "score": 5.5,
+          "strengths": [
+            "Section 5.2 addresses chemical exposure categories, flexibility, transparency, permeability, PFAS exclusion, and laboratory-scale availability.",
+            "The proposed silicone chemistry and casting approach are explicitly connected to several listed functional requirements."
+          ],
+          "weaknesses": [
+            "The candidate justification does not assess the 150°C service requirement or the hard constraint concerning hazardous curing agents.",
+            "Requirements and candidate were generated together; the trace demonstrates correspondence but not an independent requirement-driven selection process."
+          ],
+          "rationale": "Requirements are visibly represented in the candidate rationale, but important categories receive no explicit assessment. The pre-retrieved packet does not establish that these requirements guided an independent discovery workflow.",
+          "confidence": "high"
+        },
+        "system2_verification": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "The evidence packet was retrieved from the raw query, and no candidate-specific gates, validation questions, or evidence-based verdict followed."
+          ],
+          "rationale": "Verification machinery is absent by construction despite the presence of background retrieval. A pre-retrieved context packet alone is not independent interrogation of the proposed PDMS candidate.",
+          "confidence": "high"
+        },
+        "system2_anchoring": {
+          "score": 1.5,
+          "strengths": [
+            "The justification names Dow Corning Q2-801 and 10/30 as possible commercial grades."
+          ],
+          "weaknesses": [
+            "Neither named silicone grade appears in the supplied inventory or retrieved datasheet evidence; the material-database packet instead concerns DIC.PPS and TPX RT18.",
+            "The PDMS haze <2%, Shore A 50–70, low oxygen permeability, and minimal swelling claims have no candidate-specific supporting text."
+          ],
+          "rationale": "The final selection remains a generic medical-grade PDMS recommendation with unsupported example grades. The substantial retrieval packet does not anchor the selected material.",
+          "confidence": "high"
+        },
+        "system2_adaptation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [],
+          "rationale": "Adaptation is absent by construction because the single generation contains no proposal loop, rejection, or revision.",
+          "confidence": "high"
+        }
+      },
+      "mean": 3.5
+    },
+    "mars": {
+      "letter": "C",
+      "scores": {
+        "system2_alignment": {
+          "score": 8.0,
+          "strengths": [
+            "Iterations 2–4 repeatedly generate questions covering chemical swelling, gas permeability, mechanics, thermal endurance, optical performance, and PFAS certification.",
+            "The iteration 1 PFAS rejection and iterations 2–3 certification rejections explicitly invoke hard constraints, and the final verdict assesses the major functional requirements."
+          ],
+          "weaknesses": [
+            "The failure summaries focus predominantly on PFAS documentation rather than carrying forward the full set of mechanical, chemical, optical, and thermal gaps.",
+            "Requirement implementation is sometimes imprecise: iteration 3 validates 5 wt% silica despite proposing 10 wt%, and permeability units change between stages."
+          ],
+          "rationale": "The requirements strongly and repeatedly guide proposals, questioning, rejection, and final assessment. The final acceptance's evidentiary failures are principally verification issues rather than evidence that requirements ceased guiding discovery.",
+          "confidence": "high"
+        },
+        "system2_verification": {
+          "score": 3.5,
+          "strengths": [
+            "Iteration 1's tie-break PFAS check overturns the proposal's non-PFAS claim and rejects the FKM-containing composite.",
+            "Iterations 2–3 honestly report missing certification evidence and issue FEASIBLE: NO verdicts quoting those gaps."
+          ],
+          "weaknesses": [
+            "Iteration 4 asserts an ISO 17025 laboratory report confirming <1 ppb PFAS for both constituents, but Q1 explicitly finds no accredited-laboratory verification or detection limit; this is fabricated verification and invokes the rubric's score cap.",
+            "The final verdict reverses the earlier certification gate and treats unrelated evidence as confirmation: Q3's retrieval lists DIC.PPS chunks, while Q6 discusses other insulation materials at 300°C, subsequently represented as candidate performance at 250°C."
+          ],
+          "rationale": "Independent checks demonstrably function in earlier iterations, but the final acceptance is not grounded in candidate-specific evidence and bypasses the same certification gap that previously blocked acceptance. The fabricated laboratory-report claim and misattributed positive evidence substantially undermine the machinery.",
+          "confidence": "high"
+        },
+        "system2_anchoring": {
+          "score": 3.0,
+          "strengths": [
+            "The accepted matrix has an explicit inventory record, the-dow-chemical-company-engage-030902-health-polyolefin-elastomer, identifying a commercial ethylene/1-octene elastomer."
+          ],
+          "weaknesses": [
+            "Iteration 4 instead describes this matrix as a high-temperature TPU and assigns polyurethane crosslinking behavior, contradicting its own inventory identity.",
+            "The anatase TiO₂ component has no supplier or catalog anchor, and the claimed matrix permeability, transparency, temperature capability, and filler-induced >350°C degradation point lack candidate-specific retrieved support."
+          ],
+          "rationale": "A real inventory identity is available, but the accepted proposal materially misclassifies it and builds its rationale on unsupported component properties. Naming an inventory grade does not overcome this identity inconsistency.",
+          "confidence": "high"
+        },
+        "system2_adaptation": {
+          "score": 5.0,
+          "strengths": [
+            "After iteration 1 identifies fluorinated FKM as the blocking constituent, iteration 2 removes it and proposes a nonfluorinated polyamide/PU system.",
+            "Later proposals remove the unspecified PU component and eventually change both matrix and filler."
+          ],
+          "weaknesses": [
+            "Iteration 3 repeats the precise iteration 2 failure—missing third-party PFAS verification—despite a failure summary requiring documentation upfront.",
+            "Iteration 4 responds to the repeated certification failure by asserting a laboratory report rather than supplying retrieved documentation; changing to ENGAGE/TiO₂ does not establish a meaningful solution along that evidentiary axis."
+          ],
+          "rationale": "The FKM removal demonstrates clear feedback-driven adaptation, but subsequent changes respond inconsistently to the named certification failure. The trace supports partial adaptation rather than strong, repeated failure-axis correction.",
+          "confidence": "high"
+        }
+      },
+      "mean": 4.88
+    },
+    "1agent_no_rag": {
+      "letter": "D",
+      "scores": {
+        "system2_alignment": {
+          "score": 5.0,
+          "strengths": [
+            "The Sylgard 184 rationale addresses chemical resistance, flexibility, transparency, gas permeability, PFAS exclusion, and laboratory-scale availability."
+          ],
+          "weaknesses": [
+            "The 200°C thermal requirement and ≤$200/kg cost constraint are absent from candidate assessment.",
+            "The stated helium permeability of approximately 2×10⁻¹⁴ is not compared with the required <1×10⁻¹⁴ limit, and the co-generated requirements provide no independent selection handoff."
+          ],
+          "rationale": "Several requirements visibly influence the justification, but thermal and economic categories are not used and the permeability comparison is incomplete. This is partial alignment rather than a systematic requirement-directed evaluation.",
+          "confidence": "high"
+        },
+        "system2_verification": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "Section 5 records no PFAS check, validation questions, retrieved evidence, or feasibility verdict."
+          ],
+          "rationale": "Verification machinery is absent by construction in this single direct generation. Assertions within the candidate justification are not independent checks.",
+          "confidence": "high"
+        },
+        "system2_anchoring": {
+          "score": 2.0,
+          "strengths": [
+            "Sylgard 184 is a specific product designation rather than only a polymer-family recommendation."
+          ],
+          "weaknesses": [
+            "No inventory record or datasheet inside the report substantiates the named grade or its medical-grade designation.",
+            "Elongation >600%, compression set <10% at 100°C, helium permeability, and broad chemical compatibility are asserted without supporting retrieved text."
+          ],
+          "rationale": "The candidate is precisely named but entirely memory-based within the supplied trace. Its identity and claimed properties lack the documentary support required for strong anchoring.",
+          "confidence": "high"
+        },
+        "system2_adaptation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [],
+          "rationale": "Adaptation is absent by construction: there is one direct proposal and no rejection-feedback loop.",
+          "confidence": "high"
+        }
+      },
+      "mean": 3.5
+    },
+    "mars_sol": {
+      "letter": "E",
+      "scores": {
+        "system2_alignment": {
+          "score": 8.5,
+          "strengths": [
+            "Iteration 1's rationale explicitly maps the elastomer core and DLC coating to flexibility, chemical resistance, barrier performance, optical transmission, thermal durability, and full-formulation PFAS requirements.",
+            "Questions 1–6 systematically cover benchmarking, formulation compliance, chemical exposures, coating durability, package qualification, EHS, and commercial requirements; the verdict revisits the critical categories."
+          ],
+          "weaknesses": [
+            "Coverage is bundled into very broad questions rather than a constraint-by-constraint comparison, and some proposed architecture benefits remain only intended functions."
+          ],
+          "rationale": "The supplied requirement set comprehensively guides proposal construction, validation, and final assessment. Unresolved compliance is not treated as an alignment failure, and the inherited application requirements are not independently judged here.",
+          "confidence": "high"
+        },
+        "system2_verification": {
+          "score": 5.0,
+          "strengths": [
+            "The answers explicitly distinguish unrelated evidence from candidate evidence, including Q4's DLC guide-wire example from US6638569_c9 and Q3's uncoated-silicone swelling results.",
+            "Q2 interrogates full-formulation PFAS claims using Dow disclosures, including the-dow-chemical-company-engage-030902-health-polyolefin-elastomer_chunk_15, and explains why expected absence is not analytical confirmation."
+          ],
+          "weaknesses": [
+            "The FEASIBLE: YES verdict accepts despite Q2 finding that mandatory complete-formulation PFAS compliance is not demonstrated, using absence of proven violation instead of a fail-closed gate.",
+            "The verdict's minimum positive evidence comes from partial EHS documentation and general processing literature, not demonstrated chemical or barrier performance of the proposed composite."
+          ],
+          "rationale": "The questioning and evidence interpretation are substantive and independent, but acceptance bypasses an expressly mandatory verification requirement. Explicitly acknowledging exceptionally high risk mitigates overstatement but does not cure this fail-open decision.",
+          "confidence": "high"
+        },
+        "system2_anchoring": {
+          "score": 6.5,
+          "strengths": [
+            "The ENGAGE matrix is correctly identified as a polyolefin elastomer and tied to the inventory record specifying an ethylene/1-octene elastomer.",
+            "The external DLC coating is distinguished from the inventory constituent and receives limited retrieved support from US6638569_c10 and US6638569_c9; the proposal avoids inventing grade-specific performance numbers."
+          ],
+          "weaknesses": [
+            "The DLC constituent remains a generic coating specification with no supplier, commercial coating designation, or candidate-specific coated-product record.",
+            "No retrieved evidence establishes strain tolerance, optical performance, chemical durability, or barrier performance for DLC on this ENGAGE grade."
+          ],
+          "rationale": "The matrix identity is securely anchored and component roles are described consistently, with appropriately qualified property claims. The external coating's incomplete procurement identity and lack of grade-specific support prevent strong composite-level anchoring.",
+          "confidence": "high"
+        },
+        "system2_adaptation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [],
+          "rationale": "Adaptation was not exercised: the first proposed candidate was accepted, so no rejection, failure summary, or subsequent revision occurred.",
+          "confidence": "high"
+        }
+      },
+      "mean": 6.67
+    },
+    "sol1": {
+      "letter": "F",
+      "scores": {
+        "system2_alignment": {
+          "score": 7.0,
+          "strengths": [
+            "The candidate rationale assigns flexibility to the Carbothane core and chemical/gas-barrier functions to the Parylene C coating, directly reflecting the listed functional requirements.",
+            "It explicitly addresses full-face and edge coverage, chemical-ingress failure modes, and the distinction between bend flexibility and repeated high tensile strain."
+          ],
+          "weaknesses": [
+            "Requirements and candidate were generated together, so there is no independent requirement-driven selection trace.",
+            "The candidate justification does not explicitly assess the complete set of final-approval variables, including operating temperature, pressure differential, extractables, and service life."
+          ],
+          "rationale": "The single proposal shows strong requirement-to-architecture reasoning and meaningful application limitations rather than blanket compliance claims. This demonstrates alignment within the generation, not an independently validated discovery process.",
+          "confidence": "high"
+        },
+        "system2_verification": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "There are no independent constraint gates, candidate-validation questions, retrieved answers, or evidence-based feasibility verdict."
+          ],
+          "rationale": "Verification machinery is absent by construction. The proposal's thoughtful caveats are not independent verification, and proposed future testing does not establish completed checks.",
+          "confidence": "high"
+        },
+        "system2_anchoring": {
+          "score": 2.0,
+          "strengths": [
+            "The proposal identifies a specific TPU grade, Carbothane PC-3575A, and an explicitly named coating chemistry, Parylene C."
+          ],
+          "weaknesses": [
+            "Neither component is supported by an inventory record, supplier datasheet, or retrieved source inside the report.",
+            "The approximately Shore 75A hardness, grade transparency, chemical resistance, and relative gas-barrier claims remain memory-based assertions."
+          ],
+          "rationale": "The naming is specific and the limitations are candid, but documentary anchoring is absent for both components. Scientific plausibility and a detailed architecture cannot substitute for in-report procurement and property evidence.",
+          "confidence": "high"
+        },
+        "system2_adaptation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [],
+          "rationale": "Adaptation is absent by construction because this is a single direct generation without a proposal loop. The appended feedback does not produce a later System 2 candidate revision.",
+          "confidence": "high"
+        }
+      },
+      "mean": 4.5
+    }
+  },
+  "timestamp": "2026-09-18T15:20:59.335771Z"
+}

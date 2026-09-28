@@ -1,0 +1,351 @@
+{
+  "study": "6-condition pooled, S3, seed 404",
+  "seed": 404,
+  "sysno": 3,
+  "judge_model": "gpt-5.6-sol",
+  "rubric": "rubric_s3_v5.yaml",
+  "shuffle": {
+    "A": "sol1",
+    "B": "1agent_rag",
+    "C": "3agent",
+    "D": "mars_sol",
+    "E": "mars",
+    "F": "1agent_no_rag"
+  },
+  "dimensions": [
+    "system3_plausibility",
+    "system3_practicality",
+    "system3_compatibility",
+    "system3_verdict"
+  ],
+  "results": {
+    "sol1": {
+      "letter": "A",
+      "scores": {
+        "system3_plausibility": {
+          "score": 8.0,
+          "strengths": [
+            "Provides a clear sequence from aqueous charge preparation and semi-batch copolymerization through residual-monomer stripping, filtration, casting, staged drying, and final qualification.",
+            "Outputs transfer sensibly between steps, with relevant QC such as headspace GC in Step 3 and film performance testing in Step 6."
+          ],
+          "weaknesses": [
+            "Final packaging and storage of either the latex or finished film are not addressed.",
+            "Step 6 is qualification rather than a final routine release-and-handling stage."
+          ],
+          "rationale": "The route is coherent from monomers to an inspected 25–100 micrometer film and includes the major transformation and consolidation stages. Missing final handling is localized rather than route-breaking.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.0,
+          "strengths": [
+            "Major operations identify usable equipment and detailed conditions, including 40–55 °C polymerization, stripping below 30 °C, staged 50–70 °C drying, and optional 80–100 °C annealing.",
+            "Includes process monitoring, residual-monomer GC, filtration, HCl exhaust monitoring, and application-specific immersion testing."
+          ],
+          "weaknesses": [
+            "No retrieval or backing documents exist, so all quantitative ratios, temperatures, conversion targets, solids levels, and test thresholds are unverifiable under the evidence-lineage rule.",
+            "Chemical compatibility and flex-life qualification are deferred to Step 6 rather than discharged by a feasibility analysis."
+          ],
+          "rationale": "The recipe is concrete enough to serve as a laboratory development plan, but its numerical operating conditions have no evidence lineage and therefore trigger the score cap. It also remains primarily a screening and qualification procedure rather than a supported process window.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 5.0,
+          "strengths": [
+            "Emulsion polymerization, monomer stripping, latex filtration, doctor-blade casting, and low-temperature drying are broadly appropriate process families for a PVDC-rich latex film.",
+            "The recipe recognizes PVDC dehydrochlorination risk and limits local temperature to below 150 °C."
+          ],
+          "weaknesses": [
+            "The grade-specific 90/10 monomer ratio, surfactant and initiator system, 40–55 °C schedule, and annealing window have no evidence lineage, requiring the compatibility cap.",
+            "The report does not establish that this sparse formulation will yield a stable 35–50 wt% latex or a coherent unplasticized free-standing film."
+          ],
+          "rationale": "The core process family is scientifically plausible, but the named composition and its numerical schedule are entirely unsupported. Formulation stability and film formation therefore remain meaningful development risks.",
+          "confidence": "medium"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No manufacturing feasibility questions, per-question evidence, or confidence assessments were produced.",
+            "The manufacturable status is a bare assertion accompanied only by general cautionary feedback."
+          ],
+          "rationale": "Under the rubric, a verdict without any feasibility analysis is not scoreable and must receive null.",
+          "confidence": "high"
+        }
+      },
+      "mean": 6.0
+    },
+    "1agent_rag": {
+      "letter": "B",
+      "scores": {
+        "system3_plausibility": {
+          "score": 5.5,
+          "strengths": [
+            "The recipe contains recognizable preparation, blending, melt processing, cooling, shaping, and annealing stages.",
+            "Material flow from dried powder to a plasticized extrudate and nominal film or strip is easy to follow."
+          ],
+          "weaknesses": [
+            "Step 4 incoherently describes cooling an extruded filament in a water-cooled die head and then cutting it to a desired film thickness, without a film die, calender, casting roll, or pressing operation.",
+            "No QC, chemical qualification, packaging, or storage stage is provided."
+          ],
+          "rationale": "A general melt-processing route is recognizable, but the decisive transformation from filament to a controlled 0.5 mm film or strip is inadequately specified. The route also stops before inspection and final handling.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 4.5,
+          "strengths": [
+            "Drying, plasticizer loading, extrusion temperatures, screw speed, cooling temperature, and annealing conditions are numerically specified.",
+            "The major operations name ordinary laboratory equipment classes."
+          ],
+          "weaknesses": [
+            "The shared retrieval packet contains no process-specific support for 80 °C drying, 4 wt% DOP, the 240–260 °C profile, 30 rpm, or the 120 °C anneal, so the quantitative plan is predominantly unverifiable.",
+            "The recipe lacks a workable film-forming operation and gives no residence time, melt-pressure control, plasticizer-loss control, or release QC."
+          ],
+          "rationale": "The plan looks concrete but cannot be reliably executed as a film process because shaping is unresolved and its numerical conditions do not trace to the retrieved packet. Its apparent specificity therefore earns limited practicality credit.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 4.0,
+          "strengths": [
+            "Drying and melt extrusion are broadly standard operations for polysulfone-family thermoplastics.",
+            "A nominal 260 °C melt-processing temperature is not inherently impossible for a PSU-family resin."
+          ],
+          "weaknesses": [
+            "The report identifies the material as both Kynar 1650 and polysulfone, creating a serious grade-identity conflict because Kynar is associated with PVDF rather than PSU.",
+            "Adding 4 wt% DOP and processing it at 260 °C is unsupported and raises volatility, migration, and property-retention concerns."
+          ],
+          "rationale": "The generic thermoplastic route is plausible, but the named-grade identity and plasticizer schedule are materially unreliable. No retrieved evidence verifies the grade-specific processing claims.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No feasibility questions or per-question evidence-based answers were produced.",
+            "The manufacturable verdict provides no reasoning, confidence, gaps, or cited support."
+          ],
+          "rationale": "The rubric requires null when a bare status has no feasibility analysis on which it could rest.",
+          "confidence": "high"
+        }
+      },
+      "mean": 4.67
+    },
+    "3agent": {
+      "letter": "C",
+      "scores": {
+        "system3_plausibility": {
+          "score": 0.0,
+          "strengths": [],
+          "weaknesses": [
+            "No process recipe or sequence of manufacturing operations is supplied.",
+            "The report does not describe processing the purported commercial thermoplastic into any shaped, inspected, or handled product."
+          ],
+          "rationale": "There is no end-to-end manufacturing route to evaluate.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 0.0,
+          "strengths": [],
+          "weaknesses": [
+            "No equipment plan, operating sequence, or executable recipe is provided.",
+            "The stated 300–350 °C synthesis constraint is unsupported and substitutes for assessing ordinary processing of the handed-over thermoplastic."
+          ],
+          "rationale": "The output contains no runnable operating plan and only asserts that specialized synthesis equipment would be required.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 0.0,
+          "strengths": [],
+          "weaknesses": [
+            "No preparation, compounding, molding, extrusion, cooling, or curing operation is proposed.",
+            "The assessment treats synthesis of the polymer as mandatory even though the handed-over candidate is presented as a moldable or extrudable commercial material."
+          ],
+          "rationale": "Material–process compatibility is absent because no processing route is supplied, and the only manufacturing claim focuses on an unsupported synthesis obligation.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No feasibility questions, retrieved evidence, or per-answer confidence labels exist.",
+            "The blocking temperatures and equipment constraints are unsupported assertions."
+          ],
+          "rationale": "Despite naming constraints, the report has no feasibility analysis of the form required by the rubric, so the verdict is not scoreable.",
+          "confidence": "high"
+        }
+      },
+      "mean": 0.0
+    },
+    "mars_sol": {
+      "letter": "D",
+      "scores": {
+        "system3_plausibility": {
+          "score": 8.0,
+          "strengths": [
+            "The nine-step route spans incoming qualification, PDA treatment, drying and metering, concentrate preparation, final reactive mixing, degassing and packaging, assembly dispensing, cure, post-cure, and release testing.",
+            "The sequence carefully keeps the reactive polyimide package out of unnecessary high-shear melt compounding and adds catalyst or reactive components late."
+          ],
+          "weaknesses": [
+            "The PDA architecture is ambiguous: Step 2 allows treatment of filler, package surface, or reinforcement, while the stated candidate specifically calls for a PDA interphase associated with CBC.",
+            "Steps 4 and 5 can duplicate addition of PDA-treated solids and do not clearly select between the particle-precoat and package-surface routes."
+          ],
+          "rationale": "This is a strong end-to-end underfill-manufacturing sequence with appropriate preparation, dispersion, filling, cure, QC, and handling stages. The main weakness is unresolved selection of the exact interphase architecture.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.0,
+          "strengths": [
+            "The report names realistic equipment throughout, including a twin-screw extruder, jacketed planetary mixer, vacuum deaerator, cartridge filler, automated dispenser, nitrogen-capable oven, and X-ray or acoustic inspection.",
+            "It honestly traces the 280 °C ViviOn avoidance limit to Question 2 Document 22 and recognizes filtration, moisture, contamination, gelation, and thermal-mapping constraints."
+          ],
+          "weaknesses": [
+            "Nearly every load-bearing operating variable is deferred: PDA concentration, pH, time and temperature; drying schedule; melt-compounding window; formulation ratios; mixing energy; degassing pressure; dispense settings; and cure schedule.",
+            "Questions 1–4 explicitly leave sourcing, equipment availability, blend compatibility, cure behavior, EHS approval, and legal freedom unresolved, making the recipe predominantly a development test plan."
+          ],
+          "rationale": "The equipment and sequencing are useful, but the report itself states that no defensible numerical formulation or cure recipe can be given. Because most operational and qualification obligations remain deferred, practicality is limited to the middle of the scale.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 6.5,
+          "strengths": [
+            "Melt-preparing a thermoplastic toughener concentrate, dispersing it into a liquid thermoset under controlled temperature, vacuum degassing, dispensing, and staged curing are broadly compatible process families.",
+            "The design appropriately protects the reactive cure package from excessive shear and recognizes the documented ViviOn 280 °C avoidance threshold."
+          ],
+          "weaknesses": [
+            "PDA deposition and adhesion on hydrophobic ViviOn 1608 are inferred rather than demonstrated, as Question 2 explicitly acknowledges.",
+            "Questions 2 and 3 provide no evidence that PDA will not inhibit the unspecified addition-cure polyimide chemistry or that the CBC will resist phase coalescence during cure."
+          ],
+          "rationale": "The core operations are scientifically plausible and no decisive incompatibility is established. Nonetheless, the interphase chemistry and cure compatibility are central, unresolved concerns rather than minor parameter optimization.",
+          "confidence": "medium"
+        },
+        "system3_verdict": {
+          "score": 8.0,
+          "strengths": [
+            "The feasible verdict faithfully carries forward all major gaps identified in Questions 1–4, including sourcing, equipment, blend compatibility, cure data, EHS, IP, and missing acceptance limits.",
+            "It correctly distinguishes absence of an identified hard prohibition from readiness for semiconductor-grade production."
+          ],
+          "weaknesses": [
+            "Calling the system feasible is somewhat optimistic when the resin formulation, PDA deposition, cure schedule, and material-pair compatibility are all unvalidated.",
+            "The listed items are labeled soft constraints even though failure to source a fully disclosed PFAS-free resin package could become a hard gate."
+          ],
+          "rationale": "The verdict is strongly grounded and unusually honest about evidence gaps, while making only the limited claim that no impossibility was found. Its optimism is tempered by explicit conditional language and comprehensive risk carryover.",
+          "confidence": "high"
+        }
+      },
+      "mean": 6.88
+    },
+    "mars": {
+      "letter": "E",
+      "scores": {
+        "system3_plausibility": {
+          "score": 7.5,
+          "strengths": [
+            "The route progresses coherently through receipt and drying, melt compounding, pelletizing, secondary drying, extrusion, injection molding, and final QC.",
+            "It includes both filler incorporation and a clear shaping stage, followed by melt-index, density, and barrier testing."
+          ],
+          "weaknesses": [
+            "The separate low-temperature masterbatch step and subsequent high-temperature re-extrusion are insufficiently reconciled and may be redundant.",
+            "Final packaging, storage, silica-dispersion inspection, chemical-resistance testing, and optical/mechanical release tests are missing."
+          ],
+          "rationale": "The overall sequence clearly converts polymer and silica into molded test parts and is coherent despite an arguably redundant two-stage compounding route. Missing release and handling elements are important but localized.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.0,
+          "strengths": [
+            "The recipe supplies equipment and numerical settings for drying, mixing, pelletizing, extrusion, molding, and QC.",
+            "The feasibility analysis investigates suppliers, compounding equipment, temperature, residence time, pressure, and safety before producing the recipe."
+          ],
+          "weaknesses": [
+            "Recipe conditions conflict with the answers: Question 3 recommends 170–180 °C, 5–10 minutes, and 5–15 bar below 200 °C, while Steps 2 and 5 use 120–140 °C for 3–5 minutes and 185–204 °C at 30–50 bar.",
+            "A 170–190 °C mold temperature is not practically compatible with cooling and solidifying an ENGAGE polyolefin part in 30–60 seconds, and many recipe numbers lack clear document-level derivation."
+          ],
+          "rationale": "The process is detailed, but its core extrusion and molding conditions are internally inconsistent and include a mold schedule that would obstruct ordinary solidification. These are more consequential than routine optimization gaps.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 5.0,
+          "strengths": [
+            "Twin-screw melt compounding and injection molding are standard process families for a polyolefin elastomer filled with silica.",
+            "The process avoids an unnecessary cure operation for the thermoplastic matrix."
+          ],
+          "weaknesses": [
+            "No convincing evidence establishes uniform dispersion of 30 wt% untreated silica in this ENGAGE grade; the answer mentions silane coupling agents, but the stated candidate and recipe do not consistently include one.",
+            "The 204 °C die setting exceeds the report's asserted 200 °C limit, while the 170–190 °C mold temperature is incompatible with prompt solidification of this polyolefin system."
+          ],
+          "rationale": "The process family is compatible, but filler-interface control and the central thermal schedule create significant material-specific concerns. The grade-specific numeric compatibility claims are also weakly grounded.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": 5.0,
+          "strengths": [
+            "The verdict carries forward the documented lack of a silica supplier and analytical verification protocols.",
+            "It is connected to the feasibility answers on basic equipment availability and melt-processing feasibility."
+          ],
+          "weaknesses": [
+            "It ignores unresolved 30 wt% silica dispersion and interfacial compatibility, despite Question 1 finding no documented formulation and merely asserting that standard silanes are sufficient.",
+            "The underlying answers overstate evidence, including unsupported PFAS-free, peroxide, FDA, RoHS, and processing claims, yet the verdict treats standard extrusion as established."
+          ],
+          "rationale": "The verdict is partially grounded but understates major formulation and processing uncertainties and relies on several overextended feasibility answers. It is more assertive than the evidence warrants.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.62
+    },
+    "1agent_no_rag": {
+      "letter": "F",
+      "scores": {
+        "system3_plausibility": {
+          "score": 7.0,
+          "strengths": [
+            "The route follows a sensible silicone sequence of base/crosslinker mixing, vacuum degassing, molding, thermal cure, cooling, and demolding.",
+            "Each intermediate output plausibly feeds the following stage."
+          ],
+          "weaknesses": [
+            "No incoming-material preparation, final QC, chemical qualification, packaging, or storage stage is included.",
+            "Step 3 conflates molding and extrusion without defining how a liquid reactive mixture would be retained and cured in an extrusion line."
+          ],
+          "rationale": "A coherent molded-silicone route is present, although the extrusion alternative is underdeveloped and final inspection and handling are absent. The core mold-and-cure sequence remains recognizable.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 4.5,
+          "strengths": [
+            "The recipe gives a nominal 10:1 ratio, vacuum level and time, molding pressure, and alternative thermal or room-temperature cure schedules.",
+            "Standard mixing, vacuum, molding, oven, and demolding equipment are identified."
+          ],
+          "weaknesses": [
+            "No retrieval or backing evidence exists, so all grade-specific ratios, pressures, times, and cure temperatures are unverifiable and trigger the evidence-lineage cap.",
+            "A syringe pump is not a degassing device, and the recipe gives no mold-release, cure-completion, post-cure, or quality-control procedure."
+          ],
+          "rationale": "The molded route could be attempted, but its quantitative schedule lacks all evidence lineage and some equipment descriptions are operationally incorrect. It is therefore less than a reliably executable grade-specific plan.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 4.0,
+          "strengths": [
+            "Mixing, vacuum degassing, molding, and thermal curing are standard family-level operations for many two-part liquid silicone elastomers.",
+            "The proposed temperatures are not intrinsically destructive to PDMS."
+          ],
+          "weaknesses": [
+            "The report does not establish that Dow Silastic R-4 is a 10:1 pourable two-part liquid silicone system; the named-grade architecture may instead require a materially different compounding and curing route.",
+            "The curing agent is described only as a polydimethylsiloxane crosslinker, with no catalyst or verified cure chemistry, making successful crosslinking grade-specifically unsupported."
+          ],
+          "rationale": "The generic liquid-silicone process is plausible, but its application to the named R-4 grade is unverified and may be mismatched. The missing verified cure package is a central compatibility concern.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No feasibility questions, retrieved evidence, or evidence-based answers were produced.",
+            "The manufacturable status contains no reasoning, confidence assessment, or named manufacturing risks."
+          ],
+          "rationale": "The rubric specifies null for a bare verdict emitted without a feasibility analysis.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.17
+    }
+  },
+  "timestamp": "2026-09-18T15:37:51.712131Z"
+}

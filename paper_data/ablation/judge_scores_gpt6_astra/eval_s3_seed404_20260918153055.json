@@ -1,0 +1,346 @@
+{
+  "study": "6-condition pooled, S3, seed 404",
+  "seed": 404,
+  "sysno": 3,
+  "judge_model": "gpt-6-astra",
+  "rubric": "rubric_s3_v5.yaml",
+  "shuffle": {
+    "A": "sol1",
+    "B": "1agent_rag",
+    "C": "3agent",
+    "D": "mars_sol",
+    "E": "mars",
+    "F": "1agent_no_rag"
+  },
+  "dimensions": [
+    "system3_plausibility",
+    "system3_practicality",
+    "system3_compatibility",
+    "system3_verdict"
+  ],
+  "results": {
+    "sol1": {
+      "letter": "A",
+      "scores": {
+        "system3_plausibility": {
+          "score": 8.0,
+          "strengths": [
+            "Steps 1–5 connect aqueous-charge preparation, semi-batch polymerization, residual-monomer removal, casting, and film consolidation in a sensible sequence.",
+            "Step 6 closes the route with mechanical, optical, permeation, and chemical-exposure inspection."
+          ],
+          "weaknesses": [
+            "Film release, final packaging, and storage are not specified."
+          ],
+          "rationale": "The recipe coherently transforms monomers into an inspected film or coating. Missing final handling details are localized rather than a break in the manufacturing route.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.0,
+          "strengths": [
+            "Major operations identify equipment and concrete conditions, including a pressure-rated reactor, metered feeds, stripping, filtration, and staged drying.",
+            "Step 3 specifies headspace GC for residual monomer, and Steps 2 and 5 address exotherm control and HCl monitoring."
+          ],
+          "weaknesses": [
+            "No retrieval or backing evidence supports the 40–55 °C polymerization, surfactant loading, stripping conditions, or drying schedule.",
+            "Initiator dosage and feed duration are unspecified, while service qualification is entirely assigned to future testing."
+          ],
+          "rationale": "This is a useful laboratory development outline, but its quantitative conditions are unverified. The evidence-lineage rule caps operational practicality at 5.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 5.0,
+          "strengths": [
+            "Emulsion polymerization followed by latex casting and low-temperature consolidation is broadly compatible with a VDC/MA copolymer.",
+            "The route avoids obligatory high-temperature melt processing and includes residual-monomer removal."
+          ],
+          "weaknesses": [
+            "The specific 90/10 copolymer's tolerance of the polymerization, pH-adjustment, and film-consolidation schedules has no evidence lineage.",
+            "Film formation under the proposed drying cycle is assumed rather than supported for this composition."
+          ],
+          "rationale": "Family-level process compatibility is credible, with no obvious fundamentally incompatible core operation. Composition-specific numerical compatibility claims remain predominantly unverifiable, triggering the cap of 5.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [
+            "Feedback explicitly limits advancement to suitable film/coating applications and successful service-specific testing."
+          ],
+          "weaknesses": [
+            "No manufacturing feasibility questions, per-question evidence, or evidence-based answers were produced."
+          ],
+          "rationale": "The manufacturable status has no feasibility analysis on which to evaluate grounding. Under the rubric, this dimension is not scoreable.",
+          "confidence": "high"
+        }
+      },
+      "mean": 6.0
+    },
+    "1agent_rag": {
+      "letter": "B",
+      "scores": {
+        "system3_plausibility": {
+          "score": 5.5,
+          "strengths": [
+            "Steps 1–5 provide a recognizable drying, blending, extrusion, cooling, and annealing sequence."
+          ],
+          "weaknesses": [
+            "Step 4 changes an 'extruded PSU filament' into a film or strip by slicing without clearly defining the required shaping operation.",
+            "The route ends after annealing without inspection or final handling."
+          ],
+          "rationale": "The general transformation sequence is recognizable, but product geometry is poorly connected to the extruder output. Missing inspection further limits end-to-end completeness.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 4.5,
+          "strengths": [
+            "The recipe names equipment and supplies drying, extrusion, cooling, and annealing settings."
+          ],
+          "weaknesses": [
+            "The shared packet contains no demonstrated lineage for 4 wt% DOP, 80 °C/2 h drying, 30 rpm extrusion, or 120 °C/30 min annealing.",
+            "Step 4 does not adequately define how the die and slicer produce the stated 0.5 mm film or strip."
+          ],
+          "rationale": "Numerical specificity exists, but the predominantly unrelated raw-query packet does not verify the operating plan. Practicality is below the lineage cap because shaping also remains operationally unclear.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 4.5,
+          "strengths": [
+            "Taking the stated composition as PSU, drying, melt extrusion, and stress-relief annealing are appropriate process families."
+          ],
+          "weaknesses": [
+            "The 240–260 °C extrusion profile is unusually low for conventional PSU melt fabrication, and no evidence establishes that 4 wt% DOP makes it workable.",
+            "Neither the named material's drying schedule nor its plasticizer compatibility is supported by the packet; its materialdb records concern PPS and TPX rather than this formulation."
+          ],
+          "rationale": "The assessment accepts the stated PSU composition rather than penalizing the inherited trade-name error. Nevertheless, the central melt-processing schedule is questionable and the material-specific conditions lack lineage.",
+          "confidence": "medium"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "The report provides only a bare manufacturable status, with no feasibility questions or evidence-based answers."
+          ],
+          "rationale": "A raw-query evidence packet is not a manufacturing feasibility analysis. The verdict-grounding score is therefore null.",
+          "confidence": "high"
+        }
+      },
+      "mean": 4.83
+    },
+    "3agent": {
+      "letter": "C",
+      "scores": {
+        "system3_plausibility": {
+          "score": 0.0,
+          "strengths": [],
+          "weaknesses": [
+            "Section 6 contains zero process steps and no route from supplied polymer to a shaped product."
+          ],
+          "rationale": "No manufacturing sequence is provided. The blocking statement about synthesis equipment does not constitute an end-to-end route.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 1.0,
+          "strengths": [
+            "The blocking explanation identifies temperature control, pressure monitoring, and by-product removal as potential synthesis considerations."
+          ],
+          "weaknesses": [
+            "There is no executable recipe, equipment sequence, shaping plan, or QC plan.",
+            "The asserted 300–350 °C synthesis requirement has no evidence lineage, and processing the handed-over thermoplastic feedstock is not investigated."
+          ],
+          "rationale": "The report offers an equipment objection rather than a runnable manufacturing recommendation. Minimal recognition of synthesis controls does not establish operational capability.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 1.0,
+          "strengths": [],
+          "weaknesses": [
+            "No preparation, forming, or consolidation route is supplied for compatibility assessment.",
+            "System 3 assumes obligatory melt polycondensation without establishing why synthesis is required instead of processing the supplied thermoplastic material."
+          ],
+          "rationale": "Material–process matching is largely absent, rather than demonstrably impossible. The unsupported synthesis assumption replaces investigation of compatible fabrication operations.",
+          "confidence": "medium"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [
+            "The blocked status names its asserted temperature and equipment constraints."
+          ],
+          "weaknesses": [
+            "There are no manufacturing feasibility questions, retrieved evidence, or per-question answers supporting those constraints."
+          ],
+          "rationale": "Despite the explanatory blocking text, no feasibility analysis exists. The rubric requires a null grounding score.",
+          "confidence": "high"
+        }
+      },
+      "mean": 0.67
+    },
+    "mars_sol": {
+      "letter": "D",
+      "scores": {
+        "system3_plausibility": {
+          "score": 6.5,
+          "strengths": [
+            "Steps 1–9 connect incoming qualification, interphase treatment, compounding, degassing, dispensing, curing, cooling, and final inspection.",
+            "Reactive-package addition follows solids wetting, and dispensing precedes gelation and cure."
+          ],
+          "weaknesses": [
+            "Step 4 produces a CBC concentrate or pellets, but Step 5 does not clearly explain their conversion into the intended fine dispersed toughening phase.",
+            "Step 2 permits coating unspecified fillers or reinforcements, leaving the location of the intended PDA interphase less definite than Q2's particle-precoating route."
+          ],
+          "rationale": "The overall underfill manufacturing sequence is functional and well structured. Its main gap is the connection between concentrate preparation and realization of the specified composite architecture.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 4.5,
+          "strengths": [
+            "The 28 targeted queries and four feasibility answers identify the relevant sourcing, mixing, cure, contamination, and safety obligations.",
+            "The recipe specifies credible equipment classes and useful controls for catalyst sequencing, filtration, degassing, and dispensing."
+          ],
+          "weaknesses": [
+            "Steps 2–8 defer nearly every load-bearing operating window: PDA deposition, drying, formulation ratios, mixing energy, degassing pressure, dispensing settings, and cure schedule.",
+            "Q3 explicitly concludes that no defensible numerical recipe can be given; the final recipe remains a pilot-development and qualification plan."
+          ],
+          "rationale": "The retrieval-driven analysis is useful and honest, but it does not yield sufficiently concrete core operating conditions. Predominantly deferred process development limits practicality to the middle of the scale.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 7.0,
+          "strengths": [
+            "Q2 supports CBC melt processing through usi-corporation-cyclic-block-copolymer-cbc-viviontm-1608_chunk_23 and staged planetary mixing through Documents 2 and 5.",
+            "Separate wet interphase treatment and drying, delayed catalyst addition, degassing, and staged addition curing broadly fit the proposed architecture."
+          ],
+          "weaknesses": [
+            "Q2 identifies PDA adhesion and suppression of phase coalescence as inferred, so the architecture-specific stabilization mechanism remains uncertain.",
+            "The final recipe omits the explicit 280 °C avoidance threshold established in Q2 and Q3 from usi-corporation-cyclic-block-copolymer-cbc-viviontm-1608_chunk_3."
+          ],
+          "rationale": "Core process families are scientifically compatible, and no destructive cure schedule or impossible reaction is imposed. Unverified interfacial performance and incomplete thermal-limit transfer are correctable concerns, not fundamental incompatibilities.",
+          "confidence": "medium"
+        },
+        "system3_verdict": {
+          "score": 9.0,
+          "strengths": [
+            "The conditional YES carries forward Q1's unconfirmed sourcing, Q2's inferred interphase and equipment availability, Q3's missing cure/formulation data, and Q4's unresolved EHS and legal issues.",
+            "The insufficient_evidence/low confidence labels are respected, and the feedback explicitly distinguishes laboratory plausibility from semiconductor production readiness."
+          ],
+          "weaknesses": [
+            "The headline YES and uniformly soft constraints could more clearly distinguish permission to investigate from permission to begin processing before the required reviews."
+          ],
+          "rationale": "The verdict closely follows its own answers and preserves the load-bearing evidence gaps without converting them into demonstrated compliance. Conditional acceptance is well grounded even though the resulting recipe remains developmental.",
+          "confidence": "high"
+        }
+      },
+      "mean": 6.75
+    },
+    "mars": {
+      "letter": "E",
+      "scores": {
+        "system3_plausibility": {
+          "score": 7.5,
+          "strengths": [
+            "Steps 1–7 connect raw-material conditioning, filled-polymer compounding, pelletizing, extrusion, molding, and QC.",
+            "Intermediate granules and pellets provide recognizable links between the major forming operations."
+          ],
+          "weaknesses": [
+            "The masterbatch designation does not explain any subsequent dilution or confirm how the final 30 wt% loading is maintained with optional oil.",
+            "Final packaging and storage are absent."
+          ],
+          "rationale": "This is a coherent end-to-end thermoplastic-composite route. Redundant processing and minor composition-flow ambiguity do not erase its clear manufacturing sequence.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.0,
+          "strengths": [
+            "The recipe specifies equipment, temperatures, mixing times, screw speeds, pressure, pellet dimensions, and molding conditions.",
+            "Targeted queries and Q2–Q3 provide an evidence-linked investigation of staged extrusion and filled-elastomer mixing."
+          ],
+          "weaknesses": [
+            "Many final settings lack an identified derivation, including 80 °C/4 h drying, 20–30 rpm compounding, 30–50 bar extrusion, and the molding schedule; Q3 instead supplies 170–180 °C, 5–10 min, and 5–15 bar.",
+            "Step 5's 204 °C die exceeds the under-200 °C limit repeatedly endorsed in Q3 without explaining that constraint's revision."
+          ],
+          "rationale": "The plan is operationally detailed, but major final numerical conditions are not adequately traceable to the stated answers or an explicit evidence-based refinement. The lineage cap applies; parameter changes themselves are not treated as errors.",
+          "confidence": "medium"
+        },
+        "system3_compatibility": {
+          "score": 5.0,
+          "strengths": [
+            "Melt incorporation of silica followed by extrusion and injection molding is broadly appropriate for an uncured polyolefin-elastomer composite.",
+            "The core route does not require an unsupported chemical cure."
+          ],
+          "weaknesses": [
+            "Step 6 holds the mold at 170–190 °C while allowing only 30–60 seconds of cooling, without a mold-cooling stage capable of solidifying this uncrosslinked elastomer for demolding.",
+            "Q2–Q3 invoke scorch and a 200 °C 'cure limit' despite the stated no-cure architecture, weakening the scientific basis of their thermal controls."
+          ],
+          "rationale": "The processing family fits, but the required molding/consolidation conditions contain an important central compatibility problem. This is distinct from uncertainty about final transparency, dispersion, or chemical performance.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": 4.0,
+          "strengths": [
+            "The verdict carries forward the missing silica supplier/specification information and absent analytical verification protocols.",
+            "Its basic extrusion-feasibility conclusion connects to Q2 and Q3."
+          ],
+          "weaknesses": [
+            "Q4 misattributes silica SDS guidance to Document 3, which is usi-corporation-cyclic-block-copolymer-cbc-viviontm-1608_chunk_2, and asserts filler PFAS/RoHS declarations despite Q1 finding no filler specifications.",
+            "Q1's claim that standard silanes are sufficient and Q4's conclusion that safety protocols are adequate exceed the evidence; the verdict does not acknowledge these grounding weaknesses."
+          ],
+          "rationale": "The verdict has a real analytical basis but inherits misquoted and overextended safety/compliance claims from medium-confidence answers. Naming some sourcing and testing gaps does not repair that substantive grounding failure.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.38
+    },
+    "1agent_no_rag": {
+      "letter": "F",
+      "scores": {
+        "system3_plausibility": {
+          "score": 7.0,
+          "strengths": [
+            "Steps 1–5 coherently progress through mixing, degassing, molding, curing, cooling, and demolding."
+          ],
+          "weaknesses": [
+            "No inspection, finishing, packaging, or storage stage follows demolding.",
+            "The extrusion alternative in Step 3 lacks the continuous support and curing sequence supplied by the clearer molding branch."
+          ],
+          "rationale": "The molding branch provides a credible input-to-part sequence. Missing final inspection and an underdeveloped alternative route are localized limitations.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.0,
+          "strengths": [
+            "The molding route supplies equipment and approximate mixing ratio, vacuum, degassing time, molding pressure, and cure schedule.",
+            "Cooling before demolding is explicitly included."
+          ],
+          "weaknesses": [
+            "No retrieval verifies the nominal 10:1 ratio, 0.1 bar degassing, or 60–80 °C/4–6 h cure for the named material.",
+            "The curing-agent identity and working time are unspecified, and a syringe pump is not adequately defined as an alternative degassing system."
+          ],
+          "rationale": "The recipe is a recognizable laboratory silicone-molding outline. Its unsupported quantitative conditions trigger the practicality cap of 5.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 5.0,
+          "strengths": [
+            "Mixing an appropriate silicone cure package, vacuum degassing, molding, and thermal or ambient curing are compatible silicone-processing families.",
+            "The proposed temperatures do not inherently suggest destructive treatment of PDMS."
+          ],
+          "weaknesses": [
+            "The named grade's compatibility with a 10:1 cure package and either proposed cure schedule has no evidence lineage.",
+            "Calling the curing agent a 'polydimethylsiloxane crosslinker' does not identify reactive functionality or establish the applicable cure mechanism."
+          ],
+          "rationale": "General silicone-processing compatibility can be credited without accepting unsupported grade-specific cure claims. Those predominantly unverified claims cap the score at 5.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "Only a bare manufacturable status is supplied; no feasibility questions, evidence, or answers exist."
+          ],
+          "rationale": "There is no feasibility analysis against which verdict grounding can be evaluated. The rubric therefore requires null.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.67
+    }
+  },
+  "timestamp": "2026-09-18T15:32:37.109656Z"
+}

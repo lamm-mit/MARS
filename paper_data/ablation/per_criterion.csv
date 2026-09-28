@@ -1,0 +1,73 @@
+configuration,subsystem,criterion,mean,sd,n_seeds_scored
+MARS (gpt-oss-20b),System 1,completeness,7.8,0.57,5
+MARS (gpt-oss-20b),System 1,scientific,6.6,0.548,5
+MARS (gpt-oss-20b),System 1,grounding,3.8,0.975,5
+MARS (gpt-oss-20b),System 1,investigation,5.2,0.57,5
+MARS (GPT-5.6-sol),System 1,completeness,7.1,0.652,5
+MARS (GPT-5.6-sol),System 1,scientific,5.5,1.458,5
+MARS (GPT-5.6-sol),System 1,grounding,8.2,0.274,5
+MARS (GPT-5.6-sol),System 1,investigation,6.1,0.822,5
+3 LLM Calls (No RAG/KG),System 1,completeness,7.3,0.447,5
+3 LLM Calls (No RAG/KG),System 1,scientific,6.5,0.5,5
+3 LLM Calls (No RAG/KG),System 1,grounding,0.0,0.0,5
+3 LLM Calls (No RAG/KG),System 1,investigation,0.0,0.0,5
+1 LLM Call (w/ RAG/KG),System 1,completeness,7.3,0.57,5
+1 LLM Call (w/ RAG/KG),System 1,scientific,7.5,0.354,5
+1 LLM Call (w/ RAG/KG),System 1,grounding,3.3,1.44,5
+1 LLM Call (w/ RAG/KG),System 1,investigation,0.0,0.0,5
+1 LLM Call (No RAG/KG),System 1,completeness,6.5,1.061,5
+1 LLM Call (No RAG/KG),System 1,scientific,7.1,0.224,5
+1 LLM Call (No RAG/KG),System 1,grounding,0.0,0.0,5
+1 LLM Call (No RAG/KG),System 1,investigation,0.0,0.0,5
+1 LLM Call (GPT-5.6-sol),System 1,completeness,8.4,0.418,5
+1 LLM Call (GPT-5.6-sol),System 1,scientific,7.6,0.742,5
+1 LLM Call (GPT-5.6-sol),System 1,grounding,0.0,0.0,5
+1 LLM Call (GPT-5.6-sol),System 1,investigation,0.0,0.0,5
+MARS (gpt-oss-20b),System 2,alignment,7.6,0.418,5
+MARS (gpt-oss-20b),System 2,verification,3.7,0.274,5
+MARS (gpt-oss-20b),System 2,anchoring,3.7,0.758,5
+MARS (gpt-oss-20b),System 2,adaptation,6.125,0.75,4
+MARS (GPT-5.6-sol),System 2,alignment,8.3,0.274,5
+MARS (GPT-5.6-sol),System 2,verification,5.6,1.342,5
+MARS (GPT-5.6-sol),System 2,anchoring,5.2,1.037,5
+MARS (GPT-5.6-sol),System 2,adaptation,5.5,0.5,3
+3 LLM Calls (No RAG/KG),System 2,alignment,7.0,0.354,5
+3 LLM Calls (No RAG/KG),System 2,verification,0.0,0.0,5
+3 LLM Calls (No RAG/KG),System 2,anchoring,1.2,0.274,5
+3 LLM Calls (No RAG/KG),System 2,adaptation,0.0,0.0,5
+1 LLM Call (w/ RAG/KG),System 2,alignment,5.8,0.447,5
+1 LLM Call (w/ RAG/KG),System 2,verification,0.0,0.0,5
+1 LLM Call (w/ RAG/KG),System 2,anchoring,1.0,0.5,5
+1 LLM Call (w/ RAG/KG),System 2,adaptation,0.0,0.0,5
+1 LLM Call (No RAG/KG),System 2,alignment,5.5,0.354,5
+1 LLM Call (No RAG/KG),System 2,verification,0.0,0.0,5
+1 LLM Call (No RAG/KG),System 2,anchoring,1.4,0.418,5
+1 LLM Call (No RAG/KG),System 2,adaptation,0.0,0.0,5
+1 LLM Call (GPT-5.6-sol),System 2,alignment,6.9,0.224,5
+1 LLM Call (GPT-5.6-sol),System 2,verification,0.0,0.0,5
+1 LLM Call (GPT-5.6-sol),System 2,anchoring,1.8,0.274,5
+1 LLM Call (GPT-5.6-sol),System 2,adaptation,0.0,0.0,5
+MARS (gpt-oss-20b),System 3,plausibility,7.2,0.758,5
+MARS (gpt-oss-20b),System 3,practicality,5.0,0.0,5
+MARS (gpt-oss-20b),System 3,compatibility,5.0,0.0,5
+MARS (gpt-oss-20b),System 3,verdict,4.2,1.255,5
+MARS (GPT-5.6-sol),System 3,plausibility,7.75,0.866,4
+MARS (GPT-5.6-sol),System 3,practicality,4.875,0.25,4
+MARS (GPT-5.6-sol),System 3,compatibility,7.375,0.479,4
+MARS (GPT-5.6-sol),System 3,verdict,9.0,0.0,4
+3 LLM Calls (No RAG/KG),System 3,plausibility,3.8,2.612,5
+3 LLM Calls (No RAG/KG),System 3,practicality,3.5,1.414,5
+3 LLM Calls (No RAG/KG),System 3,compatibility,2.4,1.387,5
+3 LLM Calls (No RAG/KG),System 3,verdict,0.0,0.0,5
+1 LLM Call (w/ RAG/KG),System 3,plausibility,6.7,0.837,5
+1 LLM Call (w/ RAG/KG),System 3,practicality,4.8,0.274,5
+1 LLM Call (w/ RAG/KG),System 3,compatibility,4.9,0.224,5
+1 LLM Call (w/ RAG/KG),System 3,verdict,0.0,0.0,5
+1 LLM Call (No RAG/KG),System 3,plausibility,6.6,0.418,5
+1 LLM Call (No RAG/KG),System 3,practicality,4.9,0.224,5
+1 LLM Call (No RAG/KG),System 3,compatibility,3.9,1.597,5
+1 LLM Call (No RAG/KG),System 3,verdict,0.0,0.0,5
+1 LLM Call (GPT-5.6-sol),System 3,plausibility,7.9,0.224,5
+1 LLM Call (GPT-5.6-sol),System 3,practicality,5.0,0.0,5
+1 LLM Call (GPT-5.6-sol),System 3,compatibility,5.0,0.0,5
+1 LLM Call (GPT-5.6-sol),System 3,verdict,0.0,0.0,5

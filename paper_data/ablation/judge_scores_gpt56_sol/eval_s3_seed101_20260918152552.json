@@ -1,0 +1,360 @@
+{
+  "study": "6-condition pooled, S3, seed 101",
+  "seed": 101,
+  "sysno": 3,
+  "judge_model": "gpt-5.6-sol",
+  "rubric": "rubric_s3_v5.yaml",
+  "shuffle": {
+    "A": "1agent_rag",
+    "B": "mars_sol",
+    "C": "sol1",
+    "D": "1agent_no_rag",
+    "E": "3agent",
+    "F": "mars"
+  },
+  "dimensions": [
+    "system3_plausibility",
+    "system3_practicality",
+    "system3_compatibility",
+    "system3_verdict"
+  ],
+  "results": {
+    "1agent_rag": {
+      "letter": "A",
+      "scores": {
+        "system3_plausibility": {
+          "score": 7.0,
+          "strengths": [
+            "The sequence sensibly connects two-part mixing, vacuum degassing, mold filling, oven curing, cooling, demolding, and inspection.",
+            "Each transformation feeds directly into the next and produces a shaped cured elastomer."
+          ],
+          "weaknesses": [
+            "Final QC is limited to dimensional inspection, with no cure-state, defect, or chemical-resistance checks.",
+            "Packaging and storage of the finished part are absent."
+          ],
+          "rationale": "The five-step route is coherent from liquid inputs to inspected molded product. Its omissions are localized final-control and handling gaps rather than a missing central transformation.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 4.5,
+          "strengths": [
+            "Major operations name usable equipment and conditions, including 50 mbar degassing for 10–15 minutes and curing at 80 °C for 1–2 hours.",
+            "The recipe is readily understandable as a laboratory casting workflow."
+          ],
+          "weaknesses": [
+            "The retrieved packet contains no silicone-grade processing evidence, so the 1:1 ratio, vacuum schedule, cure schedule, and 100 °C post-cure are predominantly unverifiable.",
+            "The named Q2-801 grade is not tied to a verified kit ratio or curing-agent specification."
+          ],
+          "rationale": "The plan looks runnable, but the evidence-lineage rule caps credit because its quantitative conditions do not trace to the supplied documents. Grade identification and mix-ratio ambiguity further prevent reliable execution without a supplier datasheet.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 5.0,
+          "strengths": [
+            "Mixing, vacuum degassing, mold casting, and thermal curing are standard operations for two-part silicone elastomers.",
+            "The moderate-temperature core route is broadly compatible with addition-cure PDMS."
+          ],
+          "weaknesses": [
+            "The named Q2-801 schedule and asserted 1:1 hydrosilane ratio have no grade-specific evidence lineage.",
+            "Using an incorrect base-to-crosslinker ratio could materially impair cure even though the general process family is appropriate."
+          ],
+          "rationale": "Family-level compatibility is sound, but the material-specific ratio and cure schedule are unverified. The evidence-rule cap therefore applies.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No feasibility questions, per-question evidence, or evidence-based answers were produced.",
+            "The report gives only a bare manufacturable status with no reasoning or gap accounting."
+          ],
+          "rationale": "Under the rubric, a bare verdict without a feasibility analysis is not scoreable and must receive null.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.5
+    },
+    "mars_sol": {
+      "letter": "B",
+      "scores": {
+        "system3_plausibility": {
+          "score": 8.5,
+          "strengths": [
+            "The ten-step route comprehensively connects lot control, feed preparation, melt shaping, cleaning, plasma activation, graded interlayer deposition, DLC deposition, conversion, QC, and packaging.",
+            "The ordering correctly places final geometry formation and cleaning before immediate activation and coating."
+          ],
+          "weaknesses": [
+            "Step 3 covers several alternative product forms without selecting one concrete shaping path.",
+            "Some startup, transfer, and intermediate acceptance details remain developmental."
+          ],
+          "rationale": "This is a strong end-to-end composite-manufacturing route with nearly all major stages represented. The remaining ambiguity concerns product-specific implementation rather than route logic.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.5,
+          "strengths": [
+            "The recipe specifies appropriate equipment classes for extrusion, plasma activation, PECVD, web or batch handling, coating inspection, and protected packaging.",
+            "Several conditions have evidence lineage, including resin melt-index control, an activation starting range, an interlayer target at or below 50 nm, and acetylene/argon PECVD near 0.266 Pa."
+          ],
+          "weaknesses": [
+            "Step 3 defers melt temperature, pressure, screw speed, residence time, and cooling to pilot development rather than supplying a usable starting window.",
+            "Steps 6–7 leave gas ratio, power or bias, deposition rate, DLC thickness, and substrate-temperature limit unresolved, while most performance qualification is deferred to later testing."
+          ],
+          "rationale": "The equipment architecture and sequence are operationally useful, but the load-bearing shaping and coating windows remain a development plan rather than a substantially verified procedure. The feasibility analysis itself explicitly reports no validated grade-specific process window.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 7.0,
+          "strengths": [
+            "Thermoplastic melt shaping of an ENGAGE polyolefin elastomer followed by low-temperature hydrocarbon PECVD is scientifically plausible and supported at the material-class level.",
+            "The design directly addresses polyolefin adhesion and brittle-film stress through immediate plasma activation, an ultrathin graded transition layer, cooling, and controlled bend strain."
+          ],
+          "weaknesses": [
+            "No evidence demonstrates that DLC on this exact ENGAGE grade remains adherent and crack-free under elastomeric strain.",
+            "The acceptable plasma dose, thermal-distortion limit, and minimum barrier thickness remain grade- and geometry-specific unknowns."
+          ],
+          "rationale": "The core process families fit the substrate and coating architecture, and the report recognizes the principal interface and strain risks. Those risks require optimization but do not make the proposed core route incompatible.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": 8.0,
+          "strengths": [
+            "The feasible verdict explicitly carries forward the missing process window, supplier documentation, equipment, EHS, and IP findings from Questions 1–4.",
+            "It accurately limits the conclusion to an exploratory lab attempt rather than claiming a demonstrated drop-in product."
+          ],
+          "weaknesses": [
+            "Calling every unresolved item a soft constraint is somewhat optimistic given the unverified coating strain tolerance and barrier performance.",
+            "The verdict could more clearly distinguish manufacturing feasibility from qualification of the chemically resistant final article."
+          ],
+          "rationale": "The verdict is well connected to the evidence-based answers and honestly names their insufficient-evidence and low-confidence findings. Acceptance is cautious and conditional rather than laundering the identified gaps.",
+          "confidence": "high"
+        }
+      },
+      "mean": 7.25
+    },
+    "sol1": {
+      "letter": "C",
+      "scores": {
+        "system3_plausibility": {
+          "score": 8.0,
+          "strengths": [
+            "The route coherently progresses through resin drying, film molding, pre-coating cutting, cleaning and activation, conformal deposition, fixture-contact recoating, and final QC.",
+            "Cutting before deposition and repositioning during coating sensibly address edge and fixture-shadow coverage."
+          ],
+          "weaknesses": [
+            "The relationship between depositing 5–10 micrometers in Step 5 and obtaining a total of 5–10 micrometers after Step 6 is ambiguous.",
+            "Finished-product packaging and storage controls are absent."
+          ],
+          "rationale": "The seven steps provide a strong and logically ordered route from pellets to an inspected barrier-coated article. Thickness accounting and final handling are localized weaknesses.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.0,
+          "strengths": [
+            "The recipe is unusually concrete, specifying drying, compression-molding, plasma, and Gorham CVD equipment and operating ranges.",
+            "It includes practical edge coverage and coating-defect inspection operations."
+          ],
+          "weaknesses": [
+            "No retrieval or backing documents exist, so all quantitative grade-specific schedules are unverifiable and the evidence-lineage cap applies.",
+            "Chemical compatibility, cyclic-strain durability, pinhole performance, and service-temperature resistance are handed to future qualification."
+          ],
+          "rationale": "A practitioner could use this as a plausible starting plan, but its numerous numeric conditions have no report evidence lineage. The load-bearing barrier qualification remains predominantly deferred.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 5.0,
+          "strengths": [
+            "Drying and melt compression molding are appropriate for TPU, while room-temperature Parylene C deposition avoids exposing the substrate to the pyrolysis-zone temperature.",
+            "The route recognizes that tensile strain, sharp folding, and abrasion can crack or delaminate the barrier."
+          ],
+          "weaknesses": [
+            "The Carbothane-specific drying, molding, plasma, and coating schedules are unsupported by retrieved evidence.",
+            "Adhesion and strain compatibility of a 5–10 micrometer Parylene C layer on this exact TPU grade are unverified."
+          ],
+          "rationale": "The process families are broadly compatible with TPU and Parylene C, particularly for low-strain articles. Grade-specific compatibility claims lack lineage, triggering the rubric cap.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No feasibility questions or per-question evidence were produced.",
+            "The manufacturable status rests on direct generation rather than a report feasibility analysis."
+          ],
+          "rationale": "The rubric requires null when a bare verdict has no feasibility-analysis foundation.",
+          "confidence": "high"
+        }
+      },
+      "mean": 6.0
+    },
+    "1agent_no_rag": {
+      "letter": "D",
+      "scores": {
+        "system3_plausibility": {
+          "score": 6.5,
+          "strengths": [
+            "Mixing, degassing, mold filling or spin coating, and thermal curing form a recognizable and properly ordered silicone-manufacturing route.",
+            "The output of each step directly feeds the next."
+          ],
+          "weaknesses": [
+            "The route stops at curing and omits cooling completion, demolding, inspection, and final handling.",
+            "It does not define how the alternative molding and spin-coating branches lead to a specified product form."
+          ],
+          "rationale": "The core transformation from two-part liquid silicone to a cured shape is coherent. Important downstream stages are nevertheless missing.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 4.5,
+          "strengths": [
+            "The four core operations include equipment and numerical conditions for mixing, degassing, shaping, and curing.",
+            "Alternative cure schedules and a thin-film spin condition make the laboratory intent clear."
+          ],
+          "weaknesses": [
+            "No retrieval exists, so the 10:1 volume ratio, 20 kPa vacuum, spin schedule, and cure schedules are unverifiable.",
+            "Sylgard 184 is conventionally specified by mass ratio, making the stated 10:1 volume ratio an important execution risk."
+          ],
+          "rationale": "The plan is operationally understandable but lacks evidence lineage for every quantitative condition. The ratio-basis error could prevent a reliable cure and requires correction before execution.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 4.5,
+          "strengths": [
+            "Mixing, vacuum degassing, molding or spin coating, and heat curing are appropriate process families for Sylgard 184.",
+            "The stated cure temperatures are not inherently incompatible with addition-cure PDMS."
+          ],
+          "weaknesses": [
+            "The grade-specific schedules have no evidence lineage, so the compatibility score is capped.",
+            "A 10:1 volume ratio may not provide the specified stoichiometry for a kit normally proportioned by weight."
+          ],
+          "rationale": "The central process family fits the material, but the unverified and potentially incorrect ratio is a material cure concern rather than a minor formatting issue.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "There are no feasibility questions, evidence lists, or evidence-based answers.",
+            "The report provides no verdict reasoning, confidence, or open-risk accounting."
+          ],
+          "rationale": "The manufacturable label is a bare direct-generation verdict, which is null under the rubric.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.17
+    },
+    "3agent": {
+      "letter": "E",
+      "scores": {
+        "system3_plausibility": {
+          "score": 3.0,
+          "strengths": [
+            "The nominal sequence of drying, charging, heating, cooling, pelletizing, and final drying is recognizable as a polymer-production route.",
+            "HCl scrubbing and inert-atmosphere handling are at least integrated into the proposed sequence."
+          ],
+          "weaknesses": [
+            "The decisive polycondensation step omits the base or activation chemistry required for nucleophilic aromatic substitution of bisphenol S with DCDPS.",
+            "The route ends at pellets and provides no shaping, product QC, packaging, or storage for the intended substitute article."
+          ],
+          "rationale": "Although the operations are ordered coherently on paper, the specified reactants and conditions cannot plausibly deliver the claimed PPSU by the stated direct HCl-evolving melt route. A major transformation and downstream product manufacture are therefore missing.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 2.5,
+          "strengths": [
+            "Temperatures, times, purge flow, vacuum, reactor class, and scrubber equipment are numerically specified.",
+            "The plan identifies HCl as a process hazard requiring capture."
+          ],
+          "weaknesses": [
+            "The central reaction is not executable as written because no base, salt-forming reagent, or viable polymerization medium is included.",
+            "The cited literature-style assertions are not retrieved evidence, and the recipe provides no workup, molecular-weight control, shaping, or QC."
+          ],
+          "rationale": "Operational detail cannot compensate for an incomplete central polymerization chemistry. The result would not reliably be the claimed commercial elastomer grade or a finished product.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 1.5,
+          "strengths": [
+            "High-temperature inert processing is broadly associated with aromatic polysulfone manufacture.",
+            "A scrubber would be appropriate if an acid gas were actually generated."
+          ],
+          "weaknesses": [
+            "BPS and DCDPS do not undergo the asserted direct melt polycondensation merely by heating at 260–280 °C; the essential nucleophilic activation component is absent.",
+            "The recipe assumes that this synthesis yields the named flexible commercial grade without any elastomer-forming comonomer, modifier, or demonstrated formulation."
+          ],
+          "rationale": "The core chemistry is fundamentally incompatible with the stated input set and reaction mechanism. This is a central, not optional, process failure.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No four-question feasibility analysis or per-question retrieved evidence exists.",
+            "The bare manufacturable status does not examine the missing reaction component or absence of final-product fabrication."
+          ],
+          "rationale": "Despite an unsupported evidence list in the direct response, the report contains no rubric-defined feasibility analysis; the score is therefore null.",
+          "confidence": "high"
+        }
+      },
+      "mean": 2.33
+    },
+    "mars": {
+      "letter": "F",
+      "scores": {
+        "system3_plausibility": {
+          "score": 7.5,
+          "strengths": [
+            "The ten-step sequence connects receipt and drying, nanoparticle compounding, homogenization, cooling, shaping, optional finishing, QC, and packaging.",
+            "Material flow from pellets and masterbatch to molded or extruded finished product is easy to follow."
+          ],
+          "weaknesses": [
+            "Secondary extrusion after compounding is not clearly necessary and adds thermal history without a stated purpose.",
+            "Step 5 incorrectly describes solidification of a cross-linking network even though the matrix is a thermoplastic polyolefin elastomer."
+          ],
+          "rationale": "The route is complete and logically sequenced across nearly all manufacturing stages. Its redundant processing and incorrect crosslinking terminology are localized because a viable thermoplastic route remains.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 6.0,
+          "strengths": [
+            "Core compounding and shaping steps give concrete temperature profiles, screw speeds, throughputs, residence time, pressure, cycle time, cooling, and equipment.",
+            "The recipe includes incoming controls, QC methods, packaging, and storage conditions with a backing-document lineage."
+          ],
+          "weaknesses": [
+            "The 160–190 °C recipe conflicts sharply with Question 2's 280–310 °C recommendation and Question 3's 280 °C recommendation without explaining the refinement.",
+            "The optional 220 °C post-cure for 18–24 hours is unsupported for this thermoplastic and may cause severe oxidation or deformation."
+          ],
+          "rationale": "The core 190 °C polyolefin compounding route is concrete and plausibly runnable, but the internal process-window contradictions materially reduce confidence. The purported post-cure should be removed unless separately validated.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 6.5,
+          "strengths": [
+            "Melt blending a low loading of TiO2 into an ethylene/1-octene elastomer, followed by thermoplastic extrusion or molding and cooling, is broadly compatible.",
+            "The final recipe's approximately 160–195 °C core processing range is substantially more plausible for ENGAGE than the earlier 280–310 °C answers."
+          ],
+          "weaknesses": [
+            "The report repeatedly misclassifies ENGAGE as a TPU and refers to a nonexistent cross-linking network.",
+            "Heating this polyolefin elastomer at 220 °C in air for 18–24 hours is a serious degradation risk and has no identified cure mechanism."
+          ],
+          "rationale": "A viable compatible core route exists through ordinary polyolefin compounding and molding. The optional post-cure and incorrect material-class assumptions are significant but removable rather than fatal to that core route.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": 3.0,
+          "strengths": [
+            "The verdict at least identifies PFAS cross-contamination and additive qualification as residual risks.",
+            "It calls for follow-up optical, mechanical, and thermal testing."
+          ],
+          "weaknesses": [
+            "Question 4 fabricates regulatory authority by presenting a universal less-than-1-ppb standard and invoking 40 CFR 261.17 and EU 2023/1442 despite admitting the retrieved evidence does not establish them.",
+            "The verdict ignores major negative findings and contradictions, including only analogous TiO2 dispersion evidence, absent exact-composite validation, and incompatible 190 °C versus 280–310 °C process recommendations."
+          ],
+          "rationale": "The acceptance verdict overstates what its feasibility answers established and launders several evidence gaps into a claim that the required properties will be achieved. Fabricated regulatory thresholds trigger the rubric's cap at 4, and the ignored technical contradictions warrant a lower score.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.75
+    }
+  },
+  "timestamp": "2026-09-18T15:29:26.387606Z"
+}

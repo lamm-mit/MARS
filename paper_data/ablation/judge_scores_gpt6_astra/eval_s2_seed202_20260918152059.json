@@ -1,0 +1,325 @@
+{
+  "study": "6-condition pooled, S2, seed 202",
+  "seed": 202,
+  "sysno": 2,
+  "judge_model": "gpt-6-astra",
+  "rubric": "rubric_s2_v3.yaml",
+  "shuffle": {
+    "A": "sol1",
+    "B": "1agent_no_rag",
+    "C": "mars",
+    "D": "3agent",
+    "E": "mars_sol",
+    "F": "1agent_rag"
+  },
+  "dimensions": [
+    "system2_alignment",
+    "system2_verification",
+    "system2_anchoring",
+    "system2_adaptation"
+  ],
+  "results": {
+    "sol1": {
+      "letter": "A",
+      "scores": {
+        "system2_alignment": {
+          "score": 7.0,
+          "strengths": [
+            "Section 5.2 explicitly balances chemical resistance, flexibility, optical appearance, gas barrier, ozone resistance, and PFAS exclusion.",
+            "The selection acknowledges solvent and oxidizer limitations and requires service-fluid immersion and permeation qualification rather than claiming chemical equivalence."
+          ],
+          "weaknesses": [
+            "Requirements and candidate were generated together, so independent requirement-driven selection cannot be established.",
+            "Application-specific extractables and regulatory requirements receive little candidate-selection discussion."
+          ],
+          "rationale": "The proposal visibly uses most listed requirements to explain the GECO compromise. Alignment is strong at the proposal level, although the direct-generation trace cannot demonstrate guidance through validation or comparison.",
+          "confidence": "medium"
+        },
+        "system2_verification": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "Sections 5.3–5.5 explicitly contain no independent PFAS gate, validation questions, retrieved answers, or feasibility verdict."
+          ],
+          "rationale": "Verification machinery is absent by construction in this single direct generation. Recommendations for future testing are not executed verification.",
+          "confidence": "high"
+        },
+        "system2_anchoring": {
+          "score": 2.0,
+          "strengths": [
+            "The proposal names a manufacturer and specific grade: Zeon Hydrin T3108."
+          ],
+          "weaknesses": [
+            "No inventory record, supplier datasheet, or retrieved document supports the grade identity or composition.",
+            "The Shore A 55–75, elongation above 200%, optical appearance, and comparative barrier claims have no in-report evidentiary support."
+          ],
+          "rationale": "The name is specific enough to investigate procurement, but its identity and claimed properties come entirely from parametric generation. A commercial-sounding grade without supporting records is weak anchoring.",
+          "confidence": "high"
+        },
+        "system2_adaptation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [],
+          "rationale": "Adaptation is absent by construction: the report contains one direct candidate generation and no proposal-feedback loop. The later manufacturing commentary is not followed by a revised System 2 proposal.",
+          "confidence": "high"
+        }
+      },
+      "mean": 4.5
+    },
+    "1agent_no_rag": {
+      "letter": "B",
+      "scores": {
+        "system2_alignment": {
+          "score": 5.5,
+          "strengths": [
+            "Section 5.2 addresses all four listed property categories: flexibility, transparency, chemical resistance, and gas permeability.",
+            "The proposal explicitly identifies PFAS exclusion as a selection consideration."
+          ],
+          "weaknesses": [
+            "The candidate rationale does not assess the listed approximately 200°C service-temperature and 2–4 MPa tensile-strength constraints.",
+            "Requirements and candidate are co-generated, with no independent handoff or subsequent requirement-based assessment."
+          ],
+          "rationale": "Requirements influence the property checklist, but the hard-constraint coverage is incomplete. Unsupported property values are assessed under anchoring rather than treated as proof of alignment or compliance.",
+          "confidence": "high"
+        },
+        "system2_verification": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "The report explicitly provides no gates, validation questions, retrieved evidence, or feasibility verdict."
+          ],
+          "rationale": "Verification machinery is absent by construction in this single direct generation. The proposal's assertions do not constitute independent checks.",
+          "confidence": "high"
+        },
+        "system2_anchoring": {
+          "score": 1.5,
+          "strengths": [
+            "Sylgard 184 is offered as a specific commercial example."
+          ],
+          "weaknesses": [
+            "The identity remains tentative through 'PDMS, e.g., Sylgard 184,' and no supplier or inventory evidence is included.",
+            "Shore A approximately 30, optical transmission above 80%, and oxygen permeability approximately 100 are unsupported by retrieved text."
+          ],
+          "rationale": "The candidate is a generic polymer with an illustrative grade, not an evidence-anchored selection. Neither the numerical values nor the claimed superiority to polyolefins and polyurethanes can be traced within the report.",
+          "confidence": "high"
+        },
+        "system2_adaptation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [],
+          "rationale": "Adaptation is absent by construction because this single direct generation contains no proposal loop or feedback-driven revision.",
+          "confidence": "high"
+        }
+      },
+      "mean": 3.5
+    },
+    "mars": {
+      "letter": "C",
+      "scores": {
+        "system2_alignment": {
+          "score": 8.0,
+          "strengths": [
+            "Iteration 1's six validation questions explicitly test hardness, elongation, all six immersion media, gas barrier, transparency, and PFAS/REACH constraints.",
+            "The gas-barrier rejection directly changes iteration 2's filler loading and coating architecture, and the final verdict revisits major mandatory properties."
+          ],
+          "weaknesses": [
+            "Iteration 2's validation omits direct elongation testing and reduces the chemical-exposure panel to HCl and hexane.",
+            "The first failure summary incorrectly compresses unresolved requirements into 'All other properties ... passed,' weakening their influence on revision."
+          ],
+          "rationale": "The requirements consistently organize proposals, questions, rejection, and revision. The final unsupported acceptance is chiefly a verification failure, not evidence that requirements ceased guiding discovery.",
+          "confidence": "high"
+        },
+        "system2_verification": {
+          "score": 4.0,
+          "strengths": [
+            "Candidate-specific questions produce explicit negative evidence, including missing hardness, immersion, and optical data in both iterations.",
+            "Iteration 1 is rejected for the gas-barrier constraint, and iteration 2's verdict correctly recognizes that its retrieved permeability value concerns another product."
+          ],
+          "weaknesses": [
+            "Iteration 2 accepts with 'All hard constraints are satisfied' despite acknowledging missing chemical-resistance, hardness, and candidate-specific barrier evidence; this is fail-open acceptance.",
+            "Evidence attribution is unreliable: iteration 1 assigns 519% elongation from CN110218458_c10 to the invented composite, while iteration 2 Q3 presents RENOLIT data from renolit-9101-renolit-infulex-pe-evoh_chunk_0 as an answer about ENGAGE/TiO2."
+          ],
+          "rationale": "The checking machinery can challenge proposals, but unrelated-material substitutions and an absence-of-failure acceptance rule substantially undermine its independence. The final verdict also overextends ENGAGE SVHC statements into complete-composite PFAS and REACH confirmation.",
+          "confidence": "high"
+        },
+        "system2_anchoring": {
+          "score": 3.0,
+          "strengths": [
+            "The final candidate's ENGAGE component has a matching inventory record and retrieved Dow regulatory/specification chunks."
+          ],
+          "weaknesses": [
+            "Iteration 2 calls ENGAGE 'polypropylene-based,' contradicting its inventory identity as an ethylene/1-octene elastomer.",
+            "TiO2 platelets, silane modifier, and intumescent coating lack specific supported grades; claimed hardness 35, Tg approximately 120°C, transmission, and barrier performance are not supported for the proposed components or composite."
+          ],
+          "rationale": "One procurable component is genuinely anchored, but its chemistry is misclassified and the remaining formulation is not procurement-defined. The unretrieved Kwon et al. citation does not substantiate the proposed barrier performance.",
+          "confidence": "high"
+        },
+        "system2_adaptation": {
+          "score": 6.5,
+          "strengths": [
+            "Following the permeability rejection, iteration 2 removes PEEK and low-loading montmorillonite and introduces 30 wt% TiO2 intended to create a stronger barrier network.",
+            "The intumescent chemistry moves to an external coating, directly implementing the failure summary's instruction to separate it from the barrier layer."
+          ],
+          "weaknesses": [
+            "The requested measured or calculated candidate-specific permeability evidence is replaced by an unsupported literature assertion.",
+            "The revision does not carry forward the earlier unresolved mechanical, optical, and chemical evidence gaps as selection gates."
+          ],
+          "rationale": "The single transition demonstrates meaningful, multi-part change along the named barrier and coating-placement failure axes. It earns functional adaptation credit despite not establishing that the revised design works.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.38
+    },
+    "3agent": {
+      "letter": "D",
+      "scores": {
+        "system2_alignment": {
+          "score": 7.5,
+          "strengths": [
+            "The proposal explicitly maps flexibility, Tg, transparency, dielectric strength, chemical exposures, temperature, and gas barrier to the supplied requirements.",
+            "The silicone/PVDC architecture is motivated by separating compliant-substrate and barrier functions."
+          ],
+          "weaknesses": [
+            "Post-exposure elongation loss and the maximum 5% optical-clarity reduction are not separately addressed.",
+            "Requirement guidance is visible only in the proposal, with no comparison or final constraint-by-constraint evaluation."
+          ],
+          "rationale": "The independent System 1 handoff clearly shapes the candidate rationale across nearly all major categories. Whether its numerical and chemical claims are defensible is an anchoring issue rather than the basis for lowering alignment.",
+          "confidence": "high"
+        },
+        "system2_verification": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "Section 5 explicitly states that no PFAS check, validation questions, retrieved evidence, or feasibility verdict was produced."
+          ],
+          "rationale": "Although the overall configuration has three calls, System 2 is a single direct generation without verification machinery. Its self-assessment is not an independent evidence-based check.",
+          "confidence": "high"
+        },
+        "system2_anchoring": {
+          "score": 1.5,
+          "strengths": [
+            "Ecoflex 00-20 is named as a specific substrate grade."
+          ],
+          "weaknesses": [
+            "No inventory or datasheet evidence supports Ecoflex's asserted tensile strength, modulus, transmission, or chemical performance.",
+            "PVDC has no specified commercial grade, and the 1 µm layer's claimed transmission rate below 0.01 cc/m²/day and 200°C stability have no supporting source."
+          ],
+          "rationale": "The laminate combines one unsupported commercial name with a generic barrier polymer. Its claimed component properties and laminate identity are not anchored to in-report evidence.",
+          "confidence": "high"
+        },
+        "system2_adaptation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [],
+          "rationale": "No System 2 proposal-feedback loop exists in this configuration, and only one candidate is generated. Adaptation is therefore not scoreable.",
+          "confidence": "high"
+        }
+      },
+      "mean": 4.5
+    },
+    "mars_sol": {
+      "letter": "E",
+      "scores": {
+        "system2_alignment": {
+          "score": 8.0,
+          "strengths": [
+            "Across all five iterations, proposals and validation questions repeatedly address full-formulation PFAS status, the chemical-exposure classes, optical/barrier properties, and the supplied underfill-specific requirements.",
+            "Iteration 2's rejection explicitly invokes the supplied gap-filling and curing constraints, and iteration 3 changes to a liquid epoxy architecture in response."
+          ],
+          "weaknesses": [
+            "Iterations 4 and 5 keep requirements prominent in qualification lists but do not operationalize repeated instructions to nominate an exact, documented formulation.",
+            "The final assessment discusses broad chemical resistance mainly as an unresolved dataset rather than using it to distinguish the remaining candidates."
+          ],
+          "rationale": "The supplied requirement set consistently guides discovery and evaluation, irrespective of its upstream origin. The final permissive acceptance is scored under verification, not as failure to mention or track requirements.",
+          "confidence": "high"
+        },
+        "system2_verification": {
+          "score": 5.0,
+          "strengths": [
+            "Iterations 1–4 reject unsupported candidates and carefully distinguish unverified compliance from demonstrated failure.",
+            "Iteration 2 Q1 rejects transfer of Dow SVHC declarations to RENOLIT, while Q4 uses renolit-9101-renolit-infulex-pe-evoh_chunk_0 to establish that the selected product is a preformed film."
+          ],
+          "weaknesses": [
+            "Iteration 5 reverses the earlier evidence standard and accepts despite explicitly unresolved mandatory PFAS, chemical-resistance, and application-performance constraints.",
+            "Its sole positive acceptance basis is acute oral toxicity above 5,000 mg/kg from an unrelated SABIC resin in sabic-lnptm-elcrintm-w1000jiq_chunk_16, not a component of the proposed PPS/epoxy system."
+          ],
+          "rationale": "The run demonstrates substantial independent checking and useful rejections, but the final accepted candidate exposes a decisive fail-open verdict. Acceptance despite its own negative evidence on mandatory verification invokes the rubric's rubber-stamping cap of 5.",
+          "confidence": "high"
+        },
+        "system2_anchoring": {
+          "score": 4.0,
+          "strengths": [
+            "The final reinforcement family is supported by inventory record dic-corporation-dicpps and retrieved DIC chemical-resistance and grade-family documentation.",
+            "The final proposal honestly labels its epoxy composite a screening concept and does not invent quantitative composite performance."
+          ],
+          "weaknesses": [
+            "DIC.PPS is a portfolio rather than a selected grade; iteration 5 Q1 identifies unspecified fillers and modifiers using dic-corporation-dicpps_chunk_10.",
+            "The epoxy resin, curing package, and other constituents have no exact grades or candidate-specific retrieved support, leaving the final formulation unprocurable as specified."
+          ],
+          "rationale": "The report anchors a reinforcement family but not the complete accepted candidate or even a fixed PPS grade. Honest uncertainty improves claim discipline but cannot substitute for component-level identity and procurement evidence.",
+          "confidence": "high"
+        },
+        "system2_adaptation": {
+          "score": 6.0,
+          "strengths": [
+            "Iteration 1's complexity/disclosure feedback leads iteration 2 to remove the polyurethane/PEEK/polydopamine hybrid in favor of a simpler laminate concept.",
+            "The film-form rejection then leads iteration 3 to propose a liquid, thermally curable epoxy underfill with a nominally particle-free toughener."
+          ],
+          "weaknesses": [
+            "After iteration 3 explicitly requests an exact commercial underfill grade, iterations 4 and 5 again propose undefined screening composites.",
+            "The recurring complete-formulation evidence failure is acknowledged but not meaningfully corrected; iteration 5 also returns to particulate reinforcement without the requested supporting data."
+          ],
+          "rationale": "Multiple feedback-driven chemistry and architecture changes demonstrate functional adaptation. Later iterations stagnate on the repeatedly named exact-formulation and evidence-completeness failure axes, limiting the score.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.75
+    },
+    "1agent_rag": {
+      "letter": "F",
+      "scores": {
+        "system2_alignment": {
+          "score": 5.5,
+          "strengths": [
+            "Section 5.2 explicitly addresses chemical resistance, optics, hardness, elongation, gas transmission, temperature range, and PFAS exclusion.",
+            "The candidate rationale is organized around the listed property targets rather than unrelated advantages."
+          ],
+          "weaknesses": [
+            "The specific hard constraints on strong oxidizing acids, humidity/hydrocarbon-conditioned barrier performance, and clarity after aging are not individually assessed.",
+            "Requirements and candidate are co-generated, and the retrieval packet was assembled from the raw query rather than used in a requirement-driven discovery sequence."
+          ],
+          "rationale": "There is clear checklist-level alignment with the property set but uneven use of the more demanding constraints. The unsupported 'meets all listed properties' claim is not evidence of systematic constraint evaluation.",
+          "confidence": "high"
+        },
+        "system2_verification": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "The pre-retrieved packet is not followed by candidate-specific gates, validation questions, or an evidence-based verdict."
+          ],
+          "rationale": "Verification machinery is absent by construction despite the presence of retrieval context. A source packet alone does not independently interrogate the generated candidate.",
+          "confidence": "high"
+        },
+        "system2_anchoring": {
+          "score": 0.5,
+          "strengths": [],
+          "weaknesses": [
+            "MD-90A appears in neither the 20-entry inventory listing nor the retrieved documents, and no manufacturer or supporting datasheet identifies it.",
+            "The asserted haze below 4%, Shore A 55, elongation above 250%, and gas transmission of 4–6 cc/100 cm²/day are absent from the packet; mitsui-tpx-rt18_chunk_33 concerns TPX, not this silicone."
+          ],
+          "rationale": "The accepted material has a real-sounding but unsupported commercial identity and no traceable property evidence. The unusual '9 kPa crosslinker content' description further leaves its specification ambiguous.",
+          "confidence": "high"
+        },
+        "system2_adaptation": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [],
+          "rationale": "Adaptation is absent by construction because the report contains one direct generation with no rejection-feedback loop. Pre-retrieval does not constitute an earlier candidate iteration.",
+          "confidence": "high"
+        }
+      },
+      "mean": 3.0
+    }
+  },
+  "timestamp": "2026-09-18T15:22:18.856689Z"
+}

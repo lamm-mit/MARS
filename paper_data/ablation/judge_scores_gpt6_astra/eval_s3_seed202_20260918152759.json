@@ -1,0 +1,347 @@
+{
+  "study": "6-condition pooled, S3, seed 202",
+  "seed": 202,
+  "sysno": 3,
+  "judge_model": "gpt-6-astra",
+  "rubric": "rubric_s3_v5.yaml",
+  "shuffle": {
+    "A": "mars_sol",
+    "B": "mars",
+    "C": "1agent_rag",
+    "D": "3agent",
+    "E": "sol1",
+    "F": "1agent_no_rag"
+  },
+  "dimensions": [
+    "system3_plausibility",
+    "system3_practicality",
+    "system3_compatibility",
+    "system3_verdict"
+  ],
+  "results": {
+    "mars_sol": {
+      "letter": "A",
+      "scores": {
+        "system3_plausibility": {
+          "score": 8.5,
+          "strengths": [
+            "Steps 1–8 connect incoming qualification, drying, dispersion, delayed curing-agent addition, degassing, screening, and packaging in a sensible sequence.",
+            "Steps 9–12 extend the route through batch release, capillary dispensing, thermal cure, and assembly inspection."
+          ],
+          "weaknesses": [
+            "Final handling or storage of the cured assemblies is not specified, although uncured-underfill packaging is covered."
+          ],
+          "rationale": "The report provides a particularly complete and integrated manufacturing sequence for the handed-over underfill architecture. Unresolved operating windows affect executability rather than the logic of the route.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.0,
+          "strengths": [
+            "Equipment classes, powder containment, staged vacuum degassing, batch traceability, and extensive release measurements are specified.",
+            "Step 2's 75–100 °C vacuum drying traces to Q2 and US3674581_c9; Step 11's reference cure of 80 °C/2 hours followed by 160 °C/4 hours matches Q3 and US3674581_c14."
+          ],
+          "weaknesses": [
+            "Steps 1, 5, 6, 10, and 11 leave formulation ratios, loading, mixing limits, dispensing conditions, and the actual cure schedule to future development.",
+            "Q1–Q3 establish that filler availability, gap compatibility, rheology, and formulation-specific curing remain unknown; the recipe principally assigns their qualification to the practitioner."
+          ],
+          "rationale": "This is a useful evidence-informed screening and process-development plan, but not yet a sufficiently defined manufacturing procedure. Its predominantly deferred load-bearing qualification burden limits practicality to the middle of the scale.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 8.0,
+          "strengths": [
+            "Q2 supports low-temperature drying and liquid-epoxy dispersion while DIC.PPS remains below its approximately 280 °C melting point, citing dic-corporation-dicpps_chunk_5.",
+            "Steps 6–11 appropriately manage thermoset pot life, degassing, capillary filling, and cure; the unrelated reference cure is explicitly not presented as validated for this formulation."
+          ],
+          "weaknesses": [
+            "Step 3 proposes optional aqueous silane treatment without establishing a reactive PPS surface or a suitable activation mechanism."
+          ],
+          "rationale": "The core operations fit a solid-PPS-particle/liquid-epoxy architecture and respect the evidence's thermal and cure limitations. The uncertain optional surface treatment is a localized concern, not a failure of the manufacturing family.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": 9.0,
+          "strengths": [
+            "The verdict explicitly carries Q1–Q3's missing grade, particle size, loading, availability, PFAS documentation, flow, and cure evidence.",
+            "It preserves Q4's nitric-acid decomposition and glass-fiber/PPS hydrochloric-acid interface findings from dic-corporation-dicpps_chunk_35 and chunk_34, and limits acceptance to experimental screening."
+          ],
+          "weaknesses": [
+            "The headline 'Feasible: YES' is less precise than the accompanying conditional, screening-only conclusion."
+          ],
+          "rationale": "The acceptance is grounded in family-level manufacturing plausibility rather than claimed qualification, and nearly all substantive gaps are explicitly retained. The low and medium answer confidences are respected in the detailed verdict.",
+          "confidence": "high"
+        }
+      },
+      "mean": 7.62
+    },
+    "mars": {
+      "letter": "B",
+      "scores": {
+        "system3_plausibility": {
+          "score": 6.0,
+          "strengths": [
+            "Steps 1–5 form a recognizable receiving, premixing, compounding, pelletizing, and film-extrusion route.",
+            "Steps 6–9 include coating, curing, QC, cutting, and packaging."
+          ],
+          "weaknesses": [
+            "Step 6 replaces the handed-over phenolic–melamine–ammonium sulfate coating with coconut fiber, polyurethane or EVA, and water or expandable polymer, so the route does not manufacture the stated complete architecture.",
+            "The coating preparation stage does not explain how the specified original coating constituents become an applicable formulation."
+          ],
+          "rationale": "The sequence is coherent for a generic coated composite film, but its coating branch is disconnected from the selected material inputs. This is a System 3 manufacturing substitution, not a criticism of System 2's candidate choice.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.0,
+          "strengths": [
+            "The recipe supplies equipment and operating values for premixing, extrusion, film formation, coating, and oven treatment.",
+            "Targeted retrieval investigates filler procurement, melt processing, coating application, and handling, with some screw-speed and pressure lineage through Q2."
+          ],
+          "weaknesses": [
+            "Q2 derives its 220–240 °C window from TPX records, including mitsui-tpx-rt18_chunk_3 and chunk_6; the final 180–200 °C compounding and 190–210 °C film windows have no explained evidence-based derivation.",
+            "Step 6 specifies 200–500 µm coating rather than the handed-over approximately 20 µm layer, while the premixing schedule and alternative coating-cure schedules lack identifiable support in the answers."
+          ],
+          "rationale": "The recipe looks operationally concrete, but its principal quantitative recommendations are predominantly unverified for the proposed process. The evidence-lineage cap applies despite the useful equipment specification.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 5.0,
+          "strengths": [
+            "Melt compounding TiO2 into a polyolefin followed by film extrusion and separate coating is broadly appropriate at the material-family level.",
+            "Q4 cites CN104448523_c4 as an analogous TiO2/EVA extrusion example supporting the core filler-incorporation family."
+          ],
+          "weaknesses": [
+            "The grade-specific thermal and processing claims rely substantially on TPX analogies rather than demonstrated ENGAGE compatibility; Q2 even calls the matrix 'TPX elastomer.'",
+            "Step 7's optional 250 °C, one-hour post-cure risks loss of dimensional integrity in an unsupported thermoplastic-elastomer film, and no evidence establishes compatibility of that treatment."
+          ],
+          "rationale": "The viable core processing family deserves credit, but material-specific operating compatibility is predominantly unverifiable and therefore capped at 5. The optional high-temperature treatment is an additional localized concern rather than grounds to reject all melt processing.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": 4.0,
+          "strengths": [
+            "The verdict carries Q1's unconfirmed platelet availability and names incomplete coating composition and PFAS/REACH documentation.",
+            "It requests preliminary property measurements rather than simply repeating the candidate's claim that every requirement is satisfied."
+          ],
+          "weaknesses": [
+            "Q2 claims attainable permeability, elongation, and clarity from general TPX processing evidence with medium confidence; the verdict does not identify this material mismatch or the unsupported performance inference.",
+            "Q3 invents a blanket REACH declaration requirement for all substances above 0.1 wt% and claims the controls ensure compliance, without supporting regulatory evidence in its cited Documents 6, 10, and 5."
+          ],
+          "rationale": "The verdict is partially connected to its answers and honestly carries some gaps, but its supporting analysis overstates both technical and regulatory authority. The unsupported regulatory threshold triggers the fabricated-authority cap.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.0
+    },
+    "1agent_rag": {
+      "letter": "C",
+      "scores": {
+        "system3_plausibility": {
+          "score": 6.5,
+          "strengths": [
+            "Steps 1–4 logically progress from proportioning and mixing through vacuum degassing, casting, thermal cure, and controlled cooling.",
+            "Step 5 includes demolding and final cleaning."
+          ],
+          "weaknesses": [
+            "The route ends without inspection, cure verification, or packaging/storage instructions."
+          ],
+          "rationale": "A coherent laboratory casting route is present, with the decisive shaping and curing operations included. Its end-to-end completeness is limited mainly by missing inspection and final handling.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 4.5,
+          "strengths": [
+            "Steps 2–4 provide vacuum, duration, mold temperature, oven temperature, dwell, and heating/cooling rates with equipment classes."
+          ],
+          "weaknesses": [
+            "The retrieved packet contains no MD-90A processing evidence supporting the 9 wt% curing agent, less-than-0.1-bar degassing, or 150 °C/90-minute cure.",
+            "Step 1 calls the addition stoichiometric but identifies the crosslinker using '9-kPa,' which does not define its chemistry or reactive equivalent."
+          ],
+          "rationale": "The operating plan is recognizable but the cure package is insufficiently identified and all consequential numeric conditions lack lineage. The unrelated raw-query retrieval does not discharge the evidence requirement.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 5.0,
+          "strengths": [
+            "Mixing a silicone base with its curing package, vacuum degassing, casting, and thermal curing are compatible silicone-processing families."
+          ],
+          "weaknesses": [
+            "No retrieved source verifies that the named MD-90A material accepts the proposed 9 wt% curing-agent addition and 150 °C schedule.",
+            "Neither the cure chemistry nor possible release-coating inhibition is addressed."
+          ],
+          "rationale": "Family-level silicone processing is scientifically plausible, but the named-material formulation and thermal claims are predominantly unsupported. The material-specific evidence cap applies without judging the upstream candidate's claimed service properties.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "Section 4 contains no feasibility questions or evidence-based answers; Section 5 provides only a bare manufacturable status."
+          ],
+          "rationale": "The shared raw-query packet is not a manufacturing feasibility analysis. Verdict grounding is not scoreable under the rubric's absence rule.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.33
+    },
+    "3agent": {
+      "letter": "D",
+      "scores": {
+        "system3_plausibility": {
+          "score": 6.5,
+          "strengths": [
+            "Steps 1–4 connect silicone casting and curing to barrier deposition and solvent removal.",
+            "Step 5 includes consolidation and cooling under pressure."
+          ],
+          "weaknesses": [
+            "Hot-press lamination is described after the PVDC has already been deposited directly onto the substrate, making the final transformation redundant or unclear.",
+            "The route omits final inspection, trimming, and packaging or storage."
+          ],
+          "rationale": "The sequence is recognizable and mostly connected for a coated silicone sheet. Its coating chemistry concerns are assessed separately from the generally sensible order of operations.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 4.5,
+          "strengths": [
+            "The five steps specify equipment, mix ratio, sheet thickness, cure conditions, coating concentration and spin speed, drying conditions, and press settings."
+          ],
+          "weaknesses": [
+            "No retrieval supports the 150 °C/30-minute Ecoflex cure, 0.5 wt% PVDC/DCM coating, or 140 °C/5-bar bonding schedule.",
+            "The asserted production of a 1 µm coating and complete solvent removal has no thickness or residual-solvent verification step."
+          ],
+          "rationale": "The report provides operational detail but no verified processing conditions, and important coating endpoints are simply asserted. Its self-generated 'evidence' statements do not supply independent lineage.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 4.5,
+          "strengths": [
+            "Casting and curing a two-part silicone substrate is appropriate, and solvent evaporation is logically necessary after solution coating."
+          ],
+          "weaknesses": [
+            "Step 3 assumes unspecified PVDC powder dissolves in room-temperature DCM and forms a continuous coating on silicone; neither solubility nor DCM-induced silicone swelling is addressed.",
+            "Step 5 assumes heat and pressure alone will bond PVDC to already crosslinked, low-surface-energy silicone, without activation, primer, or another established bonding mechanism."
+          ],
+          "rationale": "The substrate route is plausible, but the essential barrier-deposition and bonding operations have substantive compatibility concerns. All named-material numeric schedules also lack evidence, so the compatibility score cannot exceed 5.",
+          "confidence": "medium"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No manufacturing feasibility questions, retrieved evidence, or per-question analysis precedes the manufacturable verdict."
+          ],
+          "rationale": "The generated evidence list contains assertions rather than a feasibility investigation. The rubric therefore requires a null verdict-grounding score.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.17
+    },
+    "sol1": {
+      "letter": "E",
+      "scores": {
+        "system3_plausibility": {
+          "score": 8.0,
+          "strengths": [
+            "Steps 1–5 integrate formulation preparation, controlled milling with peroxide added last, conditioning, cure characterization, and compression molding.",
+            "Steps 6–7 connect post-curing to mechanical, optical, chemical, and permeation assessment."
+          ],
+          "weaknesses": [
+            "Cooling, demolding, and final packaging/storage of cured specimens are left implicit."
+          ],
+          "rationale": "The route clearly transforms the stated gum and cure ingredients into shaped, post-cured, inspected specimens. Missing final-handling details are localized rather than missing decisive transformations.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.0,
+          "strengths": [
+            "The recipe specifies phr additions, mill and stock temperatures, mixing time, molding pressure and thickness, post-cure conditions, and appropriate equipment.",
+            "Step 4 uses measured rheometer t90 to refine molding time, while Steps 1–3 include practical peroxide handling and storage controls."
+          ],
+          "weaknesses": [
+            "No retrieved evidence supports the T3108 formulation, 170 °C/10–15-minute press cure, or 140–150 °C/2–4-hour post-cure.",
+            "Cure behavior and service compatibility are assigned to future rheometry and immersion/permeation testing rather than resolved in the report."
+          ],
+          "rationale": "This is a concrete and useful screening recipe, but its quantitative conditions remain entirely unverified. The evidence-lineage cap limits practicality to 5 despite strong operational specificity.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 5.0,
+          "strengths": [
+            "Cool milling, peroxide-last addition, coagent-assisted curing, and compression molding broadly fit the stated cure-site-containing GECO architecture.",
+            "The plan recognizes scorch control, acid acceptance, and potential post-cure discoloration instead of treating thermal processing as consequence-free."
+          ],
+          "weaknesses": [
+            "The particular T3108 peroxide/coagent/MgO ratios and cure schedules have no material-specific evidence lineage.",
+            "The proposed post-cure is not supported by evidence establishing the selected formulation's thermal-aging tolerance."
+          ],
+          "rationale": "The process family is scientifically plausible for the composition taken as given. Nevertheless, predominantly unverifiable named-grade numeric compatibility claims trigger the score cap.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [
+            "The feedback explicitly distinguishes laboratory manufacturability from universal chemical resistance and names service-fluid risks."
+          ],
+          "weaknesses": [
+            "No feasibility questions, per-question evidence, or evidence-based answers were produced."
+          ],
+          "rationale": "The caution is useful but does not constitute the feasibility-analysis capability being scored. Under the rubric's absence rule, verdict grounding is null.",
+          "confidence": "high"
+        }
+      },
+      "mean": 6.0
+    },
+    "1agent_no_rag": {
+      "letter": "F",
+      "scores": {
+        "system3_plausibility": {
+          "score": 7.0,
+          "strengths": [
+            "Steps 1–5 provide a coherent mixing, degassing, casting, curing, demolding, and inspection sequence.",
+            "The final inspection explicitly addresses dimensions and surface quality."
+          ],
+          "weaknesses": [
+            "Cooling before demolding and final packaging/storage are not explicitly specified."
+          ],
+          "rationale": "The recovered recipe clearly connects inputs to an inspected molded silicone part. Minor labeling and parse-repair issues do not materially undermine the manufacturing sequence.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.0,
+          "strengths": [
+            "The recipe specifies a mixing ratio, vacuum level and duration, mold temperature, and alternative thermal or room-temperature cure conditions.",
+            "Equipment is accessible at laboratory scale and dimensional/surface inspection is included."
+          ],
+          "weaknesses": [
+            "There is no evidence lineage for the 10:1 volumetric ratio, 0.1-atm/5-minute degassing, or 60 °C/1-hour cure.",
+            "Mixing duration and a cure-completion endpoint are absent; optional catalyst addition has no identity or dosing instruction."
+          ],
+          "rationale": "The plan is concrete enough to understand and refine, but none of its quantitative settings is verified. The evidence-lineage cap applies.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 5.0,
+          "strengths": [
+            "Base/curing-agent mixing, vacuum degassing, casting, and thermal curing are standard processing families for two-part PDMS."
+          ],
+          "weaknesses": [
+            "The Sylgard 184-linked ratio and cure schedule are unsupported by any report evidence, and the volumetric ratio is not reconciled with a supplier specification.",
+            "The optional extra catalyst is unexplained for an already formulated curing kit and could alter cure kinetics."
+          ],
+          "rationale": "The core route fits the silicone family without requiring proof of final chemical performance. Named-material numeric compatibility remains unverified, limiting the score to 5.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "The report contains no manufacturing feasibility questions or evidence-based answers, only the manufacturable status."
+          ],
+          "rationale": "There is no feasibility analysis against which to assess verdict grounding. The rubric requires null rather than a numerical penalty.",
+          "confidence": "high"
+        }
+      },
+      "mean": 5.67
+    }
+  },
+  "timestamp": "2026-09-18T15:29:46.916314Z"
+}

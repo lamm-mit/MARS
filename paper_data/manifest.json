@@ -1,0 +1,277 @@
+[
+ {
+  "path": "ablation/aggregates.json",
+  "bytes": 7697,
+  "sha256": "1469491e4350a7467de5708b2d83d3656f230f0f491bb13e643f3d65c30b5114"
+ },
+ {
+  "path": "ablation/fig5_overall.pdf",
+  "bytes": 29194,
+  "sha256": "a722a8cb87ed9bd40bd1c288305df735243cd3d8ba35270b6a2e73d35d5b5269"
+ },
+ {
+  "path": "ablation/fig5_overall.png",
+  "bytes": 236802,
+  "sha256": "3ba6f613a9f5f937f9cb8cf1a49ce7fb0f083565c2f9b537c12d44f741e0422f"
+ },
+ {
+  "path": "ablation/fig6a_systems.pdf",
+  "bytes": 30835,
+  "sha256": "816568bc70add902baf515bf38d0a4fc63744e56eda5cdf9bd84dce8afddce86"
+ },
+ {
+  "path": "ablation/fig6a_systems.png",
+  "bytes": 218684,
+  "sha256": "7c0e8c0a614dac9e7412ba1e08e9d8ef043637196c3b41627158770555504edc"
+ },
+ {
+  "path": "ablation/fig6b_radar.pdf",
+  "bytes": 26983,
+  "sha256": "57e3e14ca8bab7df6afbccbe5923fe727052538b232c140294a784fb34ff1a34"
+ },
+ {
+  "path": "ablation/fig6b_radar.png",
+  "bytes": 799238,
+  "sha256": "adda1223803f5b252d932b148ba386bdf392f53cb63da5f09bfb443e9068c4a4"
+ },
+ {
+  "path": "ablation/fig6c_criteria.pdf",
+  "bytes": 38702,
+  "sha256": "666132c16b95e4b3cefdf1355b80b919c15dcbb639070da97f2f3d799e04b8bb"
+ },
+ {
+  "path": "ablation/fig6c_criteria.png",
+  "bytes": 293230,
+  "sha256": "39fa4d73d991b9cad4672d8788b460974a7a02a48321ddac721f015cc673318a"
+ },
+ {
+  "path": "ablation/fig7_backbones.pdf",
+  "bytes": 31696,
+  "sha256": "cee4e7c316ed60b4eb79716ca7a934acce4eec50c263b5f4f9282aa84fea9356"
+ },
+ {
+  "path": "ablation/fig7_backbones.png",
+  "bytes": 163557,
+  "sha256": "f60721d4f199e6da9c06f5775032d43d8f59d8984e4eaac0e7ea6ca2d537938c"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s1_seed101_20260918150915.json",
+  "bytes": 22291,
+  "sha256": "9a91a040d124fc430399d2ce4ce7e7da04c84241f5f44fa4ed3f9ea185e2218a"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s1_seed202_20260918151039.json",
+  "bytes": 19581,
+  "sha256": "53c54bbde7e14472cc44964c12a68e070728c63db7e738fc82fce2a03bc4f700"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s1_seed303_20260918151157.json",
+  "bytes": 21815,
+  "sha256": "f91d779e811fad06fdea6ae1cd6085d53249b4ef8cf6162ee418e463193f2930"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s1_seed404_20260918151354.json",
+  "bytes": 23330,
+  "sha256": "d5b27b3f8a9c4463a26435f209f0d37ce6e3645c9a3c7f808727dac77c1514e5"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s1_seed505_20260918151517.json",
+  "bytes": 22903,
+  "sha256": "40f2d175add653b7f29686f6a6d25807cbaa12c87d91a476cd3de5ca08891f82"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s2_seed101_20260918151659.json",
+  "bytes": 17885,
+  "sha256": "1a8851586583d5203160a634083bc6d2fd3abfbd26a23bbff728bacf9ee86c5a"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s2_seed202_20260918151857.json",
+  "bytes": 18283,
+  "sha256": "d1598792312a1539a88b129e23b685067f4d88d2b19c908a310f8702a09311d3"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s2_seed303_20260918152036.json",
+  "bytes": 19950,
+  "sha256": "4dc29f866db4e2ca63113698436e961e4b38ebdaf64ebd65f747d7d82877db28"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s2_seed404_20260918152228.json",
+  "bytes": 20401,
+  "sha256": "6dcb6e243a9a3071d6419ce3e9cd4326ca4383690056f8dbf1aca38b008275ce"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s2_seed505_20260918152418.json",
+  "bytes": 18282,
+  "sha256": "638cd59f09484853be6335d921c29fa3dae7d657362ab768a01f73401ee2b4a9"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s3_seed101_20260918152552.json",
+  "bytes": 22340,
+  "sha256": "e9e096355ba29d8da2304b8473f5546b04930d83e602f21f8c8727457eb2ad97"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s3_seed202_20260918152926.json",
+  "bytes": 25598,
+  "sha256": "83607ff618449a36786a25a0b910d1db0342265ff962417863a055fcaf3f6197"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s3_seed303_20260918153315.json",
+  "bytes": 17902,
+  "sha256": "a924dce647703d761d844f534fb1eb0bbc1299d84cc9f3160a73ba15da4f1302"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s3_seed404_20260918153431.json",
+  "bytes": 23019,
+  "sha256": "6b61f57decbbbdbf446baff8857149bf862b916925f6241232d938fd3b675216"
+ },
+ {
+  "path": "ablation/judge_scores_gpt56_sol/eval_s3_seed505_20260918153751.json",
+  "bytes": 23513,
+  "sha256": "5d1e69a75feeabd6a84dd8bf039262062d8193e333ddec09406c2a4eb17b55ba"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s1_seed101_20260918151032.json",
+  "bytes": 22900,
+  "sha256": "3435b8e111a227ca5027a81f9f5b415a9cbf2f5231ec587e53de6892434d8f06"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s1_seed202_20260918151224.json",
+  "bytes": 22858,
+  "sha256": "93aa859c57cf27b1f95dcceffcd219306d4a655cd80a592c8975d00e0c6bc518"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s1_seed303_20260918151415.json",
+  "bytes": 22299,
+  "sha256": "39d655a7eabbaf08672d4e08ba7d89a7efe238482e595cd56cba18309555131f"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s1_seed404_20260918151605.json",
+  "bytes": 22125,
+  "sha256": "dfcdd67d63bcaf721403090d5c5882ba44b45eeca634a9239a80ba4afdb4bf2f"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s1_seed505_20260918151751.json",
+  "bytes": 22968,
+  "sha256": "5a7d4f804fcc014bc23c6a6092dd3697b4f794bd2760adaa1002a7f0776ba9c1"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s2_seed101_20260918151941.json",
+  "bytes": 20361,
+  "sha256": "0812b1b0784182b0fea52e9fdae8a56b74b8af53b633f5ec9f1d31c719ec1d32"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s2_seed202_20260918152059.json",
+  "bytes": 20367,
+  "sha256": "7a4db94e95b3f69c1aa4c0089be601f2b23c32ef4cfcf92c57646f3132cd8b55"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s2_seed303_20260918152218.json",
+  "bytes": 19902,
+  "sha256": "5d4e12c22726583af400e25498a65abca70ccce843b60cb7b6c42e3fb4100cbd"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s2_seed404_20260918152335.json",
+  "bytes": 20749,
+  "sha256": "8c49b2c373ba3322389c46d49f55ea4dd35d35cf1d6db8c68b719369711add99"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s2_seed505_20260918152505.json",
+  "bytes": 18779,
+  "sha256": "f4abea87cefd104abd2e9f60652f6fd198d7751093905b204e25f0ff90c47e9b"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s3_seed101_20260918152618.json",
+  "bytes": 21785,
+  "sha256": "0660285d1ff66553190477a6459ab2079c555d0c73d993429869fc07372b038b"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s3_seed202_20260918152759.json",
+  "bytes": 21728,
+  "sha256": "34c68cc0e72906d39fc53feef5f598cc5aa0ceea7488654b9b927535c46674ee"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s3_seed303_20260918152946.json",
+  "bytes": 17541,
+  "sha256": "d0e38fc89f3082ca4f5f2aec175b690f6c9ea3c4af8da767243a43135a1c39f3"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s3_seed404_20260918153055.json",
+  "bytes": 20651,
+  "sha256": "8fdbfca039c5512b068dfeef27ceb914c489304189198f9f691ef70e358234ec"
+ },
+ {
+  "path": "ablation/judge_scores_gpt6_astra/eval_s3_seed505_20260918153237.json",
+  "bytes": 23149,
+  "sha256": "1e2b6279d91fd3bc15629c937993862eae4de4e92b51e96fab32ba251a99c5f4"
+ },
+ {
+  "path": "ablation/per_criterion.csv",
+  "bytes": 4025,
+  "sha256": "c9b243ed38b74f99b90d5f265a92ff322f9c39b3f93a40438390aff566787fcb"
+ },
+ {
+  "path": "ablation/scores_table.csv",
+  "bytes": 602,
+  "sha256": "ceb37a4961df7d3608353a3fdcd423540326d06950b7f7a49607e844879dea2b"
+ },
+ {
+  "path": "case_study/mars.json",
+  "bytes": 13916,
+  "sha256": "c1dc6c1b180827c88cb84d2797367d7e0889e69443b9d15158822faccd595ff8"
+ },
+ {
+  "path": "case_study/rejected_candidates.json",
+  "bytes": 587,
+  "sha256": "f4d0601bbb1d29e6c16d5a33f8421a92ff90d2be8767ba49d14cb6b5d0b3ed61"
+ },
+ {
+  "path": "feedback_ablation/fig_fixed_trajectory.pdf",
+  "bytes": 17046,
+  "sha256": "8ca0add3513e9ea4d0abcce7878ba77c1c6de6d927e1766006944e070b60b025"
+ },
+ {
+  "path": "feedback_ablation/fig_fixed_trajectory.png",
+  "bytes": 125917,
+  "sha256": "62fef2beba2e4b3d11dfb23789d39207eae6921b41d35752fa99590fd0436b44"
+ },
+ {
+  "path": "feedback_ablation/fig_seed_replay.pdf",
+  "bytes": 16480,
+  "sha256": "236a8294f93fedabd12c43235e11f623cc6e1d32afd237ad64342cfa8763c6e4"
+ },
+ {
+  "path": "feedback_ablation/fig_seed_replay.png",
+  "bytes": 107829,
+  "sha256": "79c5791633c0086d6bf031f6e5fc69b04dd3834ddfcf8faf32047412d91048a2"
+ },
+ {
+  "path": "feedback_ablation/fixed_trajectory_summary.json",
+  "bytes": 8501,
+  "sha256": "01d559c2f3762663becc1ad057b162ca891cb904fb1b8c11cf07ef6f44d63f7c"
+ },
+ {
+  "path": "feedback_ablation/seed_replay_summary.json",
+  "bytes": 7047,
+  "sha256": "1fac5eed0b696a454eb97576b7865ced796858eb0757e162d58d67a01f2e312d"
+ },
+ {
+  "path": "runtime/counts.csv",
+  "bytes": 373,
+  "sha256": "3aee2e3a81830d9675127379dbf46d0112ada2f09ae6ff84706848721987cf5f"
+ },
+ {
+  "path": "runtime/fig_all_runtime.pdf",
+  "bytes": 38242,
+  "sha256": "d3aced18b02da42f6f4859e958efeac519242280e1f9aced7b73f21ccc3db082"
+ },
+ {
+  "path": "runtime/fig_all_runtime.png",
+  "bytes": 277343,
+  "sha256": "57f0e74b73cda4520e87d3e4be4ef3ad20878c34108c4431df6fb5900a4a5298"
+ },
+ {
+  "path": "runtime/table_q1_runtime.csv",
+  "bytes": 618,
+  "sha256": "f5092479f44fa1496cccc04493c8551c5d9b5c5dd74b7c375436eba38d45e9e2"
+ }
+]

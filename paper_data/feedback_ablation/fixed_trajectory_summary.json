@@ -1,0 +1,386 @@
+{
+  "study": "S3->S2 feedback isolation, reported THV trajectory, per-system reports judged independently",
+  "judge_model": "gpt-6-astra",
+  "rubrics": {
+    "1": "/home/palsubhadeep/Github/MARS/evaluation_refined/rubric_s1_final.yaml",
+    "2": "/home/palsubhadeep/Github/MARS/evaluation_refined/rubric_s2_final.yaml",
+    "3": "/home/palsubhadeep/Github/MARS/evaluation_refined/rubric_s3_final.yaml"
+  },
+  "repeats": 5,
+  "note": "System 1 identical in both arms (judged once). 'overall' = mean of the S2 and S3 means per repeat.",
+  "summary": {
+    "feedback_enabled": {
+      "system1": {
+        "mean": [
+          5.88,
+          0.0
+        ],
+        "per_criterion": {
+          "system1_completeness": [
+            8.5,
+            0.0
+          ],
+          "system1_scientific": [
+            7.0,
+            0.0
+          ],
+          "system1_grounding": [
+            3.0,
+            0.0
+          ],
+          "system1_investigation": [
+            5.0,
+            0.0
+          ]
+        }
+      },
+      "system2": {
+        "mean": [
+          5.22,
+          0.06
+        ],
+        "per_criterion": {
+          "system2_alignment": [
+            7.5,
+            0.0
+          ],
+          "system2_verification": [
+            4.4,
+            0.22
+          ],
+          "system2_anchoring": [
+            4.0,
+            0.0
+          ],
+          "system2_adaptation": [
+            5.0,
+            0.0
+          ]
+        }
+      },
+      "system3": {
+        "mean": [
+          4.85,
+          0.06
+        ],
+        "per_criterion": {
+          "system3_plausibility": [
+            5.4,
+            0.22
+          ],
+          "system3_practicality": [
+            5.0,
+            0.0
+          ],
+          "system3_compatibility": [
+            5.0,
+            0.0
+          ],
+          "system3_verdict": [
+            4.0,
+            0.0
+          ]
+        }
+      },
+      "overall": [
+        5.04,
+        0.06
+      ]
+    },
+    "feedback_disabled": {
+      "system1": {
+        "mean": [
+          5.88,
+          0.0
+        ],
+        "per_criterion": {
+          "system1_completeness": [
+            8.5,
+            0.0
+          ],
+          "system1_scientific": [
+            7.0,
+            0.0
+          ],
+          "system1_grounding": [
+            3.0,
+            0.0
+          ],
+          "system1_investigation": [
+            5.0,
+            0.0
+          ]
+        }
+      },
+      "system2": {
+        "mean": [
+          5.43,
+          0.11
+        ],
+        "per_criterion": {
+          "system2_alignment": [
+            7.5,
+            0.0
+          ],
+          "system2_verification": [
+            4.2,
+            0.45
+          ],
+          "system2_anchoring": [
+            4.5,
+            0.0
+          ],
+          "system2_adaptation": [
+            5.5,
+            0.0
+          ]
+        }
+      },
+      "system3": {
+        "mean": [
+          3.17,
+          0.11
+        ],
+        "per_criterion": {
+          "system3_plausibility": [
+            3.3,
+            0.27
+          ],
+          "system3_practicality": [
+            2.9,
+            0.22
+          ],
+          "system3_compatibility": [
+            3.6,
+            0.22
+          ],
+          "system3_verdict": [
+            2.9,
+            0.22
+          ]
+        }
+      },
+      "overall": [
+        4.3,
+        0.09
+      ]
+    }
+  },
+  "raw": {
+    "feedback_enabled": {
+      "system1": [
+        [
+          {
+            "system1_completeness": 8.5,
+            "system1_scientific": 7.0,
+            "system1_grounding": 3.0,
+            "system1_investigation": 5.0
+          },
+          5.88
+        ]
+      ],
+      "system2": [
+        [
+          {
+            "system2_alignment": 7.5,
+            "system2_verification": 4.0,
+            "system2_anchoring": 4.0,
+            "system2_adaptation": 5.0
+          },
+          5.12
+        ],
+        [
+          {
+            "system2_alignment": 7.5,
+            "system2_verification": 4.5,
+            "system2_anchoring": 4.0,
+            "system2_adaptation": 5.0
+          },
+          5.25
+        ],
+        [
+          {
+            "system2_alignment": 7.5,
+            "system2_verification": 4.5,
+            "system2_anchoring": 4.0,
+            "system2_adaptation": 5.0
+          },
+          5.25
+        ],
+        [
+          {
+            "system2_alignment": 7.5,
+            "system2_verification": 4.5,
+            "system2_anchoring": 4.0,
+            "system2_adaptation": 5.0
+          },
+          5.25
+        ],
+        [
+          {
+            "system2_alignment": 7.5,
+            "system2_verification": 4.5,
+            "system2_anchoring": 4.0,
+            "system2_adaptation": 5.0
+          },
+          5.25
+        ]
+      ],
+      "system3": [
+        [
+          {
+            "system3_plausibility": 5.0,
+            "system3_practicality": 5.0,
+            "system3_compatibility": 5.0,
+            "system3_verdict": 4.0
+          },
+          4.75
+        ],
+        [
+          {
+            "system3_plausibility": 5.5,
+            "system3_practicality": 5.0,
+            "system3_compatibility": 5.0,
+            "system3_verdict": 4.0
+          },
+          4.88
+        ],
+        [
+          {
+            "system3_plausibility": 5.5,
+            "system3_practicality": 5.0,
+            "system3_compatibility": 5.0,
+            "system3_verdict": 4.0
+          },
+          4.88
+        ],
+        [
+          {
+            "system3_plausibility": 5.5,
+            "system3_practicality": 5.0,
+            "system3_compatibility": 5.0,
+            "system3_verdict": 4.0
+          },
+          4.88
+        ],
+        [
+          {
+            "system3_plausibility": 5.5,
+            "system3_practicality": 5.0,
+            "system3_compatibility": 5.0,
+            "system3_verdict": 4.0
+          },
+          4.88
+        ]
+      ]
+    },
+    "feedback_disabled": {
+      "system1": [
+        [
+          {
+            "system1_completeness": 8.5,
+            "system1_scientific": 7.0,
+            "system1_grounding": 3.0,
+            "system1_investigation": 5.0
+          },
+          5.88
+        ]
+      ],
+      "system2": [
+        [
+          {
+            "system2_alignment": 7.5,
+            "system2_verification": 4.0,
+            "system2_anchoring": 4.5,
+            "system2_adaptation": 5.5
+          },
+          5.38
+        ],
+        [
+          {
+            "system2_alignment": 7.5,
+            "system2_verification": 5.0,
+            "system2_anchoring": 4.5,
+            "system2_adaptation": 5.5
+          },
+          5.62
+        ],
+        [
+          {
+            "system2_alignment": 7.5,
+            "system2_verification": 4.0,
+            "system2_anchoring": 4.5,
+            "system2_adaptation": 5.5
+          },
+          5.38
+        ],
+        [
+          {
+            "system2_alignment": 7.5,
+            "system2_verification": 4.0,
+            "system2_anchoring": 4.5,
+            "system2_adaptation": 5.5
+          },
+          5.38
+        ],
+        [
+          {
+            "system2_alignment": 7.5,
+            "system2_verification": 4.0,
+            "system2_anchoring": 4.5,
+            "system2_adaptation": 5.5
+          },
+          5.38
+        ]
+      ],
+      "system3": [
+        [
+          {
+            "system3_plausibility": 3.0,
+            "system3_practicality": 2.5,
+            "system3_compatibility": 3.5,
+            "system3_verdict": 3.0
+          },
+          3.0
+        ],
+        [
+          {
+            "system3_plausibility": 3.5,
+            "system3_practicality": 3.0,
+            "system3_compatibility": 3.5,
+            "system3_verdict": 3.0
+          },
+          3.25
+        ],
+        [
+          {
+            "system3_plausibility": 3.0,
+            "system3_practicality": 3.0,
+            "system3_compatibility": 3.5,
+            "system3_verdict": 3.0
+          },
+          3.12
+        ],
+        [
+          {
+            "system3_plausibility": 3.5,
+            "system3_practicality": 3.0,
+            "system3_compatibility": 4.0,
+            "system3_verdict": 2.5
+          },
+          3.25
+        ],
+        [
+          {
+            "system3_plausibility": 3.5,
+            "system3_practicality": 3.0,
+            "system3_compatibility": 3.5,
+            "system3_verdict": 3.0
+          },
+          3.25
+        ]
+      ]
+    }
+  },
+  "timestamp": "2026-09-25T14:13:51.957671Z"
+}

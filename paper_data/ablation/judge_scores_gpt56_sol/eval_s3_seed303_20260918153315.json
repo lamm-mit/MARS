@@ -1,0 +1,295 @@
+{
+  "study": "6-condition pooled, S3, seed 303",
+  "seed": 303,
+  "sysno": 3,
+  "judge_model": "gpt-5.6-sol",
+  "rubric": "rubric_s3_v5.yaml",
+  "shuffle": {
+    "A": "sol1",
+    "B": "3agent",
+    "C": "mars",
+    "D": "1agent_rag",
+    "E": "1agent_no_rag"
+  },
+  "dimensions": [
+    "system3_plausibility",
+    "system3_practicality",
+    "system3_compatibility",
+    "system3_verdict"
+  ],
+  "results": {
+    "sol1": {
+      "letter": "A",
+      "scores": {
+        "system3_plausibility": {
+          "score": 8.0,
+          "strengths": [
+            "The sequence coherently progresses from thiol-content verification and stoichiometric formulation through degassing, mixing, casting, thermal cure, conditioning, and qualification.",
+            "Step 8 closes the route with mechanical, optical, permeability, and chemical-immersion testing before use."
+          ],
+          "weaknesses": [
+            "Packaging, storage, and scale-up handling are not addressed.",
+            "The route remains a laboratory screening workflow rather than a production-oriented manufacturing sequence."
+          ],
+          "rationale": "Steps 1-8 provide a strong and logically connected laboratory route from LP-32 raw material to cured and inspected specimens. The omissions are localized final-handling and scale considerations rather than missing core transformations.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 5.0,
+          "strengths": [
+            "Major operations have concrete equipment and conditions, including 40-50 °C vacuum degassing, 3-10 minute mixing, and a two-stage 50-80 °C cure.",
+            "The recipe specifies stoichiometry, catalyst loading, film dimensions, conditioning, and test methods."
+          ],
+          "weaknesses": [
+            "No retrieval, feasibility answers, or backing documents exist, so all quantitative conditions are unverifiable and the evidence-lineage cap applies.",
+            "Chemical compatibility with the actual service-media matrix is deferred to Step 8 rather than discharged by the report."
+          ],
+          "rationale": "The plan is operationally detailed and plausibly runnable at laboratory scale, but none of its ratios, cure schedules, pressures, or times has report-level evidence lineage. The unresolved service-chemical qualification burden further limits practicality credit.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 5.0,
+          "strengths": [
+            "Casting, vacuum degassing, and low-temperature curing are broadly appropriate for a liquid thiol-terminated polysulfide formulation.",
+            "Near-stoichiometric epoxy-thiol formulation with a tertiary-amine catalyst is chemically plausible at the family level."
+          ],
+          "weaknesses": [
+            "The LP-32-specific 6-10 phr crosslinker loading and 50-80 °C cure schedule have no evidence lineage, triggering the grade-specific compatibility cap.",
+            "No feasibility analysis verifies that trimethylolpropane triglycidyl ether at the stated loading produces the proposed elastomeric network."
+          ],
+          "rationale": "The core process family is scientifically compatible with liquid polysulfide casting and epoxy-thiol crosslinking. However, the named-grade schedule and formulation are predominantly unsupported within the report.",
+          "confidence": "medium"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "The report contains no feasibility questions, per-question evidence, or confidence-labeled answers.",
+            "The manufacturable status is a bare assertion with no verdict reasoning."
+          ],
+          "rationale": "Under the rubric, a verdict without any feasibility analysis is not scoreable and must receive null.",
+          "confidence": "high"
+        }
+      },
+      "mean": 6.0
+    },
+    "3agent": {
+      "letter": "B",
+      "scores": {
+        "system3_plausibility": {
+          "score": 4.0,
+          "strengths": [
+            "A recognizable sequence runs from monomer polymerization through termination, purification, drying, extrusion, and molding.",
+            "Most steps identify their incoming material and the equipment used."
+          ],
+          "weaknesses": [
+            "The route produces nominal linear PDMS rather than establishing the block, network, or multiphase architecture needed for the stated thermoplastic silicone elastomer.",
+            "No compounding formulation, pelletization details, QC, packaging, or final-property qualification is provided."
+          ],
+          "rationale": "The operations are sequentially connected, but the decisive transformation from PDMS oligomer to the intended thermoplastic silicone elastomer is missing. Consequently, the recognizable synthesis route does not coherently deliver the named final material.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 3.0,
+          "strengths": [
+            "Temperatures, times, catalyst loading, extrusion speed, pressure, throughput, and molding conditions are stated.",
+            "The recipe identifies reactor, filtration, vacuum drying, extrusion, and molding equipment."
+          ],
+          "weaknesses": [
+            "There is no retrieved evidence or backing-document lineage for any quantitative condition, so the verification cap applies.",
+            "The process does not specify how the extruded uncrosslinked PDMS obtains Shore A 30 or thermoplastic-elastomer behavior, making the core operating plan ineffective."
+          ],
+          "rationale": "Although numerically detailed, the recipe cannot reliably be executed to obtain the intended material because its central architecture-forming operation is absent. The unsupported quantitative schedule provides little verified practicality.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 2.0,
+          "strengths": [
+            "Siloxane ring-opening polymerization and subsequent polymer purification are recognizable silicone-processing concepts."
+          ],
+          "weaknesses": [
+            "The stated TiBr4/HMCTS route and chain termination do not create the thermoplastic silicone-elastomer architecture claimed for the candidate.",
+            "Melt extrusion alone cannot set Shore A hardness or provide elastomeric recovery in an uncrosslinked linear PDMS product."
+          ],
+          "rationale": "The central processing route is materially mismatched to the selected thermoplastic silicone elastomer. It plausibly makes some siloxane polymer, but not the required shaped elastomeric commercial-grade architecture.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No feasibility questions or per-question evidence were produced.",
+            "The manufacturable verdict has no reasoning, confidence, or acknowledged constraints."
+          ],
+          "rationale": "The rubric requires null because no feasibility analysis exists on which the verdict could rest.",
+          "confidence": "high"
+        }
+      },
+      "mean": 3.0
+    },
+    "mars": {
+      "letter": "C",
+      "scores": {
+        "system3_plausibility": {
+          "score": 8.0,
+          "strengths": [
+            "The recipe covers receipt, weighing, premixing, twin-screw compounding, pelletizing, conditioning, film or sheet formation, finishing, QC, packaging, and storage.",
+            "Outputs feed sensibly between steps, particularly the Step 3 melt into Step 4 pellets and then Step 5 shaping."
+          ],
+          "weaknesses": [
+            "Step 5 ambiguously offers co-extrusion for an already compounded homogeneous pellet blend without defining any separate layers.",
+            "The recipe does not state the actual POE/PPS/SiO2 formulation ratios at the weighing stage."
+          ],
+          "rationale": "This is a strong end-to-end route with nearly all major manufacturing and final-handling stages represented. Its sequencing weaknesses are localized and do not erase the overall manufacturing logic.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 6.0,
+          "strengths": [
+            "Nearly every major step includes equipment and usable conditions, including an L/D 30:1 twin screw, zone temperatures, speed, residence time, pressure, molding, cooling, and QC targets.",
+            "The recipe has a backing list of textbooks, material-database records, and patents, while Questions 2 and 3 investigate equipment and processing conditions."
+          ],
+          "weaknesses": [
+            "Recipe Step 3 specifies 2-3 minutes and 1-2 MPa, whereas Question 3 supports 5-10 seconds and 30-50 bar; the report does not explain these substantial revisions.",
+            "Load-bearing optical, barrier, and chemical performance remains dependent on Step 7 testing and small-batch trials, with no demonstrated exact-composite data."
+          ],
+          "rationale": "The process is concrete and evidence-connected enough to support laboratory or pilot refinement. Internal parameter discrepancies and the substantial remaining qualification burden prevent strong practicality.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 4.0,
+          "strengths": [
+            "Twin-screw compounding with kneading blocks, filler premixing, pelletization, and thermoplastic shaping are suitable process families for polymer nanocomposites.",
+            "The recipe appropriately recognizes that PPS must approach its approximately 280 °C melting region during compounding."
+          ],
+          "weaknesses": [
+            "Question 3 states that the POE decomposes above 200 °C yet recommends 260-280 °C, and recipe Steps 3 and 5 retain that high-temperature exposure.",
+            "Compression molding at 200-220 °C is below the stated PPS melting point, so conditioned composite pellets may not reconsolidate adequately."
+          ],
+          "rationale": "The general compounding family is appropriate, but the report's own thermal data reveal a major central conflict between melting PPS and preserving the POE matrix. The below-melt compression schedule adds a second important compatibility concern.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": 7.0,
+          "strengths": [
+            "The feasible verdict explicitly carries forward Question 1's missing silica availability evidence and Question 4's IP and regulatory uncertainties as soft constraints.",
+            "It respects the medium-confidence evidence by requiring silica verification, licensing review, and small-batch performance trials."
+          ],
+          "weaknesses": [
+            "The statement that processing parameters preserve optical clarity and mechanical properties overstates Question 3's sparse analog evidence.",
+            "The verdict does not acknowledge the internal thermal conflict in Question 3 between POE degradation above 200 °C and processing at 260-280 °C."
+          ],
+          "rationale": "The verdict is substantially grounded in the four feasibility answers and honestly names most open risks. Its acceptance rationale nevertheless overlooks a serious negative implication embedded in its own processing analysis.",
+          "confidence": "high"
+        }
+      },
+      "mean": 6.25
+    },
+    "1agent_rag": {
+      "letter": "D",
+      "scores": {
+        "system3_plausibility": {
+          "score": 4.0,
+          "strengths": [
+            "The route has a recognizable order of formulation, catalyst addition, degassing, casting, heating, cooling, and demolding.",
+            "It identifies equipment and incoming materials for each stage."
+          ],
+          "weaknesses": [
+            "The recipe omits an Si-H-functional crosslinker, so the claimed platinum-catalyzed hydrosilylation and decisive cure transformation cannot occur as written.",
+            "There is no QC, chemical-compatibility testing, packaging, or storage stage."
+          ],
+          "rationale": "A casting workflow is recognizable, but the missing hydride reactant means it cannot transform the inputs into the intended cured elastomer. This is a major route-coherence failure rather than a minor parameter issue.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 2.5,
+          "strengths": [
+            "The recipe supplies mixing ratios, catalyst loading, vacuum, cure temperatures and times, and basic equipment."
+          ],
+          "weaknesses": [
+            "The raw-query evidence packet contains no process-specific support for the stated 100:5-10 ratio, catalyst loading, vacuum schedule, or cure schedule.",
+            "The missing Si-H crosslinker makes the required cure in Step 4 non-executable."
+          ],
+          "rationale": "Despite concrete-looking conditions, the core cure cannot run with vinyl PDMS, divinyl silane, and platinum catalyst alone. Quantitative recipe conditions are also predominantly unverifiable from the supplied packet.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 2.0,
+          "strengths": [
+            "Vacuum degassing and thermal casting are generally compatible with addition-cure silicone processing."
+          ],
+          "weaknesses": [
+            "Hydrosilylation requires both vinyl and Si-H functionalities, but the recipe supplies only vinyl-terminated PDMS and divinyl silane.",
+            "Step 4 specifies a PTFE mold despite the report's non-fluorinated substitution constraint."
+          ],
+          "rationale": "The intended process family is standard for silicone, but the stated formulation lacks an essential reaction component and therefore cannot cure by the claimed mechanism. The optional PTFE tooling also conflicts with the PFAS-free process objective.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No manufacturing feasibility questions or per-question evidence-based answers exist.",
+            "The manufacturable status provides no reasoning or confidence assessment."
+          ],
+          "rationale": "The verdict is not scoreable under the rubric because the report contains no feasibility analysis.",
+          "confidence": "high"
+        }
+      },
+      "mean": 2.83
+    },
+    "1agent_no_rag": {
+      "letter": "E",
+      "scores": {
+        "system3_plausibility": {
+          "score": 3.5,
+          "strengths": [
+            "The recipe follows a recognizable mixing, catalyst addition, degassing, molding, curing, cooling, and inspection sequence."
+          ],
+          "weaknesses": [
+            "Both listed silicone components are vinyl-functional, so no crosslinking transformation is available to create the cured part.",
+            "The route lacks chemical-resistance qualification, packaging, storage, and meaningful final mechanical QC."
+          ],
+          "rationale": "The sequence resembles a silicone molding workflow, but its decisive cure stage is chemically unspecified and impossible with the listed inputs. Thus, the route is recognizable but substantially ineffective.",
+          "confidence": "high"
+        },
+        "system3_practicality": {
+          "score": 2.0,
+          "strengths": [
+            "The report states a blend ratio, catalyst loading, mixing time, vacuum condition, and cure schedule using basic laboratory equipment."
+          ],
+          "weaknesses": [
+            "No retrieval or backing evidence supports the 1:1 ratio, 2 wt% catalyst, 200 cP target, or 150 °C cure schedule.",
+            "A tertiary amine does not initiate hydrosilylation, and the recipe includes no Si-H-functional crosslinker, so the process cannot produce a cured component."
+          ],
+          "rationale": "The conditions are superficially specific but cannot be executed to the intended result because the cure chemistry is fundamentally incomplete and incorrectly catalyzed. The evidence-lineage requirement is also entirely unmet.",
+          "confidence": "high"
+        },
+        "system3_compatibility": {
+          "score": 1.5,
+          "strengths": [
+            "Degassing and heated molding would be appropriate operations for a correctly formulated liquid silicone system."
+          ],
+          "weaknesses": [
+            "Vinyl-terminated PDMS cannot serve as the hydride crosslinker required for platinum-catalyzed hydrosilylation.",
+            "The proposed tertiary-amine catalyst is incompatible with the claimed cure mechanism."
+          ],
+          "rationale": "Two central chemical errors prevent network formation, so the selected formulation cannot undergo the proposed curing operation. Compatible physical handling steps do not rescue the fundamentally incompatible cure design.",
+          "confidence": "high"
+        },
+        "system3_verdict": {
+          "score": null,
+          "strengths": [],
+          "weaknesses": [
+            "No feasibility questions, evidence, or confidence-labeled answers were produced.",
+            "The bare manufacturable verdict fails to identify the missing cure chemistry."
+          ],
+          "rationale": "Because there is no feasibility analysis on which to ground the verdict, the rubric requires a null score.",
+          "confidence": "high"
+        }
+      },
+      "mean": 2.33
+    }
+  },
+  "timestamp": "2026-09-18T15:34:31.913009Z"
+}
