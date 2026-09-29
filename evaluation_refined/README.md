@@ -7,8 +7,9 @@ configurations are judged together, blind, one call per seed and subsystem.
 ## Protocol
 
 1. **Reports, not final exports.** `mars.json` carries no retrieval trail, so a judge
-   cannot tell an evidenced number from an invented one. `build_subsystem_summaries.py`
-   and `run_v2_reports.py` rebuild a System 1, System 2 and System 3 report from the raw
+   cannot tell an evidenced number from an invented one. `run_v2_reports.py` (using the
+   report builders in `evaluate_summaries.ipynb`) rebuilds a System 1, System 2 and
+   System 3 report from the raw
    artifacts (`system{1,2,3}_*.json`, `pipeline_run_*.json`, `chats/*.json`): every
    question, retrieved-document count, KG path count, answer and verdict, with the
    pipeline's own text quoted verbatim. Sections a reduced configuration cannot produce
@@ -44,10 +45,9 @@ configurations are judged together, blind, one call per seed and subsystem.
 
 | File | Role |
 |---|---|
-| `build_subsystem_summaries.py` | Raw run artifacts to the three subsystem reports (Markdown for the judge, JSON with structured counts). Counting and string matching only; no LLM. |
-| `run_v2_reports.py` | Build the reports for one run and judge them; the per-run entry point. |
+| `run_v2_reports.py` | Build the three reports for one run and judge them with the final rubrics; the per-run entry point. Loads the builder cells from the notebook without modifying it. |
 | `run_refined_evaluation.py` | Judge machinery (`load_rubric`, `call_judge`) shared by every judge driver; stores the full prompt and raw response next to each result. |
-| `evaluate_summaries.ipynb` | Notebook form of the builders and judges (cell 6 is the System 2 renderer with the embedded database records). Cell outputs contain absolute local paths. |
+| `evaluate_summaries.ipynb` | The report builders and renderers (cell 6 is the System 2 renderer with the embedded database records). Counting and string matching only; no LLM. Cell outputs contain absolute local paths. |
 | `rubric_s{1,2,3}_final.yaml` | The rubrics above. |
 
 ## Where the outputs are

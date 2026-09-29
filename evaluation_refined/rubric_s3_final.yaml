@@ -1,0 +1,591 @@
+# ============================================================
+# SYSTEM 3 EVALUATION RUBRIC
+# Manufacturing and Process Design
+# ============================================================
+
+score_min: 0
+score_max: 10
+score_step: 0.5
+
+
+# ============================================================
+# SCORE SCALE
+# ============================================================
+
+ordinal_scale_lines:
+  - "0–2 — Poor: the capability is absent or largely ineffective."
+  - "3–4 — Weak: some useful behavior exists, but the capability is substantially limited."
+  - "5 — Adequate: the capability works partially but inconsistently."
+  - "6 — Good: the capability clearly works and is useful, despite notable correctable issues."
+  - "7 — Strong: the capability works well overall; remaining weaknesses are localized."
+  - "8 — Very strong: the capability is consistently effective with limited substantive weaknesses."
+  - "9–10 — Excellent: exceptionally effective, with only minor or no substantive deficiencies."
+  - "Use 0.5 increments when appropriate."
+
+
+# ============================================================
+# EVALUATION FRAME
+# ============================================================
+
+evaluation_principles: |
+  Evaluate System 3 as an evidence-driven MANUFACTURING AND PROCESS-DESIGN system.
+
+  Use the complete System 3 trace when relevant, including:
+    - the selected candidate;
+    - manufacturing queries;
+    - retrieved evidence;
+    - feasibility analysis;
+    - feasibility verdict;
+    - final process recipe;
+    - equipment and operating conditions;
+    - QC, safety, handling, scale, packaging, and storage considerations.
+
+  The FINAL PROCESS RECIPE is the primary manufacturing recommendation.
+  Earlier queries and feasibility answers are exploratory research used to inform
+  that recipe.
+
+  Do not require exploratory parameter values to match the final recipe exactly.
+  Refining or changing temperatures, times, speeds, residence times, or other
+  process conditions after evidence review is normal process design.
+
+  System 3 is NOT expected to provide:
+    - a production-qualified industrial SOP;
+    - a complete plant design;
+    - a full hazard analysis;
+    - an optimized process window;
+    - or experimentally validated values for every parameter.
+
+  SCORE THE CAPABILITY FIRST.
+
+  First determine whether the capability is absent, weak, functional, strong,
+  or exceptional. A clearly functional capability should normally fall in the
+  6–8 range.
+
+  Before lowering a score, ask:
+
+    "Does this issue materially change the answer to this metric's primary
+     question?"
+
+  If correcting the issue would leave the capability clearly intact, treat it
+  as localized.
+
+  Localized errors should usually affect placement within the 6–8 range rather
+  than collapse a clearly functional capability into the 3–5 range.
+
+  Do not start from 10 and subtract for every mistake.
+
+  Do not double-count the same issue across metrics.
+
+  Do not substantially penalize System 3 for an error inherited from System 2
+  unless System 3 converts that error into a problematic manufacturing decision.
+
+  Give explicit credit for evidence-driven process design when System 3:
+    - generates targeted manufacturing questions;
+    - retrieves textbooks, patents, material-database records, or other evidence;
+    - investigates feasibility;
+    - and synthesizes that information into a concrete process recommendation.
+
+  Do not turn the evaluation into a source-by-source literature audit.
+
+  ----------------------
+  EVIDENCE IN THE REPORT
+  ----------------------
+  Where evidence lives in these reports: the per-query retrieved evidence
+  sections, the four feasibility questions with their answers, and the
+  recipe's backing-evidence document list. Inside answers, bracketed markers
+  such as [Document 3] are citations to retrieved documents. In reports of
+  ablated pipelines, a pre-retrieved packet or a "not produced in this
+  condition" marker shows whether any retrieval existed at all. Specific
+  dimensions below define how the presence or absence of evidence affects
+  their scores; manufacturing route coherence remains judged from the recipe
+  text itself.
+
+
+# ============================================================
+# DIMENSIONS
+# ============================================================
+
+dimensions:
+
+
+  # ----------------------------------------------------------
+  # 1. MANUFACTURING ROUTE COHERENCE
+  # ----------------------------------------------------------
+
+  system3_plausibility:
+    criterion_label: "Manufacturing route coherence"
+    short_name: "S3-Route"
+    name: "System 3 — Manufacturing route coherence"
+    weight: 1.0
+
+    primary_question: |
+      Does System 3 provide a coherent end-to-end sequence of manufacturing
+      operations from material inputs to the intended final product?
+
+    rubric: |
+      Evaluate the LOGIC AND SEQUENCE of the manufacturing route.
+
+      Give credit when:
+        - major processing stages are present;
+        - steps occur in a sensible order;
+        - the output of one stage plausibly feeds the next;
+        - raw materials progress toward a shaped, inspected, and handled product.
+
+      A strong route may include:
+        raw-material preparation
+        → drying or conditioning
+        → mixing or compounding
+        → shaping
+        → cooling or consolidation
+        → post-processing
+        → QC
+        → packaging or storage
+
+      The exact sequence does not need to follow this template.
+
+      This metric does NOT primarily assess:
+        - exact process parameters;
+        - equipment sizing;
+        - material degradation;
+        - detailed QC;
+        - safety depth.
+
+      Do not substantially penalize:
+        - one redundant stage;
+        - one unnecessary optional step;
+        - imperfect terminology;
+        - one questionable parameter;
+        - a removable post-treatment.
+
+      Lower the score substantially when:
+        - major required stages are missing;
+        - step order is fundamentally incoherent;
+        - the stated operations cannot plausibly transform the inputs into the
+          intended product;
+        - a decisive transformation is entirely unspecified.
+
+      Scoring guidance:
+
+        0–2:
+          No coherent manufacturing route is present.
+
+        3–4:
+          A route is recognizable but major stages are missing or disconnected.
+
+        5:
+          The general sequence is plausible but incomplete in important places.
+
+        6:
+          The route is coherent and usable, with notable gaps.
+
+        7:
+          The route clearly connects inputs to final product; weaknesses are
+          localized.
+
+        8:
+          Strong end-to-end manufacturing coherence across nearly all stages.
+
+        9–10:
+          Exceptionally clear, complete, and integrated route.
+
+      Calibration:
+        A recognizable route from raw-material preparation through processing,
+        shaping, QC, and final handling should generally score 7–8 unless a major
+        transformation is missing or impossible.
+
+      Use 0.5 increments when appropriate.
+
+
+  # ----------------------------------------------------------
+  # 2. OPERATIONAL PRACTICALITY
+  # ----------------------------------------------------------
+
+  system3_practicality:
+    criterion_label: "Operational practicality"
+    short_name: "S3-Prac"
+    name: "System 3 — Operational practicality"
+    weight: 1.0
+
+    primary_question: |
+      Does System 3 provide a sufficiently concrete process plan that could
+      plausibly be executed and refined by a practitioner?
+
+    rubric: |
+      Evaluate the OPERATIONAL SPECIFICITY AND EXECUTABILITY of the final recipe.
+
+      Give strong credit when major steps provide relevant information such as:
+        - equipment class;
+        - approximate temperature;
+        - time or residence time;
+        - speed or mixing intensity;
+        - pressure where relevant;
+        - throughput or scale;
+        - cooling, drying, or shaping conditions.
+
+      This metric does NOT require detailed process engineering or equipment
+      optimization.
+
+      Do not independently redesign the line or require:
+        - validated die-flow calculations;
+        - feeder-sizing calculations;
+        - line balancing;
+        - pelletization details between every stage;
+        - pressure-drop calculations;
+        - exact equipment power sizing;
+        - complete material-handling design.
+
+      These details may improve an industrial specification but are not required
+      to demonstrate operational practicality.
+
+      A parameter should substantially reduce this score only when it is clearly
+      impossible, mutually incompatible with another REQUIRED core condition, or
+      prevents the operation from being executed.
+
+      Non-optimal, oversized, underspecified, or approximate engineering choices
+      are localized issues.
+
+      Optional steps should have limited influence on this metric.
+
+      Scoring guidance:
+
+        0–2:
+          The process lacks an executable operating plan.
+
+        3–4:
+          Multiple core operations lack usable equipment or conditions.
+
+        5:
+          A process can be inferred, but important core operating information is
+          missing.
+
+        6:
+          The process is operationally understandable and mostly runnable, with
+          notable gaps.
+
+        7:
+          Major operations contain concrete equipment and operating conditions;
+          remaining issues are localized engineering refinements.
+
+        8:
+          The recipe is well specified across nearly all important operations.
+
+        9–10:
+          Exceptionally complete operational definition for the intended scope.
+
+      Calibration:
+        If the final recipe specifies usable conditions and equipment for the major
+        manufacturing operations, the score should generally be 7–8.
+
+        Do not reduce a clearly runnable process below 7 primarily because detailed
+        line engineering, equipment sizing, intermediate handling, or optimization
+        has not been completed.
+
+      ----------------------
+      EVIDENCE-LINEAGE RULE (overrides the calibration above)
+      ----------------------
+      Quantitative processing conditions (temperatures, times, pressures,
+      speeds, ratios, loadings) count as VERIFIED only when traceable to the
+      report's retrieved evidence, feasibility answers, or backing documents,
+      or when the report explicitly derives them from such sources. You are
+      not required to check exact excerpts; assess lineage.
+
+      If the recipe's quantitative conditions are predominantly unverifiable
+      (no retrieval exists in the report, or the conditions do not trace to
+      any of it), cap this score at 5. Plausible-looking numbers without
+      lineage must not be credited as verified.
+
+      VERIFICATION DISCHARGE. Distinguish feasibility obligations the report
+      RESOLVES from obligations it DEFERS. An obligation is resolved when
+      the report's feasibility analysis answers it from retrieved evidence
+      (or honestly reports the evidence as absent); it is deferred when the
+      recipe hands it to the reader as future qualification work ("test
+      chemical compatibility with actual service chemicals"). Deferring is
+      honest and must not be scored below unsupported assertion, but it
+      earns no practicality credit: a route whose qualification burden is
+      predominantly deferred is a test plan, not a validated procedure, and
+      should score in the middle of the scale at best. Reserve high scores
+      for routes where the report itself discharged most load-bearing
+      feasibility questions with evidence.
+  # ----------------------------------------------------------
+  # 3. MATERIAL–PROCESS COMPATIBILITY
+  # ----------------------------------------------------------
+  system3_compatibility:
+    criterion_label: "Material–process compatibility"
+    short_name: "S3-Comp"
+    name: "System 3 — Material–process compatibility"
+    weight: 1.0
+
+    primary_question: |
+      Are the major manufacturing operations scientifically compatible with the
+      selected material and composite architecture?
+
+    rubric: |
+      Evaluate whether the PROCESS FAMILY AND CORE OPERATIONS FIT THE MATERIAL.
+
+      Focus on whether major operations such as:
+        - drying or conditioning;
+        - compounding;
+        - filler incorporation;
+        - extrusion;
+        - molding;
+        - cooling;
+        - shaping
+
+      are broadly appropriate for the selected material system.
+
+      This metric evaluates COMPATIBILITY, not proof of final performance.
+
+      Do NOT substantially lower this score because:
+        - exact dispersion quality has not been experimentally demonstrated;
+        - grade-specific literature is incomplete;
+        - a compatibilizer has not yet been selected;
+        - the precise residence time or shear history still requires optimization;
+        - final optical, mechanical, or barrier properties remain unverified.
+
+      Those are optimization, validation, or evidence-sufficiency issues.
+
+      Penalize substantially only when System 3 proposes a process that is itself
+      incompatible with the material, such as:
+        - a required temperature that would clearly destroy the material;
+        - an essential cure mechanism that the material cannot undergo;
+        - an incompatible processing family;
+        - an essential chemical treatment that cannot operate on the selected
+          material.
+
+      Optional or removable incompatible steps should receive less weight than
+      the viable core route.
+
+      Scoring guidance:
+
+        0–2:
+          The central processing route is fundamentally incompatible.
+
+        3–4:
+          Major incompatibilities affect several core stages.
+
+        5:
+          The route is broadly plausible but contains an important central
+          incompatibility.
+
+        6:
+          The process is generally compatible, with notable correctable concerns.
+
+        7:
+          Core processing operations are compatible; remaining concerns are
+          localized.
+
+        8:
+          Strong compatibility across nearly all major operations.
+
+        9–10:
+          Exceptionally well matched material and process design.
+
+      Calibration:
+        If the selected material can reasonably undergo the proposed preparation,
+        compounding, filler incorporation, shaping, and cooling operations, the
+        score should generally be 7–8.
+
+        Do not require evidence that the exact process will achieve every desired
+        final property in order to award strong compatibility.
+
+      ----------------------
+      EVIDENCE RULE (overrides the calibration above)
+      ----------------------
+      Self-evident incompatibilities (impossible chemistry, missing reaction
+      components, contradictory conditions) reduce the score in every case,
+      with or without evidence.
+
+      Family-level compatibility (a standard process for a well-known material
+      class) may be credited from general knowledge. GRADE-SPECIFIC claims,
+      that a named commercial grade tolerates a specific schedule, ratio, or
+      condition, count as verified only with lineage to the report's evidence.
+      A claim that names a specific material, composition, or commercial
+      grade together with a numeric processing window, schedule, ratio, or
+      condition is GRADE-SPECIFIC even when phrased generically for the
+      material class. If the recipe's material-specific compatibility claims
+      are predominantly unverifiable, cap this score at 5.
+
+
+  # ----------------------------------------------------------
+  # 4. FEASIBILITY-VERDICT GROUNDING
+  # ----------------------------------------------------------
+
+  system3_verdict:
+    criterion_label: "Feasibility-verdict grounding"
+    short_name: "S3-Verd"
+    name: "System 3 — Feasibility-verdict grounding"
+    weight: 1.0
+
+    primary_question: |
+      Is the manufacturable/blocked verdict an evidence-based conclusion
+      drawn from the report's own feasibility analysis, rather than an
+      assertion?
+
+    rubric: |
+      Evaluate the VERDICT AND ITS GROUNDING, not the recipe.
+
+      Where the material lives in these reports: the manufacturing
+      feasibility questions with their numbered evidence and per-answer
+      confidence labels, and the feasibility verdict section that follows
+      them.
+
+      Give credit when:
+        - the verdict follows from the feasibility answers: what the
+          verdict claims, the answers actually established;
+        - the verdict's load-bearing statements trace to specific answers
+          or cited evidence;
+        - negative findings and evidence gaps from the answers are named
+          in the verdict and carried as open risks (accepting WITH named
+          gaps is honest and creditable);
+        - per-answer confidence labels are consistent with their evidence
+          basis, and the verdict respects them;
+        - a blocked verdict names its blocking constraints and traces them
+          to the evidence.
+
+      Serious failures:
+        - MISQUOTED EVIDENCE: the verdict asserts that the evidence or an
+          answer contains something it does not.
+        - LAUNDERED ABSENCE: absence of evidence restated as positive
+          compliance or demonstrated capability.
+        - FABRICATED AUTHORITY: a standard, specification, certification,
+          or regulatory threshold invoked as established when it appears
+          nowhere in the report's evidence; treat as a substantive
+          grounding failure and cap this score at 4.
+        - IGNORED NEGATIVE FINDINGS: an acceptance verdict that passes
+          over its own answers' negative findings without naming them
+          caps this score at 5.
+
+      Do NOT lower this score because:
+        - the verdict accepts despite gaps, provided it names them;
+        - the corpora genuinely lacked data and the answers said so;
+        - the verdict is cautious or hedged.
+
+      Scoring guidance:
+
+        null (not scoreable):
+          The report contains NO feasibility analysis (no manufacturing
+          feasibility questions, no per-question evidence) on which a
+          verdict could rest: a bare "manufacturable" status emitted by a
+          single direct generation. This capability is absent by
+          construction; output null for the score, not a number.
+
+        0-2:
+          A feasibility analysis exists but the verdict is disconnected
+          from it: conclusions unrelated to the answers, or contradicting
+          them without acknowledgement.
+
+        3-4:
+          The verdict is partially connected to the analysis but
+          overstates it: misquoted evidence, laundered absence, or
+          fabricated authority.
+
+        5-6:
+          The verdict mostly follows from the answers, but some
+          load-bearing claims exceed what the evidence established, or
+          some negative findings go unnamed.
+
+        7-8:
+          The verdict traces to the answers, names its gaps and open
+          risks, and treats unverifiable hard requirements honestly
+          (blocking, or accepting with the gap explicitly carried).
+
+        9-10:
+          Every load-bearing verdict claim is grounded in a specific
+          answer or cited evidence, with complete and honest gap
+          accounting.
+
+      Use 0.5 increments when appropriate.
+
+
+# ============================================================
+# OUTPUT REQUIREMENTS
+# ============================================================
+
+output_instructions: |
+  Return one evaluation for each dimension.
+
+  For each dimension provide:
+
+    - score:
+        Number from 0 to 10 in increments of 0.5.
+
+    - strengths:
+        1–3 concise observations showing why the capability is functioning.
+
+    - weaknesses:
+        At most 1–2 concise observations describing the most consequential
+        limitations specific to that metric.
+
+    - rationale:
+        Brief explanation connecting the demonstrated capability and limitations
+        to the assigned score.
+
+    - confidence:
+        "high", "medium", or "low".
+
+  Scoring procedure:
+
+    1. Determine whether the capability is absent, weak, functional, strong,
+       or exceptional.
+    2. Select the corresponding score range.
+    3. Consider only weaknesses directly relevant to that metric.
+    4. Adjust within the range proportionally.
+
+  Do not:
+    - start from 10 and deduct for every mistake;
+    - enumerate every factual or parameter-level error;
+    - let the number of weaknesses determine the score;
+    - treat exploratory values as mandatory final specifications;
+    - double-count the same process issue across metrics;
+    - re-penalize inherited System 2 errors unless they create a System 3 process
+      consequence;
+    - require production-qualified process specifications;
+    - require every parameter to be experimentally validated;
+    - treat one removable or optional problematic step as failure of the entire
+      route.
+
+  A strong evidence-driven process design with explicit equipment, operating
+  conditions, QC, and practical manufacturing considerations should commonly
+  score in the 7–8 range.
+
+  Scores below 5 should indicate that the specific capability itself is
+  substantially ineffective.
+
+  Keep the evaluation concise.
+
+
+# ============================================================
+# OUTPUT SCHEMA
+# ============================================================
+
+output_schema: |
+  {
+    "system3_plausibility": {
+      "score": 0.0,
+      "strengths": [],
+      "weaknesses": [],
+      "rationale": "",
+      "confidence": "high"
+    },
+    "system3_practicality": {
+      "score": 0.0,
+      "strengths": [],
+      "weaknesses": [],
+      "rationale": "",
+      "confidence": "high"
+    },
+    "system3_compatibility": {
+      "score": 0.0,
+      "strengths": [],
+      "weaknesses": [],
+      "rationale": "",
+      "confidence": "high"
+    },
+    "system3_verdict": {
+      "score": 0.0,
+      "strengths": [],
+      "weaknesses": [],
+      "rationale": "",
+      "confidence": "high"
+    }
+  }

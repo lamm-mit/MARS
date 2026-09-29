@@ -1,0 +1,539 @@
+# ============================================================
+# SYSTEM 1 EVALUATION RUBRIC
+# ============================================================
+
+score_min: 0
+score_max: 10
+score_step: 0.5
+
+
+# ------------------------------------------------------------
+# SCORE SCALE
+# ------------------------------------------------------------
+
+ordinal_scale_lines:
+  - "0 — No meaningful success: the criterion is essentially not addressed."
+  - "1 — Very poor: fundamental failures dominate."
+  - "2 — Poor: major deficiencies substantially undermine usefulness."
+  - "3 — Weak: some useful content exists, but serious problems remain."
+  - "4 — Below adequate: partially successful, with significant weaknesses."
+  - "5 — Adequate: useful overall, but with meaningful strengths and weaknesses."
+  - "6 — Solid: generally successful, though notable limitations remain."
+  - "7 — Good: satisfies the criterion well; weaknesses are mostly localized."
+  - "8 — Strong: satisfies the criterion very well; remaining issues are limited."
+  - "9 — Excellent: highly successful, with only minor deficiencies."
+  - "10 — Outstanding: comprehensively satisfies the criterion with no substantive deficiency."
+  - "Use 0.5 increments when the result falls meaningfully between adjacent integer anchors."
+  - "Do not target a particular score distribution."
+
+
+# ------------------------------------------------------------
+# GLOBAL EVALUATION PRINCIPLES
+# ------------------------------------------------------------
+
+evaluation_principles: |
+  Evaluate System 1 using both:
+    - the final derived material properties and hard constraints; and
+    - the research trace that produced them.
+
+  System 1 performs scientific requirements analysis for downstream material
+  discovery. It is not expected to produce a finalized engineering standard,
+  procurement specification, or complete experimental protocol.
+
+  Apply the following principles throughout:
+
+  1. Query-derived requirements
+     Requirements explicitly requested by the user are valid requirements even
+     if the research trace does not independently justify their importance.
+
+  2. Inference is allowed
+     System 1 may synthesize or infer reasonable engineering requirements from
+     incomplete information. A value or requirement is not wrong merely because
+     it was not directly retrieved.
+
+  3. Unsupported is not the same as incorrect
+     Treat missing evidence primarily as uncertainty. Penalize strongly only
+     when a statement is implausible, contradictory, or likely to materially
+     misdirect downstream screening.
+
+  4. Judge impact, not mistake count
+     Distinguish localized, correctable issues from systemic scientific or
+     structural failures. A few technical mistakes should have limited impact
+     when the overall discovery strategy remains sound.
+
+  5. Use external knowledge conservatively
+     General scientific knowledge may identify clear, well-established errors,
+     but uncertain external facts, proprietary specifications, obscure
+     regulations, or conventions not contained in the report should not dominate
+     the score.
+
+  6. Avoid double counting
+     Each dimension measures a different aspect of System 1. Do not repeat the
+     same deduction across dimensions unless it creates a distinct problem for
+     each criterion.
+
+  The ANSWERED / NOT ANSWERED agent self-check is contextual information, not
+  an automatic grading signal. Recognizing insufficient evidence can itself be
+  scientifically appropriate.
+
+
+# ============================================================
+# DIMENSIONS
+# ============================================================
+
+dimensions:
+
+  # ----------------------------------------------------------
+  # 1. COMPLETENESS
+  # ----------------------------------------------------------
+
+  system1_completeness:
+    criterion_label: "Completeness"
+    short_name: "S1-Compl"
+    name: "System 1 — Completeness"
+    weight: 1.0
+
+    primary_question: |
+      Does System 1 identify the important requirement categories needed to
+      evaluate a substitute for the material and application described in the
+      query?
+
+    rubric: |
+      Assess the breadth and coverage of the final requirement set.
+
+      Focus on whether System 1 captures the major categories needed for
+      downstream candidate screening, such as:
+        - chemical resistance;
+        - mechanical behavior;
+        - physical properties;
+        - optical properties;
+        - transport/barrier properties;
+        - thermal behavior;
+        - processing/manufacturing considerations;
+        - composition or regulatory constraints;
+        - relevant application-specific requirements.
+
+      Judge completeness relative to the actual query.
+
+      Do not reduce completeness simply because:
+        - a requirement lacks a numerical target;
+        - supporting evidence is incomplete;
+        - a requirement remains qualitative;
+        - a quantitative threshold needs later refinement.
+
+      Do not reward redundancy simply because the list is long.
+
+      Scoring guidance:
+
+        0–2:
+          Most major requirement categories are absent.
+
+        3–4:
+          Several important categories are missing or substantially
+          underrepresented.
+
+        5–6:
+          The main categories are present, but meaningful gaps remain.
+
+        7–8:
+          The important requirement categories are well covered, with only
+          limited omissions.
+
+        9–10:
+          Coverage is comprehensive and appropriately scoped to the substitution
+          problem.
+
+      Use 0.5 increments when appropriate.
+
+
+  # ----------------------------------------------------------
+  # 3. SCIENTIFIC CORRECTNESS
+  # ----------------------------------------------------------
+  system1_scientific:
+    criterion_label: "Scientific correctness"
+    short_name: "S1-Sci"
+    name: "System 1 — Scientific correctness"
+    weight: 1.0
+
+    primary_question: |
+      Is the overall scientific framework appropriate for identifying and organizing
+      the properties that should guide material substitution?
+
+    rubric: |
+      Evaluate SCIENTIFIC CORRECTNESS primarily at the level of the overall
+      requirement-discovery framework.
+
+      The main question is:
+
+        "Does System 1 identify the correct scientific phenomena and organize the
+         substitution problem in a scientifically sensible way?"
+
+      Give greatest weight to whether:
+        - the relevant scientific phenomena are identified;
+        - the major property categories are appropriate;
+        - the qualitative property directions are scientifically sensible;
+        - the screening logic would guide material discovery toward relevant
+          candidate classes.
+
+      Examples of core scientific phenomena include:
+        - chemical compatibility and swelling;
+        - mechanical flexibility and deformation;
+        - optical transmission;
+        - gas transport and barrier behavior;
+        - thermal stability;
+        - composition or regulatory restrictions;
+        - processing-related material behavior.
+
+      If these phenomena and their role in material screening are correctly
+      identified, the scientific framework is fundamentally sound.
+
+
+      ----------------------------------------
+      LOCAL TECHNICAL ISSUES
+      ----------------------------------------
+
+      Treat detailed requirement-level problems as LOCAL issues unless correcting
+      them would change the overall scientific strategy.
+
+      Examples include:
+        - an incorrect or unsupported numerical threshold;
+        - an imperfect unit expression;
+        - a nonstandard test definition;
+        - an overly severe exposure condition;
+        - an isolated material-classification error;
+        - an isolated regulatory-definition error;
+        - overgeneralization from a related material family;
+        - an unsupported working assumption.
+
+      Multiple local issues may coexist with a scientifically sound framework.
+
+      Do NOT lower the score substantially merely because several such issues can
+      be identified.
+
+      Ask instead:
+
+        "If these individual details were corrected, would the same major property
+         categories and screening strategy still remain?"
+
+      If YES, the errors are localized and the scientific framework should normally
+      remain in the 7–8 range.
+
+
+      ----------------------------------------
+      INFERENCE AND WORKING REQUIREMENTS
+      ----------------------------------------
+
+      System 1 is performing exploratory requirements analysis, not writing a
+      finalized material specification or experimental standard.
+
+      It may infer provisional thresholds, test conditions, or engineering
+      requirements from incomplete information.
+
+      Lack of direct literature support does not by itself make such an inference
+      scientifically incorrect.
+
+      Penalize an inferred requirement strongly only when it is physically
+      implausible or would materially redirect the overall discovery strategy.
+
+
+      ----------------------------------------
+      SUBSTANTIAL SCIENTIFIC ERRORS
+      ----------------------------------------
+
+      Give large deductions only when the CORE scientific framework is wrong.
+
+      Examples include:
+        - missing or misunderstanding a central physical or chemical phenomenon;
+        - reversing an important scientific relationship;
+        - constructing a requirement framework that systematically searches the
+          wrong material space;
+        - making the major property categories fundamentally inappropriate for the
+          substitution problem;
+        - creating contradictions that invalidate the overall substitution
+          strategy.
+
+      A mistake in one material example, one regulatory definition, one unit, one
+      test condition, or one numerical requirement is NOT by itself a failure of
+      the core framework.
+
+
+      ----------------------------------------
+      SCORING GUIDANCE
+      ----------------------------------------
+
+      0–2:
+        The scientific framework is fundamentally incorrect or unusable.
+
+      3–4:
+        Major conceptual misunderstandings affect several central parts of the
+        discovery strategy.
+
+      5:
+        The broad framework is recognizable, but at least one major conceptual
+        scientific problem substantially distorts the screening strategy.
+
+      6:
+        The overall scientific framework is sound, but one or more important
+        conceptual weaknesses meaningfully affect how the material space would be
+        screened.
+
+      7:
+        The scientific framework is clearly sound and useful. Several localized
+        technical, numerical, classification, or test-definition issues may remain.
+
+      8:
+        The scientific framework is strong and scientifically coherent. Remaining
+        issues are primarily detailed or correctable without changing the overall
+        discovery strategy.
+
+      9–10:
+        The scientific framework is exceptionally coherent and technically strong,
+        with only minor or negligible issues.
+
+
+      ----------------------------------------
+      CALIBRATION
+      ----------------------------------------
+
+      If:
+        - the major scientific phenomena are correctly identified;
+        - the important property categories are appropriate;
+        - the qualitative screening logic is scientifically sensible;
+        - and correcting the identified errors would NOT change the overall
+          discovery strategy,
+
+      then the score should generally be 7–8.
+
+      Scores below 6 should require a substantive error in the underlying
+      scientific framework.
+
+      Do not use the number of localized errors as a proxy for framework quality.
+
+      Do not evaluate this metric as a detailed audit of every final hard
+      constraint.
+
+      Use 0.5 increments when appropriate.
+
+      ----------------------
+      SCOPE NOTE
+      ----------------------
+      Evidence lineage is scored separately under "Evidence grounding";
+      do not deduct here solely because a value lacks retrieval backing.
+      Self-evident scientific errors, internal contradictions, and claims
+      that contradict evidence quoted elsewhere in the same report reduce
+      this score in every case.
+  
+
+    # ----------------------------------------------------------
+  # 5. EVIDENCE GROUNDING
+  # ----------------------------------------------------------
+
+  system1_grounding:
+    criterion_label: "Evidence grounding"
+    short_name: "S1-Grnd"
+    name: "System 1 — Evidence grounding"
+    weight: 1.0
+
+    primary_question: |
+      Are the final derived properties and hard constraints traceable to
+      retrieved evidence contained in the report, with honest handling of
+      what the evidence does not contain?
+
+    rubric: |
+      Assess the lineage between the derived outputs and the evidence in
+      the report.
+
+      Where evidence lives: answers cite retrieved documents inline with
+      bracketed markers such as [Document 1]; these resolve to the
+      numbered "Sources" list under each question. Statements about what
+      the documents do NOT contain are negative evidence and count as
+      honest grounding. In other report formats, a pre-retrieved evidence
+      packet shows what retrieval existed. You are NOT required to verify
+      individual excerpts; assess lineage.
+
+      Scoring guidance:
+
+        null (not scoreable):
+          The report contains NO retrieval of any kind (no cited answers,
+          no evidence packet). This capability is absent by construction;
+          output null for the score, not a number.
+
+        0-2:
+          Retrieval exists in the report but the derived outputs ignore
+          it: values are not traceable to any cited answer or packet
+          content, or citations do not resolve.
+
+        3-4:
+          A minority of the load-bearing values trace to evidence, or
+          lineage is present but repeatedly broken: values declared
+          missing from the documents nonetheless appear as specific
+          numbers (fabrication), or outputs contradict quoted evidence.
+
+        5-6:
+          A majority of the load-bearing values trace to cited evidence
+          or honest assumptions; remaining gaps and untraceable values
+          are limited and identifiable.
+
+        7-8:
+          Nearly all load-bearing values are traceable or explicitly
+          flagged as assumptions; negative evidence is carried honestly
+          into the outputs.
+
+        9-10:
+          Complete, transparent lineage: every quantitative requirement
+          is cited, derived, or declared an assumption, with no
+          fabrication anywhere.
+
+      Credit intact lineage first: score by the fraction of load-bearing
+      values that trace to cited evidence, resolvable citations, honestly
+      declared negative evidence, or explicitly labeled assumptions.
+
+      Fabricated values (declared missing, then quantified) are the most
+      serious grounding failure, but they cap the score rather than erase
+      the credit above: one or two isolated fabricated values cap this
+      score at 6; repeated fabrication across several load-bearing values
+      caps it at 4.5.
+
+      Use 0.5 increments when appropriate.
+
+
+  # ----------------------------------------------------------
+  # 6. INVESTIGATION QUALITY
+  # ----------------------------------------------------------
+
+  system1_investigation:
+    criterion_label: "Investigation quality"
+    short_name: "S1-Inv"
+    name: "System 1 — Investigation quality"
+    weight: 1.0
+
+    primary_question: |
+      Does the report show a genuine investigation: decomposition of the
+      problem into research questions, question-directed evidence
+      gathering across sources, honest assessment of what was and was not
+      answered, and synthesis of the findings into the requirements?
+
+    rubric: |
+      Assess the INVESTIGATION PROCESS visible in the report, not the
+      polish of the final list.
+
+      Give credit for:
+        - decomposing the substitution problem into distinct, purposeful
+          research questions;
+        - evidence gathered PER QUESTION, from multiple source types
+          where available (documents, patents, material databases,
+          knowledge-graph relationships);
+        - honest self-assessment (a question marked unanswered when the
+          evidence was insufficient is a strength, not a weakness);
+        - iteration or follow-up where first-pass evidence was
+          insufficient;
+        - final requirements that are recognizably synthesized FROM the
+          investigation's findings rather than emitted independently of
+          them.
+
+      Deduct when:
+        - questions are decorative: their answers are never used by the
+          synthesis, or the synthesis contradicts them;
+        - the investigation covers only a narrow slice of the problem;
+        - self-checks are dishonest (claimed answered without support).
+
+      Scoring guidance:
+
+        null (not scoreable):
+          The report contains NO investigation trace at all: no research
+          questions, no per-question evidence, no self-checks (for
+          example, a single direct generation, with or without a pasted
+          evidence packet). This capability is absent by construction;
+          output null for the score, not a number.
+
+        0-2:
+          A trace exists but is vacuous: questions unrelated to the
+          problem, no evidence behind answers, or self-checks that are
+          plainly false.
+
+        3-4:
+          A partial investigation: some purposeful questions or staged
+          analysis, but with little or no per-question evidence, or
+          findings largely disconnected from the final requirements.
+
+        5-6:
+          A real investigation with meaningful gaps: purposeful
+          questions and per-question evidence, but limited source
+          diversity, weak follow-up, or a synthesis that uses only part
+          of the findings.
+
+        7-8:
+          A strong investigation: well-chosen questions, evidence from
+          multiple source types, honest self-assessment, and a synthesis
+          that visibly builds on the findings.
+
+        9-10:
+          An exemplary investigation: comprehensive decomposition,
+          well-directed multi-source evidence, honest handling of
+          unanswered questions, and a synthesis faithful to all of it.
+
+      Use 0.5 increments when appropriate.
+
+
+output_instructions: |
+  For each dimension return:
+
+    - score:
+        Number from 0 to 10 in increments of 0.5, or null where the
+        dimension's guidance says the capability is absent by
+        construction.
+
+    - strengths:
+        1–3 concise observations specific to this criterion.
+
+    - weaknesses:
+        1–3 concise observations describing the most important limitations
+        specific to this criterion.
+
+    - rationale:
+        Brief explanation of why the strengths and weaknesses justify the score.
+
+    - confidence:
+        "high", "medium", or "low".
+
+  Refer to relevant research questions, findings, derived properties, or hard
+  constraints when useful.
+
+  Do not mechanically repeat the same criticism across dimensions.
+
+  Do not calculate an overall score or subsystem average.
+
+  Keep the evaluation concise.
+
+
+output_schema: |
+  {
+    "system1_completeness": {
+      "score": 0.0,
+      "strengths": [],
+      "weaknesses": [],
+      "rationale": "",
+      "confidence": "high"
+    },
+    "system1_scientific": {
+      "score": 0.0,
+      "strengths": [],
+      "weaknesses": [],
+      "rationale": "",
+      "confidence": "high"
+    },
+    "system1_grounding": {
+      "score": 0.0,
+      "strengths": [],
+      "weaknesses": [],
+      "rationale": "",
+      "confidence": "high"
+    },
+    "system1_investigation": {
+      "score": 0.0,
+      "strengths": [],
+      "weaknesses": [],
+      "rationale": "",
+      "confidence": "high"
+    }
+  }

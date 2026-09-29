@@ -1,0 +1,576 @@
+# ============================================================
+# SYSTEM 2 EVALUATION RUBRIC
+# Grounded Candidate Discovery
+# ============================================================
+
+score_min: 0
+score_max: 10
+score_step: 0.5
+
+
+# ============================================================
+# SCORE SCALE
+# ============================================================
+
+ordinal_scale_lines:
+  - "0–2 — Poor: the capability is absent or largely ineffective."
+  - "3–4 — Weak: some useful behavior is present, but the capability is substantially limited."
+  - "5 — Adequate: the capability works partially but inconsistently."
+  - "6 — Good: the capability clearly works and is useful, despite notable correctable issues."
+  - "7 — Strong: the capability works well overall; remaining weaknesses are localized."
+  - "8 — Very strong: the capability is consistently effective with limited substantive weaknesses."
+  - "9–10 — Excellent: exceptionally effective, with only minor or no substantive deficiencies."
+  - "Use 0.5 increments when appropriate."
+  - "Do not target a predetermined score distribution."
+
+
+# ============================================================
+# EVALUATION FRAME
+# ============================================================
+
+evaluation_principles: |
+  Evaluate System 2 as an iterative material-candidate discovery system.
+
+  Use the complete trace when available, including:
+    - System 1 requirements;
+    - candidate proposals;
+    - retrieved RAG evidence;
+    - validation questions;
+    - rejection decisions;
+    - failure summaries;
+    - later candidate revisions;
+    - and the final candidate.
+
+  System 2 is responsible for candidate discovery and evaluation.
+  Detailed manufacturing and process design belong to System 3 and should not
+  affect these scores.
+
+  SCORE THE CAPABILITY FIRST.
+
+  First determine whether the capability measured by the metric is:
+    - absent,
+    - weak,
+    - functional,
+    - strong,
+    - or exceptional.
+
+  A clearly functional capability should normally fall in the 6–8 range.
+
+  Local technical errors should receive proportional deductions only when they
+  undermine the specific capability being scored.
+
+  Do not start from 10 and subtract points for every mistake.
+
+  Do not double-count the same issue across metrics.
+
+  Important metric boundaries:
+
+    - Requirement Alignment:
+        Does the requirement set guide the workflow?
+        It does not measure final proof of compliance.
+
+    - Adversarial Verification:
+        Was the candidate interrogated by checks independent of the proposal,
+        with verdicts grounded in evidence or explicit negative evidence?
+        It does not measure whether the candidate is good.
+
+    - Candidate Anchoring:
+        Is the candidate a specific, procurable material whose identity and
+        claimed properties are supported by inventory or datasheet evidence
+        inside the report?
+        It does not measure novelty or final performance.
+
+    - Adaptive Reasoning:
+        Does feedback change later candidate proposals along the named
+        failure axis?
+        It does not require the revised candidate to solve every previous problem.
+
+  Missing evidence is not automatically failure.
+
+  A rejected candidate is not a system failure when the rejection produces
+  useful information for later iterations.
+
+  SINGLE-ITERATION RUNS.
+
+  When System 2 accepts its FIRST proposed candidate, there are no rejections,
+  no failure summaries, and no revisions. The exploration and adaptation
+  capabilities are then NOT EXERCISED, not absent: the run gave them no
+  opportunity to appear. Accepting the first candidate must be neither
+  punished nor rewarded on those metrics; score them as null (see the
+  dimension texts and output instructions).
+
+  SINGLE-CALL REPORTS.
+
+  When a report is a single direct generation (no proposal loop, no
+  constraint gates, no validation questions), the verification and
+  adaptation machinery is ABSENT BY CONSTRUCTION, not merely unexercised.
+  Score system2_verification and system2_adaptation as null for such
+  reports. Candidate anchoring IS still scoreable: a grade named from
+  memory with no supporting evidence in the report is weak anchoring, not
+  a missing capability.
+
+  Use the supplied trace as the primary basis for scoring. External knowledge
+  should not dominate the evaluation.
+
+
+# ============================================================
+# DIMENSIONS
+# ============================================================
+
+dimensions:
+
+
+  # ----------------------------------------------------------
+  # 1. REQUIREMENT ALIGNMENT
+  # ----------------------------------------------------------
+
+  system2_alignment:
+    criterion_label: "Requirement alignment"
+    short_name: "S2-Algn"
+    name: "System 2 — Requirement alignment"
+    weight: 1.0
+
+    primary_question: |
+      Do the System 1 requirements actively guide candidate generation,
+      validation, rejection, and comparison throughout System 2?
+
+    rubric: |
+      Evaluate whether the REQUIREMENTS GUIDE THE DISCOVERY PROCESS.
+
+      This metric measures alignment of the workflow with the System 1 requirement
+      set. It does NOT primarily measure whether the final candidate ultimately
+      satisfies every requirement.
+
+      Give strong credit when:
+        - candidate proposals are motivated by System 1 requirements;
+        - validation questions directly examine important target properties;
+        - rejection decisions refer to requirement violations or unresolved gaps;
+        - later proposals respond to requirement-related failures;
+        - the final candidate is explicitly assessed against the requirement set.
+
+      The central question is:
+
+        "Are the requirements visibly influencing what System 2 proposes,
+         validates, rejects, and compares?"
+
+      If yes, requirement alignment is strong.
+
+      Do NOT substantially lower this score because:
+        - a requirement remains unverified;
+        - candidate-specific evidence is missing;
+        - the final candidate may not actually satisfy a requirement;
+        - the final feasibility verdict is overly optimistic;
+        - one hard constraint is applied inconsistently;
+        - unresolved requirements remain at final selection.
+
+      These issues concern evidence quality, feasibility judgment, or scientific
+      correctness. They should affect Requirement Alignment only when they show
+      that the requirement itself no longer guides the discovery process.
+
+      Lower this score substantially only when:
+        - major requirements are absent from candidate reasoning;
+        - validation questions ignore important user priorities;
+        - rejection decisions are largely disconnected from the requirements;
+        - later candidate proposals do not reflect important requirement-related
+          failures;
+        - the workflow drifts toward properties unrelated to the stated task.
+
+      Scoring guidance:
+
+        0–2:
+          Requirements have little meaningful influence on discovery.
+
+        3–4:
+          Several major requirements are largely ignored.
+
+        5:
+          Requirements influence the workflow, but important categories are
+          inconsistently represented.
+
+        6:
+          Requirements clearly guide much of the workflow, though coverage or use
+          is uneven.
+
+        7:
+          Major requirements clearly guide candidate generation, validation,
+          rejection, and final assessment.
+
+        8:
+          Requirement guidance is strong and consistent across nearly every stage
+          of the discovery process.
+
+        9–10:
+          Requirement alignment is exceptionally systematic and comprehensive.
+
+      Calibration:
+        If the major System 1 requirements repeatedly appear in:
+          - candidate rationales;
+          - validation questions;
+          - rejection decisions;
+          - later candidate revisions;
+          - and final candidate assessment,
+
+        then the score should generally be in the 7–8 range.
+
+        Final candidate compliance should NOT be the primary basis for reducing
+        this metric.
+
+        A hard-constraint inconsistency should meaningfully reduce this score only
+        if it demonstrates that the constraint stopped influencing candidate
+        discovery or evaluation.
+
+      Use 0.5 increments when appropriate.
+
+
+    # ----------------------------------------------------------
+    # 2. ADVERSARIAL VERIFICATION
+    # ----------------------------------------------------------
+
+  system2_verification:
+    criterion_label: "Adversarial verification"
+    short_name: "S2-Verif"
+    name: "System 2 — Adversarial verification"
+    weight: 1.0
+
+    primary_question: |
+      Was each proposed candidate interrogated by checks independent of the
+      proposal itself, and were accept/reject verdicts grounded in retrieved
+      evidence or explicit negative evidence rather than in the proposal's
+      own claims?
+
+    rubric: |
+      Evaluate the VERIFICATION MACHINERY, not the quality of the candidate.
+
+      Where verification lives in these reports: constraint gates applied to
+      each proposal (for example a compositional PFAS check with a tie-break
+      re-query), candidate-specific validation questions, per-question
+      retrieved evidence, and structured feasibility verdicts that name the
+      constraints they rest on.
+
+      Give credit when:
+        - the checks are INDEPENDENT: they re-examine the proposal's claims
+          rather than restating them, and they are able to contradict the
+          proposal (a gate that overrules a proposal's own compositional or
+          compliance claim is the clearest positive signal);
+        - validation questions target the load-bearing claims and hard
+          constraints of that specific candidate;
+        - answers state honestly what the retrieved evidence does NOT
+          contain, and that negative evidence is carried into the verdict;
+        - verdicts quote supporting or negative evidence and name the
+          constraint at stake;
+        - a hard constraint that cannot be verified from evidence BLOCKS
+          acceptance (fail-closed) instead of being assumed satisfied.
+
+      The overturn signal: verification that never disagrees with,
+      qualifies, or blocks any claim across the whole run is weak evidence
+      that checking actually occurred; credit gates that visibly bite.
+
+      Serious failures:
+        - FABRICATED VERIFICATION: a proposal or verdict asserting
+          certifications, laboratory reports, or third-party tests that
+          appear nowhere in the retrieved evidence caps this score at 4.
+        - RUBBER-STAMPING: an acceptance verdict that ignores its own
+          negative evidence on a hard constraint caps this score at 5.
+
+      Do NOT lower this score because:
+        - verification found gaps or rejected candidates (that is the
+          machinery working);
+        - the corpora genuinely lack data and the answers say so ("no data
+          found" is functioning verification, not failure);
+        - the accepted candidate still carries open risks that the verdict
+          names honestly.
+
+      Scoring guidance:
+
+        null (not scoreable):
+          The report contains NO verification machinery: no constraint
+          gates, no validation questions, no evidence-based verdict (a
+          single direct generation). Output null for the score.
+
+        0-2:
+          Machinery exists but is decorative: questions unrelated to the
+          candidate's claims, answers never used, verdicts unconnected to
+          evidence.
+
+        3-4:
+          Checks run, but verdicts do not trace to the evidence, or
+          verification is asserted rather than performed (including
+          fabricated certifications).
+
+        5-6:
+          Functional verification with gaps: key claims tested against
+          evidence and verdicts mostly grounded, but some load-bearing
+          claims or constraints pass unexamined.
+
+        7-8:
+          Independent, evidence-quoting checks cover the load-bearing
+          claims; at least one check visibly bites; unverifiable hard
+          constraints block acceptance.
+
+        9-10:
+          Systematic per-claim verification with consistently grounded
+          verdicts across all iterations.
+
+      Use 0.5 increments when appropriate.
+
+
+    # ----------------------------------------------------------
+    # 3. CANDIDATE ANCHORING
+    # ----------------------------------------------------------
+
+  system2_anchoring:
+    criterion_label: "Candidate anchoring"
+    short_name: "S2-Anchor"
+    name: "System 2 — Candidate anchoring"
+    weight: 1.0
+
+    primary_question: |
+      Is the proposed material a specific, procurable candidate whose
+      identity and claimed properties are supported by inventory records or
+      datasheet evidence inside the report, rather than recalled from
+      parametric memory?
+
+    rubric: |
+      Evaluate PROCURABILITY AND IDENTITY CONSISTENCY of the final candidate
+      (and, for composites, each named component).
+
+      Where anchoring lives in these reports: database/catalog IDs attached
+      to proposed components, material-database chunks appearing in the
+      retrieved validation evidence, and datasheet-derived properties quoted
+      in answers.
+
+      Give credit when:
+        - components are specific procurable grades tied to an inventory ID
+          or datasheet evidence present in the report;
+        - the properties the justification claims for a component are
+          CONSISTENT with the in-report evidence about that component;
+        - for composites, the report distinguishes which component comes
+          from the inventory and which is external, and external components
+          are justified from retrieved sources;
+        - quantitative component claims trace to datasheet or retrieved
+          content rather than appearing from nowhere.
+
+      Deduct when:
+        - a component's IDENTITY is wrong relative to its own evidence (for
+          example a polyolefin elastomer described as a polyurethane): treat
+          identity misclassification as a substantive anchoring failure;
+        - properties are attributed to a named grade with no in-report
+          support, or contradict the retrieved datasheet content;
+        - naming is generic or ambiguous ("a transparent polyurethane") so
+          the material cannot actually be procured;
+        - the candidate is a real-sounding commercial grade recalled from
+          memory with NO supporting evidence anywhere in the report: this
+          is weak anchoring (score low), NOT a missing capability (do not
+          output null for it).
+
+      This metric is scoreable for every configuration.
+
+      Scoring guidance:
+
+        0-2:
+          No specific procurable identity, or the named material has no
+          support of any kind in the report.
+
+        3-4:
+          A specific grade is named, but its identity or claimed properties
+          are unverifiable from the report or contradicted by it.
+
+        5-6:
+          Anchored to inventory or datasheet evidence, with some
+          unsupported or inconsistent component-level claims.
+
+        7-8:
+          Anchored and consistent: identities correct, claimed properties
+          supported, inventory vs external components distinguished.
+
+        9-10:
+          Every component-level claim traceable to in-report evidence with
+          no identity or consistency errors.
+
+      Use 0.5 increments when appropriate.
+
+
+  # ----------------------------------------------------------
+  # 4. ADAPTIVE REASONING
+  # ----------------------------------------------------------
+
+  system2_adaptation:
+    criterion_label: "Adaptive reasoning"
+    short_name: "S2-Adapt"
+    name: "System 2 — Adaptive reasoning"
+    weight: 1.0
+
+    primary_question: |
+      When a problem is identified, does that feedback cause a meaningful change
+      in a later candidate proposal?
+
+    rubric: |
+      Evaluate FEEDBACK-DRIVEN CHANGE ACROSS ITERATIONS.
+
+      Look for the pattern:
+
+        problem identified
+        → lesson extracted
+        → later candidate changed
+
+      Give credit when:
+        - the change is along the NAMED failure axis: the next proposal
+          addresses the specific reason recorded in the previous rejection
+          or failure summary, not merely something different;
+        - problematic constituents are removed and rejected chemistries
+          avoided;
+        - the matrix, material family, filler, or architecture changes in
+          response to feedback;
+        - when a manufacturability (System 3) rejection returned blocking
+          constraints, a later proposal visibly incorporates them.
+
+      Adaptation measures behavioral change, not eventual success.
+
+      The revised candidate does NOT need to:
+        - solve every previous deficiency;
+        - eliminate all evidence gaps;
+        - satisfy every hard constraint;
+        - be scientifically flawless;
+        - or ultimately succeed.
+
+      A later candidate may contain new mistakes and still demonstrate successful
+      adaptation.
+
+      Lower the score substantially when failure feedback produces little
+      change, a later proposal REPEATS a failure mode already named in a
+      failure summary, rejected strategies are reused unchanged, or later
+      iterations proceed as though previous failures did not occur.
+
+      Scoring guidance:
+
+        0–2:
+          No meaningful feedback-driven change occurs.
+
+        3–4:
+          Feedback exists but has little effect on later proposals.
+
+        5:
+          At least one meaningful adaptation occurs.
+
+        6:
+          Multiple adaptations occur, though inconsistently.
+
+        7:
+          Failure feedback clearly and repeatedly changes subsequent candidates.
+
+        8:
+          Multiple iterations demonstrate strong feedback-driven changes in
+          material, chemistry, or architecture.
+
+        9–10:
+          Exceptionally consistent and effective adaptive behavior.
+
+      Calibration:
+        One clear feedback-driven candidate change demonstrates adaptation.
+
+        Multiple clear examples should generally support a score of 7–8.
+
+        Do not require every identified problem to be solved.
+
+      NOT EXERCISED / NOT SCOREABLE:
+        If the run contains only ONE candidate proposal (the first candidate
+        was accepted), no feedback loop ever ran and this capability was
+        never exercised. Return "score": null with a rationale stating that
+        adaptation was not exercised. Do not score it low for the absence of
+        iterations and do not score it high by default; a single-proposal run
+        is neither punished nor rewarded on this metric.
+
+        If the report is a single direct generation with no proposal loop at
+        all, the capability is absent by construction: also return
+        "score": null and say so in the rationale.
+
+      Use 0.5 increments when appropriate.
+
+
+# ============================================================
+# OUTPUT REQUIREMENTS
+# ============================================================
+
+output_instructions: |
+  Return one evaluation for each dimension.
+
+  For each dimension provide:
+
+    - score:
+        Number from 0 to 10 in increments of 0.5, or null when the dimension
+        text marks the capability as NOT EXERCISED for this run. A null score
+        is excluded from averages downstream; never substitute 0 or a guessed
+        value for an unexercised capability.
+
+    - strengths:
+        1–3 concise observations showing why the capability is functioning.
+
+    - weaknesses:
+        At most 1–2 concise observations describing the most important
+        limitations specific to that metric.
+
+    - rationale:
+        Brief explanation connecting the observed capability and limitations to
+        the score.
+
+    - confidence:
+        "high", "medium", or "low".
+
+  Scoring procedure:
+
+    1. Determine whether the capability is absent, weak, functional, strong,
+       or exceptional.
+    2. Select the corresponding score range.
+    3. Consider only weaknesses directly relevant to that metric.
+    4. Adjust within the range proportionally.
+
+  Do not:
+    - start from 10 and subtract for every mistake;
+    - enumerate every factual error;
+    - let the number of weaknesses determine the score;
+    - repeat the same criticism across metrics;
+    - evaluate System 3 manufacturing/process capabilities;
+    - require exhaustive candidate exploration;
+    - require complete experimental verification.
+
+  A functional capability with correctable execution errors should generally
+  fall in the 6–8 range.
+
+  Keep the evaluation concise.
+
+
+# ============================================================
+# OUTPUT SCHEMA
+# ============================================================
+
+output_schema: |
+  {
+    "system2_alignment": {
+      "score": 0.0,
+      "strengths": [],
+      "weaknesses": [],
+      "rationale": "",
+      "confidence": "high"
+    },
+    "system2_verification": {
+      "score": 0.0,
+      "strengths": [],
+      "weaknesses": [],
+      "rationale": "",
+      "confidence": "high"
+    },
+    "system2_anchoring": {
+      "score": 0.0,
+      "strengths": [],
+      "weaknesses": [],
+      "rationale": "",
+      "confidence": "high"
+    },
+    "system2_adaptation": {
+      "score": null,
+      "strengths": [],
+      "weaknesses": [],
+      "rationale": "",
+      "confidence": "high"
+    }
+  }
