@@ -27,6 +27,10 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 PROJECT_ROOT = HERE.parent
+# Default to the dummy material database shipped with the repository; export
+# MARS_MATERIAL_DB to point the System 2 report at another database.
+os.environ.setdefault("MARS_MATERIAL_DB", str(
+    PROJECT_ROOT / "data/MARS_Data/MaterialDB_paper/internal_material_database.json"))
 for p in (HERE, PROJECT_ROOT / "scripts", PROJECT_ROOT):
     if str(p) not in sys.path:
         sys.path.insert(0, str(p))
