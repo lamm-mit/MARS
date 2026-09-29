@@ -1,7 +1,88 @@
 """Shared parsing utilities for LLM response processing."""
 
+import json
 import re
 from typing import List, Optional
+
+_INVALID_JSON_ESCAPE_RE = re.compile(r'\\(?!["\\/bfnrtu])')
+
+
+def json_loads_lenient(text: str):
+    """json.loads that survives the two most common local-LLM JSON defects.
+
+    Small instruction-tuned models (seen with gemma-4-E4B) emit backslash
+    escapes that are legal in Markdown or LaTeX but not in JSON (``\_``,
+    ``\(``, ``\%``) and sometimes raw newlines inside strings. Strict
+    parsing then aborts a multi-hour pipeline run on one answer. First try a
+    strict parse; on failure double every backslash that does not start a
+    valid JSON escape and allow control characters. Re-raise the original
+    error if that still fails so the caller's error message is unchanged.
+    """
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError as first_err:
+        repaired = _INVALID_JSON_ESCAPE_RE.sub(r"\\\\", text)
+        try:
+            return json.loads(repaired, strict=False)
+        except json.JSONDecodeError:
+            pass
+        # Third defect (seen with gemma-4-E4B in System 3 answers): a raw
+        # double quote inside a string value, e.g. "the "HEALTH+" grade",
+        # which strict parsing reports as "Expecting ',' delimiter".
+        try:
+            return json.loads(_escape_inner_quotes(repaired), strict=False)
+        except json.JSONDecodeError:
+            raise first_err
+
+
+def _escape_inner_quotes(text: str) -> str:
+    """Backslash-escape double quotes that sit inside JSON string values.
+
+    Walks the text tracking whether we are inside a string. A quote met
+    inside a string is a real closing quote only when the next non-space
+    character is structural (``,`` ``}`` ``]`` ``:``) and, for ``,``, the
+    token after it starts a new key or value. Anything else is treated as
+    an inner quote and escaped. Heuristic, so it is the last resort.
+    """
+    out = []
+    in_str = False
+    i, n = 0, len(text)
+    while i < n:
+        c = text[i]
+        if not in_str:
+            if c == '"':
+                in_str = True
+            out.append(c)
+            i += 1
+            continue
+        if c == "\\":
+            out.append(text[i:i + 2])
+            i += 2
+            continue
+        if c != '"':
+            out.append(c)
+            i += 1
+            continue
+        j = i + 1
+        while j < n and text[j] in " \t\r\n":
+            j += 1
+        nxt = text[j] if j < n else ""
+        closing = False
+        if nxt in ("}", "]", ":") or nxt == "":
+            closing = True
+        elif nxt == ",":
+            k = j + 1
+            while k < n and text[k] in " \t\r\n":
+                k += 1
+            after = text[k] if k < n else ""
+            closing = after in ('"', "{", "[", "-", "t", "f", "n") or after.isdigit()
+        if closing:
+            in_str = False
+            out.append(c)
+        else:
+            out.append('\\"')
+        i += 1
+    return "".join(out)
 
 
 def _get_parsing_config() -> dict:
@@ -11,6 +92,43 @@ def _get_parsing_config() -> dict:
         return load_config().get("utils", {}).get("parsing", {})
     except Exception:
         return {}
+
+
+_TABLE_SEP_RE = re.compile(r"^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?\s*$")
+
+
+def _parse_markdown_table_items(content: str) -> List[str]:
+    """If *content* contains a Markdown table, return one item per data row.
+
+    Row handling: header and ``|---|---|`` separator rows are dropped; a
+    leading cell that is purely numeric (an index column) is skipped; the
+    first remaining non-empty cell is the item.  Returns [] when no table
+    with at least two data rows is found so the caller falls through to
+    the ordinary list parser.
+    """
+    rows = []
+    for raw in content.split("\n"):
+        line = raw.strip()
+        if not line.startswith("|") or line.count("|") < 2:
+            continue
+        if _TABLE_SEP_RE.match(line):
+            rows.append(None)  # marks the header/body boundary
+            continue
+        cells = [c.strip().strip("*").strip() for c in line.strip("|").split("|")]
+        rows.append(cells)
+    if None in rows:
+        rows = rows[rows.index(None) + 1:]  # drop header row(s) before the separator
+    data_rows = [r for r in rows if r]
+    if len(data_rows) < 2:
+        return []
+    items: List[str] = []
+    for cells in data_rows:
+        if cells and re.fullmatch(r"\d+\.?", cells[0]):
+            cells = cells[1:]
+        pick = next((c for c in cells if c), "")
+        if pick:
+            items.append(pick)
+    return items
 
 
 def parse_to_list(content: str) -> List[str]:
@@ -31,6 +149,14 @@ def parse_to_list(content: str) -> List[str]:
         return [str(content)] if content else [""]
 
     content = content.strip()
+
+    # Markdown tables: take one cell per data row rather than gluing every
+    # row into a single item (the local model sometimes answers "list the
+    # keywords" with a | # | keyword | why | table).
+    table_items = _parse_markdown_table_items(content)
+    if table_items:
+        return table_items
+
     lines = content.split("\n")
     result: List[str] = []
     current_item: List[str] = []

@@ -82,7 +82,29 @@ Both call styles are supported.
 `langchain.text_splitter` → `langchain_text_splitters` (moved in langchain 0.1).
 This removes the need for the `sys.modules` shims in `build_kg.py`.
 
-### 5. Internal imports made relative
+### 5. `graph_generation.py` — fixed an undefined name in `add_new_subgraph_from_text`
+
+Upstream line 538 reads:
+
+```python
+if graph_GraphML_to_add==None and G_newlymade==None:  # make new if no existing one provided
+```
+
+`G_newlymade` is defined nowhere in the package — not a parameter, not assigned,
+not imported — so this line always raises `NameError`. A bare `except:` twelve
+lines below swallows it and prints `ALERT: Graph generation failed...for idx= 0`.
+
+For MARS the effect was cosmetic but misleading. `build_kg.py` calls this
+function with `original_graph=G` and `txt=''`, so the aborted branch had no work
+to do, and the merge that follows the `except` ran correctly. The message still
+made every successful merge look like a failure.
+
+The latent bug is real, though: any caller who passes `txt` and expects a graph
+to be extracted gets a silent no-op. The condition now tests `G_to_add`, the only
+other graph input the function accepts, which is what the inline comment
+describes. Worth reporting upstream.
+
+### 6. Internal imports made relative
 
 `from GraphReasoning.x import *` → `from .x import *`, so the vendored copy is
 self-contained and cannot accidentally resolve against a pip-installed
@@ -98,5 +120,5 @@ Re-run a small regression set before regenerating anything you depend on.
 ## Updating
 
 Do not `pip install --upgrade`. Re-vendor deliberately: copy the new upstream
-tree, re-apply the five modifications above, bump the commit hash here, and
+tree, re-apply the six modifications above, bump the commit hash here, and
 re-run the KG regression.

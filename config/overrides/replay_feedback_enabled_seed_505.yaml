@@ -1,0 +1,45 @@
+llm:
+  base_url: http://localhost:8081/v1
+  api_key: 'NULL'
+  model_name: gpt-oss-20b
+  temperature: 0
+  seed: 505
+data:
+  graphs:
+    kg_dir: ${MARS_KG_DIR}
+    material_properties:
+      graph_file: MatProp_62999.graphml
+      embedding_file: MatProp_62999_embeddings_nomic_v1_5.pkl
+    pfas:
+      graph_file: PFAS_4612.graphml
+      embedding_file: PFAS_embeddings_nomic_v1_5.pkl
+    patents:
+      graph_file: Patent_13654_US.graphml
+      embedding_file: Patent_13654_embeddings_nomic_v1_5.pkl
+  chromadb:
+    base_path: ${MARS_CHROMA_DIR}
+    pfas:
+      database_path: PFAS/chromaDB_PFAS
+      collection_name: SG_KG_PFASpapers
+    materialdb:
+      database_path: MaterialDB/chromaDB_MaterialDB
+      collection_name: null
+    patents:
+      database_path: Patents
+      collection_name: null
+    manufacturing_textbooks:
+      database_path: Textbooks/chromaDB_textbooks
+      collection_name: textbooks
+    spec_sheets:
+      database_path: SpecSheets/chromaDB_specsheets
+      collection_name: null
+      enabled: false
+  material_database:
+    path: ${MARS_MATERIAL_DB}
+pipelines:
+  replay:
+    system1_json: /home/palsubhadeep/Github/MARS/results_from_paper/Query1/artifacts/system1_2026041810_0.json
+    constraints_from: /home/palsubhadeep/Github/MARS/results_from_paper/Query1/artifacts/system2_2026041810_1.json
+    rejected_from: /home/palsubhadeep/Github/MARS/revision/feedback_replay/rejected_at_block.json
+  closed_loop:
+    propagate_s3_feedback: true

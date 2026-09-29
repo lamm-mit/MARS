@@ -43,6 +43,7 @@ from .utils import (
     llm,
     save_evaluation_export,
 )
+from .utils.human_review import wait_for_review, write_review_file
 
 from .vendor.graphreasoning import load_embeddings
 
@@ -189,6 +190,7 @@ def initialize(config: Optional[Dict[str, Any]] = None) -> MARSComponents:
         "base_url": llm_cfg["base_url"],
         "model": llm_cfg["model_name"],
         "max_tokens": llm_cfg["max_tokens"],
+        "seed": llm_cfg.get("seed"),
     })
     generate = llm_instance.generate_cli
     print("LLM wrapper initialized")
@@ -478,18 +480,30 @@ def run_query(
     s1_start = datetime.utcnow()
     pipeline_run["system1"]["start_time"] = s1_start.isoformat() + "Z"
 
-    system1_result = run_fixed_pipeline(
-        sentence=sentence, keywords=keywords,
-        analyst=analyst_s1, manager=manager_s1,
-        research_assistant=assistant_s1,
-        scientist=pfas_scientist_s1,
-        pfas_scientist=pfas_scientist_s1,
-        include_rag_context=s1_cfg["include_rag_context"],
-        max_items=s1_cfg["max_items"],
-        temperature=config["llm"]["temperature"],
-        n_results=s1_cfg["n_results"],
-        chat_logger=chat_logger_s1,
-    )
+    # Replay mode (config: pipelines.replay): start the closed loop from a stored
+    # System 1 output instead of re-running System 1, so that ablations of the
+    # System 2 <-> System 3 loop begin from an identical requirement state.
+    replay_cfg = config["pipelines"].get("replay", {}) or {}
+    if replay_cfg.get("system1_json"):
+        with open(replay_cfg["system1_json"], encoding="utf-8") as f:
+            system1_result = json.load(f)
+        system1_result.setdefault("sentence", sentence)
+        system1_result.setdefault("keywords", keywords)
+        print(f"Replay: System 1 output loaded from {replay_cfg['system1_json']} "
+              f"(System 1 not executed)", flush=True)
+    else:
+        system1_result = run_fixed_pipeline(
+            sentence=sentence, keywords=keywords,
+            analyst=analyst_s1, manager=manager_s1,
+            research_assistant=assistant_s1,
+            scientist=pfas_scientist_s1,
+            pfas_scientist=pfas_scientist_s1,
+            include_rag_context=s1_cfg["include_rag_context"],
+            max_items=s1_cfg["max_items"],
+            temperature=config["llm"]["temperature"],
+            n_results=s1_cfg["n_results"],
+            chat_logger=chat_logger_s1,
+        )
 
     s1_end = datetime.utcnow()
     s1_dur = (s1_end - s1_start).total_seconds()
@@ -501,6 +515,18 @@ def run_query(
 
     extracted_keywords = system1_result.get("extracted_keywords", []) or []
     extracted_constraints = system1_result.get("extracted_constraints", []) or []
+    if replay_cfg.get("constraints_from"):
+        # Initial constraint set U_1 taken from a stored System 2 artifact
+        # ("constraints" field), e.g. the cumulative set after a System 3 block.
+        with open(replay_cfg["constraints_from"], encoding="utf-8") as f:
+            extracted_constraints = list(json.load(f).get("constraints", []) or [])
+        print(f"Replay: initial constraint set ({len(extracted_constraints)} items) loaded from "
+              f"{replay_cfg['constraints_from']}", flush=True)
+    if replay_cfg.get("rejected_from"):
+        # Pre-seed the rejection record so the loop resumes from a stored state.
+        import shutil
+        shutil.copy(replay_cfg["rejected_from"], os.path.join(artifacts_dir, "rejected_candidates.json"))
+        print(f"Replay: rejection record seeded from {replay_cfg['rejected_from']}", flush=True)
     properties_W = {"required": extracted_keywords, "target_values": {}}
 
     # Save System 1 output
@@ -528,6 +554,81 @@ def run_query(
 
     print(f"System 1 complete — {len(extracted_keywords)} properties, "
           f"{len(extracted_constraints)} constraints ({s1_dur:.0f}s)")
+
+    # Zero extracted properties means an upstream failure (LLM server down,
+    # extraction call failed), not a legitimately empty answer. Fail fast
+    # instead of presenting an empty review file and a doomed System 2.
+    if not extracted_keywords:
+        raise RuntimeError(
+            "System 1 extracted 0 properties; aborting before review/System 2. "
+            "Check the LLM server and re-run this query."
+        )
+
+    # =========================================================================
+    # Human-in-the-loop review gate (optional, config: pipelines.human_review)
+    # =========================================================================
+    hr_cfg = config["pipelines"].get("human_review", {}) or {}
+    hr_outcome: Dict[str, Any] = {
+        "enabled": bool(hr_cfg.get("enabled", False)),
+        "status": "disabled",
+    }
+    if hr_outcome["enabled"]:
+        review_path = os.path.join(artifacts_dir, "human_review.md")
+        write_review_file(
+            review_path,
+            query_name=query.get("name", "query"),
+            constraints=extracted_constraints,
+            properties=extracted_keywords,
+        )
+        hr_poll = float(hr_cfg.get("poll_interval_seconds", 15))
+        hr_timeout = float(hr_cfg.get("timeout_seconds", 1800))
+        # flush=True throughout the gate: stdout is block-buffered when piped
+        # (e.g. through tee), and these prints precede a long silent sleep.
+        print(flush=True)
+        print("=" * 70, flush=True)
+        print("HUMAN REVIEW REQUIRED", flush=True)
+        print(f"Edit:  {review_path}", flush=True)
+        print(f"Set 'Status: APPROVED' in that file to continue "
+              f"(timeout {hr_timeout:.0f}s, polling every {hr_poll:.0f}s)", flush=True)
+        print("=" * 70, flush=True)
+        hr_start = time.monotonic()
+        review = wait_for_review(review_path, poll_interval=hr_poll, timeout=hr_timeout)
+        hr_duration = time.monotonic() - hr_start
+        if review is None:
+            print("Expert review skipped (timeout or unparseable file); "
+                  "proceeding with original System 1 output", flush=True)
+            hr_outcome.update({"status": "timeout", "duration_seconds": hr_duration})
+        else:
+            n_props_before = len(extracted_keywords)
+            extracted_keywords = review.properties
+            extracted_constraints = review.final_constraints
+            # Rebuild rather than mutate: the original extraction stays
+            # untouched in s1_payload / system1_<id>.json.
+            properties_W = {"required": extracted_keywords, "target_values": {}}
+            hr_outcome.update({
+                "status": "approved",
+                "duration_seconds": hr_duration,
+                "constraints_removed": review.constraints_removed,
+                "properties_removed": n_props_before - len(review.properties),
+                "properties_promoted": len(review.promoted),
+                "constraints_added": len(review.added),
+            })
+            # An expert may remove every constraint; System 2 still auto-inserts
+            # the PFAS constraint (material_discovery.py), so the loop is never
+            # fully unconstrained.
+            print(f"Expert review applied: {len(extracted_constraints)} constraints "
+                  f"({review.constraints_removed} removed, {len(review.promoted)} promoted, "
+                  f"{len(review.added)} added), {len(extracted_keywords)} properties",
+                  flush=True)
+            hr_result_path = os.path.join(artifacts_dir, "human_review_result.json")
+            with open(hr_result_path, "w", encoding="utf-8") as f:
+                json.dump({
+                    **hr_outcome,
+                    "reviewed_constraints": extracted_constraints,
+                    "reviewed_properties": extracted_keywords,
+                    "timestamp": datetime.utcnow().isoformat() + "Z",
+                }, f, indent=2, ensure_ascii=False)
+    pipeline_run["system1"]["human_review"] = hr_outcome
 
     # =========================================================================
     # System 2 <-> System 3 loop
@@ -565,6 +666,11 @@ def run_query(
         manager_s2 = ResearchManager(
             name="research_manager", system_message=None,
             generate_fn=c.generate, chat_logger=chat_logger_s2,
+        )
+        # ResearchManager reads the base config on its own; the effective
+        # (override + CLI) value must be pushed in explicitly.
+        manager_s2.itemized_property_check = bool(
+            config["pipelines"]["material_discovery"].get("itemized_property_check", False)
         )
 
         s2_start = datetime.utcnow()
@@ -763,7 +869,16 @@ def run_query(
                 fc = f"S3 feedback: {feedback[:220]}"
                 if fc.lower() not in existing_norm:
                     new_constraints.append(fc)
-            constraints_U.extend(new_constraints)
+            # Ablation switch (config: pipelines.closed_loop.propagate_s3_feedback):
+            # when false, System 3's blocking constraints are recorded but not
+            # added to the constraint set seen by System 2 (U_{t+1} = U_t); the
+            # rejection record is still updated by System 3.
+            propagate = (config["pipelines"].get("closed_loop", {}) or {}).get("propagate_s3_feedback", True)
+            if propagate:
+                constraints_U.extend(new_constraints)
+            else:
+                print(f"  Feedback propagation disabled: {len(new_constraints)} blocking constraint(s) "
+                      f"recorded but not added to U", flush=True)
 
     # =========================================================================
     # Finalize pipeline_run and save

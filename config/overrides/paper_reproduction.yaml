@@ -39,7 +39,9 @@ data:
       collection_name: null
     manufacturing_textbooks:
       database_path: "Textbooks/chromaDB_textbooks"
-      collection_name: null
+      # Pinned explicitly: with null the runner takes list_collections()[0], which binds to an
+      # arbitrary collection if the directory ever holds more than one.
+      collection_name: "textbooks"
     spec_sheets:
       database_path: "SpecSheets/chromaDB_specsheets"
       collection_name: null

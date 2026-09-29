@@ -599,13 +599,31 @@ def run_manufacturability_assessment_pipeline(
                     conditions = "; ".join(str(c) for c in conditions)
                 elif conditions is not None and not isinstance(conditions, str):
                     conditions = str(conditions)
-                
+
+                # Coerce equipment_class to a string (model may return a list)
+                equipment_class = s.get("equipment_class")  # Optional field
+                if isinstance(equipment_class, list):
+                    equipment_class = "; ".join(str(e) for e in equipment_class)
+                elif equipment_class is not None and not isinstance(equipment_class, str):
+                    equipment_class = str(equipment_class)
+
+                # Coerce inputs to a list of strings (model may return a str/dict)
+                inputs = s.get("inputs")  # Optional field
+                if isinstance(inputs, str):
+                    inputs = [inputs]
+                elif isinstance(inputs, dict):
+                    inputs = [f"{k}: {v}" for k, v in inputs.items() if v is not None]
+                elif isinstance(inputs, list):
+                    inputs = [str(i) for i in inputs]
+                elif inputs is not None:
+                    inputs = [str(inputs)]
+
                 steps.append(ProcessStep(
                     step_index=step_index,
                     description=description,
                     conditions=conditions,
-                    equipment_class=s.get("equipment_class"),  # Optional field
-                    inputs=s.get("inputs"),  # Optional field
+                    equipment_class=equipment_class,
+                    inputs=inputs,
                 ))
             else:
                 raise ValueError(

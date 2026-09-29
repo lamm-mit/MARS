@@ -40,7 +40,7 @@ from src.utils import (
 )
 from src.agents import ResearchAnalyst, ResearchScientist
 
-ALL_CONDITIONS = ["3agent", "1agent_rag", "1agent_no_rag", "1agent_no_rag_openai"]
+ALL_CONDITIONS = ["3agent", "3agent_rag", "1agent_rag", "1agent_no_rag", "1agent_no_rag_openai"]
 
 DEFAULT_OPENAI_MODEL = "gpt-5.4"
 
@@ -48,19 +48,37 @@ DEFAULT_OPENAI_MODEL = "gpt-5.4"
 # ---------------------------------------------------------------------------
 # Condition 1: 3-agent sequential (no RAG/KG)
 # ---------------------------------------------------------------------------
-def run_3agent_ablation(query, generate_fn, ablation_prompts, temperature=0):
-    """Three separate LLM calls (property extraction -> candidate -> mfg)."""
+def run_3agent_ablation(query, generate_fn, ablation_prompts, temperature=0,
+                        context=None, context_manifest=None):
+    """Three separate LLM calls (property extraction -> candidate -> mfg).
+
+    With `context` set (condition 3agent_rag), the SAME pre-retrieved RAG+KG
+    packet used by 1agent_rag is appended to each stage's user prompt; the
+    three prompts and the chaining are otherwise identical to 3agent, so
+    the two conditions differ only in grounding.
+    """
     raw_responses = {}
     start_time = time.time()
+    condition_name = "3agent_rag" if context else "3agent"
+
+    def _with_context(usr_prompt):
+        if not context:
+            return usr_prompt
+        return (
+            usr_prompt
+            + "\n\nRetrieved Context (RAG documents and knowledge-graph results "
+              "for the substitution query):\n"
+            + context
+        )
 
     # Agent 1 — property extraction
     print("  Agent 1: Property Extraction…")
     a1_sys = ablation_prompts["agent1_properties"]
-    a1_usr = ablation_prompts["agent1_properties_user_prompt"].format(
+    a1_usr = _with_context(ablation_prompts["agent1_properties_user_prompt"].format(
         sentence=query["sentence"],
         material_X=query["material_X"],
         application_Y=query["application_Y"],
-    )
+    ))
     a1_raw = generate_fn(system_prompt=a1_sys, prompt=a1_usr, temperature=temperature)
     raw_responses["agent1_properties"] = a1_raw
     a1_parsed = extract_json_from_response(a1_raw)
@@ -73,12 +91,12 @@ def run_3agent_ablation(query, generate_fn, ablation_prompts, temperature=0):
     # Agent 2 — material discovery
     print("  Agent 2: Material Discovery…")
     a2_sys = ablation_prompts["agent2_candidate"]
-    a2_usr = ablation_prompts["agent2_candidate_user_prompt"].format(
+    a2_usr = _with_context(ablation_prompts["agent2_candidate_user_prompt"].format(
         material_X=query["material_X"],
         application_Y=query["application_Y"],
         properties_json=json.dumps(properties, indent=2),
         constraints_json=json.dumps(constraints, indent=2),
-    )
+    ))
     a2_raw = generate_fn(system_prompt=a2_sys, prompt=a2_usr, temperature=temperature)
     raw_responses["agent2_candidate"] = a2_raw
     a2_parsed = extract_json_from_response(a2_raw)
@@ -90,14 +108,14 @@ def run_3agent_ablation(query, generate_fn, ablation_prompts, temperature=0):
     # Agent 3 — manufacturability
     print("  Agent 3: Manufacturability…")
     a3_sys = ablation_prompts["agent3_manufacturing"]
-    a3_usr = ablation_prompts["agent3_manufacturing_user_prompt"].format(
+    a3_usr = _with_context(ablation_prompts["agent3_manufacturing_user_prompt"].format(
         material_name=candidate.get("material_name", "UNKNOWN"),
         material_class=candidate.get("material_class", "unknown"),
         application_Y=query["application_Y"],
         justification=candidate.get("justification", ""),
         properties_json=json.dumps(properties, indent=2),
         constraints_json=json.dumps(constraints, indent=2),
-    )
+    ))
     a3_raw = generate_fn(system_prompt=a3_sys, prompt=a3_usr, temperature=temperature)
     raw_responses["agent3_manufacturing"] = a3_raw
     a3_parsed = extract_json_from_response(a3_raw)
@@ -109,10 +127,15 @@ def run_3agent_ablation(query, generate_fn, ablation_prompts, temperature=0):
     manufacturing = a3_parsed
     print(f"    Status: {manufacturing.get('status', 'unknown')}")
 
+    if context:
+        raw_responses["retrieved_context_chars"] = len(context)
+        raw_responses["retrieved_context"] = context
+        raw_responses["retrieval_manifest"] = context_manifest
+
     return build_ablation_evaluation(
         query=query, properties=properties, constraints=constraints,
         candidate=candidate, manufacturing=manufacturing,
-        condition_name="3agent",
+        condition_name=condition_name,
         run_id=datetime.now().strftime("%Y%m%d%H"),
         duration_seconds=time.time() - start_time,
         raw_responses=raw_responses,
@@ -123,8 +146,13 @@ def run_3agent_ablation(query, generate_fn, ablation_prompts, temperature=0):
 # Condition 2: 1-agent + RAG/KG
 # ---------------------------------------------------------------------------
 def _pre_retrieve_context(query, rag_analysts, scientists, material_db):
-    """Retrieve RAG + KG context using the raw query."""
+    """Retrieve RAG + KG context using the raw query.
+
+    Returns (context_text, manifest) where manifest records the retrieved
+    document ids and KG hit counts so the run artifact stays auditable.
+    """
     context_parts = []
+    manifest = {"rag": {}, "kg": {}, "material_db_entries": 0}
     sentence = query["sentence"]
     keywords = [query["material_X"], query["application_Y"]]
 
@@ -133,20 +161,28 @@ def _pre_retrieve_context(query, rag_analysts, scientists, material_db):
             result = analyst.analyze_question(sentence)
             rag_results = result.get("rag_results", [])
             context_parts.append(format_rag_results_for_prompt(rag_results, source_name))
+            manifest["rag"][source_name] = [d.get("id") for d in rag_results]
             print(f"    RAG [{source_name}]: {len(rag_results)} documents")
         except Exception as e:
             print(f"    RAG [{source_name}]: Error — {e}")
             context_parts.append(f"[{source_name}]: Retrieval failed.\n")
+            manifest["rag"][source_name] = None
 
     for kg_name, scientist in scientists.items():
         try:
             kg_result = scientist.find_connections(keywords)
             context_parts.append(format_kg_results_for_prompt(kg_result, kg_name))
+            manifest["kg"][kg_name] = {
+                "matched_nodes": len(kg_result.get("matched_node_ids", [])),
+                "found_paths": len(kg_result.get("found_paths", [])),
+                "matched_node_ids_sample": list(kg_result.get("matched_node_ids", []))[:20],
+            }
             print(f"    KG [{kg_name}]: {len(kg_result.get('matched_node_ids', []))} nodes, "
                   f"{len(kg_result.get('found_paths', []))} paths")
         except Exception as e:
             print(f"    KG [{kg_name}]: Error — {e}")
             context_parts.append(f"[{kg_name} KG]: Connection search failed.\n")
+            manifest["kg"][kg_name] = None
 
     mat_lines = ["--- Available Materials Database ---"]
     for mat in material_db.materials:
@@ -154,7 +190,8 @@ def _pre_retrieve_context(query, rag_analysts, scientists, material_db):
         mat_class = mat.get("material_class", "")
         mat_lines.append(f"- {mat_name} ({mat_class})")
     context_parts.append("\n".join(mat_lines))
-    return "\n\n".join(context_parts)
+    manifest["material_db_entries"] = len(material_db.materials)
+    return "\n\n".join(context_parts), manifest
 
 
 def run_1agent_rag_ablation(query, generate_fn, ablation_prompts, rag_analysts,
@@ -164,7 +201,9 @@ def run_1agent_rag_ablation(query, generate_fn, ablation_prompts, rag_analysts,
     start_time = time.time()
 
     print("  Pre-retrieving context…")
-    context = _pre_retrieve_context(query, rag_analysts, scientists, material_db)
+    context, retrieval_manifest = _pre_retrieve_context(
+        query, rag_analysts, scientists, material_db
+    )
     print(f"  Context retrieved ({len(context)} chars, {time.time() - start_time:.1f}s)")
 
     print("  Running single-agent LLM call…")
@@ -178,6 +217,10 @@ def run_1agent_rag_ablation(query, generate_fn, ablation_prompts, rag_analysts,
     raw = generate_fn(system_prompt=sys_prompt, prompt=usr_prompt, temperature=temperature)
     raw_responses["single_agent"] = raw
     raw_responses["retrieved_context_chars"] = len(context)
+    # Keep the evidence auditable: the paper runs stored only the char
+    # count, which makes grounding impossible to judge after the fact.
+    raw_responses["retrieved_context"] = context
+    raw_responses["retrieval_manifest"] = retrieval_manifest
 
     parsed = extract_json_from_response(raw) or {}
     rmp = parsed.get("required_material_properties", {})
@@ -402,6 +445,7 @@ def main():
         llm_instance = llm({
             "api_key": llm_cfg["api_key"], "base_url": llm_cfg["base_url"],
             "model": llm_cfg["model_name"], "max_tokens": llm_cfg["max_tokens"],
+            "seed": llm_cfg.get("seed"),
         })
         generate = llm_instance.generate_cli
     temperature = llm_cfg.get("temperature", 0)
@@ -417,16 +461,17 @@ def main():
         openai_llm_instance = llm({
             "api_key": api_key,
             "base_url": "https://api.openai.com/v1",
+            "seed": config["llm"].get("seed"),
             "model": args.openai_model,
             "max_tokens": args.openai_max_tokens,
         })
         openai_generate = openai_llm_instance.generate_cli
         print(f"OpenAI backend: model={args.openai_model}, max_tokens={args.openai_max_tokens}")
 
-    # Extra resources for 1agent_rag
+    # Extra resources for the grounded conditions
     rag_analysts = scientists = material_db = None
-    if "1agent_rag" in conditions:
-        print("Loading RAG/KG resources for 1agent_rag condition…")
+    if any(c in ("1agent_rag", "3agent_rag") for c in conditions):
+        print("Loading RAG/KG resources for grounded condition(s)…")
         rag_analysts, scientists, material_db = _init_rag_resources(config)
         print()
 
@@ -452,6 +497,16 @@ def main():
 
             if cond == "3agent":
                 result = run_3agent_ablation(query, generate, ablation_prompts, temperature)
+            elif cond == "3agent_rag":
+                print("  Pre-retrieving context (same packet as 1agent_rag)…")
+                ctx, manifest = _pre_retrieve_context(
+                    query, rag_analysts, scientists, material_db
+                )
+                print(f"  Context retrieved ({len(ctx)} chars)")
+                result = run_3agent_ablation(
+                    query, generate, ablation_prompts, temperature,
+                    context=ctx, context_manifest=manifest,
+                )
             elif cond == "1agent_rag":
                 result = run_1agent_rag_ablation(
                     query, generate, ablation_prompts,

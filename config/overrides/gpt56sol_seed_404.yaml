@@ -1,0 +1,41 @@
+llm:
+  base_url: https://api.openai.com/v1
+  api_key: ${OPENAI_API_KEY}
+  model_name: gpt-5.6-sol
+  temperature: 0
+  seed: 404
+data:
+  graphs:
+    kg_dir: ${MARS_KG_DIR}
+    material_properties:
+      graph_file: MatProp_62999.graphml
+      embedding_file: MatProp_62999_embeddings_nomic_v1_5.pkl
+    pfas:
+      graph_file: PFAS_4612.graphml
+      embedding_file: PFAS_embeddings_nomic_v1_5.pkl
+    patents:
+      graph_file: Patent_13654_US.graphml
+      embedding_file: Patent_13654_embeddings_nomic_v1_5.pkl
+  chromadb:
+    base_path: ${MARS_CHROMA_DIR}
+    pfas:
+      database_path: PFAS/chromaDB_PFAS
+      collection_name: SG_KG_PFASpapers
+    materialdb:
+      database_path: MaterialDB/chromaDB_MaterialDB
+      collection_name: null
+    patents:
+      database_path: Patents
+      collection_name: null
+    manufacturing_textbooks:
+      database_path: Textbooks/chromaDB_textbooks
+      collection_name: textbooks
+    spec_sheets:
+      database_path: SpecSheets/chromaDB_specsheets
+      collection_name: null
+      enabled: false
+  material_database:
+    path: ${MARS_MATERIAL_DB}
+pipelines:
+  material_discovery:
+    max_iterations: 10

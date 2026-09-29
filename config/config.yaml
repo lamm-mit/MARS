@@ -116,6 +116,11 @@ pipelines:
   material_discovery:
     max_iterations: 5
     temperature: 0
+    # When true, validate_feasibility asks for a SATISFIED/VIOLATED/NO_EVIDENCE
+    # verdict on EVERY property and constraint (auditable table per candidate)
+    # instead of letting the model pick 2-3 "critical" properties. The reject
+    # rule is unchanged (VIOLATED only); NO_EVIDENCE never rejects.
+    itemized_property_check: false
     batch_size: 30
     batch_nodes_for_llm_context: 10
     min_matches_for_multiple_grounding: 2
@@ -136,6 +141,12 @@ pipelines:
     max_process_families: 30
     num_feasibility_questions: 4
     temperature: 0
+  human_review:
+    # Pause after System 1 and wait for an expert to edit
+    # results/<Query>/artifacts/human_review.md and set Status: APPROVED.
+    enabled: false
+    poll_interval_seconds: 15
+    timeout_seconds: 1800  # skip review and continue if no approval in time
 
 schemas:
   max_evidence_content_length: 200

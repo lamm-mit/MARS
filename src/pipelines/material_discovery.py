@@ -19,7 +19,7 @@ from ..utils.dual_kg_subgraph import (
 from ..utils.subgraph_storage import SubgraphStorage
 from ..config import load_prompts, load_config
 from .material_requirements import _clean_extracted_keywords
-from ..utils.parsing import clean_material_name
+from ..utils.parsing import clean_material_name, json_loads_lenient
 
 
 def _req(d: Dict[str, Any], key: str, section: str = "") -> Any:
@@ -164,7 +164,7 @@ def extract_subgraph_insights(
             
             if json_start >= 0 and json_end > json_start:
                 json_str = response[json_start:json_end]
-                result = json.loads(json_str)
+                result = json_loads_lenient(json_str)
                 
                 # Extract classified nodes
                 batch_material_nodes = result.get('material_nodes', [])
@@ -463,6 +463,18 @@ def run_material_substitution_step(
     }
     
     return result
+
+
+def _summarize_item_verdicts(item_verdicts: List[Dict[str, Any]]) -> Dict[str, Dict[str, int]]:
+    """Count verdicts per kind so coverage (how many items had evidence) is auditable."""
+    summary: Dict[str, Dict[str, int]] = {}
+    for kind in ("constraint", "property"):
+        counts = {"SATISFIED": 0, "VIOLATED": 0, "NO_EVIDENCE": 0, "MISSING": 0}
+        for v in item_verdicts:
+            if v.get("kind") == kind:
+                counts[v.get("verdict", "MISSING")] = counts.get(v.get("verdict", "MISSING"), 0) + 1
+        summary[kind] = counts
+    return summary
 
 
 def run_material_discovery_pipeline(
@@ -1054,6 +1066,7 @@ def run_material_discovery_pipeline(
             is_feasible = feasibility_result.get("is_feasible", False)
             constraints_violated = feasibility_result.get("constraints_violated", [])
             reasoning = feasibility_result.get("reasoning", "")
+            item_verdicts = feasibility_result.get("item_verdicts", []) or []
             
             print(f"\n      Feasibility Assessment:")
             print(f"         Feasible: {'[YES]' if is_feasible else '[NO]'}")
@@ -1069,6 +1082,18 @@ def run_material_discovery_pipeline(
             else:
                 print(f"         [OK] No constraints violated")
             
+            verdict_summary = None
+            if item_verdicts:
+                verdict_summary = _summarize_item_verdicts(item_verdicts)
+                print(f"\n      Itemized check ({len(item_verdicts)} items):")
+                for kind in ("constraint", "property"):
+                    c = verdict_summary[kind]
+                    print(f"         {kind + 's':<12} satisfied={c['SATISFIED']:<3} violated={c['VIOLATED']:<3} "
+                          f"no_evidence={c['NO_EVIDENCE']:<3} missing={c['MISSING']}")
+                for v in item_verdicts:
+                    if v["verdict"] == "VIOLATED":
+                        print(f"           [VIOLATED] {v['id']}: {v['text'][:90]}  ({v['citation'] or 'no citation'})")
+            
             # Record iteration
             iteration_record = {
                 "iteration": iteration,
@@ -1077,7 +1102,9 @@ def run_material_discovery_pipeline(
                 "constraints_violated": constraints_violated,
                 "reasoning": reasoning,  # Full reasoning preserved for downstream analysis
                 "num_queries": len(validation_queries),
-                "num_evidence_docs": sum(ev.get("num_documents", 0) for ev in evidence_I)
+                "num_evidence_docs": sum(ev.get("num_documents", 0) for ev in evidence_I),
+                "item_verdicts": item_verdicts,
+                "item_verdict_summary": verdict_summary,
             }
             iteration_history.append(iteration_record)
             
@@ -1190,7 +1217,7 @@ def run_material_discovery_pipeline(
         "total_candidates_tested": len([h for h in iteration_history if h.get("candidate")])
     }
     
-    return {
+    result = {
         "success": False,
         "candidate": None,
         "iterations": max_iterations,
@@ -1201,4 +1228,16 @@ def run_material_discovery_pipeline(
         "iteration_history": iteration_history,
         "substitution_result": substitution_result
     }
+
+    # Save chat log on the exhausted path too; otherwise every System 2 LLM/RAG
+    # interaction of a failed run is lost, which is exactly when it is needed.
+    if chat_logger is not None:
+        try:
+            chat_log_path = chat_logger.save()
+            if chat_log_path:
+                result["chat_log_path"] = chat_log_path
+        except Exception as e:
+            logger.warning("Failed to save chat log: %s", e)
+
+    return result
 

@@ -62,6 +62,9 @@ class llm:
                 "If passing raw config['llm'], map 'model_name' to 'model' first."
             )
         self.max_tokens = llm_config["max_tokens"]
+        # Sampling seed forwarded on every request when set. llama.cpp honours
+        # it per-request; OpenAI treats it as best-effort determinism.
+        self.seed = llm_config.get("seed")
     
     def generate_cli(
         self,
@@ -135,6 +138,7 @@ class llm:
                             messages=messages,
                             temperature=temperature,
                             max_tokens=self.max_tokens,
+                            **({"seed": self.seed} if self.seed is not None else {}),
                         )
                     except Exception as e:
                         if _should_retry_completion_with_max_completion_tokens(e):
@@ -143,6 +147,7 @@ class llm:
                                 messages=messages,
                                 temperature=temperature,
                                 max_completion_tokens=self.max_tokens,
+                                **({"seed": self.seed} if self.seed is not None else {}),
                             )
                         else:
                             raise

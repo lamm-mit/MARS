@@ -2,6 +2,7 @@
 
 import itertools
 import json
+from ..utils.parsing import json_loads_lenient
 from typing import List, Dict, Any, Optional
 import numpy as np
 import networkx as nx
@@ -910,7 +911,7 @@ class ResearchScientist:
                 
                 if json_start >= 0 and json_end > json_start:
                     json_str = response[json_start:json_end]
-                    result = json.loads(json_str)
+                    result = json_loads_lenient(json_str)
                     
                     # Extract classified nodes
                     batch_material_nodes = result.get('material_nodes', [])

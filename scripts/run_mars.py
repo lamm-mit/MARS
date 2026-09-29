@@ -9,10 +9,19 @@ Usage:
 
 import argparse
 import sys
+import warnings
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
+
+# GraphReasoning uses langchain 0.1-era import paths whose shims warn on every
+# import. The filter must be installed AFTER importing langchain, because
+# langchain's own import re-surfaces these warnings.
+import langchain  # noqa: F401
+from langchain_core._api import LangChainDeprecationWarning
+
+warnings.filterwarnings("ignore", category=LangChainDeprecationWarning)
 
 from src.config import load_config
 from src.utils.ablation_utils import load_ablation_queries
@@ -32,11 +41,24 @@ def main():
         "--override", default=None,
         help="Path to a YAML override file deep-merged on top of config/config.yaml",
     )
+    parser.add_argument(
+        "--human-review", action="store_true",
+        help="Pause after System 1 for expert review of constraints/properties",
+    )
+    parser.add_argument(
+        "--itemized-check", action="store_true",
+        help="System 2 feasibility: demand a SATISFIED/VIOLATED/NO_EVIDENCE verdict "
+             "on every property and constraint (auditable per-candidate table)",
+    )
     args = parser.parse_args()
 
     output_dir = args.output_dir or "results"
 
     config = load_config(override_path=args.override)
+    if args.human_review:
+        config.setdefault("pipelines", {}).setdefault("human_review", {})["enabled"] = True
+    if args.itemized_check:
+        config.setdefault("pipelines", {}).setdefault("material_discovery", {})["itemized_property_check"] = True
 
     queries = load_ablation_queries()
 

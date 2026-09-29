@@ -115,7 +115,7 @@ A related flag, `--itemized-check`, makes System 2's feasibility validation retu
 | **1 LLM call (no RAG/KG)**           | Single call, purely parametric (gpt-oss-20b)                     |
 | **1 LLM call (GPT-5.6-sol)**         | Single parametric call with the closed-source backbone           |
 
-Each configuration is run over five fixed seeds (`config/overrides/seed_*.yaml`, `gpt56sol_seed_*.yaml`). `scripts/run_mars_no_retrieval.py` runs the full multi-agent framework with retrieval ablated; it fails closed at System 1 and is reported as a negative result.
+Each configuration is run over five fixed seeds (`config/overrides/seed_*.yaml` for gpt-oss-20b; `gpt56sol_paperdata.yaml` and `gpt56sol_seed_*.yaml` for GPT-5.6-sol).
 
 
 ### LLM-judge evaluation
@@ -181,8 +181,6 @@ For a description of how these files relate to specific figures and tables in th
 ├── scripts/
 │   ├── run_mars.py              # Full MARS pipeline
 │   ├── run_ablations.py         # Ablation conditions
-│   ├── run_mars_no_retrieval.py # Full framework with RAG/KG ablated (negative control)
-│   ├── run_grounding_evaluation.py  # Per-run claim-verification protocol
 │   ├── run_evaluation.py        # Earlier single-run LLM-as-judge evaluation
 │   └── build_showcase.py        # Generates the mars_showcase notebook
 ├── evaluation_refined/          # Pooled blind judging used in the paper: report builders, final rubrics

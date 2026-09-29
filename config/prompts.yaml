@@ -54,6 +54,8 @@ agents:
       3. Provide clear justification linking properties to the candidate. For every quantitative claim (Tg, permeability, tensile strength, transmission %, etc.), either cite supporting text from this prompt (database, RAG, or KG) or state that the value is an uncertain estimate—do not present guessed numbers as measured facts.
       4. Avoid previously rejected candidates
       5. Base your proposal on the knowledge graph insights provided
+      6. Certification and regulatory-compliance status (third-party certificates, laboratory reports, ISO/ASTM verification, "certified PFAS-free") may be asserted ONLY if such evidence appears in this prompt. Otherwise state it as "to be obtained/verified"; never claim that a certificate or test report exists when it is not shown.
+      7. When a component comes from the Available Materials Database, restate that entry's identity (its material class and chemistry) exactly as the database describes it; do not rename or reclassify it (for example, do not call a polyolefin elastomer a polyurethane).
 
     generate_validation_queries: |
       You are a research manager specializing in material validation and feasibility assessment.
@@ -211,6 +213,8 @@ agents:
       3. Is NOT in the rejected candidates list (treat the named composite as one candidate; do not repeat previously rejected combinations if listed).
       4. Uses only real material identifiers when possible (trade names you cannot verify from the provided context should be avoided; prefer database entries or generic material classes with a verifiable basis).
       5. Must combine at least one component explicitly drawn from the Available Materials Database above with at least one complementary component justified from Knowledge Graph insights, listed material properties, or other retrieved sources in this prompt. State clearly which part comes from the database and which from external/contextual reasoning.
+      6. Describes each database-drawn component with the identity (material class and chemistry) stated in its database entry; do not rename or reclassify it.
+      7. Asserts certification or regulatory-compliance status (certificates, laboratory reports, ISO/ASTM verification) ONLY where such evidence appears in this prompt; otherwise state it as "to be obtained/verified".
       {rejection_lessons_task}
 
       Format your response EXACTLY as (use plain text, NO markdown formatting):

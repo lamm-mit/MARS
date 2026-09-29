@@ -547,7 +547,13 @@ def add_new_subgraph_from_text(txt,generate=None,node_embeddings=None,tokenizer=
         if verbatim:
             print ("Now create or load new graph...")
 
-        if graph_GraphML_to_add==None and G_newlymade==None: #make new if no existing one provided
+        # MARS MODIFICATION (see VENDORED.md): upstream referenced `G_newlymade`,
+        # a name defined nowhere in the package, so this line always raised
+        # NameError. The bare `except` below swallowed it and printed
+        # "ALERT: Graph generation failed", making a working merge look like a
+        # failure. The two graph inputs are `graph_GraphML_to_add` and
+        # `G_to_add`, so the latter is what the comment's condition means.
+        if graph_GraphML_to_add is None and G_to_add is None: #make new if no existing one provided
             print ("Make new graph from text...")
             _, graph_GraphML_to_add, G_to_add, _, _ =make_graph_from_text (txt,generate,
                                       include_contextual_proximity=include_contextual_proximity,

@@ -6,7 +6,7 @@ import warnings
 import networkx as nx
 from typing import List, Dict, Any, Optional
 from ..config import load_prompts, load_config
-from ..utils.parsing import parse_to_list, clean_material_name
+from ..utils.parsing import parse_to_list, clean_material_name, json_loads_lenient
 from ..utils.ablation_utils import extract_json_from_response
 from ..vendor.graphreasoning import find_best_fitting_node_list
 
@@ -53,6 +53,9 @@ class ResearchManager:
         # Load hyperparameters from config
         self.temperature = agent_config.get("temperature", 0)
         self.max_queries = agent_config.get("max_queries", 4)
+        self.itemized_property_check = bool(
+            config.get("pipelines", {}).get("material_discovery", {}).get("itemized_property_check", False)
+        )
         formatting_config = agent_config.get("formatting", {})
         self.max_chars_per_result = formatting_config.get("max_chars_per_result", 10000)
         self.max_chars_per_result_answer = formatting_config.get("max_chars_per_result_answer", 3000)
@@ -1236,11 +1239,15 @@ class ResearchManager:
         if temperature is None:
             temperature = self.temperature
         
-        # Load user prompt template from YAML
-        validate_feasibility_user_prompt_template = self._agent_prompts.get("validate_feasibility_user_prompt")
+        # Load user prompt template from YAML. The itemized variant demands a
+        # verdict per property/constraint instead of a holistic pass.
+        itemized = self.itemized_property_check
+        _tmpl_key = "validate_feasibility_itemized_user_prompt" if itemized else "validate_feasibility_user_prompt"
+        _sys_key = "validate_feasibility_itemized" if itemized else "validate_feasibility"
+        validate_feasibility_user_prompt_template = self._agent_prompts.get(_tmpl_key)
         if validate_feasibility_user_prompt_template is None:
             raise ValueError(
-                "Missing required prompt in config/prompts.yaml: agents.research_manager.validate_feasibility_user_prompt. "
+                f"Missing required prompt in config/prompts.yaml: agents.research_manager.{_tmpl_key}. "
                 "All system prompts must be defined in the config file."
             )
         
@@ -1341,20 +1348,37 @@ class ResearchManager:
             constraints_section = "\n".join(constraint_parts)
         
         # Format user prompt with dynamic content
-        prompt = validate_feasibility_user_prompt_template.format(
-            candidate_name=candidate_Z.get('material_name', 'Unknown'),
-            evidence_list=evidence_list,
-            kg_evidence_section=kg_evidence_section,
-            property_list=property_list,
-            constraints_section=constraints_section,
-            kg_consideration=kg_consideration
-        )
+        constraint_ids = {f"C{i}": c for i, c in enumerate(constraints_U or [], 1)}
+        property_ids = {f"P{i}": p for i, p in enumerate(required_properties, 1)}
+        if itemized:
+            constraint_items = "\n".join(f"  {k}: {v}" for k, v in constraint_ids.items()) or "  (none)"
+            property_items = "\n".join(
+                f"  {k}: {v}" + (f": {target_values[v]}" if v in target_values else "")
+                for k, v in property_ids.items()
+            ) or "  (none)"
+            prompt = validate_feasibility_user_prompt_template.format(
+                candidate_name=candidate_Z.get('material_name', 'Unknown'),
+                evidence_list=evidence_list,
+                kg_evidence_section=kg_evidence_section,
+                constraint_items=constraint_items,
+                property_items=property_items,
+                kg_consideration=kg_consideration
+            )
+        else:
+            prompt = validate_feasibility_user_prompt_template.format(
+                candidate_name=candidate_Z.get('material_name', 'Unknown'),
+                evidence_list=evidence_list,
+                kg_evidence_section=kg_evidence_section,
+                property_list=property_list,
+                constraints_section=constraints_section,
+                kg_consideration=kg_consideration
+            )
         
         # Use system message for feasibility validation
-        feasibility_system_message = self._agent_prompts.get("validate_feasibility")
+        feasibility_system_message = self._agent_prompts.get(_sys_key)
         if feasibility_system_message is None:
             raise ValueError(
-                "Missing required prompt in config/prompts.yaml: agents.research_manager.validate_feasibility. "
+                f"Missing required prompt in config/prompts.yaml: agents.research_manager.{_sys_key}. "
                 "All system prompts must be defined in the config file."
             )
         
@@ -1412,6 +1436,28 @@ class ResearchManager:
                 if yes_idx != -1 and yes_idx - feasible_idx < self.yes_feasible_proximity_chars:
                     is_feasible = True
         
+        # Itemized mode: parse one verdict line per item and map IDs back to text.
+        item_verdicts: List[Dict[str, Any]] = []
+        if itemized:
+            item_verdicts = self._parse_item_verdicts(content, constraint_ids, property_ids)
+            # CONSTRAINTS_VIOLATED comes back as IDs (C3, C7); resolve to text.
+            resolved = []
+            for cv in constraints_violated:
+                key = cv.strip().upper()
+                resolved.append(constraint_ids.get(key, cv))
+            constraints_violated = resolved
+            # The per-item verdicts are authoritative for violated constraints.
+            violated_from_items = [
+                v["text"] for v in item_verdicts
+                if v["kind"] == "constraint" and v["verdict"] == "VIOLATED"
+            ]
+            for v in violated_from_items:
+                if v not in constraints_violated:
+                    constraints_violated.append(v)
+            if violated_from_items and is_feasible:
+                # Decision rule 1 in the itemized prompt: any violated constraint rejects.
+                is_feasible = False
+        
         # Extract constraints from reasoning if not explicitly listed
         if not constraints_violated and not is_feasible:
             # Try to infer constraints from reasoning
@@ -1422,8 +1468,43 @@ class ResearchManager:
         return {
             "is_feasible": is_feasible,
             "constraints_violated": constraints_violated,
-            "reasoning": reasoning
+            "reasoning": reasoning,
+            "item_verdicts": item_verdicts,
         }
+
+    @staticmethod
+    def _parse_item_verdicts(
+        content: str,
+        constraint_ids: Dict[str, str],
+        property_ids: Dict[str, str],
+    ) -> List[Dict[str, Any]]:
+        """Parse ``C3: VERDICT | citation | note`` lines into structured verdicts.
+
+        Every known ID gets an entry; IDs the model skipped are recorded as
+        ``MISSING`` so coverage is auditable rather than silently assumed.
+        """
+        line_re = re.compile(
+            r"^\s*\**\s*([CP]\d+)\s*\**\s*[:.\-]\s*\**\s*(SATISFIED|VIOLATED|NO_EVIDENCE|NO EVIDENCE)\b\s*\**(.*)$",
+            re.IGNORECASE,
+        )
+        found: Dict[str, Dict[str, Any]] = {}
+        for raw in content.split("\n"):
+            m = line_re.match(raw)
+            if not m:
+                continue
+            item_id = m.group(1).upper()
+            verdict = m.group(2).upper().replace(" ", "_")
+            rest = m.group(3).strip().lstrip("|").strip()
+            parts = [p.strip() for p in rest.split("|")]
+            citation = parts[0] if parts else ""
+            note = " | ".join(parts[1:]) if len(parts) > 1 else ""
+            found[item_id] = {"verdict": verdict, "citation": citation, "note": note}
+        verdicts: List[Dict[str, Any]] = []
+        for kind, ids in (("constraint", constraint_ids), ("property", property_ids)):
+            for item_id, text in ids.items():
+                v = found.get(item_id, {"verdict": "MISSING", "citation": "", "note": ""})
+                verdicts.append({"id": item_id, "kind": kind, "text": text, **v})
+        return verdicts
 
     def generate_process_retrieval_queries(
         self,
@@ -1523,7 +1604,7 @@ class ResearchManager:
             )
         
         try:
-            data = json.loads(content_clean[json_start:json_end])
+            data = json_loads_lenient(content_clean[json_start:json_end])
         except json.JSONDecodeError as e:
             raise ValueError(
                 f"Failed to parse JSON from LLM response: {e}. Response: {content_clean[:500]}"
@@ -1620,7 +1701,7 @@ class ResearchManager:
                 "extract_material_constituents_for_manufacturing."
             )
         try:
-            data = json.loads(content_clean[json_start:json_end])
+            data = json_loads_lenient(content_clean[json_start:json_end])
         except json.JSONDecodeError as e:
             raise ValueError(
                 f"Failed to parse JSON from extract_material_constituents_for_manufacturing: {e}"
@@ -1750,7 +1831,7 @@ class ResearchManager:
         if json_start < 0 or json_end <= json_start:
             raise ValueError("Failed to find JSON object in LLM response for generate_decomposition_process_queries")
         try:
-            data = json.loads(content_clean[json_start:json_end])
+            data = json_loads_lenient(content_clean[json_start:json_end])
         except json.JSONDecodeError as e:
             raise ValueError(f"Failed to parse JSON from generate_decomposition_process_queries: {e}") from e
 
@@ -1914,7 +1995,7 @@ class ResearchManager:
             )
 
         try:
-            data = json.loads(content_clean[json_start:json_end])
+            data = json_loads_lenient(content_clean[json_start:json_end])
         except json.JSONDecodeError as e:
             raise ValueError(
                 f"Failed to parse JSON from LLM response for generate_feasibility_questions: {e}. "
@@ -2026,7 +2107,7 @@ class ResearchManager:
             )
 
         try:
-            data = json.loads(content_clean[json_start:json_end])
+            data = json_loads_lenient(content_clean[json_start:json_end])
         except json.JSONDecodeError as e:
             raise ValueError(
                 f"Failed to parse JSON from LLM response for answer_feasibility_question: {e}. "
@@ -2183,7 +2264,7 @@ class ResearchManager:
             )
         
         try:
-            data = json.loads(content_clean[json_start:json_end])
+            data = json_loads_lenient(content_clean[json_start:json_end])
         except json.JSONDecodeError as e:
             raise ValueError(
                 f"Failed to parse JSON from LLM response for assess_manufacturability_feasibility: {e}. "
@@ -2303,38 +2384,44 @@ class ResearchManager:
         )
         self._log_prompt_length(user_prompt, label="synthesize_process_recipe prompt")
 
-        # No try-except: let exceptions propagate - LLM failure should crash
-        content = self._generate_fn(
-            system_prompt=system_prompt,
-            prompt=user_prompt,
-            temperature=temperature,
-            method_name="synthesize_process_recipe",
-            **kwargs
-        )
-        
-        if not content or not content.strip():
-            raise RuntimeError("LLM synthesize_process_recipe returned empty or None content")
+        # The local model intermittently emits malformed JSON here; that is a
+        # stochastic failure, so retry the call before crashing the run.
+        data = None
+        last_err: Optional[Exception] = None
+        for attempt in range(1, 4):
+            content = self._generate_fn(
+                system_prompt=system_prompt,
+                prompt=user_prompt,
+                temperature=temperature,
+                method_name="synthesize_process_recipe",
+                **kwargs
+            )
+            if not content or not (content.strip() if isinstance(content, str) else True):
+                last_err = RuntimeError("LLM synthesize_process_recipe returned empty or None content")
+            elif isinstance(content, dict):
+                data = content
+                break
+            else:
+                if not isinstance(content, str):
+                    content = str(content)
+                data = extract_json_from_response(content)
+                if isinstance(data, dict):
+                    break
+                preview = content[:800] + ("…" if len(content) > 800 else "")
+                last_err = ValueError(
+                    "Failed to parse JSON from LLM response for synthesize_process_recipe "
+                    f"(no valid JSON object, attempt {attempt}/3). Response preview:\n{preview}"
+                )
+                data = None
+            print(f"      [WARNING] synthesize_process_recipe attempt {attempt}/3 failed to "
+                  f"produce a JSON object, retrying...", flush=True)
+        if not isinstance(data, dict):
+            raise last_err if last_err is not None else RuntimeError(
+                "synthesize_process_recipe produced no parseable JSON object"
+            )
 
         process_recipe = []
         evidence = []
-
-        # Parse JSON (LLMs often wrap output in ```json fences or add prose)
-        if isinstance(content, dict):
-            data = content
-        else:
-            if not isinstance(content, str):
-                content = str(content)
-            data = extract_json_from_response(content)
-            if data is None:
-                preview = content[:800] + ("…" if len(content) > 800 else "")
-                raise ValueError(
-                    "Failed to parse JSON from LLM response for synthesize_process_recipe "
-                    f"(no valid JSON object). Response preview:\n{preview}"
-                )
-        if not isinstance(data, dict):
-            raise ValueError(
-                f"Expected a JSON object for synthesize_process_recipe, got {type(data).__name__}: {data!r}"
-            )
 
         # Extract required fields - raise KeyError if missing (no defaults)
         try:
