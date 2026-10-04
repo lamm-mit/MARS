@@ -555,14 +555,27 @@ def run_query(
     print(f"System 1 complete — {len(extracted_keywords)} properties, "
           f"{len(extracted_constraints)} constraints ({s1_dur:.0f}s)")
 
-    # Zero extracted properties means an upstream failure (LLM server down,
-    # extraction call failed), not a legitimately empty answer. Fail fast
-    # instead of presenting an empty review file and a doomed System 2.
+    # Zero extracted properties leaves System 2 nothing to ground on. It happens
+    # when retrieval cannot answer any System 1 question (it can happen with
+    # the small bundled dummy data) or when the LLM server fails. Stop this query
+    # here, record why, and let the remaining queries run.
     if not extracted_keywords:
-        raise RuntimeError(
-            "System 1 extracted 0 properties; aborting before review/System 2. "
-            "Check the LLM server and re-run this query."
-        )
+        pipeline_end = datetime.utcnow()
+        pipeline_run["end_time"] = pipeline_end.isoformat() + "Z"
+        pipeline_run["total_duration_seconds"] = (pipeline_end - pipeline_start).total_seconds()
+        pipeline_run["final_outcome"]["status"] = "system1_no_properties"
+        pipeline_run["final_outcome"]["total_rejected_candidates"] = 0
+        pr_path = os.path.join(artifacts_dir, f"pipeline_run_{base_run_id}.json")
+        with open(pr_path, "w", encoding="utf-8") as f:
+            json.dump(pipeline_run, f, indent=2, ensure_ascii=False, default=str)
+        print("\nStopped after System 1: 0 properties extracted, so System 2 and "
+              "System 3 were not run.\n"
+              "  With the bundled dummy data this can happen: the corpus is too "
+              "small to answer every question. Re-run the query.\n"
+              "  With real data, check the LLM server and the retrieval paths, "
+              "then re-run this query.\n"
+              f"  Run record → {pr_path}")
+        return pipeline_run
 
     # =========================================================================
     # Human-in-the-loop review gate (optional, config: pipelines.human_review)

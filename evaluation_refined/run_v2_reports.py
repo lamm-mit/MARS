@@ -78,10 +78,16 @@ def load_notebook_code():
 
 
 def _one(glob_pattern, base):
-    hits = sorted(base.glob(glob_pattern))
-    if len(hits) != 1:
-        raise FileNotFoundError(f"expected exactly one {glob_pattern} under {base}, found {hits}")
-    return hits[0]
+    """Return the artifact matching the pattern. A run in which System 3 sent
+    feedback to System 2 has one file per feedback iteration (suffix _0, _1,
+    ...); the last iteration is the one that produced the final outcome."""
+    hits = sorted(base.glob(glob_pattern),
+                  key=lambda p: int(p.stem.rsplit("_", 1)[-1]) if p.stem.rsplit("_", 1)[-1].isdigit() else 0)
+    if not hits:
+        raise FileNotFoundError(f"no {glob_pattern} under {base}")
+    if len(hits) > 1:
+        print(f"  {len(hits)} files match {glob_pattern}; using the last iteration: {hits[-1].name}")
+    return hits[-1]
 
 
 def build_reports(ns, run_dir, out_dir, systems):
