@@ -1,0 +1,52 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Hierarchical Multi-Agent Reasoning Systems for Knowledge-Grounded Material Substitution"
+type: software
+version: 1.0.0
+date-released: 2026-10-06
+
+authors:
+  - family-names: Hage
+    given-names: Tarjei Paule
+    orcid: "https://orcid.org/0009-0005-6969-1852"
+    affiliation: "Massachusetts Institute of Technology"
+
+  - family-names: Pal
+    given-names: Subhadeep
+    orcid: "https://orcid.org/0000-0002-0532-9791"
+    affiliation: "Massachusetts Institute of Technology"
+
+  - family-names: Lu
+    given-names: Wei
+    orcid: "https://orcid.org/0000-0002-5168-4428"
+    affiliation: "Massachusetts Institute of Technology"
+
+  - family-names: Hsu
+    given-names: Yu-Chuan
+    orcid: "https://orcid.org/0000-0001-5587-4547"
+    affiliation: "Massachusetts Institute of Technology"
+
+  - family-names: Lyon
+    given-names: Gayla
+    affiliation: "Saint-Gobain Research North America"
+
+  - family-names: Jin
+    given-names: Jiezhu
+    affiliation: "Saint-Gobain Research North America"
+
+  - family-names: Buehler
+    given-names: Markus J.
+    orcid: "https://orcid.org/0000-0002-4173-9659"
+    affiliation: "Massachusetts Institute of Technology"
+
+repository-code: "https://github.com/LAMM-MIT/MARS"
+
+keywords:
+  - multi-agent systems
+  - large language models
+  - materials discovery
+  - material substitution
+  - PFAS
+  - retrieval-augmented generation
+  - knowledge graphs
+  - manufacturability
