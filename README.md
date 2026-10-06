@@ -1,8 +1,10 @@
-# MARS: Hierarchical Multi-Agent Reasoning Systems Enable Knowledge-Grounded Material Substitution
+# Hierarchical Multi-Agent Reasoning Systems for Knowledge-Grounded Material Substitution
 
-**Tarjei Paule Hage · Yu-Chuan Hsu · Wei Lu · Gayla Lyon · Jiezhu Jin · Markus J. Buehler** — Massachusetts Institute of Technology
+**Tarjei Paule Hage<sup>†</sup> · Subhadeep Pal<sup>†</sup> · Wei Lu · Yu-Chuan Hsu · Gayla Lyon · Jiezhu Jin · Markus J. Buehler<sup>*</sup>**<br>
+Massachusetts Institute of Technology · Saint-Gobain Research North America<br>
+<sup>†</sup> Equal contribution; <sup>*</sup> corresponding author.
 
-MARS is a three-system LLM pipeline for knowledge-grounded material substitution. Given a query, System 1 extracts required material properties from a domain knowledge graph and RAG corpus. System 2 proposes a candidate substitute by reasoning over two knowledge graphs and two retrieval corpora. System 3 assesses lab-scale manufacturability against three additional corpora, feeding blocking constraints back to System 2 if the candidate fails and looping until a viable substitute is found or the iteration limit is reached.
+MARS is a hierarchical, three-stage multi-agent reasoning system for knowledge-grounded material substitution. Given a query, System 1 extracts required material properties from a domain knowledge graph and RAG corpus. System 2 proposes a candidate substitute by reasoning over two knowledge graphs and two retrieval corpora. System 3 assesses lab-scale manufacturability against three additional corpora, feeding blocking constraints back to System 2 if the candidate fails and looping until a viable substitute is found or the iteration limit is reached.
 
 <img width="1203" height="301" alt="image" src="https://github.com/user-attachments/assets/7dd562db-7763-4732-b97f-564051f92c6f" />
 
@@ -221,8 +223,8 @@ MIT — see [LICENSE](LICENSE).
 
 ```bibtex
 @misc{hage2026mars,
-  title         = {MARS: Hierarchical Multi-Agent Reasoning Systems Enable Knowledge-Grounded Material Substitution},
-  author        = {Tarjei Paule Hage and Yu-Chuan Hsu and Wei Lu and Gayla Lyon and Jiezhu Jin and Markus J. Buehler},
+  title         = {Hierarchical Multi-Agent Reasoning Systems for Knowledge-Grounded Material Substitution},
+  author        = {Tarjei Paule Hage and Subhadeep Pal and Wei Lu and Yu-Chuan Hsu and Gayla Lyon and Jiezhu Jin and Markus J. Buehler},
   year          = {2026},
   eprint        = {TODO},
   archivePrefix = {arXiv},
